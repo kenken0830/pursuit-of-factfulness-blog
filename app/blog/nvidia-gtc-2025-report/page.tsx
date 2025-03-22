@@ -1,6 +1,6 @@
 import { Cpu, Network, Server, Code, CheckCircle, ArrowRight, BarChart, Layers } from "lucide-react"
 
-export default function NvidiaGTC2025ReportPage() {
+export default function NvidiaGTC2025Report() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       {/* ヘッダー */}
