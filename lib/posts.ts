@@ -164,7 +164,7 @@ const posts: Post[] = [
     coverImage: "/placeholder.svg?height=600&width=800",
     tags: ["AI", "NVIDIA", "Technology", "AI News"],
     readingTime: 12,
-    featured: false,
+    featured: true,
     category: "technology",
   },
   {
