@@ -127,6 +127,54 @@ const posts: Post[] = [
     category: "technology",
   },
   {
+    slug: "nvidia-gtc-2025-themes",
+    title: "GTC 2025春の主要テーマ",
+    date: "2025-03-22",
+    author: "テックアナリスト",
+    excerpt: "NVIDIAのGTC 2025春開催で発表された「AIからヒト研究までの発展」とパーソナルスーパーコンピューティングの展望と概要",
+    content: `
+      <h2>目次</h2>
+      <ul>
+        <li>1. 概要</li>
+        <li>2. 主要発表内容</li>
+        <li>3. DGX Sparkとパーソナルスーパーコンピューティング</li>
+        <li>4. Blackwellアーキテクチャと技術的GPU</li>
+        <li>5. NVIDIA/AIエコシステム</li>
+      </ul>
+      
+      <h2>1. 概要</h2>
+      <p>本資料のポイント</p>
+      <ul>
+        <li>NVIDIAが提供するフルスタックソリューションの全体像</li>
+        <li>Blackwell世代GPU性能向上と性能/電力効率の向上</li>
+        <li>パーソナルスーパーコンピューティングの深化と普及</li>
+      </ul>
+      
+      <h2>GTC 2025春の主要テーマ</h2>
+      <p>NVIDIAのGTC 2025春開催講演では、「AIからヒト研究まで世界が進化、さらには歴史の『次へ』へと向かう」というビジョンが示されました。これまでのモデルのトレーニングや推論性能の向上に加え、今年の発表では「マイクリレーションと人間中心」のデモがクローズアップされました。</p>
+      
+      <h2>3. DGX Sparkとパーソナルスーパーコンピューティング</h2>
+      <p>パーソナルスーパーコンピューティングの実現により、AI研究や開発が個人レベルでも高度に行えるようになりました。DGX Sparkシリーズは従来のワークステーションと比較して10倍の性能を持ちながら、コンパクトなフォームファクターと省電力設計を実現しています。</p>
+      
+      <h2>4. Blackwellアーキテクチャと技術的GPU</h2>
+      <p>Blackwell世代GPUは以下の点で大幅な性能向上を実現しています：</p>
+      <ul>
+        <li>前世代比3倍の演算性能</li>
+        <li>電力効率2倍向上でデータセンター運用コストを大幅削減</li>
+        <li>新テンソルコアアーキテクチャによりAIモデルのトレーニング時間を60%短縮</li>
+        <li>最大192GBのHBM3eメモリ搭載</li>
+      </ul>
+      
+      <h2>5. NVIDIA/AIエコシステム</h2>
+      <p>NVIDIAは単なるハードウェアプロバイダーを超え、ソフトウェア、フレームワーク、開発ツールを含む包括的なAIエコシステムを提供しています。このエコシステムにより、開発者はより短期間で高度なAIソリューションを構築できるようになっています。</p>
+    `,
+    coverImage: "/placeholder.svg?height=600&width=800",
+    tags: ["AI", "NVIDIA", "GTC", "テクノロジー", "Blackwell", "スーパーコンピューティング"],
+    readingTime: 7,
+    featured: true,
+    category: "technology",
+  },
+  {
     slug: "vaccine-safety-explained",
     title: "ワクチンの安全性を解説：事実と誤解を区別する",
     date: "2023-05-22",
@@ -419,4 +467,3 @@ export function getRelatedPosts(post: Post, count = 3): Post[] {
 
   return related.slice(0, count)
 }
-
