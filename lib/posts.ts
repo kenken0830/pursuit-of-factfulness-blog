@@ -20,7 +20,7 @@ const posts: Post[] = [
   {
     slug: "nvidia-gtc-2025-report",
     title: "NVIDIA GTC 2025春 発表内容資料",
-    date: "2025-03-23",
+    date: "2025-03-23T01:30:00",
     author: "テックアナリスト",
     excerpt: "GTC 2025春で発表されたDGX Spark、Blackwellアーキテクチャ、AIエコシステムについての詳細レポート",
     content: `
