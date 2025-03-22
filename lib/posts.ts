@@ -18,6 +18,156 @@ export interface Post {
 // Sample blog posts data
 const posts: Post[] = [
   {
+    slug: "nvidia-gtc-2025-report",
+    title: "NVIDIA GTC 2025春 発表内容資料",
+    date: "2025-03-23",
+    author: "テックアナリスト",
+    excerpt: "GTC 2025春で発表されたDGX Spark、Blackwellアーキテクチャ、AIエコシステムについての詳細レポート",
+    content: `
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#overview">1. 概要</a></li>
+        <li><a href="#key-announcements">2. 主要発表内容</a></li>
+        <li><a href="#dgx-spark">3. DGX Sparkとパーソナルスーパーコンピューティング</a></li>
+        <li><a href="#blackwell">4. Blackwellアーキテクチャと次世代GPU</a></li>
+        <li><a href="#ai-ecosystem">5. NVIDIAのAIエコシステム</a></li>
+      </ul>
+      
+      <h2 id="overview">1. 概要</h2>
+      <h3>本資料のポイント</h3>
+      <ul>
+        <li>NVIDIAが提供するフルスタックソリューションの全体像</li>
+        <li>Blackwell世代GPU性能向上と性能/電力効率の向上</li>
+        <li>パーソナルスーパーコンピューティングの深化と普及</li>
+      </ul>
+      
+      <h3>GTC 2025春の主要テーマ</h3>
+      <p>NVIDIAのGTC 2025春開催講演では、「AIからヒト研究まで世界が進化、さらには歴史の『次へ』へと向かう」というビジョンが示されました。これまでのモデルのトレーニングや推論性能の向上に加え、今年の発表では「マイクリレーションと人間中心」のデモがクローズアップされました。</p>
+      
+      <h2 id="key-announcements">2. 主要発表内容</h2>
+      <h3>GTC 2025春 主要発表一覧</h3>
+      <ul>
+        <li>Blackwell Ultra GPUアーキテクチャ</li>
+        <li>DGX Sparkパーソナルスーパーコンピュータ</li>
+        <li>NVIDIAエンドツーエンドAIプラットフォーム拡張</li>
+        <li>産業別AIソリューションの強化</li>
+      </ul>
+      
+      <h3>発表内容の重要ポイント</h3>
+      <p>今回の発表は、AIコンピューティングの民主化とインフラストラクチャの進化に焦点を当てています。特にBlackwellアーキテクチャによる次世代GPUの性能向上と、DGX Sparkによるパーソナルスーパーコンピューティングの普及が注目ポイントです。</p>
+      
+      <h2 id="dgx-spark">3. DGX Sparkとパーソナルスーパーコンピューティング</h2>
+      <h3>DGX Spark: AIの民主化</h3>
+      <p>DGX Sparkは、NVIDIAが提供する初めてのパーソナルスーパーコンピュータです。以下の特徴を持ちます：</p>
+      <ul>
+        <li>コンパクトなデスクトップ筐体</li>
+        <li>Blackwell Ultraアーキテクチャを採用したGPU搭載</li>
+        <li>ローカルでの大規模言語モデル実行が可能</li>
+        <li>消費電力を抑えた高効率設計</li>
+      </ul>
+      
+      <h3>パーソナルスーパーコンピューティングの意義</h3>
+      <p>パーソナルスーパーコンピューティングは、以下の点で大きな意義があります：</p>
+      <ul>
+        <li>データプライバシーの向上：データをクラウドに送信せずローカルで処理</li>
+        <li>レイテンシの低減：インターネット接続に依存しない即時処理</li>
+        <li>AIアクセシビリティの向上：より多くの開発者や研究者がAIを活用可能に</li>
+        <li>イノベーション促進：実験とプロトタイピングの障壁を低減</li>
+      </ul>
+      
+      <h2 id="blackwell">4. Blackwellアーキテクチャと次世代GPU</h2>
+      <h3>Blackwell Ultra: 次世代AIコンピューティング</h3>
+      <p>Blackwell Ultraは、NVIDIAの次世代GPUアーキテクチャで、以下の特徴があります：</p>
+      <ul>
+        <li>288GB HBM3eメモリ搭載（前世代比1.5倍）</li>
+        <li>最大10倍のAI推論性能向上（BF16精度比）</li>
+        <li>新しいFP4精度のサポートによる効率化</li>
+        <li>消費電力あたりの性能が2倍に向上</li>
+      </ul>
+      
+      <h3>FP4精度とAI効率の革命</h3>
+      <p>新しく導入されたFP4（4ビット浮動小数点）精度は、AI推論ワークロードを革新的に効率化します。精度による性能比較：</p>
+      
+      <table border="1" cellpadding="5">
+        <tr>
+          <th>精度タイプ</th>
+          <th>ビット数</th>
+          <th>主な用途</th>
+          <th>相対性能（対FP32）</th>
+        </tr>
+        <tr>
+          <td>FP32</td>
+          <td>32ビット</td>
+          <td>高精度計算、トレーニング初期段階</td>
+          <td>1倍（ベースライン）</td>
+        </tr>
+        <tr>
+          <td>FP16</td>
+          <td>16ビット</td>
+          <td>一般的なディープラーニングトレーニング</td>
+          <td>約4倍</td>
+        </tr>
+        <tr>
+          <td>FP8</td>
+          <td>8ビット</td>
+          <td>トレーニング後半、推論</td>
+          <td>約8倍</td>
+        </tr>
+        <tr>
+          <td>FP4</td>
+          <td>4ビット</td>
+          <td>AI推論、特に言語モデル</td>
+          <td>約16倍</td>
+        </tr>
+      </table>
+      
+      <h2 id="ai-ecosystem">5. NVIDIAのAIエコシステム</h2>
+      <h3>エンドツーエンドのAIプラットフォーム</h3>
+      <p>NVIDIAは、AIワークフローの全段階をカバーする包括的なプラットフォームを提供しています：</p>
+      <ul>
+        <li>データ準備・処理: RAPIDS、DALI、cuDFなど</li>
+        <li>モデル開発・トレーニング: CUDA-X AI、NGC、各種フレームワーク最適化</li>
+        <li>デプロイメント・推論: TensorRT、Triton Inference Server</li>
+        <li>エンドユーザーアプリケーション: NVIDIA AIエンタープライズ、Omniverse</li>
+      </ul>
+      
+      <h3>産業別AIソリューション</h3>
+      <p>各産業向けの特化したAIソリューションが発表されました：</p>
+      
+      <h4>医療・ヘルスケア</h4>
+      <ul>
+        <li>NVIDIA Clara：医療画像処理、ゲノム解析、創薬のための統合プラットフォーム</li>
+        <li>次世代医療AI：患者固有の治療計画最適化と医師の意思決定支援</li>
+      </ul>
+      
+      <h4>製造・ロボティクス</h4>
+      <ul>
+        <li>NVIDIA Isaac：ロボット工学のためのAIプラットフォーム強化</li>
+        <li>デジタルツイン技術：製造プロセスのリアルタイムシミュレーションと最適化</li>
+      </ul>
+      
+      <h4>自動車・輸送</h4>
+      <ul>
+        <li>NVIDIA DRIVE：次世代自動運転プラットフォームのアップデート</li>
+        <li>Fleet Management：商用車両フリートの最適化と自律運用</li>
+      </ul>
+      
+      <h3>エコシステムの将来展望</h3>
+      <p>NVIDIAのAIエコシステムは以下の方向に進化していきます：</p>
+      <ul>
+        <li>よりモジュラーなAIソリューション：特定のニーズに合わせたカスタマイズが容易に</li>
+        <li>ハードウェアとソフトウェアの緊密な統合：最適な性能とエネルギー効率</li>
+        <li>エッジからクラウドまでのシームレスな連携：一貫したAI体験</li>
+        <li>オープン規格と相互運用性の促進：多様なテクノロジーの統合</li>
+      </ul>
+    `,
+    coverImage: "/placeholder.svg?height=600&width=800",
+    tags: ["AI", "NVIDIA", "Technology", "AI News"],
+    readingTime: 12,
+    featured: false,
+    category: "technology",
+  },
+  {
     slug: "understanding-climate-change",
     title: "気候変動を理解する：事実と神話",
     date: "2023-04-15",
