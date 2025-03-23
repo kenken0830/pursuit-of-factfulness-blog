@@ -24,6 +24,15 @@ const nextConfig = {
   generateBuildId: () => {
     return `build-${new Date().getTime()}`
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/blog/nvidia-gtc-2025-themes',
+        destination: '/blog/nvidia-gtc-2025-report',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 mergeConfig(nextConfig, userConfig)
