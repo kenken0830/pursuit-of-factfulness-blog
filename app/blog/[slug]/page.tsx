@@ -13,6 +13,7 @@ import { TableOfContents } from "@/components/table-of-contents"
 import { FeaturedPostCard } from "@/components/featured-post-card"
 import { SocialShareButtons } from "@/components/social-share-buttons"
 import NvidiaGTC2025Report from "@/components/NvidiaGTC2025Report"
+import OpenAILatestReport from "@/components/OpenAILatestReport"
 
 interface PostPageProps {
   params: {
@@ -69,6 +70,11 @@ export default function PostPage({ params }: PostPageProps) {
   // NVIDIA GTCレポート用の特別処理
   if (params.slug === "nvidia-gtc-2025-report") {
     return <NvidiaGTC2025Report />
+  }
+
+  // OpenAIレポート用の特別処理
+  if (params.slug === "openai-latest-report") {
+    return <OpenAILatestReport />
   }
 
   const post = getPostBySlug(params.slug)
