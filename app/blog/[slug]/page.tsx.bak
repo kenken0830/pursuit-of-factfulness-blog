@@ -1,0 +1,27 @@
+// このファイルは一時的なバックアップです
+import { notFound } from 'next/navigation';
+
+type BlogPostParams = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function BlogPost({ params }: BlogPostParams) {
+  if (params.slug === 'nvidia-gtc-2025-report') {
+    notFound();
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-10">
+      <h1 className="text-3xl font-bold mb-6">ブログ記事: {params.slug}</h1>
+      <p className="text-lg mb-6">
+        このページは動的ルーティングによって生成されています。実際の記事内容は準備中です。
+      </p>
+      <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl">
+        <h2 className="text-xl font-semibold mb-3">記事情報</h2>
+        <p>記事スラッグ: {params.slug}</p>
+      </div>
+    </div>
+  );
+}

@@ -21,6 +21,9 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  generateBuildId: () => {
+    return `build-${new Date().getTime()}`
+  },
 }
 
 mergeConfig(nextConfig, userConfig)
