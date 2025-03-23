@@ -18,6 +18,19 @@ export interface Post {
 // Sample blog posts data
 const posts: Post[] = [
   {
+    slug: "openai-latest-report-2025",
+    title: "OpenAIの最新ライブ配信と新ツールがもたらす未来",
+    date: "2025-03-23T10:00:00",
+    author: "テックアナリスト",
+    excerpt: "GPT-4.5やエージェント構築プラットフォームを活用した戦略とOpenAIの最新技術開発レポート",
+    content: "",  // カスタムコンポーネントなので空のコンテンツ
+    coverImage: "/placeholder.svg?height=600&width=800",
+    tags: ["AI", "OpenAI", "GPT", "Technology"],
+    readingTime: 15,
+    featured: true,
+    category: "technology",
+  },
+  {
     slug: "nvidia-gtc-2025-report",
     title: "NVIDIA GTC 2025春 発表内容資料",
     date: "2025-03-23T01:30:00",
@@ -234,7 +247,7 @@ const posts: Post[] = [
       </ul>
       
       <h2>デスクトップAIコンピューティングの革命「DGX Spark」</h2>
-      <p>NVIDIAは一般消費者向けに「DGX Spark」と呼ばれる新しいデスクトップAIコンピュータを発表しました。これは従来のワークステーションの概念を覆す製品です：</p>
+      <p>NVIDIAは一般消費者向けに「DGX Spark」と呼ばれる新しいデスクトップAIコンピュータを発表しました。これは従来のワークステーションと比較して10倍の性能を持ちながら、コンパクトなフォームファクターと省電力設計を実現しています。</p>
       
       <ul>
         <li>Blackwell Ultraアーキテクチャを採用したRTX 6090 GPUを搭載</li>
@@ -304,7 +317,14 @@ const posts: Post[] = [
       <p>NVIDIAのGTC 2025春開催講演では、「AIからヒト研究まで世界が進化、さらには歴史の『次へ』へと向かう」というビジョンが示されました。これまでのモデルのトレーニングや推論性能の向上に加え、今年の発表では「マイクリレーションと人間中心」のデモがクローズアップされました。</p>
       
       <h2>3. DGX Sparkとパーソナルスーパーコンピューティング</h2>
-      <p>パーソナルスーパーコンピューティングの実現により、AI研究や開発が個人レベルでも高度に行えるようになりました。DGX Sparkシリーズは従来のワークステーションと比較して10倍の性能を持ちながら、コンパクトなフォームファクターと省電力設計を実現しています。</p>
+      <p>パーソナルスーパーコンピューティングの実現により、AI研究や開発が個人レベルでも高度に行えるようになりました。DGX Sparkシリーズは従来のワークステーションの概念を覆す製品です：</p>
+      
+      <ul>
+        <li>Blackwell Ultraアーキテクチャを採用したRTX 6090 GPUを搭載</li>
+        <li>AIアクセラレーション専用のNVIDIA AIエンジンを内蔵</li>
+        <li>最大64コアのCPUと512GBのRAMをサポート</li>
+        <li>AIモデルの開発からコンテンツ制作まで、あらゆるクリエイティブワークフローを加速</li>
+      </ul>
       
       <h2>4. Blackwellアーキテクチャと技術的GPU</h2>
       <p>Blackwell世代GPUは以下の点で大幅な性能向上を実現しています：</p>

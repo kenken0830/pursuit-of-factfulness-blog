@@ -165,6 +165,49 @@ export default function Page() {
   
   // [slug]/page.tsxを更新して新しいカスタムコンポーネントの条件を追加
   updateSlugPage(slug, componentName)
+  
+  // ここから新規追加：カスタムコンポーネント記事をposts.ts の記事リストに追加
+  const postsFilePath = path.join(process.cwd(), "lib", "posts.ts")
+  
+  // 現在のposts.tsファイルを読み込む
+  let postsFileContent = fs.readFileSync(postsFilePath, "utf8")
+  
+  // allPostsの配列内容を見つける
+  const allPostsStartIndex = postsFileContent.indexOf("const posts: Post[] = [")
+  const allPostsEndIndex = postsFileContent.indexOf("]", allPostsStartIndex)
+  
+  if (allPostsStartIndex === -1 || allPostsEndIndex === -1) {
+    console.error("posts.tsのフォーマットが予期されたものと異なります")
+    return
+  }
+  
+  // 現在の日時を取得
+  const now = new Date()
+  const isoDate = now.toISOString()
+  
+  // カスタムコンポーネント記事のPostオブジェクトを作成
+  const newPost = `  {
+    slug: "${slug}",
+    title: "${title.replace(/"/g, '\\"')}",
+    date: "${isoDate}",
+    author: "システム管理者",
+    excerpt: "${title.replace(/"/g, '\\"')}の詳細レポートと分析",
+    content: "",  // カスタムコンポーネントなので空のコンテンツ
+    coverImage: "/placeholder.svg?height=600&width=800",
+    tags: ["AI", "Technology", "Report"],
+    readingTime: 10,
+    featured: true,
+    category: "technology",
+  },`
+  
+  // 既存の配列の先頭に新しい記事を追加（最新として表示するため）
+  const updatedContent = 
+    postsFileContent.substring(0, allPostsStartIndex + 21) + 
+    "\n" + newPost + 
+    "\n" + postsFileContent.substring(allPostsStartIndex + 21)
+  
+  // ファイルを更新
+  fs.writeFileSync(postsFilePath, updatedContent)
 }
 
 // [slug]/page.tsxファイルを更新する関数
