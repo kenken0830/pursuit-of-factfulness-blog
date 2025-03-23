@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { TableOfContents } from "@/components/table-of-contents"
 import { FeaturedPostCard } from "@/components/featured-post-card"
 import { SocialShareButtons } from "@/components/social-share-buttons"
+import NvidiaGTC2025Report from "@/components/NvidiaGTC2025Report"
 
 interface PostPageProps {
   params: {
@@ -65,6 +66,11 @@ export async function generateStaticParams() {
 }
 
 export default function PostPage({ params }: PostPageProps) {
+  // NVIDIA GTCレポート用の特別処理
+  if (params.slug === "nvidia-gtc-2025-report") {
+    return <NvidiaGTC2025Report />
+  }
+
   const post = getPostBySlug(params.slug)
 
   if (!post) {
@@ -236,4 +242,3 @@ export default function PostPage({ params }: PostPageProps) {
     </article>
   )
 }
-
