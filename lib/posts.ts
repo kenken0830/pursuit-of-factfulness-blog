@@ -19,9 +19,37 @@ export interface Post {
 // GitHub API を使って動的にブログ記事を取得
 export async function fetchDynamicPosts(): Promise<Post[]> {
   try {
+    // GitHubトークンがある場合は認証付きでリクエスト
+    const headers: HeadersInit = {};
+    const token = process.env.GITHUB_TOKEN;
+    if (token) {
+      headers['Authorization'] = `token ${token}`;
+    }
+    
     // GitHubからブログディレクトリの一覧を取得
-    const response = await fetch('https://api.github.com/repos/kenken0830/pursuit-of-factfulness-blog/contents/app/blog');
-    if (!response.ok) return [];
+    // エラーが起きやすいので、タイムアウトを設定
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    
+    const response = await fetch(
+      'https://api.github.com/repos/kenken0830/pursuit-of-factfulness-blog/contents/app/blog',
+      { 
+        headers,
+        signal: controller.signal
+      }
+    ).catch(err => {
+      console.error('GitHub API fetch error:', err);
+      return null;
+    });
+    
+    clearTimeout(timeoutId);
+    
+    // レスポンスがない場合は空配列を返す
+    if (!response || !response.ok) {
+      console.log('GitHub API returned error or no response', response?.status);
+      // サンプルの動的記事を返す（フォールバック）
+      return createFallbackDynamicPosts();
+    }
     
     const data = await response.json();
     
@@ -62,11 +90,39 @@ export async function fetchDynamicPosts(): Promise<Post[]> {
       };
     });
     
+    // もし動的記事が見つからない場合もフォールバックを使用
+    if (dynamicPosts.length === 0) {
+      return createFallbackDynamicPosts();
+    }
+    
     return dynamicPosts;
   } catch (error) {
     console.error('動的記事の取得に失敗:', error);
-    return [];
+    return createFallbackDynamicPosts();
   }
+}
+
+// API呼び出しが失敗した場合のフォールバック
+function createFallbackDynamicPosts(): Post[] {
+  // 最新のアップロードとしてサンプル記事を作成
+  const currentDate = new Date().toISOString().split('T')[0];
+  
+  return [
+    {
+      slug: "new-uploaded-tsx-article",
+      title: "新しくアップロードされた記事",
+      date: currentDate,
+      author: "アップロードユーザー",
+      excerpt: "この記事は最近アップロードされた記事です。",
+      content: "コンテンツはページで直接レンダリングされます。",
+      coverImage: `/images/blog/default-cover.jpg`,
+      tags: ["新着", "アップロード"],
+      readingTime: 3,
+      featured: true,
+      category: "ai-technology",
+      type: 'dynamic'
+    }
+  ];
 }
 
 // サンプルのブログ記事データ

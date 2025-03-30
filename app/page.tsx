@@ -9,8 +9,51 @@ import { getFeaturedPosts, getFeaturedPostsWithDynamic, Post } from "@/lib/posts
 import { FeaturedPostCard } from "@/components/featured-post-card"
 import { CategoryCard } from "@/components/category-card"
 
+// ローカルファイアチェック用のフォールバックポスト
+const FALLBACK_POSTS: Post[] = [
+  {
+    slug: "new-uploaded-tsx-article",
+    title: "新しくアップロードされた記事",
+    date: new Date().toISOString().split('T')[0],
+    author: "システム",
+    excerpt: "この記事は自動的に生成されたフォールバック記事です。",
+    content: "コンテンツはページで直接レンダリングされます。",
+    coverImage: `/images/blog/default-cover.jpg`,
+    tags: ["新着", "自動生成"],
+    readingTime: 3,
+    featured: true,
+    category: "ai-technology"
+  },
+  {
+    slug: "nvidia-gtc-2025-report",
+    title: "NVIDIA GTC 2025春 発表内容資料",
+    date: "2025-03-23",
+    author: "テックアナリスト",
+    excerpt: "GTC 2025春で発表されたDGX Spark、Blackwellアーキテクチャ、AIエコシステム",
+    content: "コンテンツはページで直接レンダリングされます。",
+    coverImage: `/images/blog/default-cover.jpg`,
+    tags: ["NVIDIA", "GTC", "AI"],
+    readingTime: 10,
+    featured: true,
+    category: "ai-news"
+  },
+  {
+    slug: "openai-latest-report-2025",
+    title: "OpenAIの最新技術動向",
+    date: "2025-03-20",
+    author: "AIスペシャリスト",
+    excerpt: "OpenAIの最新技術と将来展望についての詳細レポート",
+    content: "コンテンツはページで直接レンダリングされます。",
+    coverImage: `/images/blog/default-cover.jpg`,
+    tags: ["OpenAI", "GPT", "AI"],
+    readingTime: 8,
+    featured: true,
+    category: "ai-technology"
+  }
+];
+
 export default function Home() {
-  const [featuredPosts, setFeaturedPosts] = useState<Post[]>([]);
+  const [featuredPosts, setFeaturedPosts] = useState<Post[]>(FALLBACK_POSTS); // 初期値を設定
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,11 +61,16 @@ export default function Home() {
       try {
         // 動的記事を含む特集記事を読み込む
         const posts = await getFeaturedPostsWithDynamic(3);
-        setFeaturedPosts(posts);
+        if (posts && posts.length > 0) {
+          setFeaturedPosts(posts);
+        } else {
+          console.warn("動的記事の取得に失敗しました。フォールバック記事を使用します。");
+          setFeaturedPosts(FALLBACK_POSTS); // フォールバックを使用
+        }
       } catch (error) {
         console.error("記事の読み込みに失敗:", error);
         // エラー時はフォールバックとして静的データを使用
-        setFeaturedPosts(getFeaturedPosts(3));
+        setFeaturedPosts(FALLBACK_POSTS);
       } finally {
         setLoading(false);
       }
