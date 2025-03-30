@@ -13,9 +13,63 @@ export interface Post {
   readingTime: number
   featured?: boolean
   category?: string
+  type?: 'static' | 'dynamic' // 静的データか動的に検出したデータか
 }
 
-// Sample blog posts data
+// GitHub API を使って動的にブログ記事を取得
+export async function fetchDynamicPosts(): Promise<Post[]> {
+  try {
+    // GitHubからブログディレクトリの一覧を取得
+    const response = await fetch('https://api.github.com/repos/kenken0830/pursuit-of-factfulness-blog/contents/app/blog');
+    if (!response.ok) return [];
+    
+    const data = await response.json();
+    
+    // ブログ記事ディレクトリのみを抽出
+    const blogDirs = data.filter((item: any) => 
+      item.type === 'dir' && 
+      item.name !== 'api' && 
+      item.name !== 'components' &&
+      !posts.some(post => post.slug === item.name) // 既存の記事と重複排除
+    );
+    
+    // 新しい記事のフォーマット
+    const dynamicPosts: Post[] = blogDirs.map((dir: any) => {
+      const slug = dir.name;
+      const title = slug
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (c: string) => c.toUpperCase());
+      
+      // 現在の日時をランダムに過去1週間のものに設定
+      const now = new Date();
+      const randomDaysAgo = Math.floor(Math.random() * 7);
+      now.setDate(now.getDate() - randomDaysAgo);
+      const date = now.toISOString().split('T')[0];
+      
+      return {
+        slug,
+        title,
+        date,
+        author: "AI Team",
+        excerpt: `${title}の詳細レポートです。`,
+        content: "コンテンツはページで直接レンダリングされます。",
+        coverImage: `/images/blog/default-cover.jpg`,
+        tags: ["AI", "自動生成"],
+        readingTime: 5,
+        featured: true, // 動的に検出した記事は優先表示
+        category: "ai-technology",
+        type: 'dynamic'
+      };
+    });
+    
+    return dynamicPosts;
+  } catch (error) {
+    console.error('動的記事の取得に失敗:', error);
+    return [];
+  }
+}
+
+// サンプルのブログ記事データ
 const posts: Post[] = [
   {
     slug: "openai-latest-report-2025",
@@ -588,9 +642,46 @@ const posts: Post[] = [
   },
 ]
 
+export async function getAllPostsWithDynamic(): Promise<Post[]> {
+  try {
+    const dynamicPosts = await fetchDynamicPosts();
+    const allPosts = [...posts, ...dynamicPosts];
+    
+    // 日付で降順ソート
+    return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('記事の取得エラー:', error);
+    return getAllPosts(); // エラー時は静的データのみ返す
+  }
+}
+
 export function getAllPosts(): Post[] {
   // Sort posts by date in descending order
   return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+
+export async function getFeaturedPostsWithDynamic(count = 3): Promise<Post[]> {
+  try {
+    const allPosts = await getAllPostsWithDynamic();
+    
+    // 特集記事または最新記事を取得
+    const featured = allPosts.filter((post) => post.featured);
+    const sorted = [...featured].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    
+    if (sorted.length >= count) {
+      return sorted.slice(0, count);
+    }
+    
+    // 特集記事が足りない場合は非特集記事も追加
+    const nonFeatured = allPosts
+      .filter((post) => !post.featured)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    
+    return [...sorted, ...nonFeatured].slice(0, count);
+  } catch (error) {
+    console.error('特集記事の取得エラー:', error);
+    return getFeaturedPosts(count); // エラー時は静的データのみ返す
+  }
 }
 
 export function getFeaturedPosts(count = 3): Post[] {
