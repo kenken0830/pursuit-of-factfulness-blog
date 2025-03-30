@@ -1,13 +1,35 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link"
 import { ChevronRight, ChevronDown, Zap, BookOpen, Newspaper } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { getFeaturedPosts } from "@/lib/posts"
+import { getFeaturedPosts, getFeaturedPostsWithDynamic, Post } from "@/lib/posts"
 import { FeaturedPostCard } from "@/components/featured-post-card"
 import { CategoryCard } from "@/components/category-card"
 
 export default function Home() {
-  const featuredPosts = getFeaturedPosts(3)
+  const [featuredPosts, setFeaturedPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        // 動的記事を含む特集記事を読み込む
+        const posts = await getFeaturedPostsWithDynamic(3);
+        setFeaturedPosts(posts);
+      } catch (error) {
+        console.error("記事の読み込みに失敗:", error);
+        // エラー時はフォールバックとして静的データを使用
+        setFeaturedPosts(getFeaturedPosts(3));
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPosts();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -117,4 +139,3 @@ export default function Home() {
     </div>
   )
 }
-
