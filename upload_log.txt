@@ -1,0 +1,338 @@
+[2025-03-31T05:09:17.754Z] 処理済みファイルリストを作成しました
+[2025-03-31T05:09:17.760Z] 既存ファイルの確認を開始します...
+[2025-03-31T05:09:17.761Z] 1個の既存TSXファイルが見つかりました
+[2025-03-31T05:09:17.762Z] 新しいファイル page.tsx を処理します...
+[2025-03-31T05:09:17.764Z] H1タグからタイトルを抽出しました: "次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T05:09:17.767Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\page.tsx
+[2025-03-31T05:09:17.769Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\page\page.tsx
+[2025-03-31T05:09:17.770Z] コマンド実行: git add "D:\NvidiaGTCProject\components\page.tsx" "D:\NvidiaGTCProject\app\blog\page\page.tsx"
+[2025-03-31T05:09:17.791Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T05:09:17.798Z] 監視中... Ctrl+C で終了
+[2025-03-31T05:09:17.923Z] コマンドエラー出力: warning: in the working copy of 'app/blog/page/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-03-31T05:09:17.925Z] ファイルをGitにステージングしました
+[2025-03-31T05:09:17.926Z] コマンド実行: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T05:09:18.081Z] コマンド出力: [fix-auto-display-posts-temp 571537f] Add new article: 次世代AIのThinkツール導入で業務効率と信頼性を劇的向上させる方法
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+[2025-03-31T05:09:18.082Z] 変更をコミットしました
+[2025-03-31T05:09:18.084Z] コマンド実行: git push origin main
+[2025-03-31T05:09:19.432Z] コマンドエラー出力: To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T05:09:19.434Z] コマンド実行エラー: Command failed: git push origin main
+To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T05:09:19.435Z] 通常のプッシュに失敗しました。fix_all_issues.batを実行します...
+[2025-03-31T05:09:19.436Z] コマンド実行: fix_all_issues.bat
+[2025-03-31T06:13:45.938Z] 既存ファイルの確認を開始します...
+[2025-03-31T06:13:45.944Z] 1個の既存TSXファイルが見つかりました
+[2025-03-31T06:13:45.946Z] 新しいファイル page.tsx を処理します...
+[2025-03-31T06:13:45.948Z] H1タグからタイトルを抽出しました: "次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:13:45.949Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-03-31T06:13:45.950Z] 日付が見つかりません。現在の日付を使用: "2025-03-31"
+[2025-03-31T06:13:45.955Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\Page.tsx
+[2025-03-31T06:13:45.958Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\page\page.tsx
+[2025-03-31T06:13:45.960Z] コマンド実行: git add "D:\NvidiaGTCProject\components\Page.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\page\page.tsx"
+[2025-03-31T06:13:45.975Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T06:13:45.978Z] 監視中... Ctrl+C で終了
+[2025-03-31T06:13:46.047Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/page/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-03-31T06:13:46.049Z] ファイルをGitにステージングしました
+[2025-03-31T06:13:46.050Z] コマンド実行: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:13:46.225Z] コマンド出力: [fix-auto-display-posts-temp 308d0a1] Add new article: 次世代AIのThinkツール導入で業務効率と信頼性を劇的向上させる方法
+ 1 file changed, 57 insertions(+)
+ create mode 100644 app/blog/ai-technology/page/page.tsx
+
+[2025-03-31T06:13:46.226Z] 変更をコミットしました
+[2025-03-31T06:13:46.227Z] コマンド実行: git push origin main
+[2025-03-31T06:13:48.779Z] コマンドエラー出力: To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T06:13:48.805Z] コマンド実行エラー: Command failed: git push origin main
+To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T06:13:48.806Z] 通常のプッシュに失敗しました。fix_all_issues.batを実行します...
+[2025-03-31T06:13:48.807Z] コマンド実行: fix_all_issues.bat
+[2025-03-31T06:23:45.343Z] 既存ファイルの確認を開始します...
+[2025-03-31T06:23:45.348Z] 1個の既存TSXファイルが見つかりました
+[2025-03-31T06:23:45.349Z] 新しいファイル page.tsx を処理します...
+[2025-03-31T06:23:45.351Z] H1タグからタイトルを抽出しました: "次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:23:45.352Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-03-31T06:23:45.354Z] 日付が見つかりません。現在の日付を使用: "2025-03-31"
+[2025-03-31T06:23:45.359Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\Page.tsx
+[2025-03-31T06:23:45.362Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\page\page.tsx
+[2025-03-31T06:23:45.363Z] コマンド実行: git add "D:\NvidiaGTCProject\components\Page.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\page\page.tsx"
+[2025-03-31T06:23:45.380Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T06:23:45.383Z] 監視中... Ctrl+C で終了
+[2025-03-31T06:23:45.456Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/page/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-03-31T06:23:45.458Z] ファイルをGitにステージングしました
+[2025-03-31T06:23:45.459Z] コマンド実行: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:23:45.579Z] コマンド出力: On branch fix-auto-display-posts-temp
+Your branch is up to date with 'origin/fix-auto-display-posts-temp'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.venv/Lib/site-packages/.DS_Store
+	.venv/Lib/site-packages/GitPython-3.1.44.dist-info/
+	.venv/Lib/site-packages/MarkupSafe-3.0.2.dist-info/
+	.venv/Lib/site-packages/PIL/
+	.venv/Lib/site-packages/__pycache__/
+	.venv/Lib/site-packages/altair-5.5.0.dist-info/
+	.venv/Lib/site-packages/altair/
+	.venv/Lib/site-packages/attr/
+	.venv/Lib/site-packages/attrs-25.3.0.dist-info/
+	.venv/Lib/site-packages/attrs/
+	.venv/Lib/site-packages/blinker-1.9.0.dist-info/
+	.venv/Lib/site-packages/blinker/
+	.venv/Lib/site-packages/cachetools-5.5.2.dist-info/
+	.venv/Lib/site-packages/cachetools/
+	.venv/Lib/site-packages/certifi-2025.1.31.dist-info/
+	.venv/Lib/site-packages/certifi/
+	.venv/Lib/site-packages/charset_normalizer-3.4.1.dist-info/
+	.venv/Lib/site-packages/charset_normalizer/
+	.venv/Lib/site-packages/click-8.1.8.dist-info/
+	.venv/Lib/site-packages/click/
+	.venv/Lib/site-packages/colorama-0.4.6.dist-info/
+	.venv/Lib/site-packages/colorama/
+	.venv/Lib/site-packages/dateutil/
+	.venv/Lib/site-packages/git/
+	.venv/Lib/site-packages/gitdb-4.0.12.dist-info/
+	.venv/Lib/site-packages/gitdb/
+	.venv/Lib/site-packages/google/
+	.venv/Lib/site-packages/idna-3.10.dist-info/
+	.venv/Lib/site-packages/idna/
+	.venv/Lib/site-packages/jinja2-3.1.6.dist-info/
+	.venv/Lib/site-packages/jinja2/
+	.venv/Lib/site-packages/jsonschema-4.23.0.dist-info/
+	.venv/Lib/site-packages/jsonschema/
+	.venv/Lib/site-packages/jsonschema_specifications-2024.10.1.dist-info/
+	.venv/Lib/site-packages/jsonschema_specifications/
+	.venv/Lib/site-packages/markupsafe/
+	.venv/Lib/site-packages/narwhals-1.31.0.dist-info/
+	.venv/Lib/site-packages/narwhals/
+	.venv/Lib/site-packages/numpy-2.2.4-cp312-cp312-win_amd64.whl
+	.venv/Lib/site-packages/numpy-2.2.4.dist-info/
+	.venv/Lib/site-packages/numpy.libs/
+	.venv/Lib/site-packages/numpy/
+	.venv/Lib/site-packages/packaging-24.2.dist-info/
+	.venv/Lib/site-packages/packaging/
+	.venv/Lib/site-packages/pandas-2.2.3.dist-info/
+	.venv/Lib/site-packages/pandas.libs/
+	.venv/Lib/site-packages/pandas/
+	.venv/Lib/site-packages/pillow-11.1.0.dist-info/
+	.venv/Lib/site-packages/protobuf-5.29.4.dist-info/
+	.venv/Lib/site-packages/pyarrow-19.0.1.dist-info/
+	.venv/Lib/site-packages/pyarrow/
+	.venv/Lib/site-packages/pydeck-0.9.1.dist-info/
+	.venv/Lib/site-packages/pydeck/
+	.venv/Lib/site-packages/python_dateutil-2.9.0.post0.dist-info/
+	.venv/Lib/site-packages/pytz-2025.1.dist-info/
+	.venv/Lib/site-packages/pytz/
+	.venv/Lib/site-packages/referencing-0.36.2.dist-info/
+	.venv/Lib/site-packages/referencing/
+	.venv/Lib/site-packages/requests-2.32.3.dist-info/
+	.venv/Lib/site-packages/requests/
+	.venv/Lib/site-packages/rpds/
+	.venv/Lib/site-packages/rpds_py-0.23.1.dist-info/
+	.venv/Lib/site-packages/six-1.17.0.dist-info/
+	.venv/Lib/site-packages/six.py
+	.venv/Lib/site-packages/smmap-5.0.2.dist-info/
+	.venv/Lib/site-packages/smmap/
+	.venv/Lib/site-packages/streamlit-1.43.2.dist-info/
+	.venv/Lib/site-packages/streamlit/
+	.venv/Lib/site-packages/tenacity-9.0.0.dist-info/
+	.venv/Lib/site-packages/tenacity/
+	.venv/Lib/site-packages/toml-0.10.2.dist-info/
+	.venv/Lib/site-packages/toml/
+	.venv/Lib/site-packages/tornado-6.4.2.dist-info/
+	.venv/Lib/site-packages/tornado/
+	.venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/
+	.venv/Lib/site-packages/typing_extensions.py
+	.venv/Lib/site-packages/tzdata-2025.2.dist-info/
+	.venv/Lib/site-packages/tzdata/
+	.venv/Lib/site-packages/urllib3-2.3.0.dist-info/
+	.venv/Lib/site-packages/urllib3/
+	.venv/Lib/site-packages/watchdog-6.0.0.dist-info/
+	.venv/Lib/site-packages/watchdog/
+	.venv/Scripts/f2py.exe
+	.venv/Scripts/jsonschema.exe
+	.venv/Scripts/normalizer.exe
+	.venv/Scripts/numpy-config.exe
+	.venv/Scripts/streamlit.cmd
+	.venv/Scripts/streamlit.exe
+	.venv/Scripts/watchmedo.exe
+	.venv/etc/
+	.venv/share/
+	200
+	TSX_Upload_Troubleshooting.md
+	app/admin-basic/
+	app/admin/components/
+	app/api/actions/
+	app/api/components/
+	app/api/deploy/
+	app/dashboard/
+	app/upload/
+	articles/
+	auto_folder_monitor.bat
+	auto_upload.bat
+	auto_uploader.js
+	backups/
+	bulk_upload.bat
+	components/ui/breadcrumbs.tsx
+	fix_all_issues.bat
+	folder_watcher.js
+	lib/metadata-utils.ts
+	lib/plugins/
+	node_watcher_task.xml
+	old/
+	processed_files.txt
+	setup_auto_monitor.bat
+	setup_node_watcher.bat
+	simple_upload.bat
+	start_node_watcher.bat
+	temp_files/
+	tools/
+	tsx_to_upload/
+	upload_log.txt
+	{
+	"\343\202\273\343\203\203\343\203\210\343\202\242\343\203\203\343\203\227\343\201\250\345\210\251\347\224\250\346\211\213\351\240\206.md"
+	"\350\250\230\344\272\213\343\202\242\343\203\203\343\203\227\343\203\255\343\203\274\343\203\211\346\211\213\351\240\206\346\233\270.md"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+[2025-03-31T06:23:45.581Z] コマンド実行エラー: Command failed: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+
+[2025-03-31T06:23:45.583Z] Git処理エラー: Command failed: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+
+[2025-03-31T06:23:45.585Z] ファイル page.tsx の処理が完了しました！
+[2025-03-31T06:23:45.586Z] ----------------------------------------------------------
+[2025-03-31T06:23:45.587Z] 既存ファイルの処理が完了しました
+[2025-03-31T06:44:41.411Z] 既存ファイルの確認を開始します...
+[2025-03-31T06:44:41.419Z] 3個の既存TSXファイルが見つかりました
+[2025-03-31T06:44:41.421Z] ファイル page.tsx は既に処理済みです。スキップします。
+[2025-03-31T06:44:41.422Z] 新しいファイル article-template.tsx を処理します...
+[2025-03-31T06:44:41.424Z] メタデータからタイトルを抽出しました: "AI技術記事のテンプレート"
+[2025-03-31T06:44:41.425Z] メタデータからカテゴリを抽出しました: "ai-technology"
+[2025-03-31T06:44:41.427Z] メタデータからタグを抽出しました: AI, テンプレート, 人工知能, 機械学習
+[2025-03-31T06:44:41.428Z] メタデータから作者を抽出しました: "AI Team"
+[2025-03-31T06:44:41.430Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-03-31T06:44:41.433Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\ArticleTemplate.tsx
+[2025-03-31T06:44:41.436Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx
+[2025-03-31T06:44:41.437Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+[2025-03-31T06:44:41.453Z] 新しいファイル think-tool-integration.tsx を処理します...
+[2025-03-31T06:44:41.455Z] メタデータからタイトルを抽出しました: "次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:44:41.457Z] メタデータからカテゴリを抽出しました: "ai-technology"
+[2025-03-31T06:44:41.459Z] メタデータからタグを抽出しました: AI, Think, 業務効率化, 人工知能, ツール導入
+[2025-03-31T06:44:41.460Z] メタデータから作者を抽出しました: "AI技術研究チーム"
+[2025-03-31T06:44:41.461Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-03-31T06:44:41.463Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\ThinkToolIntegration.tsx
+[2025-03-31T06:44:41.466Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\think-tool-integration\page.tsx
+[2025-03-31T06:44:41.468Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ThinkToolIntegration.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\think-tool-integration\page.tsx"
+[2025-03-31T06:44:41.487Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T06:44:41.490Z] 監視中... Ctrl+C で終了
+[2025-03-31T06:44:41.538Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/article-template/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ArticleTemplate.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-03-31T06:44:41.540Z] ファイルをGitにステージングしました
+[2025-03-31T06:44:41.541Z] コマンド実行: git commit -m "Add new article: AI技術記事のテンプレート"
+[2025-03-31T06:44:41.561Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/think-tool-integration/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ThinkToolIntegration.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-03-31T06:44:41.563Z] ファイルをGitにステージングしました
+[2025-03-31T06:44:41.563Z] コマンド実行: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+[2025-03-31T06:44:41.635Z] コマンドエラー出力: fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-03-31T06:44:41.656Z] コマンド実行エラー: Command failed: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-03-31T06:44:41.657Z] Git処理エラー: Command failed: git commit -m "Add new article: 次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-03-31T06:44:41.661Z] ファイル think-tool-integration.tsx の処理が完了しました！
+[2025-03-31T06:44:41.662Z] ----------------------------------------------------------
+[2025-03-31T06:44:41.730Z] コマンド出力: [fix-auto-display-posts-temp c1f31ea] Add new article: AI技術記事のテンプレート
+ 4 files changed, 748 insertions(+)
+ create mode 100644 app/blog/ai-technology/article-template/page.tsx
+ create mode 100644 app/blog/ai-technology/think-tool-integration/page.tsx
+ create mode 100644 components/ArticleTemplate.tsx
+ create mode 100644 components/ThinkToolIntegration.tsx
+
+[2025-03-31T06:44:41.731Z] 変更をコミットしました
+[2025-03-31T06:44:41.732Z] コマンド実行: git push origin main
+[2025-03-31T06:44:43.127Z] コマンドエラー出力: To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T06:44:43.128Z] コマンド実行エラー: Command failed: git push origin main
+To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/kenken0830/pursuit-of-factfulness-blog.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2025-03-31T06:44:43.129Z] 通常のプッシュに失敗しました。fix_all_issues.batを実行します...
+[2025-03-31T06:44:43.130Z] コマンド実行: fix_all_issues.bat
+[2025-03-31T06:59:08.225Z] 既存ファイルの確認を開始します...
+[2025-03-31T06:59:08.230Z] 3個の既存TSXファイルが見つかりました
+[2025-03-31T06:59:08.232Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T06:59:08.234Z] 監視中... Ctrl+C で終了
+[2025-03-31T06:59:08.236Z] 既存ファイル処理中にエラー: isFileProcessed is not defined
+[2025-03-31T07:00:08.892Z] 既存ファイルの確認を開始します...
+[2025-03-31T07:00:08.897Z] 4個の既存TSXファイルが見つかりました
+[2025-03-31T07:00:08.899Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles
+[2025-03-31T07:00:08.901Z] 監視中... Ctrl+C で終了
+[2025-03-31T07:00:08.903Z] 既存ファイル処理中にエラー: isFileProcessed is not defined
+[2025-03-31T07:01:16.232Z] 既存ファイルの確認を開始します...
+[2025-03-31T07:01:16.237Z] 4個の既存TSXファイルが見つかりました
+[2025-03-31T07:01:16.239Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-03-31T07:01:16.241Z] 監視中... Ctrl+C で終了
+[2025-03-31T07:01:16.243Z] 既存ファイル処理中にエラー: isFileProcessed is not defined
