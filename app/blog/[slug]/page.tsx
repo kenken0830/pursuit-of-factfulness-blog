@@ -14,6 +14,8 @@ import { FeaturedPostCard } from "@/components/featured-post-card"
 import { SocialShareButtons } from "@/components/social-share-buttons"
 import NvidiaGTC2025Report from "@/components/NvidiaGTC2025Report"
 import OpenAILatestReport from "@/components/OpenAILatestReport"
+import { CalendarIcon } from "lucide-react"
+import { MarkdownDisplay } from "@/components/markdown-display"
 
 interface PostPageProps {
   params: {
@@ -32,9 +34,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
 
   return {
-    title: `${post.title} | Pursuit of Factfulness`,
+    title: `${post.title} | D×MirAI`,
     description: post.excerpt,
-    authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -49,6 +50,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
           alt: post.title,
         },
       ],
+      tags: post.tags,
     },
     twitter: {
       card: "summary_large_image",
@@ -84,167 +86,175 @@ export default function PostPage({ params }: PostPageProps) {
   }
 
   const relatedPosts = getRelatedPosts(post, 3)
+  const formattedDate = new Date(post.date).toLocaleDateString("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+  
+  // コンテンツに目次マーカーがある場合は目次を表示
+  const hasToc = post.content && post.content.includes("<h2")
 
   return (
-    <article className="bg-muted/30">
-      {/* Hero Section */}
-      <div className="w-full bg-background">
-        <div className="container max-w-screen-lg px-4 py-12 md:py-16">
-          <Button variant="ghost" asChild className="mb-8 pl-0 -ml-3">
-            <Link href="/blog">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              ブログに戻る
+    <div className="container px-4 py-12 md:px-6 md:py-24">
+      <div className="mx-auto max-w-4xl">
+        {/* ヘッダー */}
+        <div className="mb-12 space-y-6">
+          <div className="flex items-center gap-2">
+            <Link
+              href="/blog"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              ブログ
             </Link>
-          </Button>
-
-          <div className="space-y-4">
-            {post.tags && post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+            <span className="text-muted-foreground">/</span>
+            {post.category && (
+              <>
+                <Link
+                  href={`/blog?category=${post.category}`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors capitalize"
+                >
+                  {post.category.replace(/-/g, " ")}
+                </Link>
+                <span className="text-muted-foreground">/</span>
+              </>
             )}
+            <span className="text-sm truncate max-w-[120px] sm:max-w-xs">
+              {post.title}
+            </span>
+          </div>
 
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">{post.title}</h1>
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+              {post.title}
+            </h1>
+          </div>
 
-            <p className="text-xl text-muted-foreground">{post.excerpt}</p>
-
-            <div className="flex items-center gap-4 pt-4">
-              <Avatar>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2">
+              <Avatar className="h-8 w-8">
                 <AvatarImage src={`https://avatar.vercel.sh/${post.author}.png`} alt={post.author} />
-                <AvatarFallback>{post.author.substring(0, 2).toUpperCase()}</AvatarFallback>
+                <AvatarFallback>{post.author[0]}</AvatarFallback>
               </Avatar>
-              <div>
-                <div className="font-medium">{post.author}</div>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center">
-                    <Calendar className="mr-1 h-4 w-4" />
-                    <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="mr-1 h-4 w-4" />
-                    <span>{post.readingTime} 分で読める</span>
-                  </div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+                <span className="text-sm font-medium">{post.author}</span>
+                <span className="hidden text-muted-foreground sm:inline">・</span>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                  <CalendarIcon className="h-3.5 w-3.5" />
+                  <span>{formattedDate}</span>
+                </div>
+                <span className="hidden text-muted-foreground sm:inline">・</span>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>{post.readingTime} 分で読める</span>
                 </div>
               </div>
             </div>
+            <div className="flex items-center gap-1">
+              <SocialShareButtons title={post.title} />
+            </div>
+          </div>
+
+          {/* Cover Image */}
+          {post.coverImage && (
+            <div className="overflow-hidden rounded-xl">
+              <div className="aspect-video relative w-full">
+                <Image
+                  src={post.coverImage || "/placeholder.svg"}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-2">
+            {post.tags?.map((tag) => (
+              <Badge key={tag} variant="secondary" className="px-3 py-1">
+                {tag}
+              </Badge>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Cover Image */}
-      {post.coverImage && (
-        <div className="w-full bg-background pb-8">
-          <div className="container max-w-screen-lg px-4">
-            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl">
-              <Image
-                src={post.coverImage || "/placeholder.svg"}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Content */}
-      <div className="container max-w-screen-lg px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-8">
-            <div className="bg-background rounded-xl shadow-sm p-8 md:p-10">
-              <div
-                className="prose prose-lg prose-slate dark:prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-
-              <Separator className="my-8" />
-
-              {/* Article Actions */}
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm">
-                    <ThumbsUp className="mr-2 h-4 w-4" />
-                    役に立った
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Bookmark className="mr-2 h-4 w-4" />
-                    保存
-                  </Button>
-                </div>
-
-                <SocialShareButtons title={post.title} />
-              </div>
-
-              {/* Author Bio */}
-              <Card className="mt-8 bg-muted/50">
-                <CardContent className="p-6">
-                  <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                    <Avatar className="h-16 w-16">
-                      <AvatarImage src={`https://avatar.vercel.sh/${post.author}.png`} alt={post.author} />
-                      <AvatarFallback>{post.author.substring(0, 2).toUpperCase()}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h3 className="text-lg font-bold">{post.author}</h3>
-                      <p className="text-muted-foreground">
-                        テクノロジーと科学の専門家。最新の技術動向と科学的発見について執筆しています。
-                      </p>
-                      <div className="flex gap-2 mt-2">
-                        <Button variant="ghost" size="sm" className="h-8 px-3">
-                          プロフィール
-                        </Button>
-                        <Button variant="ghost" size="sm" className="h-8 px-3">
-                          他の記事
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Related Posts */}
-            {relatedPosts.length > 0 && (
-              <div className="mt-12">
-                <h2 className="text-2xl font-bold mb-6">関連記事</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {relatedPosts.map((relatedPost) => (
-                    <FeaturedPostCard key={relatedPost.slug} post={relatedPost} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-4">
-            <div className="sticky top-24">
-              <div className="bg-background rounded-xl shadow-sm p-6 mb-6">
-                <h3 className="text-lg font-bold mb-4">目次</h3>
+        <div className="flex flex-col gap-10 lg:flex-row">
+          {/* 目次（PCのみ表示） */}
+          {hasToc && (
+            <div className="order-2 hidden lg:block lg:w-64 lg:shrink-0 lg:order-1">
+              <div className="sticky top-24">
                 <TableOfContents />
               </div>
+            </div>
+          )}
 
-              <div className="bg-background rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-bold mb-4">タグ</h3>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags &&
-                    post.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="px-3 py-1">
-                        <Tag className="mr-1 h-3 w-3" />
-                        {tag}
-                      </Badge>
-                    ))}
+          {/* 記事コンテンツ */}
+          <div className={`order-1 min-w-0 ${hasToc ? "lg:order-2" : ""}`}>
+            {post.content ? (
+              <div className="prose prose-stone dark:prose-invert max-w-none">
+                <MarkdownDisplay content={post.content} />
+              </div>
+            ) : (
+              // Dynamic component for OpenAI Report etc.
+              <div>
+                {/* コンポーネントは別の場所で読み込まれています */}
+                {/* コンテンツのみをここでレンダリングする代わりに */}
+                {/* app/blog/[slug]/page.tsx ではなく、特定の記事のページで関連コンポーネントを読み込んでいます */}
+              </div>
+            )}
+
+            <Separator className="my-12" />
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Avatar className="h-10 w-10">
+                  <AvatarImage src={`https://avatar.vercel.sh/${post.author}.png`} alt={post.author} />
+                  <AvatarFallback>{post.author[0]}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-sm font-medium">Written by</p>
+                  <p className="text-sm text-muted-foreground">{post.author}</p>
                 </div>
               </div>
+              <SocialShareButtons title={post.title} />
             </div>
           </div>
         </div>
+
+        {/* 関連記事 */}
+        {relatedPosts.length > 0 && (
+          <div className="mt-20">
+            <h2 className="mb-8 text-2xl font-bold">関連記事</h2>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+              {relatedPosts.map((relatedPost) => (
+                <Link
+                  key={relatedPost.slug}
+                  href={`/blog/${relatedPost.slug}`}
+                  className="group"
+                >
+                  <div className="overflow-hidden rounded-lg">
+                    <div className="aspect-video relative w-full">
+                      <Image
+                        src={relatedPost.coverImage || "/placeholder.svg"}
+                        alt={relatedPost.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="mt-4 text-lg font-medium group-hover:text-primary transition-colors">
+                    {relatedPost.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{relatedPost.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-    </article>
+    </div>
   )
 }
