@@ -1,20 +1,15 @@
-import { Metadata } from 'next';
-import AutoTestArticle3 from '@/components/AutoTestArticle3';
+import type { Metadata } from "next"
+import { AutoTestArticle3 } from "@/components/AutoTestArticle3"
+import { getMetadata } from "@/lib/metadata-utils"
 
-export const metadata: Metadata = {
-  title: '自動監視システム動作テスト記事３',
-  description: 'この記事は完全自動化された監視システムのテスト用記事です。ファイルを配置するだけで自動的にGitHubにプッシュされ、本番環境にデプロイされることを確認します。',
-  keywords: '自動化,テスト,監視,システム,検証',
-  openGraph: {
-    title: '自動監視システム動作テスト記事３',
-    description: 'この記事は完全自動化された監視システムのテスト用記事です。ファイルを配置するだけで自動的にGitHubにプッシュされ、本番環境にデプロイされることを確認します。',
-    url: 'https://example.com/blog/ai-news/auto-test-article3',
-    siteName: 'D×MirAI Blog',
-    locale: 'ja_JP',
-    type: 'article',
-  },
-};
+// メタデータ
+export const metadata: Metadata = getMetadata({
+  title: "自動監視システム動作テスト記事３",
+  description: "自動監視システム動作テスト記事３に関する詳細記事",
+  ogImage: "/placeholder.svg?height=600&width=800",
+  path: "/blog/ai-news/autotestarticle3",
+})
 
-export default function Page() {
-  return <AutoTestArticle3 />;
+export default function BlogPost() {
+  return <AutoTestArticle3 />
 }

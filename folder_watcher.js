@@ -40,7 +40,8 @@ const META_PATTERNS = {
   author: /\/\/\s*author:\s*(.*?)(\r?\n|\r|$)/,
   tags: /\/\/\s*tags:\s*(.*?)(\r?\n|\r|$)/,
   category: /\/\/\s*category:\s*(.*?)(\r?\n|\r|$)/,
-  featured: /\/\/\s*featured:\s*(.*?)(\r?\n|\r|$)/
+  featured: /\/\/\s*featured:\s*(.*?)(\r?\n|\r|$)/,
+  coverImage: /\/\/\s*coverImage:\s*(.*?)(\r?\n|\r|$)/
 };
 
 // ログ出力関数
@@ -49,6 +50,49 @@ function log(message) {
   const logMessage = `[${timestamp}] ${message}`;
   console.log(logMessage);
   fs.appendFileSync(CONFIG.logFile, logMessage + '\n');
+}
+
+// ファイルが処理済みかチェックする関数
+function isFileProcessed(fileName) {
+  try {
+    if (!fs.existsSync(CONFIG.processedList)) {
+      return false;
+    }
+    
+    const content = fs.readFileSync(CONFIG.processedList, 'utf8');
+    const lines = content.split('\n');
+    
+    // 各行をチェック
+    for (const line of lines) {
+      // コメント行をスキップ
+      if (line.startsWith('#') || line.trim() === '') {
+        continue;
+      }
+      
+      // ファイル名がカンマで区切られた最初のフィールド
+      const fields = line.split(',');
+      if (fields.length > 0 && fields[0].trim() === fileName) {
+        return true;
+      }
+    }
+    
+    return false;
+  } catch (error) {
+    log(`処理済みチェックエラー: ${error.message}`);
+    return false;
+  }
+}
+
+// 処理済みリストにファイルを追加する関数
+function addToProcessedList(fileName, title, slug, date) {
+  try {
+    const timestamp = new Date().toISOString();
+    const line = `${fileName},${title},${slug},${timestamp}\n`;
+    fs.appendFileSync(CONFIG.processedList, line);
+    log(`ファイル ${fileName} を処理済みリストに追加しました`);
+  } catch (error) {
+    log(`処理済みリストへの追加エラー: ${error.message}`);
+  }
 }
 
 // 処理済みリストの準備
@@ -176,6 +220,59 @@ function extractDate(content) {
   const today = new Date().toISOString().split('T')[0];
   log(`日付が見つかりません。現在の日付を使用: "${today}"`);
   return today;
+}
+
+// アイキャッチ画像を抽出する関数
+function extractCoverImage(content) {
+  // メタデータから画像を抽出
+  const metaImageMatch = content.match(META_PATTERNS.coverImage);
+  if (metaImageMatch && metaImageMatch[1]) {
+    const coverImage = metaImageMatch[1].trim();
+    log(`メタデータからアイキャッチ画像を抽出しました: "${coverImage}"`);
+    return coverImage;
+  }
+  
+  // img タグを探す (最初の画像をアイキャッチとして使用)
+  const imgMatch = content.match(/<img[^>]*src=["']([^"']+)["'][^>]*>/i);
+  if (imgMatch && imgMatch[1]) {
+    const coverImage = imgMatch[1].trim();
+    log(`imgタグからアイキャッチ画像を抽出しました: "${coverImage}"`);
+    return coverImage;
+  }
+  
+  // next/image コンポーネントを探す
+  const nextImageMatch = content.match(/<Image[^>]*src=["']([^"']+)["'][^>]*>/i);
+  if (nextImageMatch && nextImageMatch[1]) {
+    const coverImage = nextImageMatch[1].trim();
+    log(`Imageコンポーネントからアイキャッチ画像を抽出しました: "${coverImage}"`);
+    return coverImage;
+  }
+  
+  // デフォルト画像
+  log(`アイキャッチ画像が見つかりません。デフォルト画像を使用します`);
+  return "/placeholder.svg?height=600&width=800";
+}
+
+// ブログページを生成する関数
+function generateBlogPost(title, componentName, category, date, coverImage = null) {
+  const componentImport = `${componentName.charAt(0).toUpperCase() + componentName.slice(1)}`;
+  
+  return `import type { Metadata } from "next"
+import { ${componentImport} } from "@/components/${componentImport}"
+import { getMetadata } from "@/lib/metadata-utils"
+
+// メタデータ
+export const metadata: Metadata = getMetadata({
+  title: "${title}",
+  description: "${title}に関する詳細記事",
+  ogImage: "${coverImage || '/placeholder.svg?height=600&width=800'}",
+  path: "/blog/${category}/${componentName.toLowerCase()}",
+})
+
+export default function BlogPost() {
+  return <${componentImport} />
+}
+`;
 }
 
 // Git処理を実行する関数
@@ -313,6 +410,10 @@ async function processFile(filePath) {
     const date = extractDate(content);
     log(`日付: "${date}"`);
     
+    // アイキャッチ画像を抽出
+    const coverImage = extractCoverImage(content);
+    log(`アイキャッチ画像: "${coverImage}"`);
+    
     // スラグを作成（ファイル名から拡張子を除いたもの）
     const slug = baseName;
     
@@ -333,7 +434,7 @@ async function processFile(filePath) {
     const blogPostPath = path.join(blogPostDir, 'page.tsx');
     
     // ブログページを作成
-    const blogPostContent = generateBlogPost(title, componentName, category, date);
+    const blogPostContent = generateBlogPost(title, componentName, category, date, coverImage);
     fs.writeFileSync(blogPostPath, blogPostContent);
     log(`ブログページを作成しました: ${blogPostPath}`);
     

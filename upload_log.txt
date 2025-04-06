@@ -336,3 +336,69 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2025-03-31T07:01:16.239Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
 [2025-03-31T07:01:16.241Z] 監視中... Ctrl+C で終了
 [2025-03-31T07:01:16.243Z] 既存ファイル処理中にエラー: isFileProcessed is not defined
+[2025-03-31T08:23:52.741Z] 既存ファイルの確認を開始します...
+[2025-03-31T08:23:52.745Z] 5個の既存TSXファイルが見つかりました
+[2025-03-31T08:23:52.746Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-03-31T08:23:52.752Z] 監視中... Ctrl+C で終了
+[2025-03-31T08:23:52.754Z] 既存ファイル処理中にエラー: isFileProcessed is not defined
+[2025-04-06T09:26:00.599Z] 既存ファイルの確認を開始します...
+[2025-04-06T09:26:00.604Z] 6個の既存TSXファイルが見つかりました
+[2025-04-06T09:26:00.605Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-06T09:26:00.607Z] メタデータからタイトルを抽出しました: "AI技術記事のテンプレート"
+[2025-04-06T09:26:00.608Z] タイトルを抽出しました: "AI技術記事のテンプレート"
+[2025-04-06T09:26:00.609Z] メタデータからカテゴリを抽出しました: "ai-technology"
+[2025-04-06T09:26:00.610Z] カテゴリ: "ai-technology"
+[2025-04-06T09:26:00.611Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T09:26:00.612Z] 日付: "2025-03-31"
+[2025-04-06T09:26:00.613Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T09:26:00.614Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T09:26:00.617Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\ArticleTemplate.tsx
+[2025-04-06T09:26:00.626Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx
+[2025-04-06T09:26:00.628Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+[2025-04-06T09:26:00.629Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+[2025-04-06T09:26:00.645Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-06T09:26:00.647Z] メタデータからタイトルを抽出しました: "自動デプロイテスト：GitとVercel連携の検証"
+[2025-04-06T09:26:00.648Z] タイトルを抽出しました: "自動デプロイテスト：GitとVercel連携の検証"
+[2025-04-06T09:26:00.649Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T09:26:00.650Z] カテゴリ: "ai-news"
+[2025-04-06T09:26:00.651Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T09:26:00.652Z] 日付: "2025-03-31"
+[2025-04-06T09:26:00.653Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T09:26:00.653Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T09:26:00.655Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoDeployTest.tsx
+[2025-04-06T09:26:00.658Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx
+[2025-04-06T09:26:00.658Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+[2025-04-06T09:26:00.659Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+[2025-04-06T09:26:00.674Z] メタデータからタイトルを抽出しました: "自動監視システム動作テスト記事３"
+[2025-04-06T09:26:00.675Z] タイトルを抽出しました: "自動監視システム動作テスト記事３"
+[2025-04-06T09:26:00.676Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T09:26:00.676Z] カテゴリ: "ai-news"
+[2025-04-06T09:26:00.677Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T09:26:00.678Z] 日付: "2025-03-31"
+[2025-04-06T09:26:00.679Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T09:26:00.680Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T09:26:00.683Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoTestArticle3.tsx
+[2025-04-06T09:26:00.685Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx
+[2025-04-06T09:26:00.686Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+[2025-04-06T09:26:00.687Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+[2025-04-06T09:26:00.699Z] メタデータからタイトルを抽出しました: "自動アップロードテスト記事２：完全自動化システムの検証"
+[2025-04-06T09:26:00.700Z] タイトルを抽出しました: "自動アップロードテスト記事２：完全自動化システムの検証"
+[2025-04-06T09:26:00.701Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T09:26:00.702Z] カテゴリ: "ai-news"
+[2025-04-06T09:26:00.703Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T09:26:00.703Z] 日付: "2025-03-31"
+[2025-04-06T09:26:00.704Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T09:26:00.705Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T09:26:00.707Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoUploadTest2.tsx
+[2025-04-06T09:26:00.709Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx
+[2025-04-06T09:26:00.710Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+[2025-04-06T09:26:00.710Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+[2025-04-06T09:26:00.721Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-06T09:26:00.728Z] 監視中... Ctrl+C で終了
+[2025-04-06T09:26:01.304Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T09:26:01.306Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
