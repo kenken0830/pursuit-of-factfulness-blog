@@ -487,14 +487,23 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
     if (process.env.VERCEL_DEPLOY_HOOK) {
       log('Vercelデプロイをトリガーします...');
       try {
-        const { exec } = require('child_process');
-        exec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`, (error, stdout, stderr) => {
-          if (error) {
-            log(`Vercelデプロイトリガーエラー: ${error.message}`);
-            return;
-          }
-          log('Vercelデプロイをトリガーしました');
-        });
+        // Windowsの場合はPowerShellを使用
+        if (process.platform === 'win32') {
+          const { execSync } = require('child_process');
+          execSync(`powershell -Command "Invoke-WebRequest -Method POST -Uri '${process.env.VERCEL_DEPLOY_HOOK}'"`, 
+            { stdio: 'pipe' });
+          log('Vercelデプロイをトリガーしました（PowerShell）');
+        } else {
+          // LinuxやMacの場合はcurlを使用
+          const { exec } = require('child_process');
+          exec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`, (error, stdout, stderr) => {
+            if (error) {
+              log(`Vercelデプロイトリガーエラー: ${error.message}`);
+              return;
+            }
+            log('Vercelデプロイをトリガーしました（curl）');
+          });
+        }
       } catch (error) {
         log(`Vercelデプロイトリガー実行エラー: ${error.message}`);
       }

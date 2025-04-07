@@ -1077,3 +1077,23 @@ warning: in the working copy of 'components/Vercel.tsx', LF will be replaced by 
 [2025-04-07T15:43:40.296Z] 生成ファイルの変更をコミットしました
 [2025-04-07T15:43:40.297Z] その他の変更を確認します...
 [2025-04-07T15:43:40.397Z] その他の変更が見つかりました。全てコミットします...
+[2025-04-07T15:43:40.550Z] 警告: warning: in the working copy of 'app/blog/ai-technology/vercel/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Vercel.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T15:43:40.707Z] 全ての変更をコミットしました
+[2025-04-07T15:43:40.708Z] 変更をリモートにプッシュします...
+[2025-04-07T15:43:41.069Z] 既存ファイルの処理が完了しました
+[2025-04-07T15:43:42.642Z] 警告: To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+   953bf1b..1c130a5  main -> main
+
+[2025-04-07T15:43:42.643Z] 変更をプッシュしました
+[2025-04-07T15:43:42.644Z] Vercelデプロイをトリガーします...
+[2025-04-07T15:43:42.655Z] Git処理が正常に完了しました
+[2025-04-07T15:43:42.657Z] ファイル vercel-deploy-test.tsx を処理済みリストに追加しました
+[2025-04-07T15:43:42.658Z] ファイル vercel-deploy-test.tsx の処理が完了しました！
+[2025-04-07T15:43:42.659Z] ファイル処理成功: タイトル="Vercelデプロイテスト記事", スラグ="vercel"
+[2025-04-07T15:43:42.661Z] Vercelデプロイトリガーエラー: Command failed: curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh1IrcDFnFNy4yuuqcLB/cbBevQw7qX"
+'curl' is not recognized as an internal or external command,
+operable program or batch file.
+
