@@ -432,27 +432,50 @@ async function processFile(filePath) {
 // Git処理を実行する関数
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
-    // Gitのロックファイルをクリーンアップ
-    cleanupGitLock();
-    
-    // 変更をステージング
-    await safeExec(`${CONFIG.gitPath} add "${componentPath}" "${blogPostPath}"`);
-    log('ファイルをGitにステージングしました');
-    
-    // コミット
-    await safeExec(`${CONFIG.gitPath} commit -m "記事の自動生成: ${title}"`);
-    log('変更をコミットしました');
-    
-    // プル
-    await safeExec(`${CONFIG.gitPath} pull --rebase origin main`);
+    log('Git処理を開始します...');
+    cleanupGitLock(); // ロックファイル削除
+
+    // 1. ステージング (生成されたファイル)
+    log('生成されたファイルをステージングします...');
+    await safeExec(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
+    log('生成ファイルをGitにステージングしました');
+
+    // 2. コミット (生成されたファイル)
+    log('生成されたファイルの変更をコミットします...');
+    const escapedTitle = title.replace(/"/g, '\\"');
+    await safeExec(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
+    log('生成ファイルの変更をコミットしました');
+
+    // 3. 未ステージング/未追跡の変更を確認し、あればコミット
+    log('その他の未ステージング/未追跡の変更を確認します...');
+    const statusOutput = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
+    if (statusOutput.trim() !== '') {
+      log('その他の変更が見つかりました。全てステージングしてコミットします...');
+      await safeExec(`"${CONFIG.gitPath}" add .`); // 全ての変更をステージング
+      // コミットメッセージにタイムスタンプを追加して、空コミットを防ぎつつ毎回コミットできるようにする
+      const timestamp = new Date().toISOString();
+      await safeExec(`"${CONFIG.gitPath}" commit -m "Sync: 自動コミット ${timestamp}" --allow-empty`); // 変更があればコミット
+      log('その他の変更をコミットしました');
+      cleanupGitLock(); // コミット後にロックが残る可能性
+    } else {
+      log('その他の未ステージング/未追跡の変更はありませんでした');
+    }
+
+    // 4. プル
+    log('リモートの変更を取得します (pull --rebase)...');
+    await safeExec(`"${CONFIG.gitPath}" pull --rebase origin main`);
     log('リモートの変更を取得しました');
-    
-    // プッシュ
-    await safeExec(`${CONFIG.gitPath} push origin main`);
+    cleanupGitLock();
+
+    // 5. プッシュ
+    log('変更をリモートにプッシュします...');
+    await safeExec(`"${CONFIG.gitPath}" push origin main`);
     log('変更をプッシュしました');
-    
+    log('Git処理が正常に完了しました');
+
   } catch (error) {
-    log(`Git処理中のエラー: ${error.message}`);
+    log(`Git処理中にエラーが発生しました: ${error.message}`);
+    cleanupGitLock();
     throw error;
   }
 }

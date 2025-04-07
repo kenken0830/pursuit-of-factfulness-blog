@@ -1009,3 +1009,38 @@ error: Please commit or stash them.
 [2025-04-07T13:52:44.778Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
 [2025-04-07T13:52:44.784Z] 監視中... Ctrl+C で終了
 [2025-04-07T13:52:44.786Z] 既存ファイルの処理が完了しました
+[2025-04-07T15:03:15.275Z] 警告: warning: in the working copy of 'app/blog/ai-news/finalpipelinetest/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Finalpipelinetest.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T15:03:15.276Z] 変更を一時退避しました
+[2025-04-07T15:03:15.278Z] リモートの変更を取得します (pull --rebase)...
+[2025-04-07T15:03:15.397Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T15:03:15.399Z] Git処理中にエラーが発生しました: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T15:03:15.400Z] ファイル処理エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T15:03:15.402Z] 既存ファイルの処理が完了しました
+[2025-04-07T15:09:26.594Z] 既存ファイルの確認を開始します...
+[2025-04-07T15:09:26.599Z] 11個の既存TSXファイルが見つかりました
+[2025-04-07T15:09:26.601Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-07T15:09:26.602Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-07T15:09:26.604Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-07T15:09:26.605Z] ファイル page.tsx は既に処理済みです
+[2025-04-07T15:09:26.606Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-07T15:09:26.608Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-07T15:09:26.609Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-07T15:09:26.610Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-07T15:09:26.612Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-07T15:09:26.613Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-07T15:09:26.614Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-07T15:09:26.616Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T15:09:26.623Z] 監視中... Ctrl+C で終了
+[2025-04-07T15:09:26.624Z] 既存ファイルの処理が完了しました
