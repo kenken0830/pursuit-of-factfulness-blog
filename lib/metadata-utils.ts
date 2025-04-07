@@ -19,60 +19,56 @@ export type SEOProps = {
 export function generateArticleMetadata({
   title,
   description,
+  ogImage = '/placeholder.svg?height=600&width=800',
+  category = 'ai-news',
+  publishedTime = new Date().toISOString(),
   keywords = '',
   author = 'D×MirAI Team',
-  ogImage = '/placeholder.svg?height=600&width=800',
-  canonical,
   noIndex = false,
-  category = 'ai-technology',
-  publishedTime,
-  schema,
-}: SEOProps): Metadata {
-  // 基本的なタイトルとディスクリプション
-  const baseMetadata: Metadata = {
+}: {
+  title: string
+  description: string
+  ogImage?: string
+  category?: string
+  publishedTime?: string
+  keywords?: string
+  author?: string
+  noIndex?: boolean
+}): Metadata {
+  const url = `https://your-domain.com/blog/${category}/${title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')}`;
+  
+  return {
     title: `${title} | D×MirAI`,
     description,
-    // robots設定
-    robots: noIndex ? 'noindex, nofollow' : 'index, follow',
-    // カノニカルURL
-    alternates: canonical ? {
-      canonical: canonical
-    } : undefined,
-    // 著者
+    keywords,
     authors: [{ name: author }],
+    robots: noIndex ? 'noindex, nofollow' : 'index, follow',
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      url,
+      publishedTime,
+      authors: [author],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: url,
+    },
   };
-
-  // キーワード
-  if (keywords) {
-    baseMetadata.keywords = keywords;
-  }
-
-  // OGP設定
-  baseMetadata.openGraph = {
-    type: 'article',
-    title: title,
-    description: description,
-    publishedTime: publishedTime,
-    authors: [author],
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
-  };
-
-  // Twitter Card
-  baseMetadata.twitter = {
-    card: 'summary_large_image',
-    title: title,
-    description: description,
-    images: [ogImage],
-  };
-
-  return baseMetadata;
 }
 
 /**

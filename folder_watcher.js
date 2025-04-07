@@ -257,132 +257,109 @@ function extractCoverImage(content) {
   return '/placeholder.svg?height=600&width=800';
 }
 
-// コンポーネントファイルを生成する関数
-function generateComponent(title, componentName) {
-  const componentContent = `import React from 'react';
+// エラーハンドリングを改善
+async function safeExec(command) {
+  try {
+    const { stdout, stderr } = await execPromise(command);
+    if (stderr) log(`警告: ${stderr}`);
+    return stdout;
+  } catch (error) {
+    log(`コマンド実行エラー: ${error.message}`);
+    throw error;
+  }
+}
 
-export function ${componentName}() {
+// Gitのロックファイルをクリーンアップ
+function cleanupGitLock() {
+  const lockFile = path.join(process.cwd(), '.git', 'index.lock');
+  if (fs.existsSync(lockFile)) {
+    fs.unlinkSync(lockFile);
+    log('Gitのロックファイルを削除しました');
+  }
+}
+
+// コンポーネントファイルを生成する関数
+function generateComponent(title, content) {
+  // 記事の内容からコンポーネントを抽出
+  const articleMatch = content.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  const articleContent = articleMatch ? articleMatch[1] : `<h1>${title}</h1>`;
+
+  return `import React from 'react';
+
+export function ${title}() {
   return (
     <article className="prose prose-slate max-w-none">
-      <h1>${title}</h1>
-      {/* ここに記事の内容を追加 */}
+      ${articleContent}
     </article>
   );
 }
 `;
-  return componentContent;
 }
 
 // ブログポストを生成する関数
-function generateBlogPost(title, componentName, category, date, coverImage = null) {
-  const blogPostContent = `import type { Metadata } from "next"
+function generateBlogPost(title, componentName, category, date, description, coverImage = null) {
+  return `import type { Metadata } from "next"
 import { ${componentName} } from "@/components/${componentName}"
-import { getMetadata } from "@/lib/metadata-utils"
+import { generateArticleMetadata } from "@/lib/metadata-utils"
 
 // メタデータ
-export const metadata: Metadata = getMetadata({
+export const metadata: Metadata = generateArticleMetadata({
   title: "${title}",
-  description: "${title}に関する詳細記事",
+  description: "${description || `${title}に関する詳細記事`}",
   ogImage: "${coverImage || '/placeholder.svg?height=600&width=800'}",
-  path: "/blog/${category}/${componentName.toLowerCase()}",
+  category: "${category}",
+  publishedTime: "${date}",
 })
 
 export default function BlogPost() {
   return <${componentName} />
 }
 `;
-  return blogPostContent;
 }
 
-// Vercelデプロイをトリガーする関数
-async function triggerVercelDeploy() {
-  try {
-    const webhookUrl = process.env.VERCEL_DEPLOY_HOOK;
-    
-    if (!webhookUrl) {
-      log('Vercelデプロイフック未設定。GitHubプッシュのみ実行します。');
-      return;
-    }
-    
-    log(`Vercelデプロイをトリガーします...`);
-    
-    // HTTPリクエストを作成
-    const https = require('https');
-    
-    return new Promise((resolve, reject) => {
-      const req = https.request(
-        webhookUrl,
-        { method: 'POST' },
-        (res) => {
-          let data = '';
-          res.on('data', (chunk) => {
-            data += chunk;
-          });
-          
-          res.on('end', () => {
-            if (res.statusCode === 200 || res.statusCode === 201) {
-              log(`Vercelデプロイが正常にトリガーされました。ステータス: ${res.statusCode}`);
-              resolve(true);
-            } else {
-              log(`Vercelデプロイのトリガー失敗。ステータス: ${res.statusCode}, レスポンス: ${data}`);
-              resolve(false);
-            }
-          });
-        }
-      );
-      
-      req.on('error', (error) => {
-        log(`Vercelデプロイのトリガーエラー: ${error.message}`);
-        reject(error);
-      });
-      
-      req.end();
-    });
-  } catch (error) {
-    log(`Vercelデプロイトリガー中のエラー: ${error.message}`);
-    return false;
-  }
-}
+// メタデータを抽出する関数を改善
+function extractMetadata(content, fileName) {
+  const metadata = {
+    title: '',
+    category: '',
+    date: '',
+    coverImage: '',
+    description: '',
+  };
 
-// Git処理を実行する関数
-async function handleGitProcess(componentPath, blogPostPath, title) {
-  try {
-    // Gitコマンドのパスを使用
-    const gitCmd = CONFIG.gitPath;
-    
-    // ファイルをGitに追加
-    log(`コマンド実行: ${gitCmd} add "${componentPath}" "${blogPostPath}"`);
-    await execCommand(`"${gitCmd}" add "${componentPath}" "${blogPostPath}"`);
-    log(`ファイルをGitにステージングしました`);
-    
-    log(`コマンド実行: ${gitCmd} commit -m "Add new article: ${title}"`);
-    await execCommand(`"${gitCmd}" commit -m "Add new article: ${title}"`);
-    
-    try {
-      const { stdout: branchName } = await execCommand(`"${gitCmd}" rev-parse --abbrev-ref HEAD`);
-      const currentBranch = branchName.trim() || 'main';
-      
-      await execCommand(`"${gitCmd}" fetch origin`);
-      await execCommand(`"${gitCmd}" pull --rebase origin ${currentBranch}`);
-      
-      log(`コマンド実行: ${gitCmd} push origin ${currentBranch}`);
-      await execCommand(`"${gitCmd}" push origin ${currentBranch}`);
-      
-      log(`Gitプッシュ完了: ${title}`);
-      
-      // GitHubプッシュ後にVercelデプロイをトリガー
-      await triggerVercelDeploy();
-      
-      return true;
-    } catch (pushError) {
-      log(`Gitプッシュ中のエラー: ${pushError}`);
-      // プッシュに失敗しても処理を続行
-      return false;
+  // メタデータコメントから抽出
+  Object.entries(META_PATTERNS).forEach(([key, pattern]) => {
+    const match = content.match(pattern);
+    if (match && match[1]) {
+      metadata[key] = match[1].replace(/["']/g, '').trim();
     }
-  } catch (error) {
-    log(`Git処理中のエラー: ${error}`);
-    return false;
+  });
+
+  // H1タグからタイトルを抽出（メタデータにタイトルがない場合）
+  if (!metadata.title) {
+    const h1Match = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    if (h1Match && h1Match[1]) {
+      metadata.title = h1Match[1].replace(/<[^>]*>/g, '').trim();
+    }
   }
+
+  // フォールバック値を設定
+  if (!metadata.title) {
+    metadata.title = path.parse(fileName).name
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+  }
+  
+  if (!metadata.category) {
+    metadata.category = 'ai-news';
+  }
+  
+  if (!metadata.date) {
+    metadata.date = new Date().toISOString().split('T')[0];
+  }
+
+  return metadata;
 }
 
 // ファイル処理を実行する関数
@@ -399,62 +376,84 @@ async function processFile(filePath) {
     // ファイルの内容を読み込む
     const content = fs.readFileSync(filePath, 'utf8');
     
-    // タイトルを抽出
-    const title = extractTitleFromContent(content, path.parse(fileName).name);
-    
-    // カテゴリを抽出
-    const category = extractCategory(content, filePath);
-    
-    // 日付を抽出
-    const date = extractDate(content) || new Date().toISOString().split('T')[0];
-    
-    // カバー画像を抽出
-    const coverImage = extractCoverImage(content);
+    // メタデータを抽出
+    const metadata = extractMetadata(content, fileName);
     
     // コンポーネント名を生成（キャメルケース）
-    const componentName = title
-      .replace(/[^\w\s-]/g, '') // 特殊文字を削除
-      .split(/[-\s]+/) // ハイフンとスペースで分割
-      .map((word, index) => {
-        // 最初の文字を大文字に、残りを小文字に
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-      })
+    const componentName = metadata.title
+      .replace(/[^\w\s-]/g, '')
+      .split(/[-\s]+/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join('');
     
     // スラグを生成（ケバブケース）
-    const slug = title
+    const slug = metadata.title
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '') // 特殊文字を削除
-      .replace(/\s+/g, '-') // スペースをハイフンに変換
-      .replace(/-+/g, '-'); // 連続するハイフンを単一のハイフンに変換
-    
-    // コンポーネントファイル名
-    const componentFileName = `${componentName}.tsx`;
-    
-    // ブログページのパス
-    const blogPostPath = path.join(CONFIG.blogFolder, category, slug, 'page.tsx');
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
     
     // 必要なディレクトリを作成
-    fs.mkdirSync(path.dirname(blogPostPath), { recursive: true });
+    const blogDir = path.join(CONFIG.blogFolder, metadata.category, slug);
+    fs.mkdirSync(blogDir, { recursive: true });
     
-    // コンポーネントファイルを作成
-    const componentPath = path.join(CONFIG.componentsFolder, componentFileName);
-    fs.writeFileSync(componentPath, generateComponent(title, componentName));
+    // コンポーネントファイルを生成
+    const componentPath = path.join(CONFIG.componentsFolder, `${componentName}.tsx`);
+    fs.writeFileSync(componentPath, generateComponent(componentName, content));
     log(`コンポーネントを作成しました: ${componentPath}`);
     
-    // ブログページを作成
-    fs.writeFileSync(blogPostPath, generateBlogPost(title, componentName, category, date, coverImage));
+    // ブログページを生成
+    const blogPostPath = path.join(blogDir, 'page.tsx');
+    fs.writeFileSync(blogPostPath, generateBlogPost(
+      metadata.title,
+      componentName,
+      metadata.category,
+      metadata.date,
+      metadata.description,
+      metadata.coverImage
+    ));
     log(`ブログページを作成しました: ${blogPostPath}`);
     
-    // Gitの処理を実行
-    await handleGitProcess(componentPath, blogPostPath, title);
+    // Git操作を実行
+    await handleGitProcess(componentPath, blogPostPath, metadata.title);
     
     // 処理済みリストに追加
-    addToProcessedList(fileName, title, slug, date);
+    addToProcessedList(fileName, metadata.title, slug, metadata.date);
+    
+    log(`ファイル ${fileName} の処理が完了しました！`);
+    return { title: metadata.title, slug };
     
   } catch (error) {
     log(`ファイル処理エラー: ${error.message}`);
     console.error(error);
+  }
+}
+
+// Git処理を実行する関数
+async function handleGitProcess(componentPath, blogPostPath, title) {
+  try {
+    // Gitのロックファイルをクリーンアップ
+    cleanupGitLock();
+    
+    // 変更をステージング
+    await safeExec(`${CONFIG.gitPath} add "${componentPath}" "${blogPostPath}"`);
+    log('ファイルをGitにステージングしました');
+    
+    // コミット
+    await safeExec(`${CONFIG.gitPath} commit -m "記事の自動生成: ${title}"`);
+    log('変更をコミットしました');
+    
+    // プル
+    await safeExec(`${CONFIG.gitPath} pull --rebase origin main`);
+    log('リモートの変更を取得しました');
+    
+    // プッシュ
+    await safeExec(`${CONFIG.gitPath} push origin main`);
+    log('変更をプッシュしました');
+    
+  } catch (error) {
+    log(`Git処理中のエラー: ${error.message}`);
+    throw error;
   }
 }
 
