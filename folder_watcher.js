@@ -15,45 +15,41 @@
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
-const chokidar = require('chokidar'); // npm install chokidar
+const util = require('util');
+const execPromise = util.promisify(exec);
+const chokidar = require('chokidar');
 
 // .env.localがあれば読み込む
 try {
-  const dotenv = require('dotenv');
-  dotenv.config({ path: '.env.local' });
+  require('dotenv').config({ path: '.env.local' });
 } catch (e) {
-  console.log('dotenvモジュールが見つからないか、.env.localファイルがありません');
+  console.log('dotenv not installed or .env.local not found');
 }
+
+// ログファイル
+const LOG_FILE = './upload_log.txt';
 
 // 設定
 const CONFIG = {
-  watchFolder: path.join(__dirname, 'articles'),
-  componentsFolder: path.join(__dirname, 'components'),
-  blogFolder: path.join(__dirname, 'app', 'blog'),
-  processedList: path.join(__dirname, 'processed_files.txt'),
-  logFile: path.join(__dirname, 'upload_log.txt'),
-  // Gitコマンドのパスを設定 (.env.localから読み込みまたはデフォルト値)
-  gitPath: process.env.GIT_PATH || (process.platform === 'win32' 
-    ? 'C:\\Program Files\\Git\\cmd\\git.exe' // Windowsの一般的なGitパス
-    : 'git') // Linux/MacではPATHを利用
+  watchFolder: './articles',
+  componentsFolder: './components',
+  blogFolder: './app/blog',
+  processedList: './processed_files.txt',
+  gitPath: process.env.GIT_PATH || 'git'
 };
 
-// カテゴリー一覧
-const CATEGORIES = [
-  'ai-technology',
-  'ai-applications',
-  'ai-news'
-];
+// カテゴリリスト
+const CATEGORIES = ['ai-news', 'ai-technology', 'projects', 'nvidia-gtc-2025-report'];
 
-// メタデータの正規表現パターン
+// メタデータのパターン
 const META_PATTERNS = {
-  title: /\/\/\s*title:\s*(.*?)(\r?\n|\r|$)/,
-  date: /\/\/\s*date:\s*(.*?)(\r?\n|\r|$)/,
-  author: /\/\/\s*author:\s*(.*?)(\r?\n|\r|$)/,
-  tags: /\/\/\s*tags:\s*(.*?)(\r?\n|\r|$)/,
-  category: /\/\/\s*category:\s*(.*?)(\r?\n|\r|$)/,
-  featured: /\/\/\s*featured:\s*(.*?)(\r?\n|\r|$)/,
-  coverImage: /\/\/\s*coverImage:\s*(.*?)(\r?\n|\r|$)/
+  title: /\/\/\s*title:\s*(.+)/,
+  category: /\/\/\s*category:\s*(.+)/,
+  date: /\/\/\s*date:\s*(.+)/,
+  coverImage: /\/\/\s*coverImage:\s*(.+)/,
+  description: /\/\/\s*description:\s*(.+)/,
+  tags: /\/\/\s*tags:\s*(.+)/,
+  author: /\/\/\s*author:\s*(.+)/
 };
 
 // ログ出力関数
@@ -61,10 +57,15 @@ function log(message) {
   const timestamp = new Date().toISOString();
   const logMessage = `[${timestamp}] ${message}`;
   console.log(logMessage);
-  fs.appendFileSync(CONFIG.logFile, logMessage + '\n');
+  
+  try {
+    fs.appendFileSync(LOG_FILE, logMessage + '\n');
+  } catch (error) {
+    console.error(`ログファイルへの書き込みエラー: ${error.message}`);
+  }
 }
 
-// ファイルが処理済みかチェックする関数
+// 処理済みファイルかどうかをチェック
 function isFileProcessed(fileName) {
   try {
     if (!fs.existsSync(CONFIG.processedList)) {
@@ -72,30 +73,14 @@ function isFileProcessed(fileName) {
     }
     
     const content = fs.readFileSync(CONFIG.processedList, 'utf8');
-    const lines = content.split('\n');
-    
-    // 各行をチェック
-    for (const line of lines) {
-      // コメント行をスキップ
-      if (line.startsWith('#') || line.trim() === '') {
-        continue;
-      }
-      
-      // ファイル名がカンマで区切られた最初のフィールド
-      const fields = line.split(',');
-      if (fields.length > 0 && fields[0].trim() === fileName) {
-        return true;
-      }
-    }
-    
-    return false;
+    return content.includes(fileName + ',');
   } catch (error) {
     log(`処理済みチェックエラー: ${error.message}`);
     return false;
   }
 }
 
-// 処理済みリストにファイルを追加する関数
+// 処理済みリストに追加
 function addToProcessedList(fileName, title, slug, date) {
   try {
     const timestamp = new Date().toISOString();
@@ -180,8 +165,8 @@ function extractCategory(content, filePath) {
   }
   
   // デフォルトカテゴリ
-  log(`カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-news"`);
-  return 'ai-news';
+  log(`カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"`);
+  return 'ai-technology';
 }
 
 // タグを抽出する関数
@@ -261,7 +246,9 @@ function extractCoverImage(content) {
 async function safeExec(command) {
   try {
     const { stdout, stderr } = await execPromise(command);
-    if (stderr) log(`警告: ${stderr}`);
+    if (stderr && stderr.trim() !== '') {
+      log(`警告: ${stderr}`);
+    }
     return stdout;
   } catch (error) {
     log(`コマンド実行エラー: ${error.message}`);
@@ -273,20 +260,30 @@ async function safeExec(command) {
 function cleanupGitLock() {
   const lockFile = path.join(process.cwd(), '.git', 'index.lock');
   if (fs.existsSync(lockFile)) {
-    fs.unlinkSync(lockFile);
-    log('Gitのロックファイルを削除しました');
+    try {
+      fs.unlinkSync(lockFile);
+      log('Gitのロックファイルを削除しました');
+    } catch (err) {
+      log(`ロックファイル削除中にエラー: ${err.message}`);
+    }
   }
 }
 
 // コンポーネントファイルを生成する関数
 function generateComponent(title, content) {
+  // 空のタイトルをチェック
+  if (!title || title.trim() === '') {
+    title = 'DefaultArticle';
+    log(`警告: 空のコンポーネント名が検出されました。デフォルト名を使用します: "${title}"`);
+  }
+  
   // 記事の内容からコンポーネントを抽出
   const articleMatch = content.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
   const articleContent = articleMatch ? articleMatch[1] : `<h1>${title}</h1>`;
 
   return `import React from 'react';
 
-export function ${title}() {
+export default function ${title}() {
   return (
     <article className="prose prose-slate max-w-none">
       ${articleContent}
@@ -299,17 +296,18 @@ export function ${title}() {
 // ブログポストを生成する関数
 function generateBlogPost(title, componentName, category, date, description, coverImage = null) {
   return `import type { Metadata } from "next"
-import { ${componentName} } from "@/components/${componentName}"
-import { generateArticleMetadata } from "@/lib/metadata-utils"
+import ${componentName} from "@/components/${componentName}"
 
 // メタデータ
-export const metadata: Metadata = generateArticleMetadata({
+export const metadata: Metadata = {
   title: "${title}",
   description: "${description || `${title}に関する詳細記事`}",
-  ogImage: "${coverImage || '/placeholder.svg?height=600&width=800'}",
-  category: "${category}",
-  publishedTime: "${date}",
-})
+  openGraph: {
+    title: "${title}",
+    description: "${description || `${title}に関する詳細記事`}",
+    images: [{ url: "${coverImage || '/placeholder.svg?height=600&width=800'}" }],
+  },
+}
 
 export default function BlogPost() {
   return <${componentName} />
@@ -344,15 +342,17 @@ function extractMetadata(content, fileName) {
   }
 
   // フォールバック値を設定
-  if (!metadata.title) {
-    metadata.title = path.parse(fileName).name
+  if (!metadata.title || metadata.title.trim() === '') {
+    const baseName = path.parse(fileName).name;
+    metadata.title = baseName
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
+    log(`タイトルが見つからないため、ファイル名から生成: "${metadata.title}"`);
   }
   
   if (!metadata.category) {
-    metadata.category = 'ai-news';
+    metadata.category = 'ai-technology';
   }
   
   if (!metadata.date) {
@@ -360,6 +360,28 @@ function extractMetadata(content, fileName) {
   }
 
   return metadata;
+}
+
+// コンポーネント名とスラグ生成を改善
+function generateNameAndSlug(title) {
+  // 無効な文字を除去し、スペースとハイフンを処理
+  const safeTitle = (title || "DefaultArticle").trim();
+  
+  // コンポーネント名をパスカルケースで生成
+  const componentName = safeTitle
+    .replace(/[^\w\s-]/g, '')
+    .split(/[-\s]+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
+  
+  // スラグをケバブケースで生成
+  const slug = safeTitle
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+  
+  return { componentName, slug };
 }
 
 // ファイル処理を実行する関数
@@ -379,19 +401,16 @@ async function processFile(filePath) {
     // メタデータを抽出
     const metadata = extractMetadata(content, fileName);
     
-    // コンポーネント名を生成（キャメルケース）
-    const componentName = metadata.title
-      .replace(/[^\w\s-]/g, '')
-      .split(/[-\s]+/)
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join('');
+    // コンポーネント名とスラグを生成
+    const { componentName, slug } = generateNameAndSlug(metadata.title);
     
-    // スラグを生成（ケバブケース）
-    const slug = metadata.title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-');
+    // 処理状況をログ
+    log(`タイトル: "${metadata.title}"`);
+    log(`カテゴリ: "${metadata.category}"`);
+    log(`日付: "${metadata.date}"`);
+    log(`アイキャッチ画像: "${metadata.coverImage || '/placeholder.svg?height=600&width=800'}"`);
+    log(`コンポーネント名: "${componentName}"`);
+    log(`スラグ: "${slug}"`);
     
     // 必要なディレクトリを作成
     const blogDir = path.join(CONFIG.blogFolder, metadata.category, slug);
@@ -429,48 +448,58 @@ async function processFile(filePath) {
   }
 }
 
-// Git処理を実行する関数
+// Git処理を実行する関数 - 完全に書き換え
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
     log('Git処理を開始します...');
     cleanupGitLock(); // ロックファイル削除
 
-    // 1. ステージング (生成されたファイル)
+    // 1. 生成したファイルをステージング
     log('生成されたファイルをステージングします...');
     await safeExec(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
     log('生成ファイルをGitにステージングしました');
 
-    // 2. コミット (生成されたファイル)
+    // 2. 生成したファイルをコミット
     log('生成されたファイルの変更をコミットします...');
     const escapedTitle = title.replace(/"/g, '\\"');
     await safeExec(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
     log('生成ファイルの変更をコミットしました');
 
-    // 3. 未ステージング/未追跡の変更を確認し、あればコミット
-    log('その他の未ステージング/未追跡の変更を確認します...');
+    // 3. その他の変更も全てコミット
+    log('その他の変更を確認します...');
     const statusOutput = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
     if (statusOutput.trim() !== '') {
-      log('その他の変更が見つかりました。全てステージングしてコミットします...');
-      await safeExec(`"${CONFIG.gitPath}" add .`); // 全ての変更をステージング
-      // コミットメッセージにタイムスタンプを追加して、空コミットを防ぎつつ毎回コミットできるようにする
+      log('その他の変更が見つかりました。全てコミットします...');
+      await safeExec(`"${CONFIG.gitPath}" add .`);
       const timestamp = new Date().toISOString();
-      await safeExec(`"${CONFIG.gitPath}" commit -m "Sync: 自動コミット ${timestamp}" --allow-empty`); // 変更があればコミット
-      log('その他の変更をコミットしました');
-      cleanupGitLock(); // コミット後にロックが残る可能性
+      await safeExec(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
+      log('全ての変更をコミットしました');
     } else {
-      log('その他の未ステージング/未追跡の変更はありませんでした');
+      log('その他の未コミットの変更はありませんでした');
     }
-
-    // 4. プル
-    log('リモートの変更を取得します (pull --rebase)...');
-    await safeExec(`"${CONFIG.gitPath}" pull --rebase origin main`);
-    log('リモートの変更を取得しました');
-    cleanupGitLock();
-
-    // 5. プッシュ
+    
+    // 4. プッシュ
     log('変更をリモートにプッシュします...');
     await safeExec(`"${CONFIG.gitPath}" push origin main`);
     log('変更をプッシュしました');
+    
+    // 5. Vercelデプロイをトリガー（設定されている場合）
+    if (process.env.VERCEL_DEPLOY_HOOK) {
+      log('Vercelデプロイをトリガーします...');
+      try {
+        const { exec } = require('child_process');
+        exec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`, (error, stdout, stderr) => {
+          if (error) {
+            log(`Vercelデプロイトリガーエラー: ${error.message}`);
+            return;
+          }
+          log('Vercelデプロイをトリガーしました');
+        });
+      } catch (error) {
+        log(`Vercelデプロイトリガー実行エラー: ${error.message}`);
+      }
+    }
+    
     log('Git処理が正常に完了しました');
 
   } catch (error) {
@@ -484,7 +513,7 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
 function execCommand(command) {
   return new Promise((resolve, reject) => {
     log(`コマンド実行: ${command}`);
-    exec(command, { cwd: __dirname }, (error, stdout, stderr) => {
+    exec(command, { cwd: process.cwd() }, (error, stdout, stderr) => {
       if (stdout) log(`コマンド出力: ${stdout}`);
       if (stderr) log(`コマンドエラー出力: ${stderr}`);
       
@@ -521,40 +550,59 @@ CATEGORIES.forEach(category => {
   }
 });
 
-if (allTsxFiles.length > 0) {
-  log(`${allTsxFiles.length}個の既存TSXファイルが見つかりました`);
-  Promise.all(allTsxFiles.map(processFile))
-    .then(() => log('既存ファイルの処理が完了しました'))
-    .catch(err => log(`既存ファイル処理中にエラー: ${err.message}`));
-} else {
-  log('処理すべき既存のTSXファイルはありません');
-}
+log(`${allTsxFiles.length}個の既存TSXファイルが見つかりました`);
 
-// フォルダ監視を開始
-log(`フォルダ監視を開始します: ${CONFIG.watchFolder} (カテゴリフォルダも含む)`);
-const watcher = chokidar.watch([
-  `${CONFIG.watchFolder}/*.tsx`,
-  ...CATEGORIES.map(category => `${CONFIG.watchFolder}/${category}/*.tsx`)
-], {
+// 既存ファイルを処理
+allTsxFiles.forEach(filePath => {
+  const fileName = path.basename(filePath);
+  
+  if (isFileProcessed(fileName)) {
+    log(`ファイル ${fileName} は既に処理済みです`);
+  } else {
+    // 非同期処理を開始
+    processFile(filePath)
+      .then(result => {
+        if (result) {
+          log(`ファイル処理成功: タイトル="${result.title}", スラグ="${result.slug}"`);
+        }
+      })
+      .catch(error => {
+        log(`ファイル処理中にエラー: ${error.message}`);
+      });
+  }
+});
+
+// 新しいファイルの監視を開始
+const watchOptions = {
   persistent: true,
-  ignoreInitial: true // 既存ファイルは別途処理するので無視
-});
+  ignoreInitial: true,
+  awaitWriteFinish: {
+    stabilityThreshold: 2000,
+    pollInterval: 100
+  }
+};
 
-// 新しいファイルのイベントハンドラ
-watcher.on('add', filePath => {
-  log(`新しいファイルを検出しました: ${filePath}`);
-  processFile(filePath)
-    .then(result => {
-      if (result) {
-        log(`ファイル処理成功: タイトル="${result.title}", スラグ="${result.slug}"`);
-      }
-    })
-    .catch(err => log(`ファイル処理エラー: ${err.message}`));
-});
+const watcher = chokidar.watch([
+  `${CONFIG.watchFolder}/**/*.tsx`,
+  `${CONFIG.watchFolder}/*.tsx`
+], watchOptions);
 
-// エラーハンドリング
-watcher.on('error', error => {
-  log(`監視エラー: ${error}`);
-});
+log(`フォルダ監視を開始します: ${CONFIG.watchFolder} (カテゴリフォルダも含む)`);
+
+watcher
+  .on('add', async (filePath) => {
+    log(`新しいファイルを検出しました: ${filePath}`);
+    try {
+      await processFile(filePath);
+    } catch (error) {
+      log(`ファイル処理エラー: ${error.message}`);
+    }
+  })
+  .on('error', error => log(`監視エラー: ${error.message}`));
 
 log('監視中... Ctrl+C で終了');
+
+// 処理完了をログに記録
+setTimeout(() => {
+  log('既存ファイルの処理が完了しました');
+}, 1000);
