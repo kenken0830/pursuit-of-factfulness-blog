@@ -402,3 +402,147 @@ operable program or batch file.
 'git' is not recognized as an internal or external command,
 operable program or batch file.
 
+[2025-04-06T14:44:24.236Z] 既存ファイルの確認を開始します...
+[2025-04-06T14:44:24.241Z] 7個の既存TSXファイルが見つかりました
+[2025-04-06T14:44:24.243Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-06T14:44:24.244Z] メタデータからタイトルを抽出しました: "テスト記事：自動デプロイの確認"
+[2025-04-06T14:44:24.245Z] タイトルを抽出しました: "テスト記事：自動デプロイの確認"
+[2025-04-06T14:44:24.246Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T14:44:24.247Z] カテゴリ: "ai-news"
+[2025-04-06T14:44:24.249Z] 日付が見つかりません。現在の日付を使用: "2025-04-06"
+[2025-04-06T14:44:24.250Z] 日付: "2025-04-06"
+[2025-04-06T14:44:24.253Z] メタデータからアイキャッチ画像を抽出しました: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.254Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.257Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\TestArticleDeploy.tsx
+[2025-04-06T14:44:24.260Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\test-article-deploy\page.tsx
+[2025-04-06T14:44:24.261Z] コマンド実行: git add "D:\NvidiaGTCProject\components\TestArticleDeploy.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\test-article-deploy\page.tsx"
+[2025-04-06T14:44:24.262Z] コマンド実行: git add "D:\NvidiaGTCProject\components\TestArticleDeploy.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\test-article-deploy\page.tsx"
+[2025-04-06T14:44:24.276Z] メタデータからタイトルを抽出しました: "AI技術記事のテンプレート"
+[2025-04-06T14:44:24.277Z] タイトルを抽出しました: "AI技術記事のテンプレート"
+[2025-04-06T14:44:24.278Z] メタデータからカテゴリを抽出しました: "ai-technology"
+[2025-04-06T14:44:24.279Z] カテゴリ: "ai-technology"
+[2025-04-06T14:44:24.280Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T14:44:24.281Z] 日付: "2025-03-31"
+[2025-04-06T14:44:24.283Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T14:44:24.284Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.286Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\ArticleTemplate.tsx
+[2025-04-06T14:44:24.289Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx
+[2025-04-06T14:44:24.289Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+[2025-04-06T14:44:24.291Z] コマンド実行: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+[2025-04-06T14:44:24.302Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-06T14:44:24.303Z] メタデータからタイトルを抽出しました: "自動デプロイテスト：GitとVercel連携の検証"
+[2025-04-06T14:44:24.305Z] タイトルを抽出しました: "自動デプロイテスト：GitとVercel連携の検証"
+[2025-04-06T14:44:24.306Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T14:44:24.307Z] カテゴリ: "ai-news"
+[2025-04-06T14:44:24.308Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T14:44:24.309Z] 日付: "2025-03-31"
+[2025-04-06T14:44:24.309Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T14:44:24.310Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.312Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoDeployTest.tsx
+[2025-04-06T14:44:24.314Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx
+[2025-04-06T14:44:24.315Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+[2025-04-06T14:44:24.316Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+[2025-04-06T14:44:24.327Z] メタデータからタイトルを抽出しました: "自動監視システム動作テスト記事３"
+[2025-04-06T14:44:24.328Z] タイトルを抽出しました: "自動監視システム動作テスト記事３"
+[2025-04-06T14:44:24.329Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T14:44:24.330Z] カテゴリ: "ai-news"
+[2025-04-06T14:44:24.331Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T14:44:24.332Z] 日付: "2025-03-31"
+[2025-04-06T14:44:24.333Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T14:44:24.334Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.335Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoTestArticle3.tsx
+[2025-04-06T14:44:24.337Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx
+[2025-04-06T14:44:24.338Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+[2025-04-06T14:44:24.339Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+[2025-04-06T14:44:24.350Z] メタデータからタイトルを抽出しました: "自動アップロードテスト記事２：完全自動化システムの検証"
+[2025-04-06T14:44:24.351Z] タイトルを抽出しました: "自動アップロードテスト記事２：完全自動化システムの検証"
+[2025-04-06T14:44:24.352Z] メタデータからカテゴリを抽出しました: "ai-news"
+[2025-04-06T14:44:24.353Z] カテゴリ: "ai-news"
+[2025-04-06T14:44:24.354Z] メタデータから日付を抽出しました: "2025-03-31"
+[2025-04-06T14:44:24.354Z] 日付: "2025-03-31"
+[2025-04-06T14:44:24.355Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-06T14:44:24.356Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-06T14:44:24.358Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\AutoUploadTest2.tsx
+[2025-04-06T14:44:24.360Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx
+[2025-04-06T14:44:24.361Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+[2025-04-06T14:44:24.362Z] コマンド実行: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+[2025-04-06T14:44:24.373Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-06T14:44:24.379Z] 監視中... Ctrl+C で終了
+[2025-04-06T14:44:24.386Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.387Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.388Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoUploadTest2.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-upload-test-2\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.390Z] ファイル auto-upload-test-2.tsx を処理済みリストに追加しました
+[2025-04-06T14:44:24.390Z] ファイル auto-upload-test-2.tsx の処理が完了しました！
+[2025-04-06T14:44:24.392Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.393Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.394Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoTestArticle3.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-test-article3\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.396Z] ファイル auto-test-article3.tsx を処理済みリストに追加しました
+[2025-04-06T14:44:24.396Z] ファイル auto-test-article3.tsx の処理が完了しました！
+[2025-04-06T14:44:24.397Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.398Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.399Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\AutoDeployTest.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\auto-deploy-test\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.401Z] ファイル auto-deploy-test.tsx を処理済みリストに追加しました
+[2025-04-06T14:44:24.402Z] ファイル auto-deploy-test.tsx の処理が完了しました！
+[2025-04-06T14:44:24.403Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.404Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.405Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\ArticleTemplate.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\article-template\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.406Z] ファイル article-template.tsx を処理済みリストに追加しました
+[2025-04-06T14:44:24.407Z] ファイル article-template.tsx の処理が完了しました！
+[2025-04-06T14:44:24.408Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.409Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\TestArticleDeploy.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\test-article-deploy\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.410Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\TestArticleDeploy.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\test-article-deploy\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-06T14:44:24.412Z] ファイル test-article-deploy.tsx を処理済みリストに追加しました
+[2025-04-06T14:44:24.412Z] ファイル test-article-deploy.tsx の処理が完了しました！
+[2025-04-06T14:44:24.413Z] 既存ファイルの処理が完了しました
+[2025-04-06T15:26:35.239Z] 既存ファイルの確認を開始します...
+[2025-04-06T15:26:35.689Z] 7個の既存TSXファイルが見つかりました
+[2025-04-06T15:26:36.197Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:36.768Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.159Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.394Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.432Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.450Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.458Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-06T15:26:37.548Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-06T15:26:37.568Z] 監視中... Ctrl+C で終了
+[2025-04-06T15:26:37.578Z] 既存ファイルの処理が完了しました

@@ -3,3 +3,8 @@
 
 page.tsx,次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法,page,2025-03-31T06:23:45.584Z
 think-tool-integration.tsx,次世代AIの"Think"ツール導入で業務効率と信頼性を劇的向上させる方法,think-tool-integration,2025-03-31T06:44:41.660Z
+auto-upload-test-2.tsx,自動アップロードテスト記事２：完全自動化システムの検証,auto-upload-test-2,2025-04-06T14:44:24.389Z
+auto-test-article3.tsx,自動監視システム動作テスト記事３,auto-test-article3,2025-04-06T14:44:24.395Z
+auto-deploy-test.tsx,自動デプロイテスト：GitとVercel連携の検証,auto-deploy-test,2025-04-06T14:44:24.400Z
+article-template.tsx,AI技術記事のテンプレート,article-template,2025-04-06T14:44:24.406Z
+test-article-deploy.tsx,テスト記事：自動デプロイの確認,test-article-deploy,2025-04-06T14:44:24.411Z

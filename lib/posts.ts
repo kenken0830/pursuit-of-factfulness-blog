@@ -19,9 +19,13 @@ export interface Post {
 // GitHub API を使って動的にブログ記事を取得
 export async function fetchDynamicPosts(): Promise<Post[]> {
   try {
-    // GitHubからブログディレクトリの一覧を取得
+    // GitHubからブログディレクトリの一覧を取得する方法
+    // 注意: この方法はGitHubのAPIレート制限があるため本番環境では注意
     const response = await fetch('https://api.github.com/repos/kenken0830/pursuit-of-factfulness-blog/contents/app/blog');
-    if (!response.ok) return [];
+    if (!response.ok) {
+      console.warn('GitHub APIからの取得に失敗しました。ファイルシステムから検出を試みます。');
+      return await fetchDynamicPostsFromFilesystem();
+    }
     
     const data = await response.json();
     
@@ -30,6 +34,8 @@ export async function fetchDynamicPosts(): Promise<Post[]> {
       item.type === 'dir' && 
       item.name !== 'api' && 
       item.name !== 'components' &&
+      item.name !== '[slug]' &&
+      item.name !== 'page' &&
       !posts.some(post => post.slug === item.name) // 既存の記事と重複排除
     );
     
@@ -46,6 +52,14 @@ export async function fetchDynamicPosts(): Promise<Post[]> {
       now.setDate(now.getDate() - randomDaysAgo);
       const date = now.toISOString().split('T')[0];
       
+      // カテゴリを決定
+      let category = "ai-technology"; // デフォルト
+      if (slug.includes('news') || dir.path.includes('ai-news')) {
+        category = "ai-news";
+      } else if (slug.includes('app') || dir.path.includes('ai-applications')) {
+        category = "ai-applications";
+      }
+      
       return {
         slug,
         title,
@@ -56,8 +70,8 @@ export async function fetchDynamicPosts(): Promise<Post[]> {
         coverImage: `/images/blog/default-cover.jpg`,
         tags: ["AI", "自動生成"],
         readingTime: 5,
-        featured: true, // 動的に検出した記事は優先表示
-        category: "ai-technology",
+        featured: false, // 動的に検出した記事はデフォルトで非特集
+        category,
         type: 'dynamic'
       };
     });
@@ -65,6 +79,178 @@ export async function fetchDynamicPosts(): Promise<Post[]> {
     return dynamicPosts;
   } catch (error) {
     console.error('動的記事の取得に失敗:', error);
+    // ファイルシステムからの検出にフォールバック
+    return await fetchDynamicPostsFromFilesystem();
+  }
+}
+
+// ファイルシステムから動的に記事を検出
+export async function fetchDynamicPostsFromFilesystem(): Promise<Post[]> {
+  try {
+    // ブラウザ環境では動作しないため、サーバーサイドでのみ実行
+    if (typeof window !== 'undefined') {
+      return [];
+    }
+
+    const fs = require('fs');
+    const path = require('path');
+    
+    // app/blog ディレクトリのパス
+    const blogDirPath = path.join(process.cwd(), 'app', 'blog');
+    
+    // カテゴリディレクトリを取得
+    const categories = ['ai-technology', 'ai-applications', 'ai-news'];
+    const dynamicPosts: Post[] = [];
+    
+    // 各カテゴリフォルダ内の記事ディレクトリを探索
+    for (const category of categories) {
+      const categoryPath = path.join(blogDirPath, category);
+      
+      // カテゴリディレクトリが存在するか確認
+      if (!fs.existsSync(categoryPath)) {
+        continue;
+      }
+      
+      // カテゴリ内のディレクトリを取得
+      const articleDirs = fs.readdirSync(categoryPath, { withFileTypes: true })
+        .filter((dirent: { isDirectory: () => boolean }) => dirent.isDirectory())
+        .map((dirent: { name: string }) => dirent.name);
+      
+      // 既存の記事と重複排除
+      const filteredDirs = articleDirs.filter((dir: string) => 
+        !posts.some(post => post.slug === dir) &&
+        dir !== 'api' && 
+        dir !== 'components' &&
+        dir !== '[slug]' &&
+        dir !== 'page'
+      );
+      
+      // 各記事ディレクトリに対応するポストを作成
+      for (const dir of filteredDirs) {
+        const slug = dir;
+        const pagePath = path.join(categoryPath, dir, 'page.tsx');
+        
+        // page.tsxが存在するか確認
+        if (!fs.existsSync(pagePath)) {
+          continue;
+        }
+        
+        // ファイルの内容を読み込む
+        const content = fs.readFileSync(pagePath, 'utf8');
+        
+        // メタデータを抽出
+        const titleMatch = content.match(/title:\s*"([^"]+)"/);
+        const descriptionMatch = content.match(/description:\s*"([^"]+)"/);
+        const coverImageMatch = content.match(/ogImage:\s*"([^"]+)"/);
+        
+        // タイトルを決定
+        const title = titleMatch && titleMatch[1] 
+          ? titleMatch[1] 
+          : slug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+        
+        // ページが最後に更新された日時を取得
+        const stats = fs.statSync(pagePath);
+        const date = new Date(stats.mtime).toISOString().split('T')[0];
+        
+        dynamicPosts.push({
+          slug,
+          title,
+          date,
+          author: "AI Team",
+          excerpt: descriptionMatch && descriptionMatch[1] 
+            ? descriptionMatch[1] 
+            : `${title}の詳細レポートです。`,
+          content: "コンテンツはページで直接レンダリングされます。",
+          coverImage: coverImageMatch && coverImageMatch[1]
+            ? coverImageMatch[1]
+            : "/placeholder.svg?height=600&width=800",
+          tags: ["AI", category.replace('ai-', '').charAt(0).toUpperCase() + category.replace('ai-', '').slice(1)],
+          readingTime: 5,
+          featured: false,
+          category,
+          type: 'dynamic'
+        });
+      }
+    }
+    
+    // コンポーネントのチェック
+    try {
+      const componentsDir = path.join(process.cwd(), 'components');
+      const componentFiles = fs.readdirSync(componentsDir)
+        .filter((file: string) => file.endsWith('.tsx') && !file.startsWith('ui-') && !file.includes('theme-'));
+      
+      // 既存の記事と重複排除
+      for (const file of componentFiles) {
+        const componentName = file.replace('.tsx', '');
+        const slug = componentName
+          .replace(/([A-Z])/g, '-$1')
+          .toLowerCase()
+          .replace(/^-/, '');
+        
+        // 既に追加済みか確認
+        if (dynamicPosts.some(post => post.slug === slug) || posts.some(post => post.slug === slug)) {
+          continue;
+        }
+        
+        // コンポーネントファイルを読み込む
+        const content = fs.readFileSync(path.join(componentsDir, file), 'utf8');
+        
+        // h1タグからタイトルを抽出
+        const h1Match = content.match(/<h1[^>]*>(.*?)<\/h1>/);
+        const titleCommentMatch = content.match(/\/\/\s*title:\s*(.*?)(\r?\n|\r|$)/);
+        
+        // タイトルを決定
+        let title = componentName.replace(/([A-Z])/g, ' $1').trim();
+        if (titleCommentMatch && titleCommentMatch[1]) {
+          title = titleCommentMatch[1].trim();
+        } else if (h1Match && h1Match[1]) {
+          // HTMLタグを除去
+          title = h1Match[1].replace(/<[^>]*>/g, '').trim();
+        }
+        
+        // カテゴリを抽出
+        const categoryMatch = content.match(/\/\/\s*category:\s*(.*?)(\r?\n|\r|$)/);
+        let category = "ai-technology"; // デフォルト
+        if (categoryMatch && categoryMatch[1]) {
+          category = categoryMatch[1].trim();
+        } else if (file.toLowerCase().includes('news')) {
+          category = "ai-news";
+        } else if (file.toLowerCase().includes('app')) {
+          category = "ai-applications";
+        }
+        
+        // coverImageを抽出
+        const coverImageMatch = content.match(/\/\/\s*coverImage:\s*(.*?)(\r?\n|\r|$)/);
+        const coverImage = coverImageMatch && coverImageMatch[1]
+          ? coverImageMatch[1].trim()
+          : "/placeholder.svg?height=600&width=800";
+        
+        // 更新日を取得
+        const stats = fs.statSync(path.join(componentsDir, file));
+        const date = new Date(stats.mtime).toISOString().split('T')[0];
+        
+        dynamicPosts.push({
+          slug,
+          title,
+          date,
+          author: "AI Team",
+          excerpt: `${title}の詳細レポートです。`,
+          content: "コンテンツはページで直接レンダリングされます。",
+          coverImage,
+          tags: ["AI", category.replace('ai-', '').charAt(0).toUpperCase() + category.replace('ai-', '').slice(1)],
+          readingTime: 5,
+          featured: false,
+          category,
+          type: 'dynamic'
+        });
+      }
+    } catch (error) {
+      console.error('コンポーネント検出エラー:', error);
+    }
+    
+    return dynamicPosts;
+  } catch (error) {
+    console.error('ファイルシステムからの記事検出エラー:', error);
     return [];
   }
 }
@@ -651,7 +837,7 @@ export async function getAllPostsWithDynamic(): Promise<Post[]> {
     return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     console.error('記事の取得エラー:', error);
-    return getAllPosts(); // エラー時は静的データのみ返す
+    return posts; // 静的なデータにフォールバック
   }
 }
 
@@ -664,23 +850,14 @@ export async function getFeaturedPostsWithDynamic(count = 3): Promise<Post[]> {
   try {
     const allPosts = await getAllPostsWithDynamic();
     
-    // 特集記事または最新記事を取得
-    const featured = allPosts.filter((post) => post.featured);
-    const sorted = [...featured].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // featured属性を持つ記事を抽出
+    const featuredPosts = allPosts.filter(post => post.featured === true);
     
-    if (sorted.length >= count) {
-      return sorted.slice(0, count);
-    }
-    
-    // 特集記事が足りない場合は非特集記事も追加
-    const nonFeatured = allPosts
-      .filter((post) => !post.featured)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    
-    return [...sorted, ...nonFeatured].slice(0, count);
+    // 必要な数だけ返す
+    return featuredPosts.slice(0, count);
   } catch (error) {
-    console.error('特集記事の取得エラー:', error);
-    return getFeaturedPosts(count); // エラー時は静的データのみ返す
+    console.error('特集記事の取得に失敗:', error);
+    return getFeaturedPosts(count); // 静的なデータにフォールバック
   }
 }
 
@@ -714,7 +891,7 @@ export function getPostsByTag(tag: string): Post[] {
 export function getRelatedPosts(post: Post, count = 3): Post[] {
   // Get posts with similar tags or category
   const relatedByTags = posts.filter(
-    (p) => p.slug !== post.slug && p.tags && post.tags && p.tags.some((tag) => post.tags.includes(tag)),
+    (p) => p.slug !== post.slug && p.tags && post.tags && p.tags.some((tag) => post.tags?.includes(tag)),
   )
 
   const relatedByCategory = posts.filter(
@@ -727,4 +904,48 @@ export function getRelatedPosts(post: Post, count = 3): Post[] {
   )
 
   return related.slice(0, count)
+}
+
+export async function getPostBySlugWithDynamic(slug: string): Promise<Post | undefined> {
+  try {
+    const allPosts = await getAllPostsWithDynamic();
+    
+    // 指定されたスラグの記事を検索
+    return allPosts.find(post => post.slug === slug);
+  } catch (error) {
+    console.error(`スラグ '${slug}' の記事の取得に失敗:`, error);
+    return getPostBySlug(slug); // 静的なデータにフォールバック
+  }
+}
+
+export async function getPostsByCategoryWithDynamic(category: string): Promise<Post[]> {
+  try {
+    const allPosts = await getAllPostsWithDynamic();
+    
+    // 指定されたカテゴリの記事を抽出
+    return allPosts.filter(post => post.category === category);
+  } catch (error) {
+    console.error(`カテゴリ '${category}' の記事の取得に失敗:`, error);
+    return getPostsByCategory(category); // 静的なデータにフォールバック
+  }
+}
+
+export async function getPostsByTagWithDynamic(tag: string): Promise<Post[]> {
+  try {
+    const allPosts = await getAllPostsWithDynamic();
+    
+    // 指定されたタグを持つ記事を抽出
+    return allPosts.filter(post => 
+      post.tags && Array.isArray(post.tags) && post.tags.includes(tag)
+    );
+  } catch (error) {
+    console.error(`タグ '${tag}' の記事の取得に失敗:`, error);
+    return getPostsByTag(tag); // 静的なデータにフォールバック
+  }
+}
+
+// カテゴリによる記事の取得
+export function getPostsByCategory(category: string): Post[] {
+  // 静的な記事からカテゴリに一致するものを返す
+  return posts.filter(post => post.category === category);
 }

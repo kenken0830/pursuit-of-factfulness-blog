@@ -124,3 +124,40 @@ export function generateArticleSchema({
     },
   };
 }
+
+// メタデータを生成するユーティリティ関数
+export function getMetadata({
+  title,
+  description,
+  ogImage,
+  path,
+}: {
+  title: string
+  description: string
+  ogImage: string
+  path: string
+}): Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    metadataBase: new URL("https://your-domain.com"),
+    alternates: {
+      canonical: path,
+    },
+  }
+}
