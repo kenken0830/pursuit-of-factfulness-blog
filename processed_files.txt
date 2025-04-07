@@ -8,3 +8,12 @@ auto-test-article3.tsx,自動監視システム動作テスト記事３,auto-tes
 auto-deploy-test.tsx,自動デプロイテスト：GitとVercel連携の検証,auto-deploy-test,2025-04-06T14:44:24.400Z
 article-template.tsx,AI技術記事のテンプレート,article-template,2025-04-06T14:44:24.406Z
 test-article-deploy.tsx,テスト記事：自動デプロイの確認,test-article-deploy,2025-04-06T14:44:24.411Z
+test-auto-deploy-article.tsx,testAutoDeployArticle,test-auto-deploy-article,2025-04-07T08:07:18.007Z
+test-auto-deploy-article.tsx,testAutoDeployArticle,test-auto-deploy-article,2025-04-07T08:07:19.288Z
+new-test-article.tsx,newTestArticle,new-test-article,2025-04-07T08:14:22.537Z
+new-test-article.tsx,newTestArticle,new-test-article,2025-04-07T08:14:22.594Z
+new-test-article.tsx,newTestArticle,new-test-article,2025-04-07T08:14:23.873Z
+final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:33.663Z
+final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:33.728Z
+final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:33.729Z
+final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:35.006Z

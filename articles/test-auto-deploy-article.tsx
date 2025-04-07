@@ -1,6 +1,12 @@
+// title: 自動デプロイテスト記事
+// category: ai-news
+// tags: ["テスト", "自動化", "デプロイ"]
+// coverImage: /images/placeholder.jpg
+// date: 2025-04-07
+
 import React from 'react';
 
-export const TestAutoDeployArticle = () => {
+const TestAutoDeployArticle = () => {
   return (
     <div className="article-content">
       <h1>自動デプロイテスト記事</h1>
@@ -19,4 +25,6 @@ export const TestAutoDeployArticle = () => {
       <p>このシステムが正常に動作すれば、このテキストがウェブサイト上に表示されるはずです。</p>
     </div>
   );
-}; 
+};
+
+export default TestAutoDeployArticle; 

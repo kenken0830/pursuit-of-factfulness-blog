@@ -546,3 +546,417 @@ operable program or batch file.
 [2025-04-06T15:26:37.548Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
 [2025-04-06T15:26:37.568Z] 監視中... Ctrl+C で終了
 [2025-04-06T15:26:37.578Z] 既存ファイルの処理が完了しました
+[2025-04-07T07:38:35.163Z] 既存ファイルの確認を開始します...
+[2025-04-07T07:38:35.169Z] 7個の既存TSXファイルが見つかりました
+[2025-04-07T07:38:35.171Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.173Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.175Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.176Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.178Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.179Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.180Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-07T07:38:35.181Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T07:38:35.187Z] 監視中... Ctrl+C で終了
+[2025-04-07T07:38:35.189Z] 既存ファイルの処理が完了しました
+[2025-04-07T08:00:44.255Z] 既存ファイルの確認を開始します...
+[2025-04-07T08:00:44.261Z] 7個の既存TSXファイルが見つかりました
+[2025-04-07T08:00:44.262Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.264Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.265Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.266Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.267Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.268Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.269Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-07T08:00:44.270Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T08:00:44.277Z] 監視中... Ctrl+C で終了
+[2025-04-07T08:00:44.278Z] 既存ファイルの処理が完了しました
+[2025-04-07T08:07:17.954Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\test-auto-deploy-article.tsx
+[2025-04-07T08:07:17.954Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\test-auto-deploy-article.tsx
+[2025-04-07T08:07:17.956Z] タイトルが見つかりません。フォールバックタイトルを使用: "testAutoDeployArticle"
+[2025-04-07T08:07:17.956Z] タイトルが見つかりません。フォールバックタイトルを使用: "testAutoDeployArticle"
+[2025-04-07T08:07:17.958Z] タイトルを抽出しました: "testAutoDeployArticle"
+[2025-04-07T08:07:17.958Z] タイトルを抽出しました: "testAutoDeployArticle"
+[2025-04-07T08:07:17.959Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:07:17.960Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:07:17.961Z] カテゴリ: "ai-technology"
+[2025-04-07T08:07:17.962Z] カテゴリ: "ai-technology"
+[2025-04-07T08:07:17.963Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:07:17.963Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:07:17.964Z] 日付: "2025-04-07"
+[2025-04-07T08:07:17.965Z] 日付: "2025-04-07"
+[2025-04-07T08:07:17.966Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:07:17.967Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:07:17.967Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:07:17.968Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:07:17.970Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx
+[2025-04-07T08:07:17.972Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx
+[2025-04-07T08:07:17.974Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx
+[2025-04-07T08:07:17.975Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx
+[2025-04-07T08:07:17.975Z] コマンド実行: git add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+[2025-04-07T08:07:17.977Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+[2025-04-07T08:07:17.977Z] コマンド実行: git add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+[2025-04-07T08:07:17.978Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+[2025-04-07T08:07:18.003Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:07:18.004Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:07:18.005Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\TestAutoDeployArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\test-auto-deploy-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:07:18.008Z] ファイル test-auto-deploy-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:07:18.009Z] ファイル test-auto-deploy-article.tsx の処理が完了しました！
+[2025-04-07T08:07:18.010Z] ファイル処理成功: タイトル="testAutoDeployArticle", スラグ="test-auto-deploy-article"
+[2025-04-07T08:07:18.078Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/test-auto-deploy-article/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T08:07:18.080Z] ファイルをGitにステージングしました
+[2025-04-07T08:07:18.082Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe commit -m "Add new article: testAutoDeployArticle"
+[2025-04-07T08:07:18.083Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" commit -m "Add new article: testAutoDeployArticle"
+[2025-04-07T08:07:18.251Z] コマンド出力: [main 34df834] Add new article: testAutoDeployArticle
+ 2 files changed, 16 insertions(+)
+ create mode 100644 app/blog/ai-technology/test-auto-deploy-article/page.tsx
+ create mode 100644 components/TestAutoDeployArticle.tsx
+
+[2025-04-07T08:07:18.253Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" rev-parse --abbrev-ref HEAD
+[2025-04-07T08:07:18.324Z] コマンド出力: main
+
+[2025-04-07T08:07:18.326Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" fetch origin
+[2025-04-07T08:07:19.201Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+[2025-04-07T08:07:19.283Z] コマンドエラー出力: error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:07:19.285Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:07:19.286Z] Gitプッシュ中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:07:19.289Z] ファイル test-auto-deploy-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:07:19.290Z] ファイル test-auto-deploy-article.tsx の処理が完了しました！
+[2025-04-07T08:07:19.291Z] ファイル処理成功: タイトル="testAutoDeployArticle", スラグ="test-auto-deploy-article"
+[2025-04-07T08:07:35.844Z] 既存ファイルの確認を開始します...
+[2025-04-07T08:07:35.850Z] 8個の既存TSXファイルが見つかりました
+[2025-04-07T08:07:35.851Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.853Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.854Z] ファイル test-auto-deploy-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.855Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.857Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.858Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.861Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.863Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-07T08:07:35.864Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T08:07:35.869Z] 監視中... Ctrl+C で終了
+[2025-04-07T08:07:35.871Z] 既存ファイルの処理が完了しました
+[2025-04-07T08:14:22.478Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\new-test-article.tsx
+[2025-04-07T08:14:22.478Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\new-test-article.tsx
+[2025-04-07T08:14:22.478Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\new-test-article.tsx
+[2025-04-07T08:14:22.480Z] タイトルが見つかりません。フォールバックタイトルを使用: "newTestArticle"
+[2025-04-07T08:14:22.481Z] タイトルが見つかりません。フォールバックタイトルを使用: "newTestArticle"
+[2025-04-07T08:14:22.482Z] タイトルを抽出しました: "newTestArticle"
+[2025-04-07T08:14:22.481Z] タイトルが見つかりません。フォールバックタイトルを使用: "newTestArticle"
+[2025-04-07T08:14:22.482Z] タイトルを抽出しました: "newTestArticle"
+[2025-04-07T08:14:22.483Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:14:22.484Z] タイトルを抽出しました: "newTestArticle"
+[2025-04-07T08:14:22.486Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:14:22.486Z] カテゴリ: "ai-technology"
+[2025-04-07T08:14:22.486Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:14:22.488Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:14:22.487Z] カテゴリ: "ai-technology"
+[2025-04-07T08:14:22.488Z] カテゴリ: "ai-technology"
+[2025-04-07T08:14:22.489Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:14:22.489Z] 日付: "2025-04-07"
+[2025-04-07T08:14:22.490Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:14:22.491Z] 日付: "2025-04-07"
+[2025-04-07T08:14:22.491Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:14:22.491Z] 日付: "2025-04-07"
+[2025-04-07T08:14:22.492Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:14:22.493Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:14:22.493Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:14:22.494Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:14:22.494Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:14:22.496Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\NewTestArticle.tsx
+[2025-04-07T08:14:22.499Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\NewTestArticle.tsx
+[2025-04-07T08:14:22.500Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\NewTestArticle.tsx
+[2025-04-07T08:14:22.501Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx
+[2025-04-07T08:14:22.503Z] コマンド実行: git add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.504Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx
+[2025-04-07T08:14:22.505Z] コマンド実行: git add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.505Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.505Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx
+[2025-04-07T08:14:22.508Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.508Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.509Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+[2025-04-07T08:14:22.533Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:14:22.534Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:14:22.536Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:14:22.538Z] ファイル new-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:14:22.539Z] ファイル new-test-article.tsx の処理が完了しました！
+[2025-04-07T08:14:22.540Z] ファイル処理成功: タイトル="newTestArticle", スラグ="new-test-article"
+[2025-04-07T08:14:22.589Z] コマンドエラー出力: fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:14:22.590Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:14:22.592Z] Git処理中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\NewTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\new-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:14:22.595Z] ファイル new-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:14:22.597Z] ファイル new-test-article.tsx の処理が完了しました！
+[2025-04-07T08:14:22.598Z] ファイル処理成功: タイトル="newTestArticle", スラグ="new-test-article"
+[2025-04-07T08:14:22.617Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/new-test-article/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T08:14:22.619Z] ファイルをGitにステージングしました
+[2025-04-07T08:14:22.620Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe commit -m "Add new article: newTestArticle"
+[2025-04-07T08:14:22.621Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" commit -m "Add new article: newTestArticle"
+[2025-04-07T08:14:22.789Z] コマンド出力: [main 8e31fa2] Add new article: newTestArticle
+ 2 files changed, 16 insertions(+)
+ create mode 100644 app/blog/ai-technology/new-test-article/page.tsx
+ create mode 100644 components/NewTestArticle.tsx
+
+[2025-04-07T08:14:22.790Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" rev-parse --abbrev-ref HEAD
+[2025-04-07T08:14:22.854Z] コマンド出力: main
+
+[2025-04-07T08:14:22.856Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" fetch origin
+[2025-04-07T08:14:23.759Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+[2025-04-07T08:14:23.868Z] コマンドエラー出力: error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:14:23.870Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:14:23.871Z] Gitプッシュ中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:14:23.874Z] ファイル new-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:14:23.875Z] ファイル new-test-article.tsx の処理が完了しました！
+[2025-04-07T08:14:23.877Z] ファイル処理成功: タイトル="newTestArticle", スラグ="new-test-article"
+[2025-04-07T08:22:36.954Z] 既存ファイルの確認を開始します...
+[2025-04-07T08:22:36.958Z] 9個の既存TSXファイルが見つかりました
+[2025-04-07T08:22:36.960Z] ファイル new-test-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.961Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.962Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.963Z] ファイル test-auto-deploy-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.964Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.965Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.966Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.967Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.969Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-07T08:22:36.970Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T08:22:36.975Z] 監視中... Ctrl+C で終了
+[2025-04-07T08:22:36.976Z] 既存ファイルの処理が完了しました
+[2025-04-07T08:25:33.593Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\final-test-article.tsx
+[2025-04-07T08:25:33.593Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\final-test-article.tsx
+[2025-04-07T08:25:33.594Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\final-test-article.tsx
+[2025-04-07T08:25:33.595Z] タイトルが見つかりません。フォールバックタイトルを使用: "finalTestArticle"
+[2025-04-07T08:25:33.595Z] タイトルが見つかりません。フォールバックタイトルを使用: "finalTestArticle"
+[2025-04-07T08:25:33.595Z] 新しいファイルを検出しました: D:\NvidiaGTCProject\articles\final-test-article.tsx
+[2025-04-07T08:25:33.596Z] タイトルが見つかりません。フォールバックタイトルを使用: "finalTestArticle"
+[2025-04-07T08:25:33.598Z] タイトルを抽出しました: "finalTestArticle"
+[2025-04-07T08:25:33.598Z] タイトルを抽出しました: "finalTestArticle"
+[2025-04-07T08:25:33.598Z] タイトルを抽出しました: "finalTestArticle"
+[2025-04-07T08:25:33.600Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:25:33.599Z] タイトルが見つかりません。フォールバックタイトルを使用: "finalTestArticle"
+[2025-04-07T08:25:33.600Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:25:33.600Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"
+[2025-04-07T08:25:33.601Z] カテゴリ: "ai-technology"
+[2025-04-07T08:25:33.602Z] タイトルを抽出しました: "finalTestArticle"
+[2025-04-07T08:25:33.603Z] カテゴリ: "ai-technology"
+[2025-04-07T08:25:33.603Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:25:33.603Z] カテゴリ: "ai-technology"
+[2025-04-07T08:25:33.604Z] カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-news"
+[2025-04-07T08:25:33.605Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:25:33.605Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:25:33.605Z] 日付: "2025-04-07"
+[2025-04-07T08:25:33.605Z] カテゴリ: "ai-news"
+[2025-04-07T08:25:33.606Z] 日付: "2025-04-07"
+[2025-04-07T08:25:33.606Z] 日付: "2025-04-07"
+[2025-04-07T08:25:33.607Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:25:33.608Z] 日付が見つかりません。現在の日付を使用: "2025-04-07"
+[2025-04-07T08:25:33.609Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:25:33.609Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:25:33.609Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:25:33.612Z] 日付: "2025-04-07"
+[2025-04-07T08:25:33.614Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:25:33.614Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:25:33.614Z] アイキャッチ画像が見つかりません。デフォルト画像を使用します
+[2025-04-07T08:25:33.616Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-07T08:25:33.616Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\FinalTestArticle.tsx
+[2025-04-07T08:25:33.619Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\FinalTestArticle.tsx
+[2025-04-07T08:25:33.620Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\FinalTestArticle.tsx
+[2025-04-07T08:25:33.619Z] コンポーネントを作成しました: D:\NvidiaGTCProject\components\FinalTestArticle.tsx
+[2025-04-07T08:25:33.621Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx
+[2025-04-07T08:25:33.623Z] コマンド実行: git add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.623Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx
+[2025-04-07T08:25:33.623Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx
+[2025-04-07T08:25:33.624Z] コマンド実行: git add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.626Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.625Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.626Z] ブログページを作成しました: D:\NvidiaGTCProject\app\blog\ai-news\final-test-article\page.tsx
+[2025-04-07T08:25:33.627Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.627Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+[2025-04-07T08:25:33.628Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\final-test-article\page.tsx"
+[2025-04-07T08:25:33.630Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\final-test-article\page.tsx"
+[2025-04-07T08:25:33.659Z] コマンドエラー出力: 'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:25:33.660Z] コマンド実行エラー: Command failed: git add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:25:33.661Z] Git処理中のエラー: Command failed: git add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-07T08:25:33.664Z] ファイル final-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:25:33.665Z] ファイル final-test-article.tsx の処理が完了しました！
+[2025-04-07T08:25:33.666Z] ファイル処理成功: タイトル="finalTestArticle", スラグ="final-test-article"
+[2025-04-07T08:25:33.722Z] コマンドエラー出力: fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.722Z] コマンドエラー出力: fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.724Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.725Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\final-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.726Z] Git処理中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-technology\final-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.726Z] Git処理中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" add "D:\NvidiaGTCProject\components\FinalTestArticle.tsx" "D:\NvidiaGTCProject\app\blog\ai-news\final-test-article\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-07T08:25:33.729Z] ファイル final-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:25:33.730Z] ファイル final-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:25:33.731Z] ファイル final-test-article.tsx の処理が完了しました！
+[2025-04-07T08:25:33.732Z] ファイル final-test-article.tsx の処理が完了しました！
+[2025-04-07T08:25:33.733Z] ファイル処理成功: タイトル="finalTestArticle", スラグ="final-test-article"
+[2025-04-07T08:25:33.735Z] ファイル処理成功: タイトル="finalTestArticle", スラグ="final-test-article"
+[2025-04-07T08:25:33.757Z] コマンドエラー出力: warning: in the working copy of 'app/blog/ai-technology/final-test-article/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T08:25:33.759Z] ファイルをGitにステージングしました
+[2025-04-07T08:25:33.760Z] コマンド実行: C:\\Program Files\\Git\\cmd\\git.exe commit -m "Add new article: finalTestArticle"
+[2025-04-07T08:25:33.761Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" commit -m "Add new article: finalTestArticle"
+[2025-04-07T08:25:33.930Z] コマンド出力: [main 52f03ba] Add new article: finalTestArticle
+ 2 files changed, 16 insertions(+)
+ create mode 100644 app/blog/ai-technology/final-test-article/page.tsx
+ create mode 100644 components/FinalTestArticle.tsx
+
+[2025-04-07T08:25:33.932Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" rev-parse --abbrev-ref HEAD
+[2025-04-07T08:25:34.000Z] コマンド出力: main
+
+[2025-04-07T08:25:34.002Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" fetch origin
+[2025-04-07T08:25:34.882Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+[2025-04-07T08:25:35.002Z] コマンドエラー出力: error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:25:35.003Z] コマンド実行エラー: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:25:35.005Z] Gitプッシュ中のエラー: Error: Command failed: "C:\\Program Files\\Git\\cmd\\git.exe" pull --rebase origin main
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-07T08:25:35.007Z] ファイル final-test-article.tsx を処理済みリストに追加しました
+[2025-04-07T08:25:35.009Z] ファイル final-test-article.tsx の処理が完了しました！
+[2025-04-07T08:25:35.010Z] ファイル処理成功: タイトル="finalTestArticle", スラグ="final-test-article"
+[2025-04-07T08:27:15.507Z] 既存ファイルの確認を開始します...
+[2025-04-07T08:27:15.512Z] 10個の既存TSXファイルが見つかりました
+[2025-04-07T08:27:15.514Z] ファイル final-test-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.515Z] ファイル new-test-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.517Z] ファイル page.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.519Z] ファイル test-article-deploy.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.520Z] ファイル test-auto-deploy-article.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.522Z] ファイル article-template.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.524Z] ファイル think-tool-integration.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.525Z] ファイル auto-deploy-test.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.527Z] ファイル auto-test-article3.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.528Z] ファイル auto-upload-test-2.tsx は既に処理済みです。スキップします
+[2025-04-07T08:27:15.529Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T08:27:15.537Z] 監視中... Ctrl+C で終了
+[2025-04-07T08:27:15.539Z] 既存ファイルの処理が完了しました
+[2025-04-07T08:32:52.687Z] 既存ファイルの確認を開始します...
+[2025-04-07T08:32:52.692Z] 10個の既存TSXファイルが見つかりました
+[2025-04-07T08:32:52.693Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-07T08:32:52.695Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-07T08:32:52.696Z] ファイル page.tsx は既に処理済みです
+[2025-04-07T08:32:52.697Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-07T08:32:52.698Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-07T08:32:52.700Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-07T08:32:52.701Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-07T08:32:52.702Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-07T08:32:52.705Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-07T08:32:52.707Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-07T08:32:52.708Z] フォルダ監視を開始します: D:\NvidiaGTCProject\articles (カテゴリフォルダも含む)
+[2025-04-07T08:32:52.714Z] 監視中... Ctrl+C で終了
+[2025-04-07T08:32:52.715Z] 既存ファイルの処理が完了しました

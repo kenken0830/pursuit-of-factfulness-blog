@@ -257,12 +257,26 @@ function extractCoverImage(content) {
   return '/placeholder.svg?height=600&width=800';
 }
 
-// ブログページを生成する関数
+// コンポーネントファイルを生成する関数
+function generateComponent(title, componentName) {
+  const componentContent = `import React from 'react';
+
+export function ${componentName}() {
+  return (
+    <article className="prose prose-slate max-w-none">
+      <h1>${title}</h1>
+      {/* ここに記事の内容を追加 */}
+    </article>
+  );
+}
+`;
+  return componentContent;
+}
+
+// ブログポストを生成する関数
 function generateBlogPost(title, componentName, category, date, coverImage = null) {
-  const componentImport = `${componentName.charAt(0).toUpperCase() + componentName.slice(1)}`;
-  
-  return `import type { Metadata } from "next"
-import { ${componentImport} } from "@/components/${componentImport}"
+  const blogPostContent = `import type { Metadata } from "next"
+import { ${componentName} } from "@/components/${componentName}"
 import { getMetadata } from "@/lib/metadata-utils"
 
 // メタデータ
@@ -274,9 +288,10 @@ export const metadata: Metadata = getMetadata({
 })
 
 export default function BlogPost() {
-  return <${componentImport} />
+  return <${componentName} />
 }
 `;
+  return blogPostContent;
 }
 
 // Vercelデプロイをトリガーする関数
@@ -372,87 +387,74 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
 
 // ファイル処理を実行する関数
 async function processFile(filePath) {
-  const fileName = path.basename(filePath);
-  
-  // すでに処理済みかチェック
-  if (isFileProcessed(fileName)) {
-    log(`ファイル ${fileName} は既に処理済みです。スキップします`);
-    return null;
-  }
-
   try {
+    const fileName = path.basename(filePath);
+    
+    // 既に処理済みかチェック
+    if (isFileProcessed(fileName)) {
+      log(`ファイル ${fileName} は既に処理済みです`);
+      return;
+    }
+    
     // ファイルの内容を読み込む
     const content = fs.readFileSync(filePath, 'utf8');
     
-    // componentNameを取得（拡張子なしのファイル名、キャメルケースに変換）
-    const baseName = path.basename(fileName, '.tsx');
-    const componentName = baseName
-      .split('-')
-      .map((part, index) => index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1))
-      .join('');
-    
-    // メタデータの解析
-    const metaTitleMatch = content.match(META_PATTERNS.title);
-    const title = metaTitleMatch && metaTitleMatch[1] 
-      ? metaTitleMatch[1].replace(/["']/g, '').trim()
-      : componentName;
-    
-    log(`タイトルを抽出しました: "${title}"`);
+    // タイトルを抽出
+    const title = extractTitleFromContent(content, path.parse(fileName).name);
     
     // カテゴリを抽出
-    const metaCategoryMatch = content.match(META_PATTERNS.category);
-    const category = metaCategoryMatch && metaCategoryMatch[1] 
-      ? metaCategoryMatch[1].replace(/["']/g, '').trim()
-      : 'ai-news';
-    
-    log(`カテゴリを抽出しました: "${category}"`);
+    const category = extractCategory(content, filePath);
     
     // 日付を抽出
-    const date = extractDate(content);
-    log(`日付: "${date}"`);
+    const date = extractDate(content) || new Date().toISOString().split('T')[0];
     
-    // アイキャッチ画像を抽出
-    const metaCoverMatch = content.match(META_PATTERNS.coverImage);
-    const coverImage = metaCoverMatch && metaCoverMatch[1]
-      ? metaCoverMatch[1].replace(/["']/g, '').trim()
-      : '/placeholder.svg?height=600&width=800';
+    // カバー画像を抽出
+    const coverImage = extractCoverImage(content);
     
-    log(`アイキャッチ画像: "${coverImage}"`);
+    // コンポーネント名を生成（キャメルケース）
+    const componentName = title
+      .replace(/[^\w\s-]/g, '') // 特殊文字を削除
+      .split(/[-\s]+/) // ハイフンとスペースで分割
+      .map((word, index) => {
+        // 最初の文字を大文字に、残りを小文字に
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join('');
     
-    // スラグを作成（ファイル名から拡張子を除いたもの）
-    const slug = baseName;
+    // スラグを生成（ケバブケース）
+    const slug = title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '') // 特殊文字を削除
+      .replace(/\s+/g, '-') // スペースをハイフンに変換
+      .replace(/-+/g, '-'); // 連続するハイフンを単一のハイフンに変換
     
-    // コンポーネントファイルのパスを生成
-    const componentFileName = `${componentName.charAt(0).toUpperCase() + componentName.slice(1)}.tsx`;
+    // コンポーネントファイル名
+    const componentFileName = `${componentName}.tsx`;
+    
+    // ブログページのパス
+    const blogPostPath = path.join(CONFIG.blogFolder, category, slug, 'page.tsx');
+    
+    // 必要なディレクトリを作成
+    fs.mkdirSync(path.dirname(blogPostPath), { recursive: true });
+    
+    // コンポーネントファイルを作成
     const componentPath = path.join(CONFIG.componentsFolder, componentFileName);
-    
-    // コンポーネントファイルを作成（単純なコンポーネントに変換）
-    fs.writeFileSync(componentPath, content);
+    fs.writeFileSync(componentPath, generateComponent(title, componentName));
     log(`コンポーネントを作成しました: ${componentPath}`);
     
-    // ブログページのパスを生成
-    const blogPostDir = path.join(CONFIG.blogFolder, category, slug);
-    if (!fs.existsSync(blogPostDir)) {
-      fs.mkdirSync(blogPostDir, { recursive: true });
-    }
-    const blogPostPath = path.join(blogPostDir, 'page.tsx');
-    
     // ブログページを作成
-    const blogPostContent = generateBlogPost(title, componentName, category, date, coverImage);
-    fs.writeFileSync(blogPostPath, blogPostContent);
+    fs.writeFileSync(blogPostPath, generateBlogPost(title, componentName, category, date, coverImage));
     log(`ブログページを作成しました: ${blogPostPath}`);
     
-    // Git処理を実行
+    // Gitの処理を実行
     await handleGitProcess(componentPath, blogPostPath, title);
     
     // 処理済みリストに追加
     addToProcessedList(fileName, title, slug, date);
     
-    log(`ファイル ${fileName} の処理が完了しました！`);
-    return { title, slug };
   } catch (error) {
     log(`ファイル処理エラー: ${error.message}`);
-    return null;
+    console.error(error);
   }
 }
 
