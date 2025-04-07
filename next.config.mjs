@@ -7,19 +7,20 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
+  distDir: '.next',
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     unoptimized: true,
+    domains: ['localhost'],
   },
   experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
+    webpackBuildWorker: false,
   },
   generateBuildId: () => {
     return `build-${new Date().getTime()}`
@@ -33,6 +34,11 @@ const nextConfig = {
       },
     ]
   },
+  env: {
+    VERCEL_URL: process.env.VERCEL_URL || 'http://localhost:3000',
+  },
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://pursuit-of-factfulness-blog.vercel.app' : '',
 }
 
 mergeConfig(nextConfig, userConfig)
