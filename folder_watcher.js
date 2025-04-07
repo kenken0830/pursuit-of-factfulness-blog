@@ -130,8 +130,10 @@ function extractTitleFromContent(content, fallbackTitle) {
   const metaTitleMatch = content.match(META_PATTERNS.title);
   if (metaTitleMatch && metaTitleMatch[1]) {
     const title = metaTitleMatch[1].trim();
-    log(`メタデータからタイトルを抽出しました: "${title}"`);
-    return title;
+    // ダブルクォーテーションを除去
+    const cleanTitle = title.replace(/["']/g, '').trim();
+    log(`メタデータからタイトルを抽出しました: "${cleanTitle}"`);
+    return cleanTitle;
   }
   
   // H1タグを探す
@@ -154,9 +156,14 @@ function extractCategory(content, filePath) {
   const metaCategoryMatch = content.match(META_PATTERNS.category);
   if (metaCategoryMatch && metaCategoryMatch[1]) {
     const category = metaCategoryMatch[1].trim();
-    if (CATEGORIES.includes(category)) {
-      log(`メタデータからカテゴリを抽出しました: "${category}"`);
-      return category;
+    // カテゴリからダブルクォーテーションと空白を除去
+    const cleanCategory = category.replace(/["']/g, '').trim();
+    
+    if (CATEGORIES.includes(cleanCategory)) {
+      log(`メタデータからカテゴリを抽出しました: "${cleanCategory}"`);
+      return cleanCategory;
+    } else {
+      log(`無効なカテゴリ "${cleanCategory}" が指定されました。有効なのは: ${CATEGORIES.join(', ')}`);
     }
   }
   
@@ -173,8 +180,8 @@ function extractCategory(content, filePath) {
   }
   
   // デフォルトカテゴリ
-  log(`カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"`);
-  return 'ai-technology';
+  log(`カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-news"`);
+  return 'ai-news';
 }
 
 // タグを抽出する関数
@@ -236,33 +243,18 @@ function extractDate(content) {
 
 // アイキャッチ画像を抽出する関数
 function extractCoverImage(content) {
-  // メタデータから画像を抽出
-  const metaImageMatch = content.match(META_PATTERNS.coverImage);
-  if (metaImageMatch && metaImageMatch[1]) {
-    const coverImage = metaImageMatch[1].trim();
-    log(`メタデータからアイキャッチ画像を抽出しました: "${coverImage}"`);
-    return coverImage;
+  // メタデータからアイキャッチ画像を抽出
+  const metaCoverMatch = content.match(META_PATTERNS.coverImage);
+  if (metaCoverMatch && metaCoverMatch[1]) {
+    const coverImage = metaCoverMatch[1].trim();
+    // ダブルクォーテーションを除去
+    const cleanCoverImage = coverImage.replace(/["']/g, '').trim();
+    log(`メタデータからアイキャッチ画像を抽出しました: "${cleanCoverImage}"`);
+    return cleanCoverImage;
   }
   
-  // img タグを探す (最初の画像をアイキャッチとして使用)
-  const imgMatch = content.match(/<img[^>]*src=["']([^"']+)["'][^>]*>/i);
-  if (imgMatch && imgMatch[1]) {
-    const coverImage = imgMatch[1].trim();
-    log(`imgタグからアイキャッチ画像を抽出しました: "${coverImage}"`);
-    return coverImage;
-  }
-  
-  // next/image コンポーネントを探す
-  const nextImageMatch = content.match(/<Image[^>]*src=["']([^"']+)["'][^>]*>/i);
-  if (nextImageMatch && nextImageMatch[1]) {
-    const coverImage = nextImageMatch[1].trim();
-    log(`Imageコンポーネントからアイキャッチ画像を抽出しました: "${coverImage}"`);
-    return coverImage;
-  }
-  
-  // デフォルト画像
   log(`アイキャッチ画像が見つかりません。デフォルト画像を使用します`);
-  return "/placeholder.svg?height=600&width=800";
+  return '/placeholder.svg?height=600&width=800';
 }
 
 // ブログページを生成する関数
