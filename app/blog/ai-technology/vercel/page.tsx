@@ -3,12 +3,12 @@ import Vercel from "@/components/Vercel"
 
 // メタデータ
 export const metadata: Metadata = {
-  title: "Vercelデプロイテスト記事",
-  description: "スクリプト修正後のVercelデプロイテスト記事です",
+  title: "Vercelデプロイ修正テスト",
+  description: "修正後のVercelデプロイテスト記事です",
   openGraph: {
-    title: "Vercelデプロイテスト記事",
-    description: "スクリプト修正後のVercelデプロイテスト記事です",
-    images: [{ url: "/images/vercel-deploy.jpg" }],
+    title: "Vercelデプロイ修正テスト",
+    description: "修正後のVercelデプロイテスト記事です",
+    images: [{ url: "/images/vercel-deploy-fixed.jpg" }],
   },
 }
 

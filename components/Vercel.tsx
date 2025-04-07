@@ -4,14 +4,19 @@ export default function Vercel() {
   return (
     <article className="prose prose-slate max-w-none">
       
-      <h1>Vercelデプロイテスト記事</h1>
+      <h1>Vercelデプロイ修正テスト</h1>
       
       <p>
-        これは、folder_watcher.jsスクリプトを修正した後の自動デプロイのテストです。
+        これは、すべての設定を修正した後の自動デプロイのテストです。
       </p>
       
       <p>
-        このテスト記事が正常に処理され、Vercelにデプロイされることを確認します。
+        以下の修正を行いました：
+        <ul>
+          <li>React依存関係の修正 (18.2.0)</li>
+          <li>metadataBase設定の追加</li>
+          <li>folder_watcherのVercelデプロイフック修正（PowerShell対応）</li>
+        </ul>
       </p>
     
     </article>
