@@ -17,7 +17,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['localhost'],
+    domains: ['localhost', 'pursuit-of-factfulness-blog.vercel.app'],
   },
   experimental: {
     webpackBuildWorker: true,
@@ -41,9 +41,6 @@ const nextConfig = {
   },
   basePath: '',
   assetPrefix: '',
-  metadata: {
-    metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
-  }
 }
 
 mergeConfig(nextConfig, userConfig)
