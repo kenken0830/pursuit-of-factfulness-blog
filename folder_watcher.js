@@ -23,7 +23,11 @@ const CONFIG = {
   componentsFolder: path.join(__dirname, 'components'),
   blogFolder: path.join(__dirname, 'app', 'blog'),
   processedList: path.join(__dirname, 'processed_files.txt'),
-  logFile: path.join(__dirname, 'upload_log.txt')
+  logFile: path.join(__dirname, 'upload_log.txt'),
+  // Gitコマンドのパスを設定
+  gitPath: process.platform === 'win32' 
+    ? 'C:\\Program Files\\Git\\cmd\\git.exe' // Windowsの一般的なGitパス
+    : 'git' // Linux/MacではPATHを利用
 };
 
 // カテゴリー一覧
@@ -278,64 +282,34 @@ export default function BlogPost() {
 // Git処理を実行する関数
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
+    // Gitコマンドのパスを使用
+    const gitCmd = CONFIG.gitPath;
+    
     // ファイルをGitに追加
-    log(`コマンド実行: git add "${componentPath}" "${blogPostPath}"`);
-    await execCommand(`git add "${componentPath}" "${blogPostPath}"`);
+    log(`コマンド実行: ${gitCmd} add "${componentPath}" "${blogPostPath}"`);
+    await execCommand(`"${gitCmd}" add "${componentPath}" "${blogPostPath}"`);
     log(`ファイルをGitにステージングしました`);
-
-    // 変更をコミット
-    log(`コマンド実行: git commit -m "Add new article: ${title}"`);
-    await execCommand(`git commit -m "Add new article: ${title}"`);
-    log(`変更をコミットしました`);
-
-    // 安全なプッシュ戦略を実行（リモート変更の統合→プッシュ）
-    log(`リモート変更を取得中...`);
+    
+    log(`コマンド実行: ${gitCmd} commit -m "Add new article: ${title}"`);
+    await execCommand(`"${gitCmd}" commit -m "Add new article: ${title}"`);
+    
     try {
-      // 現在のブランチ名を取得
-      const { stdout: branchName } = await execCommand('git rev-parse --abbrev-ref HEAD');
-      const currentBranch = branchName.trim();
+      const { stdout: branchName } = await execCommand(`"${gitCmd}" rev-parse --abbrev-ref HEAD`);
+      const currentBranch = branchName.trim() || 'main';
       
-      // 最新のリモート変更を取得
-      await execCommand('git fetch origin');
-      log(`リモート変更を取得しました`);
+      await execCommand(`"${gitCmd}" fetch origin`);
+      await execCommand(`"${gitCmd}" pull --rebase origin ${currentBranch}`);
       
-      // リモート変更を統合（リベース）
-      await execCommand(`git pull --rebase origin ${currentBranch}`);
-      log(`リモート変更を統合しました`);
+      log(`コマンド実行: ${gitCmd} push origin ${currentBranch}`);
+      await execCommand(`"${gitCmd}" push origin ${currentBranch}`);
       
-      // 変更をプッシュ
-      log(`コマンド実行: git push origin ${currentBranch}`);
-      await execCommand(`git push origin ${currentBranch}`);
-      log(`変更をプッシュしました`);
-      
-      // Vercelにデプロイリクエスト
-      await triggerVercelDeploy();
-      
-      return true;
+      log(`Gitプッシュ完了: ${title}`);
     } catch (pushError) {
-      log(`通常のプッシュに失敗しました: ${pushError.message}`);
-      log(`代替プッシュ戦略を試行します...`);
-      
-      // 代替戦略：一時ブランチを作成して変更をプッシュ
-      const tempBranch = `article-update-${Date.now()}`;
-      await execCommand(`git checkout -b ${tempBranch}`);
-      log(`一時ブランチ ${tempBranch} を作成しました`);
-      
-      // 変更を一時ブランチにプッシュ
-      await execCommand(`git push -u origin ${tempBranch}`);
-      log(`一時ブランチをプッシュしました`);
-      
-      // PRを作成するためのメッセージ表示
-      log(`GitHub上でPull Requestを作成してください: ${tempBranch} → main`);
-      
-      // Vercelプレビューデプロイのトリガー
-      await triggerVercelDeploy(tempBranch);
-      
-      return true;
+      log(`Gitプッシュ中のエラー: ${pushError}`);
+      // プッシュに失敗しても処理を続行
     }
   } catch (error) {
-    log(`Git処理中のエラー: ${error.message}`);
-    return false;
+    log(`Git処理中のエラー: ${error}`);
   }
 }
 
