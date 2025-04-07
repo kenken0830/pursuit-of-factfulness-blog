@@ -17,6 +17,14 @@ const path = require('path');
 const { exec } = require('child_process');
 const chokidar = require('chokidar'); // npm install chokidar
 
+// .env.localがあれば読み込む
+try {
+  const dotenv = require('dotenv');
+  dotenv.config({ path: '.env.local' });
+} catch (e) {
+  console.log('dotenvモジュールが見つからないか、.env.localファイルがありません');
+}
+
 // 設定
 const CONFIG = {
   watchFolder: path.join(__dirname, 'articles'),
@@ -24,10 +32,10 @@ const CONFIG = {
   blogFolder: path.join(__dirname, 'app', 'blog'),
   processedList: path.join(__dirname, 'processed_files.txt'),
   logFile: path.join(__dirname, 'upload_log.txt'),
-  // Gitコマンドのパスを設定
-  gitPath: process.platform === 'win32' 
+  // Gitコマンドのパスを設定 (.env.localから読み込みまたはデフォルト値)
+  gitPath: process.env.GIT_PATH || (process.platform === 'win32' 
     ? 'C:\\Program Files\\Git\\cmd\\git.exe' // Windowsの一般的なGitパス
-    : 'git' // Linux/MacではPATHを利用
+    : 'git') // Linux/MacではPATHを利用
 };
 
 // カテゴリー一覧
@@ -279,6 +287,54 @@ export default function BlogPost() {
 `;
 }
 
+// Vercelデプロイをトリガーする関数
+async function triggerVercelDeploy(branch = 'main') {
+  try {
+    log(`Vercelデプロイをトリガー中...`);
+    
+    // 環境変数VERCEL_DEPLOY_HOOKが設定されていればウェブフックを使用
+    if (process.env.VERCEL_DEPLOY_HOOK) {
+      const webhook = process.env.VERCEL_DEPLOY_HOOK;
+      log(`Vercelウェブフックを使用: ${webhook}`);
+      
+      // シンプルなHTTPリクエストでウェブフックを呼び出す
+      const https = require('https');
+      const url = new URL(webhook);
+      
+      const options = {
+        hostname: url.hostname,
+        path: url.pathname + url.search,
+        method: 'POST'
+      };
+      
+      return new Promise((resolve, reject) => {
+        const req = https.request(options, (res) => {
+          if (res.statusCode === 200) {
+            log(`Vercelデプロイトリガー成功`);
+            resolve(true);
+          } else {
+            log(`Vercelデプロイトリガー失敗: HTTPステータス ${res.statusCode}`);
+            resolve(false);
+          }
+        });
+        
+        req.on('error', (e) => {
+          log(`Vercelデプロイトリガーエラー: ${e.message}`);
+          resolve(false);
+        });
+        
+        req.end();
+      });
+    } else {
+      log(`Vercelデプロイウェブフックが設定されていません。GitHubプッシュによる自動デプロイに依存します。`);
+      return false;
+    }
+  } catch (error) {
+    log(`Vercelデプロイトリガーエラー: ${error}`);
+    return false;
+  }
+}
+
 // Git処理を実行する関数
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
@@ -304,45 +360,18 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
       await execCommand(`"${gitCmd}" push origin ${currentBranch}`);
       
       log(`Gitプッシュ完了: ${title}`);
+      
+      // GitHubプッシュ後にVercelデプロイをトリガー
+      await triggerVercelDeploy(currentBranch);
+      
+      return true;
     } catch (pushError) {
       log(`Gitプッシュ中のエラー: ${pushError}`);
       // プッシュに失敗しても処理を続行
-    }
-  } catch (error) {
-    log(`Git処理中のエラー: ${error}`);
-  }
-}
-
-// Vercelデプロイをトリガーする関数
-async function triggerVercelDeploy(branch = 'main') {
-  try {
-    // Vercelデプロイフックを取得（環境変数またはconfig.json）
-    let deployHook = process.env.VERCEL_DEPLOY_HOOK;
-    
-    if (!deployHook) {
-      try {
-        const configPath = path.join(__dirname, 'config.json');
-        if (fs.existsSync(configPath)) {
-          const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-          deployHook = config.VERCEL_DEPLOY_HOOK;
-        }
-      } catch (configError) {
-        log(`設定ファイルの読み込みエラー: ${configError.message}`);
-      }
-    }
-    
-    if (deployHook) {
-      // Unix curlコマンドを使用
-      log(`Vercelデプロイをトリガーします...`);
-      await execCommand(`curl -X POST "${deployHook}?ref=${branch}"`);
-      log(`Vercelデプロイリクエストを送信しました (${branch} ブランチ)`);
-      return true;
-    } else {
-      log(`Vercelデプロイフックが設定されていません。Vercelへのデプロイをトリガーできません。`);
       return false;
     }
   } catch (error) {
-    log(`Vercelデプロイトリガー中のエラー: ${error.message}`);
+    log(`Git処理中のエラー: ${error}`);
     return false;
   }
 }
