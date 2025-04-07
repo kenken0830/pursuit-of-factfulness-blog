@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:win": "npx next dev",
     "build": "next build",
+    "build:win": "npx next build",
     "start": "next start",
-    "lint": "next lint"
+    "start:win": "npx next start",
+    "lint": "next lint",
+    "lint:win": "npx next lint",
+    "watch": "node folder_watcher.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

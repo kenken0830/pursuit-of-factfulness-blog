@@ -16,18 +16,25 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 const util = require('util');
-const execPromise = util.promisify(exec);
 const chokidar = require('chokidar');
 
 // .env.localがあれば読み込む
 try {
   require('dotenv').config({ path: '.env.local' });
+  if (process.env.VERCEL_DEPLOY_HOOK) {
+    log(`Vercelデプロイフックが設定されています: ${process.env.VERCEL_DEPLOY_HOOK}`);
+  } else {
+    log('Vercelデプロイフックが設定されていません。.env.localファイルを確認してください');
+  }
 } catch (e) {
   console.log('dotenv not installed or .env.local not found');
 }
 
 // ログファイル
 const LOG_FILE = './upload_log.txt';
+
+// execをPromise化する関数
+const execPromise = util.promisify(exec);
 
 // 設定
 const CONFIG = {
@@ -242,10 +249,12 @@ function extractCoverImage(content) {
   return '/placeholder.svg?height=600&width=800';
 }
 
-// エラーハンドリングを改善
+// エラーハンドリングを改善したexecPromiseラッパー
 async function safeExec(command) {
   try {
+    log(`コマンド実行: ${command}`);
     const { stdout, stderr } = await execPromise(command);
+    if (stdout) log(`コマンド出力: ${stdout}`);
     if (stderr && stderr.trim() !== '') {
       log(`警告: ${stderr}`);
     }
@@ -489,23 +498,16 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
       try {
         // Windowsの場合はPowerShellを使用
         if (process.platform === 'win32') {
-          const { execSync } = require('child_process');
-          execSync(`powershell -Command "Invoke-WebRequest -Method POST -Uri '${process.env.VERCEL_DEPLOY_HOOK}'"`, 
-            { stdio: 'pipe' });
+          const deploy_cmd = `powershell -Command "Invoke-WebRequest -Method POST -Uri '${process.env.VERCEL_DEPLOY_HOOK}'"`;
+          await safeExec(deploy_cmd);
           log('Vercelデプロイをトリガーしました（PowerShell）');
         } else {
           // LinuxやMacの場合はcurlを使用
-          const { exec } = require('child_process');
-          exec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`, (error, stdout, stderr) => {
-            if (error) {
-              log(`Vercelデプロイトリガーエラー: ${error.message}`);
-              return;
-            }
-            log('Vercelデプロイをトリガーしました（curl）');
-          });
+          await safeExec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`);
+          log('Vercelデプロイをトリガーしました（curl）');
         }
       } catch (error) {
-        log(`Vercelデプロイトリガー実行エラー: ${error.message}`);
+        log(`Vercelデプロイトリガーエラー: ${error.message}`);
       }
     }
     
