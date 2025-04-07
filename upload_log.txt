@@ -1097,3 +1097,37 @@ warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF th
 'curl' is not recognized as an internal or external command,
 operable program or batch file.
 
+[2025-04-07T17:10:23.455Z] 既存ファイルの確認を開始します...
+[2025-04-07T17:10:23.459Z] 13個の既存TSXファイルが見つかりました
+[2025-04-07T17:10:23.461Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-07T17:10:23.462Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-07T17:10:23.463Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-07T17:10:23.464Z] ファイル page.tsx は既に処理済みです
+[2025-04-07T17:10:23.465Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-07T17:10:23.466Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-07T17:10:23.468Z] タイトル: "Vercelデプロイ修正テスト"
+[2025-04-07T17:10:23.469Z] カテゴリ: "ai-technology"
+[2025-04-07T17:10:23.470Z] 日付: "2025-04-08"
+[2025-04-07T17:10:23.471Z] アイキャッチ画像: "/images/vercel-deploy-fixed.jpg"
+[2025-04-07T17:10:23.472Z] コンポーネント名: "Vercel"
+[2025-04-07T17:10:23.473Z] スラグ: "vercel"
+[2025-04-07T17:10:23.475Z] コンポーネントを作成しました: components\Vercel.tsx
+[2025-04-07T17:10:23.477Z] ブログページを作成しました: app\blog\ai-technology\vercel\page.tsx
+[2025-04-07T17:10:23.478Z] Git処理を開始します...
+[2025-04-07T17:10:23.479Z] 生成されたファイルをステージングします...
+[2025-04-07T17:10:23.493Z] ファイル vercel-deploy-test.tsx は既に処理済みです
+[2025-04-07T17:10:23.495Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-07T17:10:23.496Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-07T17:10:23.497Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-07T17:10:23.499Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-07T17:10:23.500Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-07T17:10:23.506Z] フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
+[2025-04-07T17:10:23.508Z] 監視中... Ctrl+C で終了
+[2025-04-07T17:10:23.585Z] 警告: warning: in the working copy of 'app/blog/ai-technology/vercel/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Vercel.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-07T17:10:23.586Z] 生成ファイルをGitにステージングしました
+[2025-04-07T17:10:23.588Z] 生成されたファイルの変更をコミットします...
+[2025-04-07T17:10:23.765Z] 生成ファイルの変更をコミットしました
+[2025-04-07T17:10:23.767Z] その他の変更を確認します...
+[2025-04-07T17:10:23.885Z] その他の変更が見つかりました。全てコミットします...
