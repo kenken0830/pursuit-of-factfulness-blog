@@ -280,49 +280,51 @@ export default function BlogPost() {
 }
 
 // Vercelデプロイをトリガーする関数
-async function triggerVercelDeploy(branch = 'main') {
+async function triggerVercelDeploy() {
   try {
-    log(`Vercelデプロイをトリガー中...`);
+    const webhookUrl = process.env.VERCEL_DEPLOY_HOOK;
     
-    // 環境変数VERCEL_DEPLOY_HOOKが設定されていればウェブフックを使用
-    if (process.env.VERCEL_DEPLOY_HOOK) {
-      const webhook = process.env.VERCEL_DEPLOY_HOOK;
-      log(`Vercelウェブフックを使用: ${webhook}`);
-      
-      // シンプルなHTTPリクエストでウェブフックを呼び出す
-      const https = require('https');
-      const url = new URL(webhook);
-      
-      const options = {
-        hostname: url.hostname,
-        path: url.pathname + url.search,
-        method: 'POST'
-      };
-      
-      return new Promise((resolve, reject) => {
-        const req = https.request(options, (res) => {
-          if (res.statusCode === 200) {
-            log(`Vercelデプロイトリガー成功`);
-            resolve(true);
-          } else {
-            log(`Vercelデプロイトリガー失敗: HTTPステータス ${res.statusCode}`);
-            resolve(false);
-          }
-        });
-        
-        req.on('error', (e) => {
-          log(`Vercelデプロイトリガーエラー: ${e.message}`);
-          resolve(false);
-        });
-        
-        req.end();
-      });
-    } else {
-      log(`Vercelデプロイウェブフックが設定されていません。GitHubプッシュによる自動デプロイに依存します。`);
-      return false;
+    if (!webhookUrl) {
+      log('Vercelデプロイフック未設定。GitHubプッシュのみ実行します。');
+      return;
     }
+    
+    log(`Vercelデプロイをトリガーします...`);
+    
+    // HTTPリクエストを作成
+    const https = require('https');
+    
+    return new Promise((resolve, reject) => {
+      const req = https.request(
+        webhookUrl,
+        { method: 'POST' },
+        (res) => {
+          let data = '';
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+          
+          res.on('end', () => {
+            if (res.statusCode === 200 || res.statusCode === 201) {
+              log(`Vercelデプロイが正常にトリガーされました。ステータス: ${res.statusCode}`);
+              resolve(true);
+            } else {
+              log(`Vercelデプロイのトリガー失敗。ステータス: ${res.statusCode}, レスポンス: ${data}`);
+              resolve(false);
+            }
+          });
+        }
+      );
+      
+      req.on('error', (error) => {
+        log(`Vercelデプロイのトリガーエラー: ${error.message}`);
+        reject(error);
+      });
+      
+      req.end();
+    });
   } catch (error) {
-    log(`Vercelデプロイトリガーエラー: ${error}`);
+    log(`Vercelデプロイトリガー中のエラー: ${error.message}`);
     return false;
   }
 }
@@ -354,7 +356,7 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
       log(`Gitプッシュ完了: ${title}`);
       
       // GitHubプッシュ後にVercelデプロイをトリガー
-      await triggerVercelDeploy(currentBranch);
+      await triggerVercelDeploy();
       
       return true;
     } catch (pushError) {
@@ -389,24 +391,32 @@ async function processFile(filePath) {
       .map((part, index) => index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1))
       .join('');
     
-    // タイトルを抽出
-    const title = extractTitleFromContent(content, componentName);
-    if (!title) {
-      log(`ファイル ${fileName} からタイトルを抽出できませんでした`);
-      return null;
-    }
+    // メタデータの解析
+    const metaTitleMatch = content.match(META_PATTERNS.title);
+    const title = metaTitleMatch && metaTitleMatch[1] 
+      ? metaTitleMatch[1].replace(/["']/g, '').trim()
+      : componentName;
+    
     log(`タイトルを抽出しました: "${title}"`);
     
     // カテゴリを抽出
-    const category = extractCategory(content, filePath);
-    log(`カテゴリ: "${category}"`);
+    const metaCategoryMatch = content.match(META_PATTERNS.category);
+    const category = metaCategoryMatch && metaCategoryMatch[1] 
+      ? metaCategoryMatch[1].replace(/["']/g, '').trim()
+      : 'ai-news';
+    
+    log(`カテゴリを抽出しました: "${category}"`);
     
     // 日付を抽出
     const date = extractDate(content);
     log(`日付: "${date}"`);
     
     // アイキャッチ画像を抽出
-    const coverImage = extractCoverImage(content);
+    const metaCoverMatch = content.match(META_PATTERNS.coverImage);
+    const coverImage = metaCoverMatch && metaCoverMatch[1]
+      ? metaCoverMatch[1].replace(/["']/g, '').trim()
+      : '/placeholder.svg?height=600&width=800';
+    
     log(`アイキャッチ画像: "${coverImage}"`);
     
     // スラグを作成（ファイル名から拡張子を除いたもの）
@@ -416,9 +426,8 @@ async function processFile(filePath) {
     const componentFileName = `${componentName.charAt(0).toUpperCase() + componentName.slice(1)}.tsx`;
     const componentPath = path.join(CONFIG.componentsFolder, componentFileName);
     
-    // コンポーネントファイルを作成
-    const componentContent = content;
-    fs.writeFileSync(componentPath, componentContent);
+    // コンポーネントファイルを作成（単純なコンポーネントに変換）
+    fs.writeFileSync(componentPath, content);
     log(`コンポーネントを作成しました: ${componentPath}`);
     
     // ブログページのパスを生成
