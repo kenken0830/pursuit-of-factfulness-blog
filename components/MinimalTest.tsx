@@ -5,7 +5,7 @@ export default function MinimalTest() {
     <article className="prose prose-slate max-w-none dark:prose-invert">
       
   <h1>Minimal Test</h1>
-  <p>Testing the file watcher</p>
+  <p>テスト記事をHPへアップロードテスト - アップデート確認</p>
 
     </article>
   );
