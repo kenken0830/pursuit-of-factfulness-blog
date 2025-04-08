@@ -33,3 +33,8 @@ echo.
 
 rem 一時停止
 pause
+
+echo Starting Folder Watcher and Next.js Dev Server...
+start "Watcher" cmd /k "npm run watch"
+start "Dev Server" cmd /k "npm run dev"
+echo Processes started in separate windows.

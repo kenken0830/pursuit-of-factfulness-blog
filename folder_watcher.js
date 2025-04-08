@@ -375,22 +375,35 @@ function extractMetadata(content, fileName) {
 // コンポーネント名とスラグ生成を改善
 function generateNameAndSlug(title) {
   // 無効な文字を除去し、スペースとハイフンを処理
-  const safeTitle = (title || "DefaultArticle").trim();
-  
+  const safeTitle = (title || "DefaultArticleTitle").trim();
+
   // コンポーネント名をパスカルケースで生成
-  const componentName = safeTitle
-    .replace(/[^\w\s-]/g, '')
+  let componentName = safeTitle
+    .replace(/[^\p{L}\p{N}\s-]/gu, '')
     .split(/[-\s]+/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join('');
-  
+
+  // JavaScriptの予約語や無効な開始文字でないか確認
+  if (!/^[A-Z]/.test(componentName) || ['React', 'Component', 'Default'].includes(componentName)) {
+    componentName = `Article${componentName}`;
+  }
+  if (componentName.length === 0) {
+    componentName = 'GeneratedArticle';
+  }
+
   // スラグをケバブケースで生成
-  const slug = safeTitle
+  let slug = safeTitle
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-  
+    .replace(/[^\p{L}\p{N}\s-]/gu, '')
+    .replace(/[\s]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  if (slug.length === 0) {
+    slug = `article-${Date.now().toString(36)}`;
+  }
+
   return { componentName, slug };
 }
 
@@ -462,7 +475,7 @@ async function processFile(filePath) {
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
     log('Git処理を開始します...');
-    cleanupGitLock(); // ロックファイル削除を先に行う
+    cleanupGitLock();
 
     // 1. 生成したファイルをステージング
     log('生成されたファイルをステージングします...');
@@ -482,36 +495,50 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
       log('その他の変更が見つかりました。全てコミットします...');
       await execPromise(`"${CONFIG.gitPath}" add .`);
       const timestamp = new Date().toISOString();
-      await execPromise(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
-      log('全ての変更をコミットしました');
+      try {
+        await execPromise(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
+        log('その他の変更をコミットしました');
+      } catch(commitError) {
+        if (commitError.stdout?.includes('nothing to commit') || commitError.stderr?.includes('nothing to commit')) {
+          log('コミットするその他の変更はありませんでした。');
+        } else {
+          throw commitError;
+        }
+      }
     } else {
       log('その他の未コミットの変更はありませんでした');
     }
-    
-    // 4. プッシュ（pull --rebase は削除）
+
+    // 4. プッシュ
     log('変更をリモートにプッシュします...');
-    await execPromise(`"${CONFIG.gitPath}" push origin main`);
-    log('変更をプッシュしました');
-    
-    // 5. Vercelデプロイをトリガー（axiosを使用）
+    try {
+      await execPromise(`"${CONFIG.gitPath}" push origin main`);
+      log('変更をプッシュしました');
+    } catch (pushError) {
+      log(`!!! プッシュに失敗しました: ${pushError.message}`);
+      log('!!! リモートリポジトリとの同期が必要です。手動で git pull --rebase origin main を実行してから再度試してください。');
+      throw new Error('Git push failed. Manual intervention required.');
+    }
+
+    // 5. Vercelデプロイをトリガー
     if (process.env.VERCEL_DEPLOY_HOOK) {
       log('Vercelデプロイをトリガーします...');
       try {
         const response = await axios.post(process.env.VERCEL_DEPLOY_HOOK);
         log(`Vercelデプロイトリガー成功: ${JSON.stringify(response.data)}`);
       } catch (error) {
-        log(`Vercelデプロイトリガーエラー: ${error.message}`);
+        log(`!!! Vercelデプロイトリガーエラー: ${error.message}`);
         if (error.response) {
-          log(`Vercel APIエラー詳細: ${JSON.stringify(error.response.data)}`);
+          log(`!!! Vercel APIエラー詳細: Status=${error.response.status}, Data=${JSON.stringify(error.response.data)}`);
         }
       }
     }
-    
+
     log('Git処理が正常に完了しました');
 
   } catch (error) {
-    log(`Git処理中にエラーが発生しました: ${error.message}`);
-    cleanupGitLock(); // エラー時もロックファイル削除を試みる
+    log(`*** Git処理中にエラーが発生しました: ${error.message}`);
+    cleanupGitLock();
     throw error;
   }
 }
