@@ -1,664 +1,423 @@
-/**
- * 記事フォルダ自動監視スクリプト
- * 
- * このスクリプトは以下の機能を提供します：
- * 1. articles フォルダを監視
- * 2. 新しいTSXファイルを自動検出
- * 3. H1タグからタイトルを抽出
- * 4. コンポーネントとブログページを生成
- * 5. GitHubにプッシュしVercelデプロイを実行
- * 
- * 使用方法:
- * > node folder_watcher.js
- */
-
 const fs = require('fs');
 const path = require('path');
 const { exec: nodeExec } = require('child_process');
 const util = require('util');
 const chokidar = require('chokidar');
 const axios = require('axios');
+const anyAscii = require('any-ascii');
 
-// .env.localがあれば読み込む
-try {
-  require('dotenv').config({ path: '.env.local' });
-  if (process.env.VERCEL_DEPLOY_HOOK) {
-    log(`Vercelデプロイフックが設定されています: ${process.env.VERCEL_DEPLOY_HOOK}`);
-  } else {
-    log('Vercelデプロイフックが設定されていません。.env.localファイルを確認してください');
-  }
-} catch (e) {
-  console.log('dotenv not installed or .env.local not found');
-}
-
-// ログファイル
-const LOG_FILE = './upload_log.txt';
-
-// execをPromise化する関数
-const exec = util.promisify(nodeExec);
-
-// 設定
+// --- 設定 ---
 const CONFIG = {
   watchFolder: './articles',
   componentsFolder: './components',
   blogFolder: './app/blog',
   processedList: './processed_files.txt',
-  gitPath: process.env.GIT_PATH || 'git'
+  logFile: './upload_log.txt',
+  gitPath: process.env.GIT_PATH || 'C:\\Program Files\\Git\\cmd\\git.exe',
+  vercelHook: process.env.VERCEL_DEPLOY_HOOK_URL || ''
 };
 
-// カテゴリリスト
-const CATEGORIES = ['ai-news', 'ai-technology', 'projects', 'nvidia-gtc-2025-report'];
+if (CONFIG.vercelHook) {
+  console.log(`Vercelデプロイフックが設定されています: ${CONFIG.vercelHook}`);
+}
 
-// メタデータのパターン
-const META_PATTERNS = {
-  title: /\/\/\s*title:\s*(.+)/,
-  category: /\/\/\s*category:\s*(.+)/,
-  date: /\/\/\s*date:\s*(.+)/,
-  coverImage: /\/\/\s*coverImage:\s*(.+)/,
-  description: /\/\/\s*description:\s*(.+)/,
-  tags: /\/\/\s*tags:\s*(.+)/,
-  author: /\/\/\s*author:\s*(.+)/
-};
+const exec = util.promisify(nodeExec);
 
-// ログ出力関数
-function log(message) {
-  const timestamp = new Date().toISOString();
-  const logMessage = `[${timestamp}] ${message}`;
-  console.log(logMessage);
-  
+// セーフな実行関数
+async function safeExec(command) {
   try {
-    fs.appendFileSync(LOG_FILE, logMessage + '\n');
+    const result = await exec(command);
+    return result;
+  } catch (error) {
+    console.error(`コマンド実行エラー: ${error.message}`);
+    throw error;
+  }
+}
+
+// メタデータ抽出パターン
+const METADATA_PATTERNS = {
+  title: /title:\s*['"](.+?)['"]/,
+  category: /category:\s*['"](.+?)['"]/,
+  date: /date:\s*['"](.+?)['"]/,
+  coverImage: /coverImage:\s*['"](.+?)['"]/,
+  description: /description:\s*['"](.+?)['"]/,
+  tags: /tags:\s*\[(.*?)\]/,
+  author: /author:\s*['"](.+?)['"]/
+};
+
+// ログ関数
+function log(message) {
+  try {
+    const timestamp = new Date().toISOString();
+    const logMessage = `${timestamp}: ${message}\n`;
+    console.log(logMessage);
+    fs.appendFileSync(CONFIG.logFile, logMessage);
   } catch (error) {
     console.error(`ログファイルへの書き込みエラー: ${error.message}`);
   }
 }
 
-// 処理済みファイルかどうかをチェック
-function isFileProcessed(fileName) {
+// 処理済みファイルのチェック
+function isProcessed(filePath) {
   try {
     if (!fs.existsSync(CONFIG.processedList)) {
       return false;
     }
-    
-    const content = fs.readFileSync(CONFIG.processedList, 'utf8');
-    return content.includes(fileName + ',');
+    const processed = fs.readFileSync(CONFIG.processedList, 'utf8').split('\n');
+    return processed.includes(filePath);
   } catch (error) {
-    log(`処理済みチェックエラー: ${error.message}`);
+    log(`処理済みリストの確認エラー: ${error.message}`);
     return false;
   }
 }
 
 // 処理済みリストに追加
-function addToProcessedList(fileName, title, slug, date) {
+function addToProcessed(filePath) {
   try {
-    const timestamp = new Date().toISOString();
-    const line = `${fileName},${title},${slug},${timestamp}\n`;
-    fs.appendFileSync(CONFIG.processedList, line);
-    log(`ファイル ${fileName} を処理済みリストに追加しました`);
+    fs.appendFileSync(CONFIG.processedList, `${filePath}\n`);
+    log(`ファイル ${filePath} を処理済みリストに追加しました`);
   } catch (error) {
     log(`処理済みリストへの追加エラー: ${error.message}`);
   }
 }
 
-// 処理済みリストの準備
-if (!fs.existsSync(CONFIG.processedList)) {
-  fs.writeFileSync(CONFIG.processedList, '# 処理済みTSXファイルリスト\n# 形式: ファイル名,タイトル,スラグ,処理日時\n\n');
-  log('処理済みファイルリストを作成しました');
-}
-
-// フォルダの準備
-if (!fs.existsSync(CONFIG.watchFolder)) {
-  fs.mkdirSync(CONFIG.watchFolder, { recursive: true });
-  log(`監視フォルダを作成しました: ${CONFIG.watchFolder}`);
-}
-
-if (!fs.existsSync(CONFIG.componentsFolder)) {
-  fs.mkdirSync(CONFIG.componentsFolder, { recursive: true });
-  log(`コンポーネントフォルダを作成しました: ${CONFIG.componentsFolder}`);
-}
-
-// H1タグからタイトルを抽出する関数
-function extractTitleFromContent(content, fallbackTitle) {
-  // メタデータからタイトルを抽出
-  const metaTitleMatch = content.match(META_PATTERNS.title);
-  if (metaTitleMatch && metaTitleMatch[1]) {
-    const title = metaTitleMatch[1].trim();
-    // ダブルクォーテーションを除去
-    const cleanTitle = title.replace(/["']/g, '').trim();
-    log(`メタデータからタイトルを抽出しました: "${cleanTitle}"`);
-    return cleanTitle;
-  }
+// メタデータ抽出
+function extractMetadata(content) {
+  log(`[extractMetadata] Start processing`);
+  const metadata = {};
   
-  // H1タグを探す
-  const h1Match = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  if (h1Match && h1Match[1]) {
-    let title = h1Match[1].trim();
-    // HTMLタグを除去
-    title = title.replace(/<[^>]*>/g, '');
-    log(`H1タグからタイトルを抽出しました: "${title}"`);
-    return title;
-  }
-  
-  log(`タイトルが見つかりません。フォールバックタイトルを使用: "${fallbackTitle}"`);
-  return fallbackTitle;
-}
-
-// カテゴリを抽出する関数
-function extractCategory(content, filePath) {
-  // メタデータからカテゴリを抽出
-  const metaCategoryMatch = content.match(META_PATTERNS.category);
-  if (metaCategoryMatch && metaCategoryMatch[1]) {
-    const category = metaCategoryMatch[1].trim();
-    // カテゴリからダブルクォーテーションと空白を除去
-    const cleanCategory = category.replace(/["']/g, '').trim();
-    
-    if (CATEGORIES.includes(cleanCategory)) {
-      log(`メタデータからカテゴリを抽出しました: "${cleanCategory}"`);
-      return cleanCategory;
-    } else {
-      log(`無効なカテゴリ "${cleanCategory}" が指定されました。有効なのは: ${CATEGORIES.join(', ')}`);
-    }
-  }
-  
-  // ファイルパスからカテゴリを判断
-  const pathParts = filePath.split(path.sep);
-  const articlesDirIndex = pathParts.indexOf('articles');
-  
-  if (articlesDirIndex >= 0 && pathParts.length > articlesDirIndex + 1) {
-    const categoryFromPath = pathParts[articlesDirIndex + 1];
-    if (CATEGORIES.includes(categoryFromPath)) {
-      log(`ファイルパスからカテゴリを抽出しました: "${categoryFromPath}"`);
-      return categoryFromPath;
-    }
-  }
-  
-  // デフォルトカテゴリ
-  log(`カテゴリが見つかりません。デフォルトカテゴリを使用: "ai-technology"`);
-  return 'ai-technology';
-}
-
-// タグを抽出する関数
-function extractTags(content) {
-  // メタデータからタグを抽出
-  const metaTagsMatch = content.match(META_PATTERNS.tags);
-  if (metaTagsMatch && metaTagsMatch[1]) {
-    try {
-      const tagsString = metaTagsMatch[1].trim();
-      // JSON形式の場合はパース
-      if (tagsString.startsWith('[') && tagsString.endsWith(']')) {
-        const tags = JSON.parse(tagsString);
-        if (Array.isArray(tags)) {
-          log(`メタデータからタグを抽出しました: ${tags.join(', ')}`);
-          return tags;
-        }
-      }
-    } catch (e) {
-      log(`タグのパース中にエラー: ${e.message}`);
-    }
-  }
-  
-  // デフォルトタグ
-  return ['AI', '自動生成'];
-}
-
-// 作者を抽出する関数
-function extractAuthor(content) {
-  // メタデータから作者を抽出
-  const metaAuthorMatch = content.match(META_PATTERNS.author);
-  if (metaAuthorMatch && metaAuthorMatch[1]) {
-    const author = metaAuthorMatch[1].trim();
-    log(`メタデータから作者を抽出しました: "${author}"`);
-    return author;
-  }
-  
-  // デフォルト作者
-  return 'AI Team';
-}
-
-// 日付を抽出する関数
-function extractDate(content) {
-  // メタデータから日付を抽出
-  const metaDateMatch = content.match(META_PATTERNS.date);
-  if (metaDateMatch && metaDateMatch[1]) {
-    const date = metaDateMatch[1].trim();
-    // 日付形式の検証
-    if (/^\d{4}-\d{2}-\d{2}/.test(date)) {
-      log(`メタデータから日付を抽出しました: "${date}"`);
-      return date;
-    }
-  }
-  
-  // 現在日付を使用
-  const today = new Date().toISOString().split('T')[0];
-  log(`日付が見つかりません。現在の日付を使用: "${today}"`);
-  return today;
-}
-
-// アイキャッチ画像を抽出する関数
-function extractCoverImage(content) {
-  // メタデータからアイキャッチ画像を抽出
-  const metaCoverMatch = content.match(META_PATTERNS.coverImage);
-  if (metaCoverMatch && metaCoverMatch[1]) {
-    const coverImage = metaCoverMatch[1].trim();
-    // ダブルクォーテーションを除去
-    const cleanCoverImage = coverImage.replace(/["']/g, '').trim();
-    log(`メタデータからアイキャッチ画像を抽出しました: "${cleanCoverImage}"`);
-    return cleanCoverImage;
-  }
-  
-  log(`アイキャッチ画像が見つかりません。デフォルト画像を使用します`);
-  return '/placeholder.svg?height=600&width=800';
-}
-
-// エラーハンドリングを改善したexecPromiseラッパー
-async function execPromise(cmd) {
-  try {
-    log(`コマンド実行: ${cmd}`);
-    const { stdout, stderr } = await exec(cmd);
-    if (stdout) log(`コマンド出力: ${stdout}`);
-    if (stderr && stderr.trim() !== '') {
-      log(`警告: ${stderr}`);
-    }
-    return stdout;
-  } catch (error) {
-    log(`コマンド実行エラー: ${error.message}`);
-    throw error;
-  }
-}
-
-// Gitのロックファイルをクリーンアップ
-function cleanupGitLock() {
-  const lockFile = path.join(process.cwd(), '.git', 'index.lock');
-  if (fs.existsSync(lockFile)) {
-    try {
-      fs.unlinkSync(lockFile);
-      log('Gitのロックファイルを削除しました');
-    } catch (err) {
-      log(`ロックファイル削除中にエラー: ${err.message}`);
-    }
-  }
-}
-
-// コンポーネントファイルを生成する関数
-function generateComponent(title, content) {
-  // 空のタイトルをチェック
-  if (!title || title.trim() === '') {
-    title = 'DefaultArticle';
-    log(`警告: 空のコンポーネント名が検出されました。デフォルト名を使用します: "${title}"`);
-  }
-  
-  // 記事の内容からコンポーネントを抽出
-  const articleMatch = content.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-  const articleContent = articleMatch ? articleMatch[1] : `<h1>${title}</h1>`;
-
-  return `import React from 'react';
-
-export default function ${title}() {
-  return (
-    <article className="prose prose-slate max-w-none">
-      ${articleContent}
-    </article>
-  );
-}
-`;
-}
-
-// ブログポストを生成する関数
-function generateBlogPost(title, componentName, category, date, description, coverImage = null) {
-  return `import type { Metadata } from "next"
-import ${componentName} from "@/components/${componentName}"
-
-// メタデータ
-export const metadata: Metadata = {
-  title: "${title}",
-  description: "${description || `${title}に関する詳細記事`}",
-  openGraph: {
-    title: "${title}",
-    description: "${description || `${title}に関する詳細記事`}",
-    images: [{ url: "${coverImage || '/placeholder.svg?height=600&width=800'}" }],
-  },
-}
-
-export default function BlogPost() {
-  return <${componentName} />
-}
-`;
-}
-
-// メタデータを抽出する関数を改善
-function extractMetadata(content, fileName) {
-  const metadata = {
-    title: '',
-    category: '',
-    date: '',
-    coverImage: '',
-    description: '',
-    tags: '',
-    author: '',
-  };
-
-  log(`[extractMetadata] Start processing for: ${fileName}`);
-
-  // メタデータコメントから抽出
-  Object.entries(META_PATTERNS).forEach(([key, pattern]) => {
+  // コメントブロックからのメタデータ抽出
+  for (const [key, pattern] of Object.entries(METADATA_PATTERNS)) {
     const match = content.match(pattern);
-    if (match && match[1]) {
-      const extractedValue = match[1].replace(/["']/g, '').trim();
+    if (match) {
       log(`  [extractMetadata] Raw match for ${key}: "${match[1]}"`);
-      log(`  [extractMetadata] Cleaned value for ${key}: "${extractedValue}"`);
-      metadata[key] = extractedValue;
+      metadata[key] = key === 'tags' 
+        ? match[1].split(',').map(tag => tag.trim().replace(/['"]/g, ''))
+        : match[1];
+      log(`  [extractMetadata] Cleaned value for ${key}: "${metadata[key]}"`);
     } else {
       log(`  [extractMetadata] No match for ${key}`);
     }
-  });
-
-  // H1タグからタイトルを抽出（メタデータにタイトルがない場合）
+  }
+  
+  // タイトルがない場合はh1タグか、ファイル名から生成
   if (!metadata.title) {
-    const h1Match = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-    if (h1Match && h1Match[1]) {
-      metadata.title = h1Match[1].replace(/<[^>]*>/g, '').trim();
+    // h1タグからの抽出を試みる
+    const h1Match = content.match(/<h1[^>]*>(.*?)<\/h1>/);
+    if (h1Match) {
+      metadata.title = h1Match[1].trim();
       log(`  [extractMetadata] Title extracted from H1: "${metadata.title}"`);
+    } else {
+      // ファイル名からの生成（パスから取得しないので呼び出し側で対応）
+      const fileNameMatch = /([^\/\\]+)\.tsx$/.exec(content);
+      if (fileNameMatch) {
+        metadata.title = fileNameMatch[1]
+          .replace(/[-_]/g, ' ')
+          .replace(/([A-Z])/g, ' $1')
+          .trim();
+        log(`  [extractMetadata] Title fallback from filename: "${metadata.title}"`);
+      }
     }
   }
-
-  // フォールバック値を設定
-  if (!metadata.title || metadata.title.trim() === '') {
-    const baseName = path.parse(fileName).name;
-    metadata.title = baseName
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('');
-    log(`  [extractMetadata] Title fallback from filename: "${metadata.title}"`);
-  }
-
-  // カテゴリの検証とフォールバック
-  if (!metadata.category || !CATEGORIES.includes(metadata.category)) {
-    if (metadata.category) {
-      log(`  [extractMetadata] Invalid category specified: "${metadata.category}". Valid categories: ${CATEGORIES.join(', ')}`);
-    }
-    log(`  [extractMetadata] Using default category: "ai-technology"`);
+  
+  // カテゴリのデフォルト設定
+  if (!metadata.category) {
     metadata.category = 'ai-technology';
+    log(`  [extractMetadata] Using default category: "${metadata.category}"`);
   }
-
-  // 他のメタデータのフォールバック
+  
+  // 日付のデフォルト設定
   if (!metadata.date) {
     metadata.date = new Date().toISOString().split('T')[0];
     log(`  [extractMetadata] Using default date: "${metadata.date}"`);
   }
-  if (!metadata.description) {
+  
+  // 説明のデフォルト設定
+  if (!metadata.description && metadata.title) {
     metadata.description = `${metadata.title}に関する詳細記事`;
     log(`  [extractMetadata] Using default description: "${metadata.description}"`);
   }
-
+  
+  // カバー画像のデフォルト設定
+  if (!metadata.coverImage) {
+    metadata.coverImage = '/placeholder.svg?height=600&width=800';
+    log(`  [extractMetadata] Using default coverImage: "${metadata.coverImage}"`);
+  }
+  
   log(`[extractMetadata] Returning metadata: title="${metadata.title}", category="${metadata.category}"`);
   return metadata;
 }
 
-// コンポーネント名とスラグ生成を改善
+// コンポーネント名とスラグの生成
 function generateNameAndSlug(title) {
-  // 無効な文字を除去し、スペースとハイフンを処理
   const safeTitle = (title || "DefaultArticleTitle").trim();
+  log(`  [generateNameAndSlug] Original title: "${safeTitle}"`);
 
-  // コンポーネント名をパスカルケースで生成
-  let componentName = safeTitle
-    .replace(/[^\p{L}\p{N}\s-]/gu, '')
-    .split(/[-\s]+/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join('');
-
-  // JavaScriptの予約語や無効な開始文字でないか確認
-  if (!/^[A-Z]/.test(componentName) || ['React', 'Component', 'Default'].includes(componentName)) {
-    componentName = `Article${componentName}`;
-  }
-  if (componentName.length === 0) {
-    componentName = 'GeneratedArticle';
-  }
-
-  // スラグをケバブケースで生成
-  let slug = safeTitle
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s-]/gu, '')
-    .replace(/[\s]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-  if (slug.length === 0) {
-    slug = `article-${Date.now().toString(36)}`;
-  }
-
-  return { componentName, slug };
-}
-
-// ファイル処理を実行する関数
-async function processFile(filePath) {
   try {
-    const fileName = path.basename(filePath);
+    // anyAsciiは直接関数として使用
+    const romajiTitle = anyAscii(safeTitle);
+    log(`  [generateNameAndSlug] Romaji title: "${romajiTitle}"`);
+
+    // コンポーネント名の生成
+    let componentName = romajiTitle
+      .replace(/[^\w\s-]/g, '')
+      .split(/[-\s]+/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join('');
     
-    // 既に処理済みかチェック
-    if (isFileProcessed(fileName)) {
-      log(`ファイル ${fileName} は既に処理済みです`);
-      return;
+    // 空文字になった場合のフォールバック
+    if (!componentName || componentName.length === 0) {
+      componentName = 'Article' + safeTitle.replace(/[^a-zA-Z0-9]/g, '');
     }
     
-    // ファイルの内容を読み込む
-    const content = fs.readFileSync(filePath, 'utf8');
+    log(`  [generateNameAndSlug] Generated componentName: "${componentName}"`);
+
+    // スラグの生成
+    let slug = romajiTitle
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
     
-    // メタデータを抽出
-    const metadata = extractMetadata(content, fileName);
+    // 空文字になった場合のフォールバック
+    if (!slug || slug.length === 0) {
+      slug = safeTitle.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+      if (!slug || slug.length === 0) {
+        slug = 'article-' + Date.now();
+      }
+    }
     
-    // コンポーネント名とスラグを生成
-    const { componentName, slug } = generateNameAndSlug(metadata.title);
-    
-    // 処理状況をログ
-    log(`タイトル: "${metadata.title}"`);
-    log(`カテゴリ: "${metadata.category}"`);
-    log(`日付: "${metadata.date}"`);
-    log(`アイキャッチ画像: "${metadata.coverImage || '/placeholder.svg?height=600&width=800'}"`);
-    log(`コンポーネント名: "${componentName}"`);
-    log(`スラグ: "${slug}"`);
-    
-    // 必要なディレクトリを作成
-    const blogDir = path.join(CONFIG.blogFolder, metadata.category, slug);
-    fs.mkdirSync(blogDir, { recursive: true });
-    
-    // コンポーネントファイルを生成
-    const componentPath = path.join(CONFIG.componentsFolder, `${componentName}.tsx`);
-    fs.writeFileSync(componentPath, generateComponent(componentName, content));
-    log(`コンポーネントを作成しました: ${componentPath}`);
-    
-    // ブログページを生成
-    const blogPostPath = path.join(blogDir, 'page.tsx');
-    fs.writeFileSync(blogPostPath, generateBlogPost(
-      metadata.title,
-      componentName,
-      metadata.category,
-      metadata.date,
-      metadata.description,
-      metadata.coverImage
-    ));
-    log(`ブログページを作成しました: ${blogPostPath}`);
-    
-    // Git操作を実行
-    await handleGitProcess(componentPath, blogPostPath, metadata.title);
-    
-    // 処理済みリストに追加
-    addToProcessedList(fileName, metadata.title, slug, metadata.date);
-    
-    log(`ファイル ${fileName} の処理が完了しました！`);
-    return { title: metadata.title, slug };
-    
+    log(`  [generateNameAndSlug] Generated slug: "${slug}"`);
+
+    return { componentName, slug };
   } catch (error) {
-    log(`ファイル処理エラー: ${error.message}`);
-    console.error(error);
+    log(`  [generateNameAndSlug] エラー: ${error.message}`);
+    // フォールバック：日本語タイトルからシンプルな英語名を生成
+    const fallbackComponentName = 'Article' + Date.now();
+    const fallbackSlug = 'article-' + Date.now();
+    log(`  [generateNameAndSlug] フォールバック使用: componentName="${fallbackComponentName}", slug="${fallbackSlug}"`);
+    return { 
+      componentName: fallbackComponentName, 
+      slug: fallbackSlug 
+    };
   }
 }
 
-// Git処理を実行する関数 - 修正版
-async function handleGitProcess(componentPath, blogPostPath, title) {
+// Gitプロセスの処理
+async function handleGitProcess(files, extractedTitle) {
   try {
     log('Git処理を開始します...');
-    cleanupGitLock();
+    
+    // 既存のGitロックファイルをクリーンアップ
+    const lockFile = path.join('.git', 'index.lock');
+    if (fs.existsSync(lockFile)) {
+      fs.unlinkSync(lockFile);
+      log('既存のGitロックファイルをクリーンアップしました');
+    }
 
-    // 1. 生成したファイルをステージング
+    // ファイルをステージング
     log('生成されたファイルをステージングします...');
-    await execPromise(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
+    for (const file of files) {
+      log(`コマンド実行: "${CONFIG.gitPath}" add "${file}"`);
+      const { stdout, stderr } = await safeExec(`"${CONFIG.gitPath}" add "${file}"`);
+      if (stderr) log(`警告: ${stderr}`);
+    }
     log('生成ファイルをGitにステージングしました');
 
-    // 2. 生成したファイルをコミット
+    // 変更をコミット
+    const commitMessage = `記事の自動生成: ${extractedTitle}`;
     log('生成されたファイルの変更をコミットします...');
-    const escapedTitle = title.replace(/"/g, '\\"');
-    await execPromise(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
+    log(`コマンド実行: "${CONFIG.gitPath}" commit -m "${commitMessage}"`);
+    const { stdout: commitOutput, stderr: commitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${commitMessage}"`);
+    if (commitError) log(`警告: ${commitError}`);
     log('生成ファイルの変更をコミットしました');
 
-    // 3. その他の変更も全てコミット
+    // その他の変更を確認
     log('その他の変更を確認します...');
-    const statusOutput = await execPromise(`"${CONFIG.gitPath}" status --porcelain`);
-    if (statusOutput.trim() !== '') {
+    log(`コマンド実行: "${CONFIG.gitPath}" status --porcelain`);
+    const { stdout: statusOutput, stderr: statusError } = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
+    if (statusError) log(`警告: ${statusError}`);
+
+    // statusOutputがundefinedでないことを確認
+    if (statusOutput && typeof statusOutput === 'string' && statusOutput.trim()) {
       log('その他の変更が見つかりました。全てコミットします...');
-      await execPromise(`"${CONFIG.gitPath}" add .`);
+      log(`コマンド実行: "${CONFIG.gitPath}" add .`);
+      const { stderr: addError } = await safeExec(`"${CONFIG.gitPath}" add .`);
+      if (addError) log(`警告: ${addError}`);
+
       const timestamp = new Date().toISOString();
-      try {
-        await execPromise(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
-        log('その他の変更をコミットしました');
-      } catch(commitError) {
-        if (commitError.stdout?.includes('nothing to commit') || commitError.stderr?.includes('nothing to commit')) {
-          log('コミットするその他の変更はありませんでした。');
-        } else {
-          throw commitError;
-        }
-      }
-    } else {
-      log('その他の未コミットの変更はありませんでした');
+      const otherCommitMessage = `その他の変更を自動コミット: ${timestamp}`;
+      log(`コマンド実行: "${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
+      const { stdout: otherCommitOutput, stderr: otherCommitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
+      if (otherCommitError) log(`警告: ${otherCommitError}`);
+      log('その他の変更をコミットしました');
     }
 
-    // 4. プッシュ
+    // 変更をプッシュ
     log('変更をリモートにプッシュします...');
-    try {
-      await execPromise(`"${CONFIG.gitPath}" push origin main`);
-      log('変更をプッシュしました');
-    } catch (pushError) {
-      log(`!!! プッシュに失敗しました: ${pushError.message}`);
-      log('!!! リモートリポジトリとの同期が必要です。手動で git pull --rebase origin main を実行してから再度試してください。');
-      throw new Error('Git push failed. Manual intervention required.');
-    }
+    log(`コマンド実行: "${CONFIG.gitPath}" push origin main`);
+    const { stdout: pushOutput, stderr: pushError } = await safeExec(`"${CONFIG.gitPath}" push origin main`);
+    if (pushError) log(`警告: ${pushError}`);
+    log('変更をプッシュしました');
 
-    // 5. Vercelデプロイをトリガー
-    if (process.env.VERCEL_DEPLOY_HOOK) {
+    // Vercelデプロイメントのトリガー
+    if (CONFIG.vercelHook) {
       log('Vercelデプロイをトリガーします...');
       try {
-        const response = await axios.post(process.env.VERCEL_DEPLOY_HOOK);
+        const response = await axios.post(CONFIG.vercelHook);
         log(`Vercelデプロイトリガー成功: ${JSON.stringify(response.data)}`);
       } catch (error) {
-        log(`!!! Vercelデプロイトリガーエラー: ${error.message}`);
-        if (error.response) {
-          log(`!!! Vercel APIエラー詳細: Status=${error.response.status}, Data=${JSON.stringify(error.response.data)}`);
-        }
+        log(`Vercelデプロイトリガーエラー: ${error.message}`);
       }
     }
 
     log('Git処理が正常に完了しました');
-
   } catch (error) {
-    log(`*** Git処理中にエラーが発生しました: ${error.message}`);
-    cleanupGitLock();
+    log(`Git処理中にエラーが発生しました: ${error.message}`);
     throw error;
   }
 }
 
-// コマンド実行用のプロミスラッパー
-function execCommand(command) {
-  return new Promise((resolve, reject) => {
-    log(`コマンド実行: ${command}`);
-    exec(command, { cwd: process.cwd() }, (error, stdout, stderr) => {
-      if (stdout) log(`コマンド出力: ${stdout}`);
-      if (stderr) log(`コマンドエラー出力: ${stderr}`);
-      
-      if (error) {
-        log(`コマンド実行エラー: ${error.message}`);
-        reject(error);
-      } else {
-        resolve({ stdout, stderr });
-      }
-    });
-  });
+// ファイル処理
+async function processFile(filePath) {
+  const fileName = path.basename(filePath);
+  try {
+    log(`処理を開始します: ${filePath}`);
+    
+    if (isProcessed(fileName)) {
+      log(`ファイル ${fileName} は既に処理済みのためスキップします`);
+      return;
+    }
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    const metadata = extractMetadata(content);
+    
+    if (!metadata.title) {
+      throw new Error('Title not found in metadata');
+    }
+
+    // タグの確認
+    if (!metadata.tags) {
+      log('タグが見つからないか無効なため、デフォルトタグを使用します');
+    } else {
+      log(`メタデータからタグを抽出しました: ${metadata.tags.join(', ')}`);
+    }
+    
+    // 作者の確認
+    if (!metadata.author) {
+      log('作者が見つからないため、デフォルトの作者を使用します');
+    } else {
+      log(`メタデータから作者を抽出しました: "${metadata.author}"`);
+    }
+
+    log(`タイトル: "${metadata.title}"`);
+    log(`カテゴリ: "${metadata.category}"`);
+    log(`日付: "${metadata.date}"`);
+    log(`アイキャッチ画像: "${metadata.coverImage}"`);
+
+    const { componentName, slug } = generateNameAndSlug(metadata.title);
+    
+    log(`コンポーネント名: "${componentName}"`);
+    log(`スラグ: "${slug}"`);
+    
+    // コンポーネントファイルの生成
+    const componentPath = path.join(CONFIG.componentsFolder, `${componentName}.tsx`);
+    log(`コンポーネントを作成しました: ${componentPath}`);
+    fs.copyFileSync(filePath, componentPath);
+
+    // ブログページの生成
+    const category = metadata.category || 'ai-news';
+    const blogPath = path.join(CONFIG.blogFolder, category, slug);
+    fs.mkdirSync(blogPath, { recursive: true });
+    
+    const pagePath = path.join(blogPath, 'page.tsx');
+    log(`ブログページを作成しました: ${pagePath}`);
+    
+    const pageContent = `import ${componentName} from '@/components/${componentName}';\n\nexport default ${componentName};\n`;
+    fs.writeFileSync(pagePath, pageContent);
+
+    // Git処理の実行
+    await handleGitProcess([componentPath, pagePath], metadata.title);
+
+    // 処理済みリストに追加
+    addToProcessed(fileName);
+    log(`ファイル ${fileName} の処理が完了しました！`);
+    log(`ファイル処理成功: タイトル="${metadata.title}", スラグ="${slug}"`);
+    
+  } catch (error) {
+    log(`!!! ファイル処理エラー (${fileName}): ${error.message}`);
+    console.error(`Error details for ${fileName}: ${error}`);
+  }
 }
 
-// 初期チェック - 既存のTSXファイルを処理
+// メイン処理の開始
 log('既存ファイルの確認を開始します...');
 
-// カテゴリを含む全てのファイルを検索
-const allTsxFiles = [];
-
-// メインフォルダのファイル
-const mainDirFiles = fs.readdirSync(CONFIG.watchFolder)
-  .filter(file => file.endsWith('.tsx'))
-  .map(file => path.join(CONFIG.watchFolder, file));
-allTsxFiles.push(...mainDirFiles);
-
-// 各カテゴリフォルダのファイル
-CATEGORIES.forEach(category => {
-  const categoryPath = path.join(CONFIG.watchFolder, category);
-  if (fs.existsSync(categoryPath)) {
-    const categoryFiles = fs.readdirSync(categoryPath)
-      .filter(file => file.endsWith('.tsx'))
-      .map(file => path.join(categoryPath, file));
-    allTsxFiles.push(...categoryFiles);
-  }
-});
-
-log(`${allTsxFiles.length}個の既存TSXファイルが見つかりました`);
-
-// 既存ファイルを処理
-allTsxFiles.forEach(filePath => {
-  const fileName = path.basename(filePath);
+// 再帰的にすべてのTSXファイルを取得
+const getAllTsxFiles = (dir) => {
+  let results = [];
+  const list = fs.readdirSync(dir);
   
-  if (isFileProcessed(fileName)) {
-    log(`ファイル ${fileName} は既に処理済みです`);
-  } else {
-    // 非同期処理を開始
-    processFile(filePath)
-      .then(result => {
-        if (result) {
-          log(`ファイル処理成功: タイトル="${result.title}", スラグ="${result.slug}"`);
-        }
-      })
-      .catch(error => {
-        log(`ファイル処理中にエラー: ${error.message}`);
-      });
-  }
-});
-
-// 新しいファイルの監視を開始
-const watchOptions = {
-  persistent: true,
-  ignoreInitial: true,
-  awaitWriteFinish: {
-    stabilityThreshold: 2000,
-    pollInterval: 100
-  }
+  list.forEach(file => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    
+    if (stat && stat.isDirectory()) {
+      // サブディレクトリの場合は再帰的に検索
+      results = results.concat(getAllTsxFiles(filePath));
+    } else if (file.endsWith('.tsx')) {
+      // TSXファイルの場合はリストに追加
+      results.push(filePath);
+    }
+  });
+  
+  return results;
 };
 
-const watcher = chokidar.watch([
-  `${CONFIG.watchFolder}/**/*.tsx`,
-  `${CONFIG.watchFolder}/*.tsx`
-], watchOptions);
+// カテゴリディレクトリも含めて検索
+try {
+  const tsxFiles = getAllTsxFiles(CONFIG.watchFolder);
+  log(`${tsxFiles.length}個の既存TSXファイルが見つかりました`);
+  
+  // 各ファイルを処理（並列処理を避けるために直列処理）
+  tsxFiles.forEach(filePath => {
+    processFile(filePath).catch(error => {
+      log(`既存ファイル処理エラー: ${error.message}`);
+    });
+  });
+  
+  // ファイル監視の設定
+  log(`フォルダ監視を開始します: ${CONFIG.watchFolder} (カテゴリフォルダも含む)`);
+  const watcher = chokidar.watch([
+    path.join(CONFIG.watchFolder, '*.tsx'),
+    path.join(CONFIG.watchFolder, '**', '*.tsx')
+  ], {
+    ignored: /(^|[\/\\])\../,
+    persistent: true
+  });
 
-log(`フォルダ監視を開始します: ${CONFIG.watchFolder} (カテゴリフォルダも含む)`);
-
-watcher
-  .on('add', async (filePath) => {
+  // 新規ファイルの監視
+  watcher.on('add', filePath => {
     log(`新しいファイルを検出しました: ${filePath}`);
-    try {
-      await processFile(filePath);
-    } catch (error) {
-      log(`ファイル処理エラー: ${error.message}`);
-    }
-  })
-  .on('error', error => log(`監視エラー: ${error.message}`));
+    processFile(filePath).catch(error => {
+      log(`新規ファイル処理エラー: ${error.message}`);
+    });
+  });
 
-log('監視中... Ctrl+C で終了');
+  watcher.on('ready', () => {
+    log('ファイル監視の準備が完了しました。');
+    log('監視中... Ctrl+C で終了');
+  });
 
-// 処理完了をログに記録
-setTimeout(() => {
-  log('既存ファイルの処理が完了しました');
-}, 1000);
+  watcher.on('error', error => {
+    log(`監視エラー: ${error.message}`);
+  });
+
+  setTimeout(() => {
+    log('既存ファイルの処理が完了しました');
+  }, 1000);
+  
+} catch (error) {
+  log(`初期化エラー: ${error.message}`);
+}
