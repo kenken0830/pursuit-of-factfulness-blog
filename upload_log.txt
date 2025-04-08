@@ -11884,3 +11884,15 @@ remove the file manually to continue.
 [2025-04-08T06:47:03.819Z] !!! ファイル処理エラー (very-final-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正確認テスト"
 
 [2025-04-08T06:47:03.875Z] その他の変更が見つかりました。全てステージングしてコミットします...
+[2025-04-08T06:47:04.203Z] その他の変更をコミットしました
+[2025-04-08T06:47:04.205Z] 現在のブランチを確認し、リモートと同期・プッシュします...
+[2025-04-08T06:47:04.267Z] 現在のブランチ: main にプッシュします。
+[2025-04-08T06:47:04.268Z] リモートの変更を取得・統合します (pull --rebase origin main)...
+[2025-04-08T06:47:04.363Z] !!! プルまたはプッシュに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" pull origin main --rebase
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-08T06:47:04.364Z] !!! コンフリクトが発生したか、リモートとの同期が必要です。
+[2025-04-08T06:47:04.365Z] !!! 手動での確認・解決が必要な場合があります。
+[2025-04-08T06:47:04.367Z] *** Git処理中に予期せぬエラーが発生しました: Git sync or push failed. Manual intervention may be required.
+[2025-04-08T06:47:04.368Z] !!! ファイル処理エラー (test-日本語-article.tsx): Git sync or push failed. Manual intervention may be required.
