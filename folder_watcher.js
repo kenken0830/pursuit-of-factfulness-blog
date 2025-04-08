@@ -15,15 +15,16 @@
 
 const fs = require('fs');
 const path = require('path');
-const { exec: nodeExec } = require('child_process');
+const { exec: nodeExec } = require('child_process'); // exec: nodeExec をインポート
 const util = require('util');
 const chokidar = require('chokidar');
 const axios = require('axios');
-const anyAscii = require('any-ascii');
+const anyAsciiModule = require('any-ascii');
+const anyAscii = anyAsciiModule.default; // ESモジュールから正しく default をインポート
 
 // --- 定数定義 (ファイル先頭) ---
-const LOG_FILE = './upload_log.txt';
-const exec = util.promisify(nodeExec);
+const LOG_FILE = './upload_log.txt'; // ★ LOG_FILE を先頭で定義
+const exec = util.promisify(nodeExec); // ★ Promise版 exec を定義
 
 // --- 設定 ---
 const CONFIG = {
@@ -33,68 +34,36 @@ const CONFIG = {
   processedList: './processed_files.txt',
   gitPath: process.env.GIT_PATH || 'C:\\Program Files\\Git\\cmd\\git.exe' // Windowsでの標準的なGitパス
 };
-const PROCESSED_FILES = CONFIG.processedList;
+const PROCESSED_FILES = CONFIG.processedList; // 処理済みリストのパス
 
-const CATEGORIES = ['ai-news', 'ai-technology', 'projects', 'nvidia-gtc-2025-report'];
+const CATEGORIES = ['ai-news', 'ai-technology', 'projects', 'nvidia-gtc-2025-report']; // 有効なカテゴリリスト
 
-// メタデータ抽出用の正規表現パターン - 複数のコメント形式をサポート
+// メタデータ抽出用の正規表現パターン
 const META_PATTERNS = {
-  // 行コメント形式: // title: "値"
-  title: [
-    /\/\/\s*title:\s*"([^"]+)"/,
-    /\/\*\s*title:\s*"([^"]+)"/,
-    /{\s*\/\*\s*title:\s*"([^"]+)"/,
-    /title:\s*"([^"]+)"/
-  ],
-  category: [
-    /\/\/\s*category:\s*"([^"]+)"/,
-    /\/\*\s*category:\s*"([^"]+)"/,
-    /{\s*\/\*\s*category:\s*"([^"]+)"/,
-    /category:\s*"([^"]+)"/
-  ],
-  date: [
-    /\/\/\s*date:\s*"([^"]+)"/,
-    /\/\*\s*date:\s*"([^"]+)"/,
-    /{\s*\/\*\s*date:\s*"([^"]+)"/,
-    /date:\s*"([^"]+)"/
-  ],
-  coverImage: [
-    /\/\/\s*coverImage:\s*"([^"]+)"/,
-    /\/\*\s*coverImage:\s*"([^"]+)"/,
-    /{\s*\/\*\s*coverImage:\s*"([^"]+)"/,
-    /coverImage:\s*"([^"]+)"/
-  ],
-  description: [
-    /\/\/\s*description:\s*"([^"]+)"/,
-    /\/\*\s*description:\s*"([^"]+)"/,
-    /{\s*\/\*\s*description:\s*"([^"]+)"/,
-    /description:\s*"([^"]+)"/
-  ],
-  tags: [
-    /\/\/\s*tags:\s*(\[.*?\])/,
-    /\/\*\s*tags:\s*(\[.*?\])/,
-    /{\s*\/\*\s*tags:\s*(\[.*?\])/,
-    /tags:\s*(\[.*?\])/
-  ],
-  author: [
-    /\/\/\s*author:\s*"([^"]+)"/,
-    /\/\*\s*author:\s*"([^"]+)"/,
-    /{\s*\/\*\s*author:\s*"([^"]+)"/,
-    /author:\s*"([^"]+)"/
-  ]
+  title: /\/\/\s*title:\s*"([^"]+)"/,          // "値" 形式を想定
+  category: /\/\/\s*category:\s*"([^"]+)"/,      // "値" 形式を想定
+  date: /\/\/\s*date:\s*"([^"]+)"/,              // "値" 形式を想定
+  coverImage: /\/\/\s*coverImage:\s*"([^"]+)"/,  // "値" 形式を想定
+  description: /\/\/\s*description:\s*"([^"]+)"/, // "値" 形式を想定
+  tags: /\/\/\s*tags:\s*(.+)/,                   // JSON配列を含む行全体
+  author: /\/\/\s*author:\s*"([^"]+)"/         // "値" 形式を想定
 };
 
 // --- ログ関数 (LOG_FILE定義の後) ---
 function log(message) {
   const timestamp = new Date().toISOString();
   const logMessage = `[${timestamp}] ${message}`;
-  console.log(logMessage);
+  console.log(logMessage); // コンソールにログ出力
   try {
+    // ログファイルに追記
     fs.appendFileSync(LOG_FILE, logMessage + '\n');
   } catch (error) {
+    // ログファイル書き込みエラー時の処理（コンソールへのエラー出力はループを避けるため最小限に）
     console.error(`!!! Log file write error: ${error.message}`);
   }
 }
+// スクリプト開始時にログファイルの場所を記録
+log(`ログファイルを使用します: ${LOG_FILE}`);
 
 // --- ヘルパー関数 ---
 
@@ -102,13 +71,14 @@ function log(message) {
 function isFileProcessed(fileName) {
   try {
     if (!fs.existsSync(PROCESSED_FILES)) {
-      return false;
+      return false; // 処理済みリストファイルがなければ未処理
     }
     const content = fs.readFileSync(PROCESSED_FILES, 'utf8');
+    // ファイル名がリストに含まれているか確認 (行末にカンマが付いていると仮定)
     return content.includes(fileName + ',');
   } catch (error) {
     log(`処理済みチェックエラー (${fileName}): ${error.message}`);
-    return false;
+    return false; // エラー時は未処理扱い
   }
 }
 
@@ -116,7 +86,8 @@ function isFileProcessed(fileName) {
 function addToProcessedList(fileName, title, slug, date) {
   try {
     const timestamp = new Date().toISOString();
-    const line = `${fileName},${title},${slug},${timestamp}\n`;
+    // 形式: ファイル名,タイトル,スラグ,処理日時
+    const line = `${fileName},${title},${slug},${timestamp}\n`; // 行末の ; を削除
     fs.appendFileSync(PROCESSED_FILES, line);
     log(`ファイル ${fileName} を処理済みリストに追加しました`);
   } catch (error) {
@@ -126,57 +97,25 @@ function addToProcessedList(fileName, title, slug, date) {
 
 // Git のロックファイル (.git/index.lock) があれば削除
 function cleanupGitLock() {
-  // 削除対象のロックファイル一覧
-  const lockFiles = [
-    path.join(process.cwd(), '.git', 'index.lock'),
-    path.join(process.cwd(), '.git', 'refs', 'heads', 'main.lock'),
-    path.join(process.cwd(), '.git', 'refs', 'heads', 'master.lock'),
-    path.join(process.cwd(), '.git', 'HEAD.lock')
-  ];
-  
-  let cleanedCount = 0;
-  
-  for (const lockFile of lockFiles) {
+  const lockFile = path.join(process.cwd(), '.git', 'index.lock');
+  if (fs.existsSync(lockFile)) {
     try {
-      if (fs.existsSync(lockFile)) {
-        fs.unlinkSync(lockFile);
-        log(`Gitのロックファイル ${path.basename(lockFile)} を削除しました`);
-        cleanedCount++;
-      }
+      fs.unlinkSync(lockFile);
+      log('Gitのロックファイルを削除しました');
     } catch (err) {
-      log(`警告: ロックファイル ${path.basename(lockFile)} の削除中にエラー: ${err.message}`);
+      log(`ロックファイル削除中にエラー: ${err.message}`);
     }
   }
-  
-  if (cleanedCount > 0) {
-    log(`${cleanedCount}個のGitロックファイルを削除しました。処理を少し遅延します。`);
-    // ファイルシステム操作の同期を確保するために少し待機
-    const waitStart = Date.now();
-    while (Date.now() - waitStart < 500) {
-      // 意図的な短い遅延 (500ms)
-    }
-  }
-  
-  return cleanedCount > 0;
 }
 
 // --- メタデータ抽出関数群 ---
 
 // タグ情報を抽出（JSON配列形式を期待）
 function extractTags(content) {
-  // 各パターンをトライ
-  let tagsMatch = null;
-  for (const pattern of META_PATTERNS.tags) {
-    const match = content.match(pattern);
-    if (match && match[1]) {
-      tagsMatch = match;
-      break;
-    }
-  }
-
-  if (tagsMatch && tagsMatch[1]) {
+  const metaTagsMatch = content.match(META_PATTERNS.tags);
+  if (metaTagsMatch && metaTagsMatch[1]) {
     try {
-      const tagsString = tagsMatch[1].trim();
+      const tagsString = metaTagsMatch[1].trim();
       // JSON形式の文字列か簡易チェック
       if (tagsString.startsWith('[') && tagsString.endsWith(']')) {
         // JSONパースを試みる
@@ -186,19 +125,10 @@ function extractTags(content) {
           return tags; // 抽出したタグ配列を返す
         }
       } else {
-         // JSON形式でない場合はカンマ区切りとして処理
-         const tags = tagsString
-           .replace(/[\[\]'"]/g, '') // 角括弧と引用符を除去
-           .split(',')
-           .map(tag => tag.trim())
-           .filter(tag => tag.length > 0);
-         
-         if (tags.length > 0) {
-           log(`タグをカンマ区切りとして処理しました: ${tags.join(', ')}`);
-           return tags;
-         } else {
-           log(`タグの処理に失敗しました: ${tagsString}`);
-         }
+         // JSON形式でない場合はカンマ区切りとして処理するなどの代替策も可能
+         log(`タグはJSON配列形式ではありませんでした: ${tagsString}`);
+         // ここでカンマ区切りを配列にする処理を追加しても良い
+         // return tagsString.split(',').map(tag => tag.trim()).filter(tag => tag);
       }
     } catch (e) {
       log(`タグのJSONパース中にエラー: ${e.message}`);
@@ -211,14 +141,11 @@ function extractTags(content) {
 
 // 著者情報を抽出
 function extractAuthor(content) {
-  // 各パターンをトライ
-  for (const pattern of META_PATTERNS.author) {
-    const match = content.match(pattern);
-    if (match && match[1]) {
-      const author = match[1].trim();
-      log(`メタデータから作者を抽出しました: "${author}"`);
-      return author; // 抽出した著者名を返す
-    }
+  const metaAuthorMatch = content.match(META_PATTERNS.author);
+  if (metaAuthorMatch && metaAuthorMatch[1]) {
+    const author = metaAuthorMatch[1].trim();
+     log(`メタデータから作者を抽出しました: "${author}"`);
+    return author; // 抽出した著者名を返す
   }
   // メタデータから抽出できない場合はデフォルト値を返す
   log('作者が見つからないため、デフォルトの作者を使用します');
@@ -238,53 +165,19 @@ function extractMetadata(content, filePath) {
   };
   log(`[extractMetadata] Start processing for: ${fileName}`);
 
-  // コメントブロックを抽出
-  const commentBlockMatches = [
-    content.match(/\/\*\s*([\s\S]*?)\s*\*\//),  // /* ... */
-    content.match(/{\s*\/\*\s*([\s\S]*?)\s*\*\/\s*}/),  // { /* ... */ }
-  ];
-  
-  let metadataText = '';
-  
-  // コメントブロックからテキストを抽出
-  for (const match of commentBlockMatches) {
-    if (match && match[1]) {
-      metadataText += match[1] + '\n';
-      log(`  [extractMetadata] コメントブロックを検出しました`);
-    }
-  }
-  
-  // 行コメントも抽出
-  const lineComments = content.match(/\/\/\s*(.+)/g);
-  if (lineComments) {
-    const lineCommentText = lineComments.map(line => line.replace(/\/\/\s*/, '')).join('\n');
-    metadataText += lineCommentText;
-    log(`  [extractMetadata] 行コメントを検出しました`);
-  }
-  
-  // 最終的にはmetadataTextとcontentの両方を検索対象にする
-  const searchText = metadataText + '\n' + content;
-
   // メタデータコメントから抽出 (title, category, date, coverImage, description)
-  Object.entries(META_PATTERNS).forEach(([key, patterns]) => {
+  Object.entries(META_PATTERNS).forEach(([key, pattern]) => {
     // tags と author は専用関数で処理するのでスキップ
     if (key === 'tags' || key === 'author') return;
 
-    // 各パターンを順番に試す
-    for (const pattern of patterns) {
-      const match = searchText.match(pattern);
-      if (match && match[1]) {
-        // "([^"]+)" パターンでキャプチャしているので、基本的に trim() のみでOK
-        const extractedValue = match[1].trim();
-        log(`  [extractMetadata] Raw match for ${key}: "${match[1]}"`);
-        log(`  [extractMetadata] Cleaned value for ${key}: "${extractedValue}"`);
-        metadata[key] = extractedValue;
-        break; // 最初にマッチしたら終了
-      }
-    }
-    
-    // このメタデータ要素がマッチしなかった場合
-    if (!metadata[key]) {
+    const match = content.match(pattern);
+    if (match && match[1]) {
+      // "([^"]+)" パターンでキャプチャしているので、基本的に trim() のみでOK
+      const extractedValue = match[1].trim();
+      log(`  [extractMetadata] Raw match for ${key}: "${match[1]}"`);
+      log(`  [extractMetadata] Cleaned value for ${key}: "${extractedValue}"`);
+      metadata[key] = extractedValue;
+    } else {
       log(`  [extractMetadata] No match for ${key}`);
     }
   });
@@ -327,7 +220,6 @@ function extractMetadata(content, filePath) {
         log(`  [extractMetadata] Could not determine category from path.`);
      }
   }
-  
   // カテゴリが有効リストに含まれない、または見つからない場合はデフォルト
   if (!metadata.category || !CATEGORIES.includes(metadata.category)) {
     if (metadata.category && !CATEGORIES.includes(metadata.category)) { // 指定があったが無効だった場合
@@ -355,15 +247,19 @@ function extractMetadata(content, filePath) {
   return metadata; // tags と author を含まない metadata を返す
 }
 
+
 // --- コンポーネント/ページ生成関数 ---
 
 // 記事コンポーネントのTSXコードを生成
 function generateComponent(componentName, content) {
+  // 記事の<article>タグの中身を抽出
   const articleMatch = content.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  // <article>タグがない場合や中身が空の場合、フォールバックとして H1 とメッセージを表示
   const articleContent = (articleMatch && articleMatch[1]?.trim())
     ? articleMatch[1]
     : `<h1>${componentName.replace(/^Article/, '').replace(/^GeneratedArticle[a-z0-9]+/, 'Generated Article')}</h1><p>Error: Content not found within &lt;article&gt; tags in the source TSX file.</p>`;
 
+  // 生成する TSX コードのテンプレート
   return `import React from 'react';
 
 export default function ${componentName}() {
@@ -373,28 +269,32 @@ export default function ${componentName}() {
     </article>
   );
 }
-`;
+`; // ダークモード対応のクラス `dark:prose-invert` を追加
 }
 
 // ブログ記事ページのTSXコードを生成
 function generateBlogPost(title, componentName, category, date, description, coverImage) {
+  // メタデータ用にタイトルと説明をエスケープ
   const safeTitle = title.replace(/"/g, '\\"');
   const safeDescription = (description || `${safeTitle}に関する詳細記事`).replace(/"/g, '\\"');
   const safeCoverImage = coverImage || '/placeholder.svg?height=600&width=800';
 
+  // 生成する TSX コードのテンプレート
   return `import type { Metadata } from "next";
-import ${componentName} from "@/components/${componentName}";
+import ${componentName} from "@/components/${componentName}"; // インポートパスを確認
 
+// Next.js 用のメタデータ
 export const metadata: Metadata = {
   title: "${safeTitle}",
   description: "${safeDescription}",
   openGraph: {
     title: "${safeTitle}",
     description: "${safeDescription}",
-    images: [{ url: "${safeCoverImage}" }],
+    images: [{ url: "${safeCoverImage}" }], // OGP画像
   },
 };
 
+// ページコンポーネント
 export default function BlogPost() {
   return <${componentName} />;
 }
@@ -407,19 +307,8 @@ function generateNameAndSlug(title) {
   log(`  [generateNameAndSlug] Original title: "${safeTitle}"`);
 
   // anyAscii を使って ASCII 文字列に変換
-  let asciiTitle;
-  try {
-    asciiTitle = anyAscii(safeTitle); // 直接関数として呼び出す
-    log(`  [generateNameAndSlug] Ascii title: "${asciiTitle}"`);
-  } catch (error) {
-    log(`  [generateNameAndSlug] エラー: anyAscii 変換に失敗しました: ${error.message}`);
-    // フォールバック: タイムスタンプを使用
-    asciiTitle = safeTitle.replace(/[^\x00-\x7F]/g, ''); // 非ASCII文字を削除
-    if (asciiTitle.trim() === '') {
-      asciiTitle = `article-${Date.now().toString(36)}`;
-    }
-    log(`  [generateNameAndSlug] フォールバック ASCII title: "${asciiTitle}"`);
-  }
+  const asciiTitle = anyAscii(safeTitle); // ★ anyAscii を直接呼び出す
+  log(`  [generateNameAndSlug] Ascii title: "${asciiTitle}"`);
 
   // コンポーネント名をパスカルケースで生成 (ASCII化されたタイトルから)
   let componentName = asciiTitle
@@ -456,83 +345,101 @@ function generateNameAndSlug(title) {
   return { componentName, slug };
 }
 
+
 // --- Git 処理関数 (現在のブランチに pull/push) ---
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
     log('Git処理を開始します...');
-    cleanupGitLock();
+    cleanupGitLock(); // Gitロックファイルがあれば削除
 
+    // 1. 生成されたファイルをステージング
     log('生成されたファイルをステージングします...');
+    // ファイルパスをダブルクォートで囲む (スペース等を含むパス対策)
     await exec(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
     log('生成ファイルをGitにステージングしました');
 
+    // 2. 生成されたファイルの変更をコミット
     log('生成されたファイルの変更をコミットします...');
-    const escapedTitle = title.replace(/"/g, '\\"');
+    const escapedTitle = title.replace(/"/g, '\\"'); // コミットメッセージ用にタイトルをエスケープ
     await exec(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
     log('生成ファイルの変更をコミットしました');
 
+    // 3. その他の変更を確認し、あればコミット
     log('その他の変更を確認します...');
-    try {
-      const gitStatusResult = await exec(`"${CONFIG.gitPath}" status --porcelain`);
-      const statusOutput = gitStatusResult.stdout;
-      
-      if (statusOutput && typeof statusOutput === 'string' && statusOutput.trim() !== '') {
-        log('その他の変更が見つかりました。全てステージングしてコミットします...');
-        await exec(`"${CONFIG.gitPath}" add .`);
-        const timestamp = new Date().toISOString();
-        try {
-          await exec(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
-          log('その他の変更をコミットしました');
-        } catch (commitError) {
-          if (commitError.stdout?.includes('nothing to commit') || commitError.stderr?.includes('nothing to commit')) {
-            log('コミットするその他の変更はありませんでした。');
-          } else {
-            throw commitError;
-          }
+    const gitStatusResult = await exec(`"${CONFIG.gitPath}" status --porcelain`); // ★ execの戻り値を取得
+    const statusOutput = gitStatusResult.stdout; // ★ stdout を使用
+    if (statusOutput.trim() !== '') {
+      log('その他の変更が見つかりました。全てステージングしてコミットします...');
+      await exec(`"${CONFIG.gitPath}" add .`); // 全ての変更をステージング
+      const timestamp = new Date().toISOString();
+      try {
+        // コミット実行
+        await exec(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
+        log('その他の変更をコミットしました');
+      } catch (commitError) {
+        // コミット対象がなくてもエラーになる場合があるので、その場合はログ出力のみ
+        if (commitError.stdout?.includes('nothing to commit') || commitError.stderr?.includes('nothing to commit')) {
+          log('コミットするその他の変更はありませんでした。');
+        } else {
+          throw commitError; // それ以外のエラーは再スロー
         }
-      } else {
-        log('その他の未コミットの変更はありませんでした');
       }
-    } catch (statusError) {
-      log(`!!! Git状態の確認に失敗しました: ${statusError.message}`);
+    } else {
+      log('その他の未コミットの変更はありませんでした');
     }
 
+    // 4. 現在のブランチを取得し、リモートと同期してプッシュ
     log('現在のブランチを確認し、リモートと同期・プッシュします...');
     let currentBranch = '';
     try {
-      const branchResult = await exec(`"${CONFIG.gitPath}" rev-parse --abbrev-ref HEAD`);
-      currentBranch = branchResult.stdout.trim();
-      if (!currentBranch) {
-        throw new Error('現在のGitブランチ名の取得に失敗しました。');
-      }
-      log(`現在のブランチ: ${currentBranch} にプッシュします。`);
+        // git rev-parse コマンドで現在のブランチ名を取得
+        const branchResult = await exec(`"${CONFIG.gitPath}" rev-parse --abbrev-ref HEAD`);
+        currentBranch = branchResult.stdout.trim();
+        // ブランチ名が取得できなかった場合のエラー処理
+        if (!currentBranch) {
+            throw new Error('現在のGitブランチ名の取得に失敗しました。');
+        }
+        log(`現在のブランチ: ${currentBranch} にプッシュします。`);
     } catch (branchError) {
-      log(`!!! 現在のブランチ名の取得エラー: ${branchError.message}`);
-      throw branchError;
+        log(`!!! 現在のブランチ名の取得エラー: ${branchError.message}`);
+        throw branchError; // ブランチ取得失敗は処理継続不可
     }
 
+
     try {
+      // pull --rebase を試行 (コンフリクトの可能性あり)
       log(`リモートの変更を取得・統合します (pull --rebase origin ${currentBranch})...`);
       await exec(`"${CONFIG.gitPath}" pull origin ${currentBranch} --rebase`);
       log('リモートとの同期 (rebase) が完了しました。');
 
+      // プッシュ実行
       log(`変更を origin/${currentBranch} にプッシュします...`);
       await exec(`"${CONFIG.gitPath}" push origin ${currentBranch}`);
       log('変更をプッシュしました');
 
     } catch (syncOrPushError) {
+      // 同期またはプッシュ失敗時のエラーハンドリング
       log(`!!! プルまたはプッシュに失敗しました: ${syncOrPushError.message}`);
       log('!!! コンフリクトが発生したか、リモートとの同期が必要です。');
+      // エラー出力に特定のキーワードが含まれるかチェックして詳細なヒントを表示
       if (syncOrPushError.stderr?.includes('conflict')) {
         log('!!! Rebase 中にコンフリクトが発生しました。手動で解決が必要です: git status, git rebase --continue / --abort');
       } else if (syncOrPushError.stderr?.includes('non-fast-forward')) {
+        // non-fast-forward の場合は、pull --rebase で既に失敗している可能性が高いが念のため
         log(`!!! Non-fast-forward エラー。リモートが先に進んでいます。手動で git pull origin ${currentBranch} を試してください。`);
+      } else if (syncOrPushError.stderr?.includes('Please commit or stash them')) {
+          log('!!! 未ステージングの変更があります。手動で git add . と git commit または git stash を実行してください。');
       } else {
-        log('!!! 手動での確認・解決が必要な場合があります。');
+        log('!!! 手動での確認・解決が必要な場合があります。Gitの出力を確認してください。');
+        // エラーの詳細を出力
+        if(syncOrPushError.stderr) log(`Git stderr: ${syncOrPushError.stderr}`);
+        if(syncOrPushError.stdout) log(`Git stdout: ${syncOrPushError.stdout}`);
       }
+      // Vercelトリガーは実行せずにエラーをスロー
       throw new Error('Git sync or push failed. Manual intervention may be required.');
     }
 
+    // 5. Vercelデプロイをトリガー（環境変数が設定されていれば）
     if (process.env.VERCEL_DEPLOY_HOOK) {
       log('Vercelデプロイをトリガーします...');
       try {
@@ -543,38 +450,48 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
         if (error.response) {
           log(`!!! Vercel APIエラー詳細: Status=${error.response.status}, Data=${JSON.stringify(error.response.data)}`);
         }
+        // Vercelのエラーは処理全体を止めないかもしれない
       }
     } else {
-      log('Vercelデプロイフックが設定されていません。.env.localファイルを確認してください');
+      // Vercelフックがない場合は明確にログ出力
+      log('Vercelデプロイフック (VERCEL_DEPLOY_HOOK) が .env.local に設定されていないため、デプロイトリガーをスキップします。');
     }
 
     log('Git処理とデプロイトリガーが完了しました');
 
   } catch (error) {
+    // Git処理全体のエラー
     log(`*** Git処理中に予期せぬエラーが発生しました: ${error.message}`);
-    cleanupGitLock();
-    throw error;
+    cleanupGitLock(); // エラー時もロックファイル削除を試みる
+    throw error; // エラーを再スローして processFile に伝える
   }
 }
 
+
 // --- メインのファイル処理関数 ---
 async function processFile(filePath) {
-  const fileName = path.basename(filePath);
+  const fileName = path.basename(filePath); // ログや処理済みリスト用にファイル名を取得
   log(`処理を開始します: ${filePath}`);
   try {
+    // 既に処理済みかチェック
     if (isFileProcessed(fileName)) {
       log(`ファイル ${fileName} は既に処理済みのためスキップします`);
       return;
     }
 
+    // ファイル内容を読み込み
     const content = fs.readFileSync(filePath, 'utf8');
 
-    const metadata = extractMetadata(content, filePath);
+    // メタデータ（基本情報）を抽出
+    const metadata = extractMetadata(content, filePath); // filePath を渡す
+    // タグと作者を別途抽出
     const tags = extractTags(content);
     const author = extractAuthor(content);
 
+    // コンポーネント名とスラグを生成 (anyAsciiを使用)
     const { componentName, slug } = generateNameAndSlug(metadata.title);
 
+    // --- 抽出・生成結果をログ出力 ---
     log(`  タイトル: "${metadata.title}"`);
     log(`  カテゴリ: "${metadata.category}"`);
     log(`  日付: "${metadata.date}"`);
@@ -585,153 +502,229 @@ async function processFile(filePath) {
     log(`  コンポーネント名: "${componentName}"`);
     log(`  スラグ: "${slug}"`);
 
+    // --- 必要なディレクトリを作成 ---
+    // 正しいカテゴリとスラグを使ってパスを生成
     const blogDir = path.join(CONFIG.blogFolder, metadata.category, slug);
     try {
-      fs.mkdirSync(blogDir, { recursive: true });
-      log(`ブログディレクトリを作成/確認しました: ${blogDir}`);
+        // ディレクトリが存在しない場合のみ作成 (recursive: true)
+        if (!fs.existsSync(blogDir)) {
+            fs.mkdirSync(blogDir, { recursive: true });
+            log(`ブログディレクトリを作成しました: ${blogDir}`);
+        } else {
+             log(`ブログディレクトリは既に存在します: ${blogDir}`);
+        }
     } catch (mkdirError) {
-      log(`!!! ブログディレクトリ作成エラー: ${mkdirError.message}`);
-      throw mkdirError;
+        log(`!!! ブログディレクトリ作成エラー: ${mkdirError.message}`);
+        throw mkdirError; // ディレクトリ作成失敗は致命的なのでエラーをスロー
     }
 
+
+    // --- コンポーネントファイルを生成 ---
     const componentPath = path.join(CONFIG.componentsFolder, `${componentName}.tsx`);
     try {
-      fs.writeFileSync(componentPath, generateComponent(componentName, content));
-      log(`コンポーネントを作成しました: ${componentPath}`);
+        fs.writeFileSync(componentPath, generateComponent(componentName, content));
+        log(`コンポーネントを作成しました: ${componentPath}`);
     } catch (writeError) {
-      log(`!!! コンポーネントファイル書き込みエラー: ${writeError.message}`);
-      throw writeError;
+        log(`!!! コンポーネントファイル書き込みエラー: ${writeError.message}`);
+        throw writeError;
     }
 
+    // --- ブログページファイルを生成 ---
     const blogPostPath = path.join(blogDir, 'page.tsx');
-    try {
-      fs.writeFileSync(blogPostPath, generateBlogPost(
-        metadata.title,
-        componentName,
-        metadata.category,
-        metadata.date,
-        metadata.description,
-        metadata.coverImage
-      ));
-      log(`ブログページを作成しました: ${blogPostPath}`);
+     try {
+        fs.writeFileSync(blogPostPath, generateBlogPost(
+          metadata.title,
+          componentName,
+          metadata.category,
+          metadata.date,
+          metadata.description,
+          metadata.coverImage
+          // 必要なら tags, author も generateBlogPost に渡せるように修正
+        ));
+        log(`ブログページを作成しました: ${blogPostPath}`);
     } catch (writeError) {
-      log(`!!! ブログページファイル書き込みエラー: ${writeError.message}`);
-      throw writeError;
+        log(`!!! ブログページファイル書き込みエラー: ${writeError.message}`);
+        throw writeError;
     }
 
+    // --- Git操作とデプロイトリガーを実行 ---
     await handleGitProcess(componentPath, blogPostPath, metadata.title);
 
+    // --- 処理済みリストに追加 ---
     addToProcessedList(fileName, metadata.title, slug, metadata.date);
 
     log(`ファイル ${fileName} の処理が正常に完了しました！`);
-    return { title: metadata.title, slug };
+    return { title: metadata.title, slug }; // 処理結果を返す
 
   } catch (error) {
+    // processFile 内で発生したエラーをキャッチ
     log(`!!! ファイル処理エラー (${fileName}): ${error.message}`);
+    // エラーの詳細をコンソールにも出力（デバッグ用）
     console.error(`Error details for ${fileName}:`, error);
+    // ここで処理を中断するか、次のファイルの処理に進むかなどを決定できる
+    // 現状ではエラーをログ記録し、次のファイルの処理に進む（監視は継続する）
   }
 }
+
 
 // --- 初期化処理 ---
 
+// .env.local の読み込み（ファイルの先頭に移動しても良い）
 try {
   require('dotenv').config({ path: '.env.local' });
   if (process.env.VERCEL_DEPLOY_HOOK) {
+    // URL全体ではなく一部を表示（セキュリティのため）
     log(`Vercelデプロイフックが設定されています: ${process.env.VERCEL_DEPLOY_HOOK.substring(0, 60)}...`);
   } else {
-    log('Vercelデプロイフックが設定されていません。.env.localファイルを確認してください');
+    log('Vercelデプロイフックが設定されていません (.env.local)');
   }
 } catch (e) {
-  log('dotenv がインストールされていないか、.env.local が見つかりません');
+  // dotenv がない場合はエラーログではなく情報ログに
+  log('dotenv モジュールが見つからないか、.env.local が存在しません。');
 }
 
+// 必要なフォルダが存在するか確認し、なければ作成
 [CONFIG.watchFolder, CONFIG.componentsFolder, CONFIG.blogFolder].forEach(folder => {
-  if (!fs.existsSync(folder)) {
-    try {
-      fs.mkdirSync(folder, { recursive: true });
-      log(`フォルダを作成しました: ${folder}`);
-    } catch (mkdirError) {
-      log(`!!! フォルダ作成エラー (${folder}): ${mkdirError.message}`);
-      process.exit(1);
+    if (!fs.existsSync(folder)) {
+      try {
+          fs.mkdirSync(folder, { recursive: true });
+          log(`フォルダを作成しました: ${folder}`);
+      } catch (mkdirError) {
+          log(`!!! フォルダ作成エラー (${folder}): ${mkdirError.message}`);
+          process.exit(1); // フォルダ作成失敗は致命的エラー
+      }
     }
-  }
 });
 
+// 処理済みファイルリストを準備
 if (!fs.existsSync(PROCESSED_FILES)) {
   try {
-    fs.writeFileSync(PROCESSED_FILES, '# 処理済みTSXファイルリスト\n# 形式: ファイル名,タイトル,スラグ,処理日時\n\n');
-    log('処理済みファイルリストを作成しました');
+      // 初期内容を書き込む
+      fs.writeFileSync(PROCESSED_FILES, '# 処理済みTSXファイルリスト\n# 形式: ファイル名,タイトル,スラグ,処理日時\n\n');
+      log('処理済みファイルリストを作成しました');
   } catch (writeError) {
-    log(`!!! 処理済みファイルリスト作成エラー: ${writeError.message}`);
-    process.exit(1);
+      log(`!!! 処理済みファイルリスト作成エラー: ${writeError.message}`);
+      process.exit(1); // これも致命的エラー
   }
 }
 
+// --- 既存ファイルの初期チェック ---
+// スクリプト起動時に一度だけ実行される
 log('既存ファイルの確認を開始します...');
+// articles 直下と、CATEGORIES 配下のフォルダを対象とする
 const articleBaseDirs = [CONFIG.watchFolder];
 CATEGORIES.forEach(cat => {
-  const catDir = path.join(CONFIG.watchFolder, cat);
-  if (fs.existsSync(catDir)) {
-    articleBaseDirs.push(catDir);
-  }
+    const catDir = path.join(CONFIG.watchFolder, cat);
+    if (fs.existsSync(catDir)) {
+        // カテゴリフォルダが存在する場合のみ対象に追加
+        articleBaseDirs.push(catDir);
+    }
 });
 
 log(`以下のディレクトリ内の既存TSXファイルをチェック: ${articleBaseDirs.join(', ')}`);
 let initialFilesFound = 0;
+const processingPromises = []; // 既存ファイル処理のPromiseを格納する配列
 
 articleBaseDirs.forEach(dir => {
-  try {
-    const files = fs.readdirSync(dir)
-      .filter(file => file.endsWith('.tsx') && fs.statSync(path.join(dir, file)).isFile());
-    files.forEach(file => {
-      initialFilesFound++;
-      const filePath = path.normalize(path.join(dir, file));
-      processFile(filePath).catch(error => {
-      });
-    });
-  } catch(readDirError) {
-    log(`!!! ディレクトリ読み込みエラー (${dir}): ${readDirError.message}`);
-  }
+    try {
+        // ディレクトリ内の .tsx ファイル（ファイルのみ）をリストアップ
+        const files = fs.readdirSync(dir)
+                       .filter(file => file.endsWith('.tsx') && fs.statSync(path.join(dir, file)).isFile());
+
+        files.forEach(file => {
+            initialFilesFound++;
+            const filePath = path.normalize(path.join(dir, file)); // パスを正規化
+            // 既存ファイル処理は非同期で実行し、Promiseを配列に追加
+            processingPromises.push(
+                processFile(filePath).catch(error => {
+                    // processFile内でエラーはログされるはずだが、念のためここでもログ
+                    log(`!!! 既存ファイル処理中のエラー (${file}): ${error.message}`);
+                })
+            );
+        });
+    } catch(readDirError) {
+        log(`!!! ディレクトリ読み込みエラー (${dir}): ${readDirError.message}`);
+    }
 });
 
+// 既存ファイルの処理開始を通知
 if (initialFilesFound > 0) {
-  log(`${initialFilesFound}個の既存TSXファイルについて処理を開始しました（バックグラウンドで実行）。`);
+    log(`${initialFilesFound}個の既存TSXファイルについて処理を開始しました...`);
+    // 全ての既存ファイル処理が終わるのを待つ（オプション）
+    // Promise.all(processingPromises).then(() => {
+    //     log('全ての既存ファイルの初期処理が完了しました。');
+    // });
 } else {
-  log('処理対象の既存TSXファイルは見つかりませんでした。');
+    log('処理対象の既存TSXファイルは見つかりませんでした。');
 }
 
+// --- ファイル監視の開始 ---
+// 監視対象パターン (articles/*.tsx と articles/*/*.tsx)
 const watchPatterns = [
-  path.join(CONFIG.watchFolder, '*.tsx').replace(/\\/g, '/'),
-  path.join(CONFIG.watchFolder, '*', '*.tsx').replace(/\\/g, '/'),
+    path.join(CONFIG.watchFolder, '*.tsx').replace(/\\/g, '/'), // OS互換性のため / を使用
+    path.join(CONFIG.watchFolder, '*', '*.tsx').replace(/\\/g, '/') // 1階層下のカテゴリ内
 ];
 log(`以下のパターンでファイル監視を開始します: ${watchPatterns.join(', ')}`);
 
 const watcher = chokidar.watch(watchPatterns, {
-  persistent: true,
-  ignoreInitial: true,
-  ignored: /(^|[\/\\])\../,
-  depth: 1,
-  awaitWriteFinish: {
-    stabilityThreshold: 2000,
-    pollInterval: 100
+  persistent: true,       // スクリプト終了まで監視継続
+  ignoreInitial: true,    // 起動時に既存ファイルで 'add' イベントを発火させない
+  ignored: /(^|[\/\\])\../, // ドットファイル/フォルダを無視 (例: .git)
+  depth: 1,               // articles とその直下のサブディレクトリのみ監視 (無限階層を防ぐ)
+  awaitWriteFinish: {     // 書き込み完了を待つ設定
+    stabilityThreshold: 2000, // 2秒間変更がなければ書き込み完了とみなす
+    pollInterval: 100         // 100ms間隔でチェック
   }
 });
 
-watcher.on('add', async (filePath) => {
+// ファイルが追加されたときのイベントハンドラ
+watcher.on('add', (filePath) => { // async は不要かも
   const normalizedPath = path.normalize(filePath);
   log(`新しいファイルを追加検出: ${normalizedPath}`);
+  // processFile を非同期で実行 (完了を待たない)
   processFile(normalizedPath).catch(error => {
+    // processFile 内でキャッチされなかった予期せぬエラー
     log(`!!! watcher 'add' イベント処理中に予期せぬエラー (${normalizedPath}): ${error.message}`);
     console.error(error);
   });
 });
 
+// ファイルが変更されたときのイベントハンドラ (必要であれば有効化)
+/*
+watcher.on('change', (filePath) => {
+  const normalizedPath = path.normalize(filePath);
+  log(`ファイルを変更検出: ${normalizedPath}`);
+  // 変更時にも処理を実行したい場合は processFile を呼ぶ
+  // 注意：無限ループにならないように、生成されるファイルは監視対象から除外する必要がある
+  processFile(normalizedPath).catch(error => { ... });
+});
+*/
+
+// 監視エラー発生時のイベントハンドラ
 watcher.on('error', error => log(`!!! 監視エラーが発生しました: ${error.message}`));
 
+// 監視準備完了時のイベントハンドラ
 watcher.on('ready', () => {
-  log('ファイル監視の準備が完了しました。');
-  const watchedPaths = watcher.getWatched();
-  log('現在監視中のパス:');
-  console.log(watchedPaths);
-  log('監視中... Ctrl+C で終了');
+    log('ファイル監視の準備が完了しました。');
+    // 現在監視しているパスの詳細を表示（デバッグ用）
+    const watchedPaths = watcher.getWatched();
+    log('現在監視中のパス:');
+    // console.log(watchedPaths); // 詳細すぎる場合があるのでコメントアウトも可
+    for (const [dir, files] of Object.entries(watchedPaths)) {
+        if (files.length > 0) {
+            log(`- ${dir} (${files.length} items)`);
+        } else {
+             log(`- ${dir}`);
+        }
+    }
+    log('監視中... Ctrl+C で終了');
+});
+
+// スクリプト終了時の処理（必要であれば）
+process.on('SIGINT', () => {
+    log('監視を終了します...');
+    watcher.close().then(() => {
+        log('Watcher closed.');
+        process.exit(0);
+    });
 });

@@ -12281,3 +12281,1521 @@ remove the file manually to continue.
 [2025-04-08T06:48:48.532Z] !!! ファイル処理エラー (very-final-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正確認テスト"
 
 [2025-04-08T06:48:48.624Z] その他の変更が見つかりました。全てステージングしてコミットします...
+[2025-04-08T06:48:48.960Z] その他の変更をコミットしました
+[2025-04-08T06:48:48.962Z] 現在のブランチを確認し、リモートと同期・プッシュします...
+[2025-04-08T06:48:49.027Z] 現在のブランチ: main にプッシュします。
+[2025-04-08T06:48:49.028Z] リモートの変更を取得・統合します (pull --rebase origin main)...
+[2025-04-08T06:48:49.132Z] !!! プルまたはプッシュに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" pull origin main --rebase
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+[2025-04-08T06:48:49.134Z] !!! コンフリクトが発生したか、リモートとの同期が必要です。
+[2025-04-08T06:48:49.135Z] !!! 手動での確認・解決が必要な場合があります。
+[2025-04-08T06:48:49.136Z] *** Git処理中に予期せぬエラーが発生しました: Git sync or push failed. Manual intervention may be required.
+[2025-04-08T06:48:49.138Z] !!! ファイル処理エラー (test-日本語-article.tsx): Git sync or push failed. Manual intervention may be required.
+[2025-04-08T07:01:14.332Z] ログファイルを使用します: ./upload_log.txt
+[2025-04-08T07:01:14.338Z] Vercelデプロイフックが設定されています: https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh...
+[2025-04-08T07:01:14.340Z] 既存ファイルの確認を開始します...
+[2025-04-08T07:01:14.341Z] 以下のディレクトリ内の既存TSXファイルをチェック: ./articles, articles\ai-news, articles\ai-technology
+[2025-04-08T07:01:14.344Z] 処理を開始します: articles\article-template.tsx
+[2025-04-08T07:01:14.345Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.347Z] 処理を開始します: articles\final-success-test.tsx
+[2025-04-08T07:01:14.349Z] [extractMetadata] Start processing for: final-success-test.tsx
+[2025-04-08T07:01:14.350Z]   [extractMetadata] No match for title
+[2025-04-08T07:01:14.352Z]   [extractMetadata] No match for category
+[2025-04-08T07:01:14.353Z]   [extractMetadata] No match for date
+[2025-04-08T07:01:14.354Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:01:14.355Z]   [extractMetadata] No match for description
+[2025-04-08T07:01:14.357Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:01:14.358Z]   [extractMetadata] Title extracted from H1: "最終成功確認テスト"
+[2025-04-08T07:01:14.359Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:01:14.360Z]   [extractMetadata] Category from path ("final-success-test.tsx") is not valid.
+[2025-04-08T07:01:14.361Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:01:14.362Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:01:14.363Z]   [extractMetadata] Using default description: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:01:14.364Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:01:14.365Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終成功確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:01:14.367Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:01:14.368Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:01:14.369Z]   [generateNameAndSlug] Original title: "最終成功確認テスト"
+[2025-04-08T07:01:14.370Z] !!! ファイル処理エラー (final-success-test.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.372Z] 処理を開始します: articles\final-test-article.tsx
+[2025-04-08T07:01:14.374Z] ファイル final-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.375Z] 処理を開始します: articles\final-test-fixed.tsx
+[2025-04-08T07:01:14.376Z] [extractMetadata] Start processing for: final-test-fixed.tsx
+[2025-04-08T07:01:14.377Z]   [extractMetadata] No match for title
+[2025-04-08T07:01:14.378Z]   [extractMetadata] No match for category
+[2025-04-08T07:01:14.379Z]   [extractMetadata] No match for date
+[2025-04-08T07:01:14.380Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:01:14.381Z]   [extractMetadata] No match for description
+[2025-04-08T07:01:14.382Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:01:14.383Z]   [extractMetadata] Title extracted from H1: "最終修正テスト"
+[2025-04-08T07:01:14.384Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:01:14.385Z]   [extractMetadata] Category from path ("final-test-fixed.tsx") is not valid.
+[2025-04-08T07:01:14.386Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:01:14.387Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:01:14.388Z]   [extractMetadata] Using default description: "最終修正テストに関する詳細記事"
+[2025-04-08T07:01:14.389Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:01:14.390Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:01:14.391Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:01:14.392Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:01:14.393Z]   [generateNameAndSlug] Original title: "最終修正テスト"
+[2025-04-08T07:01:14.395Z] !!! ファイル処理エラー (final-test-fixed.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.396Z] 処理を開始します: articles\new-test-article.tsx
+[2025-04-08T07:01:14.397Z] ファイル new-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.398Z] 処理を開始します: articles\page.tsx
+[2025-04-08T07:01:14.399Z] ファイル page.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.400Z] 処理を開始します: articles\test-article-deploy.tsx
+[2025-04-08T07:01:14.401Z] ファイル test-article-deploy.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.402Z] 処理を開始します: articles\test-auto-deploy-article.tsx
+[2025-04-08T07:01:14.404Z] ファイル test-auto-deploy-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.405Z] 処理を開始します: articles\test-fixed-script.tsx
+[2025-04-08T07:01:14.406Z] [extractMetadata] Start processing for: test-fixed-script.tsx
+[2025-04-08T07:01:14.408Z]   [extractMetadata] No match for title
+[2025-04-08T07:01:14.409Z]   [extractMetadata] No match for category
+[2025-04-08T07:01:14.410Z]   [extractMetadata] No match for date
+[2025-04-08T07:01:14.411Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:01:14.412Z]   [extractMetadata] No match for description
+[2025-04-08T07:01:14.413Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:01:14.414Z]   [extractMetadata] Title extracted from H1: "スクリプト修正テスト"
+[2025-04-08T07:01:14.415Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:01:14.416Z]   [extractMetadata] Category from path ("test-fixed-script.tsx") is not valid.
+[2025-04-08T07:01:14.418Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:01:14.419Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:01:14.420Z]   [extractMetadata] Using default description: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:01:14.421Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:01:14.422Z] [extractMetadata] Returning metadata (excluding tags/author): title="スクリプト修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:01:14.423Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:01:14.425Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:01:14.426Z]   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+[2025-04-08T07:01:14.427Z] !!! ファイル処理エラー (test-fixed-script.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.428Z] 処理を開始します: articles\test-optimization-article.tsx
+[2025-04-08T07:01:14.430Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:01:14.430Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:01:14.432Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:01:14.433Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:01:14.434Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:01:14.435Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:01:14.436Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:01:14.437Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:01:14.438Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:01:14.439Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:01:14.440Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:01:14.441Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:01:14.441Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:01:14.443Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:01:14.444Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:01:14.445Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.446Z] 処理を開始します: articles\test-日本語-article.tsx
+[2025-04-08T07:01:14.447Z] [extractMetadata] Start processing for: test-日本語-article.tsx
+[2025-04-08T07:01:14.448Z]   [extractMetadata] Raw match for title: "日本語テスト記事"
+[2025-04-08T07:01:14.448Z]   [extractMetadata] Cleaned value for title: "日本語テスト記事"
+[2025-04-08T07:01:14.449Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:01:14.450Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:01:14.451Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:01:14.452Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:01:14.454Z]   [extractMetadata] Raw match for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:01:14.455Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:01:14.456Z]   [extractMetadata] Raw match for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:01:14.457Z]   [extractMetadata] Cleaned value for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:01:14.458Z] [extractMetadata] Returning metadata (excluding tags/author): title="日本語テスト記事", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:01:14.459Z] メタデータからタグを抽出しました: テスト, 日本語
+[2025-04-08T07:01:14.460Z] メタデータから作者を抽出しました: "テスト担当者"
+[2025-04-08T07:01:14.461Z]   [generateNameAndSlug] Original title: "日本語テスト記事"
+[2025-04-08T07:01:14.462Z] !!! ファイル処理エラー (test-日本語-article.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.463Z] 処理を開始します: articles\vercel-deploy-fixed.tsx
+[2025-04-08T07:01:14.464Z] ファイル vercel-deploy-fixed.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.465Z] 処理を開始します: articles\vercel-deploy-test.tsx
+[2025-04-08T07:01:14.467Z] ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.468Z] 処理を開始します: articles\very-final-test.tsx
+[2025-04-08T07:01:14.469Z] [extractMetadata] Start processing for: very-final-test.tsx
+[2025-04-08T07:01:14.470Z]   [extractMetadata] No match for title
+[2025-04-08T07:01:14.471Z]   [extractMetadata] No match for category
+[2025-04-08T07:01:14.472Z]   [extractMetadata] No match for date
+[2025-04-08T07:01:14.473Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:01:14.474Z]   [extractMetadata] No match for description
+[2025-04-08T07:01:14.475Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:01:14.476Z]   [extractMetadata] Title extracted from H1: "最終修正確認テスト"
+[2025-04-08T07:01:14.477Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:01:14.478Z]   [extractMetadata] Category from path ("very-final-test.tsx") is not valid.
+[2025-04-08T07:01:14.479Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:01:14.480Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:01:14.481Z]   [extractMetadata] Using default description: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:01:14.482Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:01:14.483Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:01:14.484Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:01:14.485Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:01:14.486Z]   [generateNameAndSlug] Original title: "最終修正確認テスト"
+[2025-04-08T07:01:14.488Z] !!! ファイル処理エラー (very-final-test.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.489Z] 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+[2025-04-08T07:01:14.490Z] ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.491Z] 処理を開始します: articles\ai-news\auto-test-article3.tsx
+[2025-04-08T07:01:14.492Z] ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.493Z] 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+[2025-04-08T07:01:14.494Z] ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.495Z] 処理を開始します: articles\ai-news\test-ai-news.tsx
+[2025-04-08T07:01:14.497Z] ファイル test-ai-news.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.497Z] 処理を開始します: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T07:01:14.499Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:01:14.500Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:01:14.501Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:01:14.502Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:01:14.503Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:01:14.504Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:01:14.505Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:01:14.506Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:01:14.507Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:01:14.508Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:01:14.509Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:01:14.511Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:01:14.512Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:01:14.513Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:01:14.514Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:01:14.515Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:01:14.517Z] 処理を開始します: articles\ai-technology\article-template.tsx
+[2025-04-08T07:01:14.519Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.520Z] 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+[2025-04-08T07:01:14.521Z] ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+[2025-04-08T07:01:14.522Z] 21個の既存TSXファイルについて処理を開始しました...
+[2025-04-08T07:01:14.524Z] 以下のパターンでファイル監視を開始します: articles/*.tsx, articles/*/*.tsx
+[2025-04-08T07:01:14.544Z] ファイル監視の準備が完了しました。
+[2025-04-08T07:01:14.546Z] 現在監視中のパス:
+[2025-04-08T07:01:14.547Z] - D:\NvidiaGTCProject (1 items)
+[2025-04-08T07:01:14.548Z] - D:\NvidiaGTCProject\articles (16 items)
+[2025-04-08T07:01:14.549Z] - D:\NvidiaGTCProject\articles\*.tsx
+[2025-04-08T07:01:14.550Z] - D:\NvidiaGTCProject\articles\*\*.tsx
+[2025-04-08T07:01:14.551Z] - D:\NvidiaGTCProject\articles\ai-technology (2 items)
+[2025-04-08T07:01:14.553Z] - D:\NvidiaGTCProject\articles\ai-news (5 items)
+[2025-04-08T07:01:14.554Z] 監視中... Ctrl+C で終了
+[2025-04-08T07:01:35.993Z] 新しいファイルを追加検出: articles\test-noascii-article.tsx
+[2025-04-08T07:01:35.994Z] 処理を開始します: articles\test-noascii-article.tsx
+[2025-04-08T07:01:35.996Z] [extractMetadata] Start processing for: test-noascii-article.tsx
+[2025-04-08T07:01:35.997Z]   [extractMetadata] No match for title
+[2025-04-08T07:01:35.998Z]   [extractMetadata] No match for category
+[2025-04-08T07:01:35.999Z]   [extractMetadata] No match for date
+[2025-04-08T07:01:36.000Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:01:36.001Z]   [extractMetadata] No match for description
+[2025-04-08T07:01:36.002Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:01:36.003Z]   [extractMetadata] No title found in H1 tag, trying filename fallback...
+[2025-04-08T07:01:36.004Z]   [extractMetadata] Title fallback from filename: "TestNoasciiArticle"
+[2025-04-08T07:01:36.006Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:01:36.007Z]   [extractMetadata] Category from path ("test-noascii-article.tsx") is not valid.
+[2025-04-08T07:01:36.008Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:01:36.009Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:01:36.010Z]   [extractMetadata] Using default description: "TestNoasciiArticleに関する詳細記事"
+[2025-04-08T07:01:36.011Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:01:36.012Z] [extractMetadata] Returning metadata (excluding tags/author): title="TestNoasciiArticle", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:01:36.013Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:01:36.014Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:01:36.015Z]   [generateNameAndSlug] Original title: "TestNoasciiArticle"
+[2025-04-08T07:01:36.016Z] !!! ファイル処理エラー (test-noascii-article.tsx): anyAscii is not a function
+[2025-04-08T07:10:23.856Z] ログファイルを使用します: ./upload_log.txt
+[2025-04-08T07:10:23.861Z] Vercelデプロイフックが設定されています: https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh...
+[2025-04-08T07:10:23.864Z] 既存ファイルの確認を開始します...
+[2025-04-08T07:10:23.866Z] 以下のディレクトリ内の既存TSXファイルをチェック: ./articles, articles\ai-news, articles\ai-technology
+[2025-04-08T07:10:23.868Z] 処理を開始します: articles\article-template.tsx
+[2025-04-08T07:10:23.869Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.870Z] 処理を開始します: articles\final-success-test.tsx
+[2025-04-08T07:10:23.872Z] [extractMetadata] Start processing for: final-success-test.tsx
+[2025-04-08T07:10:23.873Z]   [extractMetadata] No match for title
+[2025-04-08T07:10:23.874Z]   [extractMetadata] No match for category
+[2025-04-08T07:10:23.875Z]   [extractMetadata] No match for date
+[2025-04-08T07:10:23.879Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:10:23.880Z]   [extractMetadata] No match for description
+[2025-04-08T07:10:23.881Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:10:23.882Z]   [extractMetadata] Title extracted from H1: "最終成功確認テスト"
+[2025-04-08T07:10:23.883Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:10:23.888Z]   [extractMetadata] Category from path ("final-success-test.tsx") is not valid.
+[2025-04-08T07:10:23.889Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:10:23.890Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:10:23.891Z]   [extractMetadata] Using default description: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:10:23.893Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:10:23.894Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終成功確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:10:23.895Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:10:23.896Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:10:23.897Z]   [generateNameAndSlug] Original title: "最終成功確認テスト"
+[2025-04-08T07:10:23.904Z] !!! ファイル処理エラー (final-success-test.tsx): anyAscii is not a function
+[2025-04-08T07:10:23.906Z] 処理を開始します: articles\final-test-article.tsx
+[2025-04-08T07:10:23.908Z] ファイル final-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.909Z] 処理を開始します: articles\final-test-fixed.tsx
+[2025-04-08T07:10:23.910Z] [extractMetadata] Start processing for: final-test-fixed.tsx
+[2025-04-08T07:10:23.913Z]   [extractMetadata] No match for title
+[2025-04-08T07:10:23.915Z]   [extractMetadata] No match for category
+[2025-04-08T07:10:23.916Z]   [extractMetadata] No match for date
+[2025-04-08T07:10:23.917Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:10:23.921Z]   [extractMetadata] No match for description
+[2025-04-08T07:10:23.922Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:10:23.923Z]   [extractMetadata] Title extracted from H1: "最終修正テスト"
+[2025-04-08T07:10:23.924Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:10:23.925Z]   [extractMetadata] Category from path ("final-test-fixed.tsx") is not valid.
+[2025-04-08T07:10:23.926Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:10:23.927Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:10:23.928Z]   [extractMetadata] Using default description: "最終修正テストに関する詳細記事"
+[2025-04-08T07:10:23.929Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:10:23.930Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:10:23.933Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:10:23.934Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:10:23.935Z]   [generateNameAndSlug] Original title: "最終修正テスト"
+[2025-04-08T07:10:23.936Z] !!! ファイル処理エラー (final-test-fixed.tsx): anyAscii is not a function
+[2025-04-08T07:10:23.938Z] 処理を開始します: articles\new-test-article.tsx
+[2025-04-08T07:10:23.939Z] ファイル new-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.940Z] 処理を開始します: articles\page.tsx
+[2025-04-08T07:10:23.941Z] ファイル page.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.943Z] 処理を開始します: articles\test-article-deploy.tsx
+[2025-04-08T07:10:23.948Z] ファイル test-article-deploy.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.949Z] 処理を開始します: articles\test-auto-deploy-article.tsx
+[2025-04-08T07:10:23.950Z] ファイル test-auto-deploy-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:23.951Z] 処理を開始します: articles\test-fixed-script.tsx
+[2025-04-08T07:10:23.953Z] [extractMetadata] Start processing for: test-fixed-script.tsx
+[2025-04-08T07:10:23.954Z]   [extractMetadata] No match for title
+[2025-04-08T07:10:23.955Z]   [extractMetadata] No match for category
+[2025-04-08T07:10:23.956Z]   [extractMetadata] No match for date
+[2025-04-08T07:10:23.957Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:10:23.958Z]   [extractMetadata] No match for description
+[2025-04-08T07:10:23.959Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:10:23.960Z]   [extractMetadata] Title extracted from H1: "スクリプト修正テスト"
+[2025-04-08T07:10:23.962Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:10:23.963Z]   [extractMetadata] Category from path ("test-fixed-script.tsx") is not valid.
+[2025-04-08T07:10:23.964Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:10:23.965Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:10:23.966Z]   [extractMetadata] Using default description: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:10:23.967Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:10:23.968Z] [extractMetadata] Returning metadata (excluding tags/author): title="スクリプト修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:10:23.969Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:10:23.970Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:10:23.971Z]   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+[2025-04-08T07:10:23.972Z] !!! ファイル処理エラー (test-fixed-script.tsx): anyAscii is not a function
+[2025-04-08T07:10:23.975Z] 処理を開始します: articles\test-noascii-article.tsx
+[2025-04-08T07:10:23.976Z] [extractMetadata] Start processing for: test-noascii-article.tsx
+[2025-04-08T07:10:23.977Z]   [extractMetadata] Raw match for title: "NoAscii Test Article"
+[2025-04-08T07:10:23.978Z]   [extractMetadata] Cleaned value for title: "NoAscii Test Article"
+[2025-04-08T07:10:23.979Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:10:23.980Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:10:23.981Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:10:23.982Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:10:23.983Z]   [extractMetadata] Raw match for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:10:23.984Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:10:23.984Z]   [extractMetadata] Raw match for description: "A test article that should work without anyAscii"
+[2025-04-08T07:10:23.986Z]   [extractMetadata] Cleaned value for description: "A test article that should work without anyAscii"
+[2025-04-08T07:10:23.987Z] [extractMetadata] Returning metadata (excluding tags/author): title="NoAscii Test Article", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:10:23.989Z] メタデータからタグを抽出しました: test, noascii
+[2025-04-08T07:10:23.989Z] メタデータから作者を抽出しました: "Test Author"
+[2025-04-08T07:10:23.990Z]   [generateNameAndSlug] Original title: "NoAscii Test Article"
+[2025-04-08T07:10:23.991Z] !!! ファイル処理エラー (test-noascii-article.tsx): anyAscii is not a function
+[2025-04-08T07:10:23.993Z] 処理を開始します: articles\test-optimization-article.tsx
+[2025-04-08T07:10:23.994Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:10:23.995Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:10:23.996Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:10:24.000Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:10:24.001Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:10:24.002Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:10:24.003Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:10:24.004Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:10:24.005Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:10:24.006Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:10:24.007Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:10:24.008Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:10:24.009Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:10:24.010Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:10:24.011Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:10:24.012Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:10:24.014Z] 処理を開始します: articles\test-日本語-article.tsx
+[2025-04-08T07:10:24.015Z] [extractMetadata] Start processing for: test-日本語-article.tsx
+[2025-04-08T07:10:24.016Z]   [extractMetadata] Raw match for title: "日本語テスト記事"
+[2025-04-08T07:10:24.017Z]   [extractMetadata] Cleaned value for title: "日本語テスト記事"
+[2025-04-08T07:10:24.018Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:10:24.019Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:10:24.020Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:10:24.021Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:10:24.022Z]   [extractMetadata] Raw match for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:10:24.023Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:10:24.024Z]   [extractMetadata] Raw match for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:10:24.025Z]   [extractMetadata] Cleaned value for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:10:24.026Z] [extractMetadata] Returning metadata (excluding tags/author): title="日本語テスト記事", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:10:24.027Z] メタデータからタグを抽出しました: テスト, 日本語
+[2025-04-08T07:10:24.028Z] メタデータから作者を抽出しました: "テスト担当者"
+[2025-04-08T07:10:24.029Z]   [generateNameAndSlug] Original title: "日本語テスト記事"
+[2025-04-08T07:10:24.031Z] !!! ファイル処理エラー (test-日本語-article.tsx): anyAscii is not a function
+[2025-04-08T07:10:24.033Z] 処理を開始します: articles\vercel-deploy-fixed.tsx
+[2025-04-08T07:10:24.034Z] ファイル vercel-deploy-fixed.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.035Z] 処理を開始します: articles\vercel-deploy-test.tsx
+[2025-04-08T07:10:24.036Z] ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.037Z] 処理を開始します: articles\very-final-test.tsx
+[2025-04-08T07:10:24.038Z] [extractMetadata] Start processing for: very-final-test.tsx
+[2025-04-08T07:10:24.039Z]   [extractMetadata] No match for title
+[2025-04-08T07:10:24.040Z]   [extractMetadata] No match for category
+[2025-04-08T07:10:24.041Z]   [extractMetadata] No match for date
+[2025-04-08T07:10:24.042Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:10:24.043Z]   [extractMetadata] No match for description
+[2025-04-08T07:10:24.045Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:10:24.046Z]   [extractMetadata] Title extracted from H1: "最終修正確認テスト"
+[2025-04-08T07:10:24.047Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:10:24.048Z]   [extractMetadata] Category from path ("very-final-test.tsx") is not valid.
+[2025-04-08T07:10:24.049Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:10:24.050Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:10:24.051Z]   [extractMetadata] Using default description: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:10:24.052Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:10:24.053Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:10:24.054Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:10:24.055Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:10:24.057Z]   [generateNameAndSlug] Original title: "最終修正確認テスト"
+[2025-04-08T07:10:24.058Z] !!! ファイル処理エラー (very-final-test.tsx): anyAscii is not a function
+[2025-04-08T07:10:24.060Z] 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+[2025-04-08T07:10:24.061Z] ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.062Z] 処理を開始します: articles\ai-news\auto-test-article3.tsx
+[2025-04-08T07:10:24.063Z] ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.064Z] 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+[2025-04-08T07:10:24.065Z] ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.066Z] 処理を開始します: articles\ai-news\minimal-test.tsx
+[2025-04-08T07:10:24.068Z] [extractMetadata] Start processing for: minimal-test.tsx
+[2025-04-08T07:10:24.069Z]   [extractMetadata] Raw match for title: "Minimal Test"
+[2025-04-08T07:10:24.070Z]   [extractMetadata] Cleaned value for title: "Minimal Test"
+[2025-04-08T07:10:24.071Z]   [extractMetadata] No match for category
+[2025-04-08T07:10:24.072Z]   [extractMetadata] No match for date
+[2025-04-08T07:10:24.073Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:10:24.074Z]   [extractMetadata] No match for description
+[2025-04-08T07:10:24.075Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:10:24.076Z]   [extractMetadata] Category extracted from path: "ai-news"
+[2025-04-08T07:10:24.077Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:10:24.078Z]   [extractMetadata] Using default description: "Minimal Testに関する詳細記事"
+[2025-04-08T07:10:24.078Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:10:24.079Z] [extractMetadata] Returning metadata (excluding tags/author): title="Minimal Test", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:10:24.080Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:10:24.081Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:10:24.082Z]   [generateNameAndSlug] Original title: "Minimal Test"
+[2025-04-08T07:10:24.083Z] !!! ファイル処理エラー (minimal-test.tsx): anyAscii is not a function
+[2025-04-08T07:10:24.085Z] 処理を開始します: articles\ai-news\test-ai-news.tsx
+[2025-04-08T07:10:24.086Z] ファイル test-ai-news.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.086Z] 処理を開始します: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T07:10:24.088Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:10:24.089Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:10:24.090Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:10:24.091Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:10:24.092Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:10:24.093Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:10:24.093Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:10:24.094Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:10:24.095Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:10:24.096Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:10:24.097Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:10:24.098Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:10:24.099Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:10:24.100Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:10:24.101Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:10:24.102Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:10:24.104Z] 処理を開始します: articles\ai-technology\article-template.tsx
+[2025-04-08T07:10:24.104Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.105Z] 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+[2025-04-08T07:10:24.106Z] ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+[2025-04-08T07:10:24.107Z] 23個の既存TSXファイルについて処理を開始しました...
+[2025-04-08T07:10:24.108Z] 以下のパターンでファイル監視を開始します: articles/*.tsx, articles/*/*.tsx
+[2025-04-08T07:10:24.128Z] ファイル監視の準備が完了しました。
+[2025-04-08T07:10:24.129Z] 現在監視中のパス:
+[2025-04-08T07:10:24.130Z] - D:\NvidiaGTCProject (1 items)
+[2025-04-08T07:10:24.131Z] - D:\NvidiaGTCProject\articles (17 items)
+[2025-04-08T07:10:24.132Z] - D:\NvidiaGTCProject\articles\*.tsx
+[2025-04-08T07:10:24.133Z] - D:\NvidiaGTCProject\articles\*\*.tsx
+[2025-04-08T07:10:24.133Z] - D:\NvidiaGTCProject\articles\ai-news (6 items)
+[2025-04-08T07:10:24.134Z] - D:\NvidiaGTCProject\articles\ai-technology (2 items)
+[2025-04-08T07:10:24.135Z] 監視中... Ctrl+C で終了
+[2025-04-08T07:13:57.088Z] 監視を終了します...
+[2025-04-08T07:13:57.091Z] Watcher closed.
+[2025-04-08T07:16:14.883Z] ログファイルを使用します: ./upload_log.txt
+[2025-04-08T07:16:14.888Z] Vercelデプロイフックが設定されています: https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh...
+[2025-04-08T07:16:14.890Z] 既存ファイルの確認を開始します...
+[2025-04-08T07:16:14.891Z] 以下のディレクトリ内の既存TSXファイルをチェック: ./articles, articles\ai-news, articles\ai-technology
+[2025-04-08T07:16:14.894Z] 処理を開始します: articles\article-template.tsx
+[2025-04-08T07:16:14.896Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.897Z] 処理を開始します: articles\final-success-test.tsx
+[2025-04-08T07:16:14.898Z] [extractMetadata] Start processing for: final-success-test.tsx
+[2025-04-08T07:16:14.900Z]   [extractMetadata] No match for title
+[2025-04-08T07:16:14.901Z]   [extractMetadata] No match for category
+[2025-04-08T07:16:14.902Z]   [extractMetadata] No match for date
+[2025-04-08T07:16:14.903Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:16:14.905Z]   [extractMetadata] No match for description
+[2025-04-08T07:16:14.906Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:16:14.908Z]   [extractMetadata] Title extracted from H1: "最終成功確認テスト"
+[2025-04-08T07:16:14.909Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:16:14.910Z]   [extractMetadata] Category from path ("final-success-test.tsx") is not valid.
+[2025-04-08T07:16:14.911Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:16:14.912Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:16:14.914Z]   [extractMetadata] Using default description: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:16:14.915Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:16:14.916Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終成功確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:16:14.917Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:16:14.918Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:16:14.919Z]   [generateNameAndSlug] Original title: "最終成功確認テスト"
+[2025-04-08T07:16:14.920Z] !!! ファイル処理エラー (final-success-test.tsx): anyAscii is not a function
+[2025-04-08T07:16:14.922Z] 処理を開始します: articles\final-test-article.tsx
+[2025-04-08T07:16:14.924Z] ファイル final-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.925Z] 処理を開始します: articles\final-test-fixed.tsx
+[2025-04-08T07:16:14.926Z] [extractMetadata] Start processing for: final-test-fixed.tsx
+[2025-04-08T07:16:14.927Z]   [extractMetadata] No match for title
+[2025-04-08T07:16:14.927Z]   [extractMetadata] No match for category
+[2025-04-08T07:16:14.929Z]   [extractMetadata] No match for date
+[2025-04-08T07:16:14.930Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:16:14.931Z]   [extractMetadata] No match for description
+[2025-04-08T07:16:14.931Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:16:14.933Z]   [extractMetadata] Title extracted from H1: "最終修正テスト"
+[2025-04-08T07:16:14.933Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:16:14.934Z]   [extractMetadata] Category from path ("final-test-fixed.tsx") is not valid.
+[2025-04-08T07:16:14.935Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:16:14.936Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:16:14.937Z]   [extractMetadata] Using default description: "最終修正テストに関する詳細記事"
+[2025-04-08T07:16:14.938Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:16:14.939Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:16:14.940Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:16:14.941Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:16:14.942Z]   [generateNameAndSlug] Original title: "最終修正テスト"
+[2025-04-08T07:16:14.944Z] !!! ファイル処理エラー (final-test-fixed.tsx): anyAscii is not a function
+[2025-04-08T07:16:14.945Z] 処理を開始します: articles\new-test-article.tsx
+[2025-04-08T07:16:14.946Z] ファイル new-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.947Z] 処理を開始します: articles\page.tsx
+[2025-04-08T07:16:14.948Z] ファイル page.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.949Z] 処理を開始します: articles\test-article-deploy.tsx
+[2025-04-08T07:16:14.950Z] ファイル test-article-deploy.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.950Z] 処理を開始します: articles\test-auto-deploy-article.tsx
+[2025-04-08T07:16:14.951Z] ファイル test-auto-deploy-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:14.952Z] 処理を開始します: articles\test-fixed-script.tsx
+[2025-04-08T07:16:14.953Z] [extractMetadata] Start processing for: test-fixed-script.tsx
+[2025-04-08T07:16:14.954Z]   [extractMetadata] No match for title
+[2025-04-08T07:16:14.955Z]   [extractMetadata] No match for category
+[2025-04-08T07:16:14.956Z]   [extractMetadata] No match for date
+[2025-04-08T07:16:14.957Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:16:14.958Z]   [extractMetadata] No match for description
+[2025-04-08T07:16:14.959Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:16:14.960Z]   [extractMetadata] Title extracted from H1: "スクリプト修正テスト"
+[2025-04-08T07:16:14.961Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:16:14.961Z]   [extractMetadata] Category from path ("test-fixed-script.tsx") is not valid.
+[2025-04-08T07:16:14.962Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:16:14.963Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:16:14.964Z]   [extractMetadata] Using default description: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:16:14.964Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:16:14.965Z] [extractMetadata] Returning metadata (excluding tags/author): title="スクリプト修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:16:14.966Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:16:14.967Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:16:14.968Z]   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+[2025-04-08T07:16:14.969Z] !!! ファイル処理エラー (test-fixed-script.tsx): anyAscii is not a function
+[2025-04-08T07:16:14.971Z] 処理を開始します: articles\test-noascii-article.tsx
+[2025-04-08T07:16:14.972Z] [extractMetadata] Start processing for: test-noascii-article.tsx
+[2025-04-08T07:16:14.974Z]   [extractMetadata] Raw match for title: "NoAscii Test Article"
+[2025-04-08T07:16:14.975Z]   [extractMetadata] Cleaned value for title: "NoAscii Test Article"
+[2025-04-08T07:16:14.976Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:16:14.977Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:16:14.978Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:16:14.979Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:16:14.980Z]   [extractMetadata] Raw match for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:16:14.981Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:16:14.982Z]   [extractMetadata] Raw match for description: "A test article that should work without anyAscii"
+[2025-04-08T07:16:14.983Z]   [extractMetadata] Cleaned value for description: "A test article that should work without anyAscii"
+[2025-04-08T07:16:14.984Z] [extractMetadata] Returning metadata (excluding tags/author): title="NoAscii Test Article", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:16:14.985Z] メタデータからタグを抽出しました: test, noascii
+[2025-04-08T07:16:14.986Z] メタデータから作者を抽出しました: "Test Author"
+[2025-04-08T07:16:14.988Z]   [generateNameAndSlug] Original title: "NoAscii Test Article"
+[2025-04-08T07:16:14.989Z] !!! ファイル処理エラー (test-noascii-article.tsx): anyAscii is not a function
+[2025-04-08T07:16:14.991Z] 処理を開始します: articles\test-optimization-article.tsx
+[2025-04-08T07:16:14.992Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:16:14.993Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:16:14.994Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:16:14.995Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:16:14.996Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:16:14.997Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:16:14.998Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:16:14.999Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:16:15.000Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:16:15.001Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:16:15.002Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:16:15.003Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:16:15.004Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:16:15.005Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:16:15.006Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:16:15.007Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:16:15.009Z] 処理を開始します: articles\test-日本語-article.tsx
+[2025-04-08T07:16:15.010Z] [extractMetadata] Start processing for: test-日本語-article.tsx
+[2025-04-08T07:16:15.011Z]   [extractMetadata] Raw match for title: "日本語テスト記事"
+[2025-04-08T07:16:15.011Z]   [extractMetadata] Cleaned value for title: "日本語テスト記事"
+[2025-04-08T07:16:15.012Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:16:15.013Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:16:15.014Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:16:15.015Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:16:15.015Z]   [extractMetadata] Raw match for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:16:15.016Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:16:15.017Z]   [extractMetadata] Raw match for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:16:15.018Z]   [extractMetadata] Cleaned value for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:16:15.019Z] [extractMetadata] Returning metadata (excluding tags/author): title="日本語テスト記事", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:16:15.020Z] メタデータからタグを抽出しました: テスト, 日本語
+[2025-04-08T07:16:15.021Z] メタデータから作者を抽出しました: "テスト担当者"
+[2025-04-08T07:16:15.023Z]   [generateNameAndSlug] Original title: "日本語テスト記事"
+[2025-04-08T07:16:15.024Z] !!! ファイル処理エラー (test-日本語-article.tsx): anyAscii is not a function
+[2025-04-08T07:16:15.025Z] 処理を開始します: articles\vercel-deploy-fixed.tsx
+[2025-04-08T07:16:15.026Z] ファイル vercel-deploy-fixed.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.027Z] 処理を開始します: articles\vercel-deploy-test.tsx
+[2025-04-08T07:16:15.028Z] ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.029Z] 処理を開始します: articles\very-final-test.tsx
+[2025-04-08T07:16:15.030Z] [extractMetadata] Start processing for: very-final-test.tsx
+[2025-04-08T07:16:15.030Z]   [extractMetadata] No match for title
+[2025-04-08T07:16:15.031Z]   [extractMetadata] No match for category
+[2025-04-08T07:16:15.032Z]   [extractMetadata] No match for date
+[2025-04-08T07:16:15.033Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:16:15.034Z]   [extractMetadata] No match for description
+[2025-04-08T07:16:15.034Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:16:15.035Z]   [extractMetadata] Title extracted from H1: "最終修正確認テスト"
+[2025-04-08T07:16:15.036Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:16:15.037Z]   [extractMetadata] Category from path ("very-final-test.tsx") is not valid.
+[2025-04-08T07:16:15.037Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:16:15.038Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:16:15.039Z]   [extractMetadata] Using default description: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:16:15.040Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:16:15.041Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:16:15.041Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:16:15.042Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:16:15.043Z]   [generateNameAndSlug] Original title: "最終修正確認テスト"
+[2025-04-08T07:16:15.044Z] !!! ファイル処理エラー (very-final-test.tsx): anyAscii is not a function
+[2025-04-08T07:16:15.046Z] 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+[2025-04-08T07:16:15.046Z] ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.047Z] 処理を開始します: articles\ai-news\auto-test-article3.tsx
+[2025-04-08T07:16:15.048Z] ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.049Z] 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+[2025-04-08T07:16:15.050Z] ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.051Z] 処理を開始します: articles\ai-news\minimal-test.tsx
+[2025-04-08T07:16:15.052Z] [extractMetadata] Start processing for: minimal-test.tsx
+[2025-04-08T07:16:15.053Z]   [extractMetadata] Raw match for title: "Minimal Test"
+[2025-04-08T07:16:15.054Z]   [extractMetadata] Cleaned value for title: "Minimal Test"
+[2025-04-08T07:16:15.055Z]   [extractMetadata] No match for category
+[2025-04-08T07:16:15.056Z]   [extractMetadata] No match for date
+[2025-04-08T07:16:15.057Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:16:15.057Z]   [extractMetadata] No match for description
+[2025-04-08T07:16:15.058Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:16:15.059Z]   [extractMetadata] Category extracted from path: "ai-news"
+[2025-04-08T07:16:15.060Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:16:15.061Z]   [extractMetadata] Using default description: "Minimal Testに関する詳細記事"
+[2025-04-08T07:16:15.061Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:16:15.062Z] [extractMetadata] Returning metadata (excluding tags/author): title="Minimal Test", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:16:15.063Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:16:15.064Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:16:15.065Z]   [generateNameAndSlug] Original title: "Minimal Test"
+[2025-04-08T07:16:15.066Z] !!! ファイル処理エラー (minimal-test.tsx): anyAscii is not a function
+[2025-04-08T07:16:15.067Z] 処理を開始します: articles\ai-news\test-ai-news.tsx
+[2025-04-08T07:16:15.068Z] ファイル test-ai-news.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.069Z] 処理を開始します: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T07:16:15.070Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:16:15.071Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:16:15.071Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:16:15.072Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:16:15.073Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:16:15.074Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:16:15.074Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:16:15.075Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:16:15.076Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:16:15.077Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:16:15.078Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:16:15.078Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:16:15.079Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:16:15.080Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:16:15.081Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:16:15.082Z] !!! ファイル処理エラー (test-optimization-article.tsx): anyAscii is not a function
+[2025-04-08T07:16:15.083Z] 処理を開始します: articles\ai-technology\article-template.tsx
+[2025-04-08T07:16:15.085Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.085Z] 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+[2025-04-08T07:16:15.086Z] ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+[2025-04-08T07:16:15.087Z] 23個の既存TSXファイルについて処理を開始しました...
+[2025-04-08T07:16:15.088Z] 以下のパターンでファイル監視を開始します: articles/*.tsx, articles/*/*.tsx
+[2025-04-08T07:16:15.109Z] ファイル監視の準備が完了しました。
+[2025-04-08T07:16:15.110Z] 現在監視中のパス:
+[2025-04-08T07:16:15.111Z] - D:\NvidiaGTCProject (1 items)
+[2025-04-08T07:16:15.112Z] - D:\NvidiaGTCProject\articles (17 items)
+[2025-04-08T07:16:15.113Z] - D:\NvidiaGTCProject\articles\*.tsx
+[2025-04-08T07:16:15.113Z] - D:\NvidiaGTCProject\articles\*\*.tsx
+[2025-04-08T07:16:15.114Z] - D:\NvidiaGTCProject\articles\ai-news (6 items)
+[2025-04-08T07:16:15.115Z] - D:\NvidiaGTCProject\articles\ai-technology (2 items)
+[2025-04-08T07:16:15.116Z] 監視中... Ctrl+C で終了
+[2025-04-08T07:20:05.836Z] ログファイルを使用します: ./upload_log.txt
+[2025-04-08T07:20:05.842Z] Vercelデプロイフックが設定されています: https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh...
+[2025-04-08T07:20:05.843Z] 既存ファイルの確認を開始します...
+[2025-04-08T07:20:05.844Z] 以下のディレクトリ内の既存TSXファイルをチェック: ./articles, articles\ai-news, articles\ai-technology
+[2025-04-08T07:20:05.847Z] 処理を開始します: articles\article-template.tsx
+[2025-04-08T07:20:05.848Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.849Z] 処理を開始します: articles\final-success-test.tsx
+[2025-04-08T07:20:05.850Z] [extractMetadata] Start processing for: final-success-test.tsx
+[2025-04-08T07:20:05.852Z]   [extractMetadata] No match for title
+[2025-04-08T07:20:05.853Z]   [extractMetadata] No match for category
+[2025-04-08T07:20:05.854Z]   [extractMetadata] No match for date
+[2025-04-08T07:20:05.855Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:20:05.856Z]   [extractMetadata] No match for description
+[2025-04-08T07:20:05.857Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:20:05.858Z]   [extractMetadata] Title extracted from H1: "最終成功確認テスト"
+[2025-04-08T07:20:05.859Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:20:05.861Z]   [extractMetadata] Category from path ("final-success-test.tsx") is not valid.
+[2025-04-08T07:20:05.862Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:20:05.863Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:20:05.864Z]   [extractMetadata] Using default description: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:20:05.865Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:05.866Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終成功確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:20:05.867Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:20:05.868Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:20:05.869Z]   [generateNameAndSlug] Original title: "最終成功確認テスト"
+[2025-04-08T07:20:05.874Z]   [generateNameAndSlug] Ascii title: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:20:05.876Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:20:05.877Z]   [generateNameAndSlug] Generated slug: "zuizhongchenggongquerentesuto"
+[2025-04-08T07:20:05.878Z]   タイトル: "最終成功確認テスト"
+[2025-04-08T07:20:05.879Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:20:05.880Z]   日付: "2025-04-08"
+[2025-04-08T07:20:05.881Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:05.882Z]   説明: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:20:05.883Z]   タグ: AI, 自動生成
+[2025-04-08T07:20:05.884Z]   作者: "AI Team"
+[2025-04-08T07:20:05.885Z]   コンポーネント名: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:20:05.886Z]   スラグ: "zuizhongchenggongquerentesuto"
+[2025-04-08T07:20:05.888Z] ブログディレクトリを作成しました: app\blog\ai-technology\zuizhongchenggongquerentesuto
+[2025-04-08T07:20:05.890Z] コンポーネントを作成しました: components\ZuiZhongChengGongQueRentesuto.tsx
+[2025-04-08T07:20:05.892Z] ブログページを作成しました: app\blog\ai-technology\zuizhongchenggongquerentesuto\page.tsx
+[2025-04-08T07:20:05.894Z] Git処理を開始します...
+[2025-04-08T07:20:05.895Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:05.911Z] 処理を開始します: articles\final-test-article.tsx
+[2025-04-08T07:20:05.913Z] ファイル final-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.914Z] 処理を開始します: articles\final-test-fixed.tsx
+[2025-04-08T07:20:05.916Z] [extractMetadata] Start processing for: final-test-fixed.tsx
+[2025-04-08T07:20:05.917Z]   [extractMetadata] No match for title
+[2025-04-08T07:20:05.918Z]   [extractMetadata] No match for category
+[2025-04-08T07:20:05.919Z]   [extractMetadata] No match for date
+[2025-04-08T07:20:05.920Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:20:05.921Z]   [extractMetadata] No match for description
+[2025-04-08T07:20:05.922Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:20:05.923Z]   [extractMetadata] Title extracted from H1: "最終修正テスト"
+[2025-04-08T07:20:05.924Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:20:05.925Z]   [extractMetadata] Category from path ("final-test-fixed.tsx") is not valid.
+[2025-04-08T07:20:05.926Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:20:05.927Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:20:05.929Z]   [extractMetadata] Using default description: "最終修正テストに関する詳細記事"
+[2025-04-08T07:20:05.930Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:05.931Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:20:05.932Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:20:05.933Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:20:05.935Z]   [generateNameAndSlug] Original title: "最終修正テスト"
+[2025-04-08T07:20:05.936Z]   [generateNameAndSlug] Ascii title: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:20:05.937Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:20:05.939Z]   [generateNameAndSlug] Generated slug: "zuizhongxiuzhengtesuto"
+[2025-04-08T07:20:05.940Z]   タイトル: "最終修正テスト"
+[2025-04-08T07:20:05.941Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:20:05.942Z]   日付: "2025-04-08"
+[2025-04-08T07:20:05.943Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:05.944Z]   説明: "最終修正テストに関する詳細記事"
+[2025-04-08T07:20:05.945Z]   タグ: AI, 自動生成
+[2025-04-08T07:20:05.946Z]   作者: "AI Team"
+[2025-04-08T07:20:05.947Z]   コンポーネント名: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:20:05.949Z]   スラグ: "zuizhongxiuzhengtesuto"
+[2025-04-08T07:20:05.951Z] ブログディレクトリを作成しました: app\blog\ai-technology\zuizhongxiuzhengtesuto
+[2025-04-08T07:20:05.954Z] コンポーネントを作成しました: components\ZuiZhongXiuZhengtesuto.tsx
+[2025-04-08T07:20:05.956Z] ブログページを作成しました: app\blog\ai-technology\zuizhongxiuzhengtesuto\page.tsx
+[2025-04-08T07:20:05.957Z] Git処理を開始します...
+[2025-04-08T07:20:05.959Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:05.980Z] 処理を開始します: articles\new-test-article.tsx
+[2025-04-08T07:20:05.981Z] ファイル new-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.983Z] 処理を開始します: articles\page.tsx
+[2025-04-08T07:20:05.984Z] ファイル page.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.985Z] 処理を開始します: articles\test-article-deploy.tsx
+[2025-04-08T07:20:05.986Z] ファイル test-article-deploy.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.988Z] 処理を開始します: articles\test-auto-deploy-article.tsx
+[2025-04-08T07:20:05.989Z] ファイル test-auto-deploy-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:05.990Z] 処理を開始します: articles\test-fixed-script.tsx
+[2025-04-08T07:20:05.991Z] [extractMetadata] Start processing for: test-fixed-script.tsx
+[2025-04-08T07:20:05.993Z]   [extractMetadata] No match for title
+[2025-04-08T07:20:05.994Z]   [extractMetadata] No match for category
+[2025-04-08T07:20:05.995Z]   [extractMetadata] No match for date
+[2025-04-08T07:20:05.996Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:20:05.997Z]   [extractMetadata] No match for description
+[2025-04-08T07:20:05.999Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:20:06.000Z]   [extractMetadata] Title extracted from H1: "スクリプト修正テスト"
+[2025-04-08T07:20:06.001Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:20:06.002Z]   [extractMetadata] Category from path ("test-fixed-script.tsx") is not valid.
+[2025-04-08T07:20:06.003Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:20:06.004Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:20:06.006Z]   [extractMetadata] Using default description: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:20:06.007Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.008Z] [extractMetadata] Returning metadata (excluding tags/author): title="スクリプト修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:20:06.009Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:20:06.010Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:20:06.012Z]   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+[2025-04-08T07:20:06.013Z]   [generateNameAndSlug] Ascii title: "sukuriputoXiuZhengtesuto"
+[2025-04-08T07:20:06.014Z]   [generateNameAndSlug] Generated componentName: "SukuriputoXiuZhengtesuto"
+[2025-04-08T07:20:06.015Z]   [generateNameAndSlug] Generated slug: "sukuriputoxiuzhengtesuto"
+[2025-04-08T07:20:06.017Z]   タイトル: "スクリプト修正テスト"
+[2025-04-08T07:20:06.018Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:20:06.019Z]   日付: "2025-04-08"
+[2025-04-08T07:20:06.020Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.022Z]   説明: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:20:06.023Z]   タグ: AI, 自動生成
+[2025-04-08T07:20:06.024Z]   作者: "AI Team"
+[2025-04-08T07:20:06.025Z]   コンポーネント名: "SukuriputoXiuZhengtesuto"
+[2025-04-08T07:20:06.027Z]   スラグ: "sukuriputoxiuzhengtesuto"
+[2025-04-08T07:20:06.030Z] ブログディレクトリを作成しました: app\blog\ai-technology\sukuriputoxiuzhengtesuto
+[2025-04-08T07:20:06.032Z] コンポーネントを作成しました: components\SukuriputoXiuZhengtesuto.tsx
+[2025-04-08T07:20:06.035Z] ブログページを作成しました: app\blog\ai-technology\sukuriputoxiuzhengtesuto\page.tsx
+[2025-04-08T07:20:06.036Z] Git処理を開始します...
+[2025-04-08T07:20:06.038Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.052Z] 処理を開始します: articles\test-noascii-article.tsx
+[2025-04-08T07:20:06.054Z] [extractMetadata] Start processing for: test-noascii-article.tsx
+[2025-04-08T07:20:06.055Z]   [extractMetadata] Raw match for title: "NoAscii Test Article"
+[2025-04-08T07:20:06.056Z]   [extractMetadata] Cleaned value for title: "NoAscii Test Article"
+[2025-04-08T07:20:06.057Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:20:06.058Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:20:06.059Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:20:06.060Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:20:06.061Z]   [extractMetadata] Raw match for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:20:06.063Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:20:06.064Z]   [extractMetadata] Raw match for description: "A test article that should work without anyAscii"
+[2025-04-08T07:20:06.065Z]   [extractMetadata] Cleaned value for description: "A test article that should work without anyAscii"
+[2025-04-08T07:20:06.066Z] [extractMetadata] Returning metadata (excluding tags/author): title="NoAscii Test Article", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:20:06.067Z] メタデータからタグを抽出しました: test, noascii
+[2025-04-08T07:20:06.068Z] メタデータから作者を抽出しました: "Test Author"
+[2025-04-08T07:20:06.069Z]   [generateNameAndSlug] Original title: "NoAscii Test Article"
+[2025-04-08T07:20:06.070Z]   [generateNameAndSlug] Ascii title: "NoAscii Test Article"
+[2025-04-08T07:20:06.071Z]   [generateNameAndSlug] Generated componentName: "NoAsciiTestArticle"
+[2025-04-08T07:20:06.072Z]   [generateNameAndSlug] Generated slug: "noascii-test-article"
+[2025-04-08T07:20:06.073Z]   タイトル: "NoAscii Test Article"
+[2025-04-08T07:20:06.074Z]   カテゴリ: "ai-news"
+[2025-04-08T07:20:06.075Z]   日付: "2025-04-09"
+[2025-04-08T07:20:06.076Z]   カバー画像: "/images/test-noascii.jpg"
+[2025-04-08T07:20:06.077Z]   説明: "A test article that should work without anyAscii"
+[2025-04-08T07:20:06.079Z]   タグ: test, noascii
+[2025-04-08T07:20:06.080Z]   作者: "Test Author"
+[2025-04-08T07:20:06.081Z]   コンポーネント名: "NoAsciiTestArticle"
+[2025-04-08T07:20:06.082Z]   スラグ: "noascii-test-article"
+[2025-04-08T07:20:06.083Z] ブログディレクトリを作成しました: app\blog\ai-news\noascii-test-article
+[2025-04-08T07:20:06.086Z] コンポーネントを作成しました: components\NoAsciiTestArticle.tsx
+[2025-04-08T07:20:06.088Z] ブログページを作成しました: app\blog\ai-news\noascii-test-article\page.tsx
+[2025-04-08T07:20:06.089Z] Git処理を開始します...
+[2025-04-08T07:20:06.090Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.104Z] 処理を開始します: articles\test-optimization-article.tsx
+[2025-04-08T07:20:06.105Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:20:06.107Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:20:06.108Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:20:06.109Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:20:06.110Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:20:06.111Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:20:06.112Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:20:06.113Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:20:06.114Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:20:06.115Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.115Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.116Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:20:06.117Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:20:06.119Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:20:06.119Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:20:06.121Z]   [generateNameAndSlug] Ascii title: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.122Z]   [generateNameAndSlug] Generated componentName: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.122Z]   [generateNameAndSlug] Generated slug: "zuishihuatesutojishi"
+[2025-04-08T07:20:06.123Z]   タイトル: "最適化テスト記事"
+[2025-04-08T07:20:06.124Z]   カテゴリ: "ai-news"
+[2025-04-08T07:20:06.125Z]   日付: "2025-04-08"
+[2025-04-08T07:20:06.126Z]   カバー画像: "/images/test-image.jpg"
+[2025-04-08T07:20:06.127Z]   説明: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.128Z]   タグ: テスト, 自動化, 最適化
+[2025-04-08T07:20:06.129Z]   作者: "テスト担当"
+[2025-04-08T07:20:06.130Z]   コンポーネント名: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.131Z]   スラグ: "zuishihuatesutojishi"
+[2025-04-08T07:20:06.132Z] ブログディレクトリを作成しました: app\blog\ai-news\zuishihuatesutojishi
+[2025-04-08T07:20:06.134Z] コンポーネントを作成しました: components\ZuiShiHuatesutoJiShi.tsx
+[2025-04-08T07:20:06.136Z] ブログページを作成しました: app\blog\ai-news\zuishihuatesutojishi\page.tsx
+[2025-04-08T07:20:06.137Z] Git処理を開始します...
+[2025-04-08T07:20:06.138Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.151Z] 処理を開始します: articles\test-日本語-article.tsx
+[2025-04-08T07:20:06.152Z] [extractMetadata] Start processing for: test-日本語-article.tsx
+[2025-04-08T07:20:06.154Z]   [extractMetadata] Raw match for title: "日本語テスト記事"
+[2025-04-08T07:20:06.155Z]   [extractMetadata] Cleaned value for title: "日本語テスト記事"
+[2025-04-08T07:20:06.156Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:20:06.157Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:20:06.158Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:20:06.159Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:20:06.160Z]   [extractMetadata] Raw match for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:20:06.161Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:20:06.162Z]   [extractMetadata] Raw match for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:20:06.163Z]   [extractMetadata] Cleaned value for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:20:06.164Z] [extractMetadata] Returning metadata (excluding tags/author): title="日本語テスト記事", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:20:06.165Z] メタデータからタグを抽出しました: テスト, 日本語
+[2025-04-08T07:20:06.166Z] メタデータから作者を抽出しました: "テスト担当者"
+[2025-04-08T07:20:06.167Z]   [generateNameAndSlug] Original title: "日本語テスト記事"
+[2025-04-08T07:20:06.168Z]   [generateNameAndSlug] Ascii title: "RiBenYutesutoJiShi"
+[2025-04-08T07:20:06.169Z]   [generateNameAndSlug] Generated componentName: "RiBenYutesutoJiShi"
+[2025-04-08T07:20:06.170Z]   [generateNameAndSlug] Generated slug: "ribenyutesutojishi"
+[2025-04-08T07:20:06.171Z]   タイトル: "日本語テスト記事"
+[2025-04-08T07:20:06.172Z]   カテゴリ: "ai-news"
+[2025-04-08T07:20:06.173Z]   日付: "2025-04-09"
+[2025-04-08T07:20:06.174Z]   カバー画像: "/images/test-japanese.jpg"
+[2025-04-08T07:20:06.175Z]   説明: "日本語タイトルの記事テストです"
+[2025-04-08T07:20:06.176Z]   タグ: テスト, 日本語
+[2025-04-08T07:20:06.177Z]   作者: "テスト担当者"
+[2025-04-08T07:20:06.178Z]   コンポーネント名: "RiBenYutesutoJiShi"
+[2025-04-08T07:20:06.179Z]   スラグ: "ribenyutesutojishi"
+[2025-04-08T07:20:06.180Z] ブログディレクトリを作成しました: app\blog\ai-news\ribenyutesutojishi
+[2025-04-08T07:20:06.182Z] コンポーネントを作成しました: components\RiBenYutesutoJiShi.tsx
+[2025-04-08T07:20:06.184Z] ブログページを作成しました: app\blog\ai-news\ribenyutesutojishi\page.tsx
+[2025-04-08T07:20:06.186Z] Git処理を開始します...
+[2025-04-08T07:20:06.187Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.200Z] 処理を開始します: articles\vercel-deploy-fixed.tsx
+[2025-04-08T07:20:06.202Z] ファイル vercel-deploy-fixed.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.203Z] 処理を開始します: articles\vercel-deploy-test.tsx
+[2025-04-08T07:20:06.205Z] ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.206Z] 処理を開始します: articles\very-final-test.tsx
+[2025-04-08T07:20:06.207Z] [extractMetadata] Start processing for: very-final-test.tsx
+[2025-04-08T07:20:06.208Z]   [extractMetadata] No match for title
+[2025-04-08T07:20:06.209Z]   [extractMetadata] No match for category
+[2025-04-08T07:20:06.209Z]   [extractMetadata] No match for date
+[2025-04-08T07:20:06.210Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:20:06.211Z]   [extractMetadata] No match for description
+[2025-04-08T07:20:06.212Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:20:06.213Z]   [extractMetadata] Title extracted from H1: "最終修正確認テスト"
+[2025-04-08T07:20:06.214Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:20:06.215Z]   [extractMetadata] Category from path ("very-final-test.tsx") is not valid.
+[2025-04-08T07:20:06.216Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:20:06.217Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:20:06.217Z]   [extractMetadata] Using default description: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:20:06.219Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.219Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:20:06.221Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:20:06.222Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:20:06.223Z]   [generateNameAndSlug] Original title: "最終修正確認テスト"
+[2025-04-08T07:20:06.224Z]   [generateNameAndSlug] Ascii title: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:20:06.225Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:20:06.226Z]   [generateNameAndSlug] Generated slug: "zuizhongxiuzhengquerentesuto"
+[2025-04-08T07:20:06.227Z]   タイトル: "最終修正確認テスト"
+[2025-04-08T07:20:06.228Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:20:06.229Z]   日付: "2025-04-08"
+[2025-04-08T07:20:06.231Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.232Z]   説明: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:20:06.233Z]   タグ: AI, 自動生成
+[2025-04-08T07:20:06.234Z]   作者: "AI Team"
+[2025-04-08T07:20:06.235Z]   コンポーネント名: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:20:06.236Z]   スラグ: "zuizhongxiuzhengquerentesuto"
+[2025-04-08T07:20:06.238Z] ブログディレクトリを作成しました: app\blog\ai-technology\zuizhongxiuzhengquerentesuto
+[2025-04-08T07:20:06.240Z] コンポーネントを作成しました: components\ZuiZhongXiuZhengQueRentesuto.tsx
+[2025-04-08T07:20:06.242Z] ブログページを作成しました: app\blog\ai-technology\zuizhongxiuzhengquerentesuto\page.tsx
+[2025-04-08T07:20:06.243Z] Git処理を開始します...
+[2025-04-08T07:20:06.244Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.259Z] 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+[2025-04-08T07:20:06.260Z] ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.262Z] 処理を開始します: articles\ai-news\auto-test-article3.tsx
+[2025-04-08T07:20:06.263Z] ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.265Z] 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+[2025-04-08T07:20:06.266Z] ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.267Z] 処理を開始します: articles\ai-news\minimal-test.tsx
+[2025-04-08T07:20:06.269Z] [extractMetadata] Start processing for: minimal-test.tsx
+[2025-04-08T07:20:06.270Z]   [extractMetadata] Raw match for title: "Minimal Test"
+[2025-04-08T07:20:06.272Z]   [extractMetadata] Cleaned value for title: "Minimal Test"
+[2025-04-08T07:20:06.273Z]   [extractMetadata] No match for category
+[2025-04-08T07:20:06.274Z]   [extractMetadata] No match for date
+[2025-04-08T07:20:06.275Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:20:06.276Z]   [extractMetadata] No match for description
+[2025-04-08T07:20:06.278Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:20:06.279Z]   [extractMetadata] Category extracted from path: "ai-news"
+[2025-04-08T07:20:06.280Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:20:06.282Z]   [extractMetadata] Using default description: "Minimal Testに関する詳細記事"
+[2025-04-08T07:20:06.283Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.284Z] [extractMetadata] Returning metadata (excluding tags/author): title="Minimal Test", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:20:06.285Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:20:06.286Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:20:06.287Z]   [generateNameAndSlug] Original title: "Minimal Test"
+[2025-04-08T07:20:06.288Z]   [generateNameAndSlug] Ascii title: "Minimal Test"
+[2025-04-08T07:20:06.290Z]   [generateNameAndSlug] Generated componentName: "MinimalTest"
+[2025-04-08T07:20:06.291Z]   [generateNameAndSlug] Generated slug: "minimal-test"
+[2025-04-08T07:20:06.292Z]   タイトル: "Minimal Test"
+[2025-04-08T07:20:06.293Z]   カテゴリ: "ai-news"
+[2025-04-08T07:20:06.294Z]   日付: "2025-04-08"
+[2025-04-08T07:20:06.295Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:20:06.296Z]   説明: "Minimal Testに関する詳細記事"
+[2025-04-08T07:20:06.297Z]   タグ: AI, 自動生成
+[2025-04-08T07:20:06.298Z]   作者: "AI Team"
+[2025-04-08T07:20:06.299Z]   コンポーネント名: "MinimalTest"
+[2025-04-08T07:20:06.300Z]   スラグ: "minimal-test"
+[2025-04-08T07:20:06.302Z] ブログディレクトリを作成しました: app\blog\ai-news\minimal-test
+[2025-04-08T07:20:06.304Z] コンポーネントを作成しました: components\MinimalTest.tsx
+[2025-04-08T07:20:06.307Z] ブログページを作成しました: app\blog\ai-news\minimal-test\page.tsx
+[2025-04-08T07:20:06.308Z] Git処理を開始します...
+[2025-04-08T07:20:06.309Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.323Z] 処理を開始します: articles\ai-news\test-ai-news.tsx
+[2025-04-08T07:20:06.325Z] ファイル test-ai-news.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.326Z] 処理を開始します: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T07:20:06.328Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:20:06.329Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:20:06.330Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:20:06.332Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:20:06.333Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:20:06.334Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:20:06.335Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:20:06.337Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:20:06.338Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:20:06.339Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.340Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.341Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:20:06.342Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:20:06.344Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:20:06.345Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:20:06.346Z]   [generateNameAndSlug] Ascii title: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.347Z]   [generateNameAndSlug] Generated componentName: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.349Z]   [generateNameAndSlug] Generated slug: "zuishihuatesutojishi"
+[2025-04-08T07:20:06.350Z]   タイトル: "最適化テスト記事"
+[2025-04-08T07:20:06.351Z]   カテゴリ: "ai-news"
+[2025-04-08T07:20:06.352Z]   日付: "2025-04-08"
+[2025-04-08T07:20:06.353Z]   カバー画像: "/images/test-image.jpg"
+[2025-04-08T07:20:06.355Z]   説明: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:20:06.356Z]   タグ: テスト, 自動化, 最適化
+[2025-04-08T07:20:06.357Z]   作者: "テスト担当"
+[2025-04-08T07:20:06.358Z]   コンポーネント名: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:20:06.359Z]   スラグ: "zuishihuatesutojishi"
+[2025-04-08T07:20:06.361Z] ブログディレクトリは既に存在します: app\blog\ai-news\zuishihuatesutojishi
+[2025-04-08T07:20:06.363Z] コンポーネントを作成しました: components\ZuiShiHuatesutoJiShi.tsx
+[2025-04-08T07:20:06.365Z] ブログページを作成しました: app\blog\ai-news\zuishihuatesutojishi\page.tsx
+[2025-04-08T07:20:06.366Z] Git処理を開始します...
+[2025-04-08T07:20:06.367Z] 生成されたファイルをステージングします...
+[2025-04-08T07:20:06.381Z] 処理を開始します: articles\ai-technology\article-template.tsx
+[2025-04-08T07:20:06.382Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.384Z] 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+[2025-04-08T07:20:06.385Z] ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+[2025-04-08T07:20:06.386Z] 23個の既存TSXファイルについて処理を開始しました...
+[2025-04-08T07:20:06.388Z] 以下のパターンでファイル監視を開始します: articles/*.tsx, articles/*/*.tsx
+[2025-04-08T07:20:06.400Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\ZuiShiHuatesutoJiShi.tsx" "app\blog\ai-news\zuishihuatesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.402Z] !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "git" add "components\ZuiShiHuatesutoJiShi.tsx" "app\blog\ai-news\zuishihuatesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.405Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\MinimalTest.tsx" "app\blog\ai-news\minimal-test\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.406Z] !!! ファイル処理エラー (minimal-test.tsx): Command failed: "git" add "components\MinimalTest.tsx" "app\blog\ai-news\minimal-test\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.408Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\ZuiZhongXiuZhengQueRentesuto.tsx" "app\blog\ai-technology\zuizhongxiuzhengquerentesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.409Z] !!! ファイル処理エラー (very-final-test.tsx): Command failed: "git" add "components\ZuiZhongXiuZhengQueRentesuto.tsx" "app\blog\ai-technology\zuizhongxiuzhengquerentesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.411Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\RiBenYutesutoJiShi.tsx" "app\blog\ai-news\ribenyutesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.412Z] !!! ファイル処理エラー (test-日本語-article.tsx): Command failed: "git" add "components\RiBenYutesutoJiShi.tsx" "app\blog\ai-news\ribenyutesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.413Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\ZuiShiHuatesutoJiShi.tsx" "app\blog\ai-news\zuishihuatesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.415Z] !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "git" add "components\ZuiShiHuatesutoJiShi.tsx" "app\blog\ai-news\zuishihuatesutojishi\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.416Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\NoAsciiTestArticle.tsx" "app\blog\ai-news\noascii-test-article\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.417Z] !!! ファイル処理エラー (test-noascii-article.tsx): Command failed: "git" add "components\NoAsciiTestArticle.tsx" "app\blog\ai-news\noascii-test-article\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.419Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\SukuriputoXiuZhengtesuto.tsx" "app\blog\ai-technology\sukuriputoxiuzhengtesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.421Z] !!! ファイル処理エラー (test-fixed-script.tsx): Command failed: "git" add "components\SukuriputoXiuZhengtesuto.tsx" "app\blog\ai-technology\sukuriputoxiuzhengtesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.423Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\ZuiZhongXiuZhengtesuto.tsx" "app\blog\ai-technology\zuizhongxiuzhengtesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.424Z] !!! ファイル処理エラー (final-test-fixed.tsx): Command failed: "git" add "components\ZuiZhongXiuZhengtesuto.tsx" "app\blog\ai-technology\zuizhongxiuzhengtesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.426Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "git" add "components\ZuiZhongChengGongQueRentesuto.tsx" "app\blog\ai-technology\zuizhongchenggongquerentesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.427Z] !!! ファイル処理エラー (final-success-test.tsx): Command failed: "git" add "components\ZuiZhongChengGongQueRentesuto.tsx" "app\blog\ai-technology\zuizhongchenggongquerentesuto\page.tsx"
+'"git"' is not recognized as an internal or external command,
+operable program or batch file.
+
+[2025-04-08T07:20:06.445Z] ファイル監視の準備が完了しました。
+[2025-04-08T07:20:06.447Z] 現在監視中のパス:
+[2025-04-08T07:20:06.448Z] - D:\NvidiaGTCProject (1 items)
+[2025-04-08T07:20:06.449Z] - D:\NvidiaGTCProject\articles (17 items)
+[2025-04-08T07:20:06.449Z] - D:\NvidiaGTCProject\articles\*.tsx
+[2025-04-08T07:20:06.450Z] - D:\NvidiaGTCProject\articles\*\*.tsx
+[2025-04-08T07:20:06.452Z] - D:\NvidiaGTCProject\articles\ai-news (6 items)
+[2025-04-08T07:20:06.453Z] - D:\NvidiaGTCProject\articles\ai-technology (2 items)
+[2025-04-08T07:20:06.454Z] 監視中... Ctrl+C で終了
+[2025-04-08T07:22:13.823Z] ログファイルを使用します: ./upload_log.txt
+[2025-04-08T07:22:13.828Z] Vercelデプロイフックが設定されています: https://api.vercel.com/v1/integrations/deploy/prj_KHKAmHCUZh...
+[2025-04-08T07:22:13.830Z] 既存ファイルの確認を開始します...
+[2025-04-08T07:22:13.831Z] 以下のディレクトリ内の既存TSXファイルをチェック: ./articles, articles\ai-news, articles\ai-technology
+[2025-04-08T07:22:13.833Z] 処理を開始します: articles\article-template.tsx
+[2025-04-08T07:22:13.835Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.836Z] 処理を開始します: articles\final-success-test.tsx
+[2025-04-08T07:22:13.837Z] [extractMetadata] Start processing for: final-success-test.tsx
+[2025-04-08T07:22:13.838Z]   [extractMetadata] No match for title
+[2025-04-08T07:22:13.840Z]   [extractMetadata] No match for category
+[2025-04-08T07:22:13.841Z]   [extractMetadata] No match for date
+[2025-04-08T07:22:13.841Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:22:13.842Z]   [extractMetadata] No match for description
+[2025-04-08T07:22:13.843Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:22:13.844Z]   [extractMetadata] Title extracted from H1: "最終成功確認テスト"
+[2025-04-08T07:22:13.845Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:22:13.846Z]   [extractMetadata] Category from path ("final-success-test.tsx") is not valid.
+[2025-04-08T07:22:13.847Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:22:13.848Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:22:13.849Z]   [extractMetadata] Using default description: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:22:13.850Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.851Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終成功確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:22:13.853Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:22:13.853Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:22:13.854Z]   [generateNameAndSlug] Original title: "最終成功確認テスト"
+[2025-04-08T07:22:13.859Z]   [generateNameAndSlug] Ascii title: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:22:13.861Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:22:13.862Z]   [generateNameAndSlug] Generated slug: "zuizhongchenggongquerentesuto"
+[2025-04-08T07:22:13.863Z]   タイトル: "最終成功確認テスト"
+[2025-04-08T07:22:13.863Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:22:13.864Z]   日付: "2025-04-08"
+[2025-04-08T07:22:13.865Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.866Z]   説明: "最終成功確認テストに関する詳細記事"
+[2025-04-08T07:22:13.867Z]   タグ: AI, 自動生成
+[2025-04-08T07:22:13.867Z]   作者: "AI Team"
+[2025-04-08T07:22:13.868Z]   コンポーネント名: "ZuiZhongChengGongQueRentesuto"
+[2025-04-08T07:22:13.869Z]   スラグ: "zuizhongchenggongquerentesuto"
+[2025-04-08T07:22:13.870Z] ブログディレクトリは既に存在します: app\blog\ai-technology\zuizhongchenggongquerentesuto
+[2025-04-08T07:22:13.872Z] コンポーネントを作成しました: components\ZuiZhongChengGongQueRentesuto.tsx
+[2025-04-08T07:22:13.874Z] ブログページを作成しました: app\blog\ai-technology\zuizhongchenggongquerentesuto\page.tsx
+[2025-04-08T07:22:13.875Z] Git処理を開始します...
+[2025-04-08T07:22:13.876Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:13.892Z] 処理を開始します: articles\final-test-article.tsx
+[2025-04-08T07:22:13.893Z] ファイル final-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.894Z] 処理を開始します: articles\final-test-fixed.tsx
+[2025-04-08T07:22:13.896Z] [extractMetadata] Start processing for: final-test-fixed.tsx
+[2025-04-08T07:22:13.896Z]   [extractMetadata] No match for title
+[2025-04-08T07:22:13.897Z]   [extractMetadata] No match for category
+[2025-04-08T07:22:13.899Z]   [extractMetadata] No match for date
+[2025-04-08T07:22:13.900Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:22:13.901Z]   [extractMetadata] No match for description
+[2025-04-08T07:22:13.902Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:22:13.903Z]   [extractMetadata] Title extracted from H1: "最終修正テスト"
+[2025-04-08T07:22:13.904Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:22:13.905Z]   [extractMetadata] Category from path ("final-test-fixed.tsx") is not valid.
+[2025-04-08T07:22:13.906Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:22:13.907Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:22:13.908Z]   [extractMetadata] Using default description: "最終修正テストに関する詳細記事"
+[2025-04-08T07:22:13.909Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.910Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:22:13.911Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:22:13.912Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:22:13.913Z]   [generateNameAndSlug] Original title: "最終修正テスト"
+[2025-04-08T07:22:13.915Z]   [generateNameAndSlug] Ascii title: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:22:13.916Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:22:13.917Z]   [generateNameAndSlug] Generated slug: "zuizhongxiuzhengtesuto"
+[2025-04-08T07:22:13.918Z]   タイトル: "最終修正テスト"
+[2025-04-08T07:22:13.920Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:22:13.921Z]   日付: "2025-04-08"
+[2025-04-08T07:22:13.922Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.923Z]   説明: "最終修正テストに関する詳細記事"
+[2025-04-08T07:22:13.924Z]   タグ: AI, 自動生成
+[2025-04-08T07:22:13.925Z]   作者: "AI Team"
+[2025-04-08T07:22:13.926Z]   コンポーネント名: "ZuiZhongXiuZhengtesuto"
+[2025-04-08T07:22:13.927Z]   スラグ: "zuizhongxiuzhengtesuto"
+[2025-04-08T07:22:13.929Z] ブログディレクトリは既に存在します: app\blog\ai-technology\zuizhongxiuzhengtesuto
+[2025-04-08T07:22:13.931Z] コンポーネントを作成しました: components\ZuiZhongXiuZhengtesuto.tsx
+[2025-04-08T07:22:13.933Z] ブログページを作成しました: app\blog\ai-technology\zuizhongxiuzhengtesuto\page.tsx
+[2025-04-08T07:22:13.934Z] Git処理を開始します...
+[2025-04-08T07:22:13.936Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:13.951Z] 処理を開始します: articles\new-test-article.tsx
+[2025-04-08T07:22:13.952Z] ファイル new-test-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.954Z] 処理を開始します: articles\page.tsx
+[2025-04-08T07:22:13.956Z] ファイル page.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.957Z] 処理を開始します: articles\test-article-deploy.tsx
+[2025-04-08T07:22:13.958Z] ファイル test-article-deploy.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.960Z] 処理を開始します: articles\test-auto-deploy-article.tsx
+[2025-04-08T07:22:13.962Z] ファイル test-auto-deploy-article.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:13.963Z] 処理を開始します: articles\test-fixed-script.tsx
+[2025-04-08T07:22:13.965Z] [extractMetadata] Start processing for: test-fixed-script.tsx
+[2025-04-08T07:22:13.967Z]   [extractMetadata] No match for title
+[2025-04-08T07:22:13.968Z]   [extractMetadata] No match for category
+[2025-04-08T07:22:13.970Z]   [extractMetadata] No match for date
+[2025-04-08T07:22:13.971Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:22:13.973Z]   [extractMetadata] No match for description
+[2025-04-08T07:22:13.974Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:22:13.975Z]   [extractMetadata] Title extracted from H1: "スクリプト修正テスト"
+[2025-04-08T07:22:13.976Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:22:13.978Z]   [extractMetadata] Category from path ("test-fixed-script.tsx") is not valid.
+[2025-04-08T07:22:13.979Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:22:13.980Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:22:13.982Z]   [extractMetadata] Using default description: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:22:13.983Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.984Z] [extractMetadata] Returning metadata (excluding tags/author): title="スクリプト修正テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:22:13.985Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:22:13.987Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:22:13.988Z]   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+[2025-04-08T07:22:13.989Z]   [generateNameAndSlug] Ascii title: "sukuriputoXiuZhengtesuto"
+[2025-04-08T07:22:13.990Z]   [generateNameAndSlug] Generated componentName: "SukuriputoXiuZhengtesuto"
+[2025-04-08T07:22:13.991Z]   [generateNameAndSlug] Generated slug: "sukuriputoxiuzhengtesuto"
+[2025-04-08T07:22:13.992Z]   タイトル: "スクリプト修正テスト"
+[2025-04-08T07:22:13.993Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:22:13.994Z]   日付: "2025-04-08"
+[2025-04-08T07:22:13.995Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:13.996Z]   説明: "スクリプト修正テストに関する詳細記事"
+[2025-04-08T07:22:13.998Z]   タグ: AI, 自動生成
+[2025-04-08T07:22:13.999Z]   作者: "AI Team"
+[2025-04-08T07:22:14.000Z]   コンポーネント名: "SukuriputoXiuZhengtesuto"
+[2025-04-08T07:22:14.002Z]   スラグ: "sukuriputoxiuzhengtesuto"
+[2025-04-08T07:22:14.003Z] ブログディレクトリは既に存在します: app\blog\ai-technology\sukuriputoxiuzhengtesuto
+[2025-04-08T07:22:14.005Z] コンポーネントを作成しました: components\SukuriputoXiuZhengtesuto.tsx
+[2025-04-08T07:22:14.007Z] ブログページを作成しました: app\blog\ai-technology\sukuriputoxiuzhengtesuto\page.tsx
+[2025-04-08T07:22:14.008Z] Git処理を開始します...
+[2025-04-08T07:22:14.009Z] ロックファイル削除中にエラー: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+[2025-04-08T07:22:14.010Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.025Z] 処理を開始します: articles\test-noascii-article.tsx
+[2025-04-08T07:22:14.026Z] [extractMetadata] Start processing for: test-noascii-article.tsx
+[2025-04-08T07:22:14.027Z]   [extractMetadata] Raw match for title: "NoAscii Test Article"
+[2025-04-08T07:22:14.028Z]   [extractMetadata] Cleaned value for title: "NoAscii Test Article"
+[2025-04-08T07:22:14.031Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:22:14.032Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:22:14.033Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:22:14.034Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:22:14.035Z]   [extractMetadata] Raw match for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:22:14.036Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-noascii.jpg"
+[2025-04-08T07:22:14.037Z]   [extractMetadata] Raw match for description: "A test article that should work without anyAscii"
+[2025-04-08T07:22:14.038Z]   [extractMetadata] Cleaned value for description: "A test article that should work without anyAscii"
+[2025-04-08T07:22:14.039Z] [extractMetadata] Returning metadata (excluding tags/author): title="NoAscii Test Article", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:22:14.040Z] メタデータからタグを抽出しました: test, noascii
+[2025-04-08T07:22:14.041Z] メタデータから作者を抽出しました: "Test Author"
+[2025-04-08T07:22:14.042Z]   [generateNameAndSlug] Original title: "NoAscii Test Article"
+[2025-04-08T07:22:14.043Z]   [generateNameAndSlug] Ascii title: "NoAscii Test Article"
+[2025-04-08T07:22:14.044Z]   [generateNameAndSlug] Generated componentName: "NoAsciiTestArticle"
+[2025-04-08T07:22:14.045Z]   [generateNameAndSlug] Generated slug: "noascii-test-article"
+[2025-04-08T07:22:14.045Z]   タイトル: "NoAscii Test Article"
+[2025-04-08T07:22:14.046Z]   カテゴリ: "ai-news"
+[2025-04-08T07:22:14.047Z]   日付: "2025-04-09"
+[2025-04-08T07:22:14.048Z]   カバー画像: "/images/test-noascii.jpg"
+[2025-04-08T07:22:14.049Z]   説明: "A test article that should work without anyAscii"
+[2025-04-08T07:22:14.050Z]   タグ: test, noascii
+[2025-04-08T07:22:14.051Z]   作者: "Test Author"
+[2025-04-08T07:22:14.052Z]   コンポーネント名: "NoAsciiTestArticle"
+[2025-04-08T07:22:14.053Z]   スラグ: "noascii-test-article"
+[2025-04-08T07:22:14.053Z] ブログディレクトリは既に存在します: app\blog\ai-news\noascii-test-article
+[2025-04-08T07:22:14.056Z] コンポーネントを作成しました: components\NoAsciiTestArticle.tsx
+[2025-04-08T07:22:14.057Z] ブログページを作成しました: app\blog\ai-news\noascii-test-article\page.tsx
+[2025-04-08T07:22:14.058Z] Git処理を開始します...
+[2025-04-08T07:22:14.059Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.072Z] 処理を開始します: articles\test-optimization-article.tsx
+[2025-04-08T07:22:14.073Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:22:14.074Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:22:14.075Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:22:14.076Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:22:14.077Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:22:14.078Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:22:14.079Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:22:14.080Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:22:14.081Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:22:14.082Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.084Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.085Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:22:14.087Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:22:14.088Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:22:14.089Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:22:14.091Z]   [generateNameAndSlug] Ascii title: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.093Z]   [generateNameAndSlug] Generated componentName: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.094Z]   [generateNameAndSlug] Generated slug: "zuishihuatesutojishi"
+[2025-04-08T07:22:14.095Z]   タイトル: "最適化テスト記事"
+[2025-04-08T07:22:14.096Z]   カテゴリ: "ai-news"
+[2025-04-08T07:22:14.098Z]   日付: "2025-04-08"
+[2025-04-08T07:22:14.099Z]   カバー画像: "/images/test-image.jpg"
+[2025-04-08T07:22:14.100Z]   説明: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.101Z]   タグ: テスト, 自動化, 最適化
+[2025-04-08T07:22:14.103Z]   作者: "テスト担当"
+[2025-04-08T07:22:14.104Z]   コンポーネント名: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.105Z]   スラグ: "zuishihuatesutojishi"
+[2025-04-08T07:22:14.106Z] ブログディレクトリは既に存在します: app\blog\ai-news\zuishihuatesutojishi
+[2025-04-08T07:22:14.109Z] コンポーネントを作成しました: components\ZuiShiHuatesutoJiShi.tsx
+[2025-04-08T07:22:14.111Z] ブログページを作成しました: app\blog\ai-news\zuishihuatesutojishi\page.tsx
+[2025-04-08T07:22:14.112Z] Git処理を開始します...
+[2025-04-08T07:22:14.113Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.134Z] 処理を開始します: articles\test-日本語-article.tsx
+[2025-04-08T07:22:14.136Z] [extractMetadata] Start processing for: test-日本語-article.tsx
+[2025-04-08T07:22:14.137Z]   [extractMetadata] Raw match for title: "日本語テスト記事"
+[2025-04-08T07:22:14.138Z]   [extractMetadata] Cleaned value for title: "日本語テスト記事"
+[2025-04-08T07:22:14.140Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:22:14.142Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:22:14.143Z]   [extractMetadata] Raw match for date: "2025-04-09"
+[2025-04-08T07:22:14.145Z]   [extractMetadata] Cleaned value for date: "2025-04-09"
+[2025-04-08T07:22:14.146Z]   [extractMetadata] Raw match for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:22:14.147Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-japanese.jpg"
+[2025-04-08T07:22:14.148Z]   [extractMetadata] Raw match for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:22:14.149Z]   [extractMetadata] Cleaned value for description: "日本語タイトルの記事テストです"
+[2025-04-08T07:22:14.151Z] [extractMetadata] Returning metadata (excluding tags/author): title="日本語テスト記事", category="ai-news", date="2025-04-09", ...
+[2025-04-08T07:22:14.153Z] メタデータからタグを抽出しました: テスト, 日本語
+[2025-04-08T07:22:14.154Z] メタデータから作者を抽出しました: "テスト担当者"
+[2025-04-08T07:22:14.155Z]   [generateNameAndSlug] Original title: "日本語テスト記事"
+[2025-04-08T07:22:14.156Z]   [generateNameAndSlug] Ascii title: "RiBenYutesutoJiShi"
+[2025-04-08T07:22:14.157Z]   [generateNameAndSlug] Generated componentName: "RiBenYutesutoJiShi"
+[2025-04-08T07:22:14.159Z]   [generateNameAndSlug] Generated slug: "ribenyutesutojishi"
+[2025-04-08T07:22:14.160Z]   タイトル: "日本語テスト記事"
+[2025-04-08T07:22:14.161Z]   カテゴリ: "ai-news"
+[2025-04-08T07:22:14.162Z]   日付: "2025-04-09"
+[2025-04-08T07:22:14.163Z]   カバー画像: "/images/test-japanese.jpg"
+[2025-04-08T07:22:14.164Z]   説明: "日本語タイトルの記事テストです"
+[2025-04-08T07:22:14.165Z]   タグ: テスト, 日本語
+[2025-04-08T07:22:14.166Z]   作者: "テスト担当者"
+[2025-04-08T07:22:14.167Z]   コンポーネント名: "RiBenYutesutoJiShi"
+[2025-04-08T07:22:14.169Z]   スラグ: "ribenyutesutojishi"
+[2025-04-08T07:22:14.170Z] ブログディレクトリは既に存在します: app\blog\ai-news\ribenyutesutojishi
+[2025-04-08T07:22:14.172Z] コンポーネントを作成しました: components\RiBenYutesutoJiShi.tsx
+[2025-04-08T07:22:14.174Z] ブログページを作成しました: app\blog\ai-news\ribenyutesutojishi\page.tsx
+[2025-04-08T07:22:14.175Z] Git処理を開始します...
+[2025-04-08T07:22:14.176Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.194Z] 処理を開始します: articles\vercel-deploy-fixed.tsx
+[2025-04-08T07:22:14.197Z] ファイル vercel-deploy-fixed.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.199Z] 処理を開始します: articles\vercel-deploy-test.tsx
+[2025-04-08T07:22:14.200Z] ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.201Z] 処理を開始します: articles\very-final-test.tsx
+[2025-04-08T07:22:14.203Z] [extractMetadata] Start processing for: very-final-test.tsx
+[2025-04-08T07:22:14.204Z]   [extractMetadata] No match for title
+[2025-04-08T07:22:14.205Z]   [extractMetadata] No match for category
+[2025-04-08T07:22:14.207Z]   [extractMetadata] No match for date
+[2025-04-08T07:22:14.209Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:22:14.211Z]   [extractMetadata] No match for description
+[2025-04-08T07:22:14.213Z]   [extractMetadata] No title found in metadata comment, trying H1 tag...
+[2025-04-08T07:22:14.214Z]   [extractMetadata] Title extracted from H1: "最終修正確認テスト"
+[2025-04-08T07:22:14.215Z]   [extractMetadata] No category found in metadata comment, trying path...
+[2025-04-08T07:22:14.217Z]   [extractMetadata] Category from path ("very-final-test.tsx") is not valid.
+[2025-04-08T07:22:14.218Z]   [extractMetadata] Using default category: "ai-technology"
+[2025-04-08T07:22:14.219Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:22:14.220Z]   [extractMetadata] Using default description: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:22:14.221Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:14.222Z] [extractMetadata] Returning metadata (excluding tags/author): title="最終修正確認テスト", category="ai-technology", date="2025-04-08", ...
+[2025-04-08T07:22:14.223Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:22:14.224Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:22:14.225Z]   [generateNameAndSlug] Original title: "最終修正確認テスト"
+[2025-04-08T07:22:14.226Z]   [generateNameAndSlug] Ascii title: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:22:14.227Z]   [generateNameAndSlug] Generated componentName: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:22:14.228Z]   [generateNameAndSlug] Generated slug: "zuizhongxiuzhengquerentesuto"
+[2025-04-08T07:22:14.229Z]   タイトル: "最終修正確認テスト"
+[2025-04-08T07:22:14.230Z]   カテゴリ: "ai-technology"
+[2025-04-08T07:22:14.232Z]   日付: "2025-04-08"
+[2025-04-08T07:22:14.233Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:14.235Z]   説明: "最終修正確認テストに関する詳細記事"
+[2025-04-08T07:22:14.236Z]   タグ: AI, 自動生成
+[2025-04-08T07:22:14.237Z]   作者: "AI Team"
+[2025-04-08T07:22:14.238Z]   コンポーネント名: "ZuiZhongXiuZhengQueRentesuto"
+[2025-04-08T07:22:14.239Z]   スラグ: "zuizhongxiuzhengquerentesuto"
+[2025-04-08T07:22:14.240Z] ブログディレクトリは既に存在します: app\blog\ai-technology\zuizhongxiuzhengquerentesuto
+[2025-04-08T07:22:14.242Z] コンポーネントを作成しました: components\ZuiZhongXiuZhengQueRentesuto.tsx
+[2025-04-08T07:22:14.244Z] ブログページを作成しました: app\blog\ai-technology\zuizhongxiuzhengquerentesuto\page.tsx
+[2025-04-08T07:22:14.245Z] Git処理を開始します...
+[2025-04-08T07:22:14.246Z] ロックファイル削除中にエラー: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+[2025-04-08T07:22:14.247Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.260Z] 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+[2025-04-08T07:22:14.262Z] ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.264Z] 処理を開始します: articles\ai-news\auto-test-article3.tsx
+[2025-04-08T07:22:14.266Z] ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.267Z] 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+[2025-04-08T07:22:14.269Z] ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.270Z] 処理を開始します: articles\ai-news\minimal-test.tsx
+[2025-04-08T07:22:14.272Z] [extractMetadata] Start processing for: minimal-test.tsx
+[2025-04-08T07:22:14.273Z]   [extractMetadata] Raw match for title: "Minimal Test"
+[2025-04-08T07:22:14.274Z]   [extractMetadata] Cleaned value for title: "Minimal Test"
+[2025-04-08T07:22:14.276Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:22:14.277Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:22:14.278Z]   [extractMetadata] No match for date
+[2025-04-08T07:22:14.279Z]   [extractMetadata] No match for coverImage
+[2025-04-08T07:22:14.280Z]   [extractMetadata] No match for description
+[2025-04-08T07:22:14.281Z]   [extractMetadata] Using default date: "2025-04-08"
+[2025-04-08T07:22:14.283Z]   [extractMetadata] Using default description: "Minimal Testに関する詳細記事"
+[2025-04-08T07:22:14.284Z]   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:14.286Z] [extractMetadata] Returning metadata (excluding tags/author): title="Minimal Test", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:22:14.287Z] タグが見つからないか無効なため、デフォルトタグを使用します
+[2025-04-08T07:22:14.288Z] 作者が見つからないため、デフォルトの作者を使用します
+[2025-04-08T07:22:14.289Z]   [generateNameAndSlug] Original title: "Minimal Test"
+[2025-04-08T07:22:14.290Z]   [generateNameAndSlug] Ascii title: "Minimal Test"
+[2025-04-08T07:22:14.291Z]   [generateNameAndSlug] Generated componentName: "MinimalTest"
+[2025-04-08T07:22:14.292Z]   [generateNameAndSlug] Generated slug: "minimal-test"
+[2025-04-08T07:22:14.293Z]   タイトル: "Minimal Test"
+[2025-04-08T07:22:14.294Z]   カテゴリ: "ai-news"
+[2025-04-08T07:22:14.294Z]   日付: "2025-04-08"
+[2025-04-08T07:22:14.295Z]   カバー画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T07:22:14.296Z]   説明: "Minimal Testに関する詳細記事"
+[2025-04-08T07:22:14.297Z]   タグ: AI, 自動生成
+[2025-04-08T07:22:14.298Z]   作者: "AI Team"
+[2025-04-08T07:22:14.299Z]   コンポーネント名: "MinimalTest"
+[2025-04-08T07:22:14.300Z]   スラグ: "minimal-test"
+[2025-04-08T07:22:14.301Z] ブログディレクトリは既に存在します: app\blog\ai-news\minimal-test
+[2025-04-08T07:22:14.303Z] コンポーネントを作成しました: components\MinimalTest.tsx
+[2025-04-08T07:22:14.305Z] ブログページを作成しました: app\blog\ai-news\minimal-test\page.tsx
+[2025-04-08T07:22:14.306Z] Git処理を開始します...
+[2025-04-08T07:22:14.307Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.320Z] 処理を開始します: articles\ai-news\test-ai-news.tsx
+[2025-04-08T07:22:14.322Z] ファイル test-ai-news.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.323Z] 処理を開始します: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T07:22:14.325Z] [extractMetadata] Start processing for: test-optimization-article.tsx
+[2025-04-08T07:22:14.327Z]   [extractMetadata] Raw match for title: "最適化テスト記事"
+[2025-04-08T07:22:14.329Z]   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+[2025-04-08T07:22:14.330Z]   [extractMetadata] Raw match for category: "ai-news"
+[2025-04-08T07:22:14.331Z]   [extractMetadata] Cleaned value for category: "ai-news"
+[2025-04-08T07:22:14.332Z]   [extractMetadata] Raw match for date: "2025-04-08"
+[2025-04-08T07:22:14.334Z]   [extractMetadata] Cleaned value for date: "2025-04-08"
+[2025-04-08T07:22:14.335Z]   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:22:14.336Z]   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+[2025-04-08T07:22:14.337Z]   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.338Z]   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.340Z] [extractMetadata] Returning metadata (excluding tags/author): title="最適化テスト記事", category="ai-news", date="2025-04-08", ...
+[2025-04-08T07:22:14.342Z] メタデータからタグを抽出しました: テスト, 自動化, 最適化
+[2025-04-08T07:22:14.343Z] メタデータから作者を抽出しました: "テスト担当"
+[2025-04-08T07:22:14.344Z]   [generateNameAndSlug] Original title: "最適化テスト記事"
+[2025-04-08T07:22:14.346Z]   [generateNameAndSlug] Ascii title: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.347Z]   [generateNameAndSlug] Generated componentName: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.348Z]   [generateNameAndSlug] Generated slug: "zuishihuatesutojishi"
+[2025-04-08T07:22:14.349Z]   タイトル: "最適化テスト記事"
+[2025-04-08T07:22:14.350Z]   カテゴリ: "ai-news"
+[2025-04-08T07:22:14.351Z]   日付: "2025-04-08"
+[2025-04-08T07:22:14.352Z]   カバー画像: "/images/test-image.jpg"
+[2025-04-08T07:22:14.354Z]   説明: "自動化パイプラインの動作確認用テスト記事です。"
+[2025-04-08T07:22:14.355Z]   タグ: テスト, 自動化, 最適化
+[2025-04-08T07:22:14.356Z]   作者: "テスト担当"
+[2025-04-08T07:22:14.357Z]   コンポーネント名: "ZuiShiHuatesutoJiShi"
+[2025-04-08T07:22:14.358Z]   スラグ: "zuishihuatesutojishi"
+[2025-04-08T07:22:14.359Z] ブログディレクトリは既に存在します: app\blog\ai-news\zuishihuatesutojishi
+[2025-04-08T07:22:14.361Z] コンポーネントを作成しました: components\ZuiShiHuatesutoJiShi.tsx
+[2025-04-08T07:22:14.363Z] ブログページを作成しました: app\blog\ai-news\zuishihuatesutojishi\page.tsx
+[2025-04-08T07:22:14.364Z] Git処理を開始します...
+[2025-04-08T07:22:14.366Z] 生成されたファイルをステージングします...
+[2025-04-08T07:22:14.380Z] 処理を開始します: articles\ai-technology\article-template.tsx
+[2025-04-08T07:22:14.383Z] ファイル article-template.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.384Z] 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+[2025-04-08T07:22:14.386Z] ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+[2025-04-08T07:22:14.387Z] 23個の既存TSXファイルについて処理を開始しました...
+[2025-04-08T07:22:14.388Z] 以下のパターンでファイル監視を開始します: articles/*.tsx, articles/*/*.tsx
+[2025-04-08T07:22:14.403Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.405Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.419Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.421Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.434Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.435Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.456Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.458Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.473Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.475Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.501Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.503Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.526Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.528Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.560Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.562Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.583Z] 生成ファイルをGitにステージングしました
+[2025-04-08T07:22:14.584Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T07:22:14.624Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.626Z] ロックファイル削除中にエラー: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+[2025-04-08T07:22:14.628Z] !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.632Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 日本語テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.634Z] ロックファイル削除中にエラー: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+[2025-04-08T07:22:14.636Z] !!! ファイル処理エラー (test-日本語-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 日本語テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.645Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.653Z] !!! ファイル処理エラー (test-fixed-script.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.668Z] ファイル監視の準備が完了しました。
+[2025-04-08T07:22:14.670Z] 現在監視中のパス:
+[2025-04-08T07:22:14.673Z] - D:\NvidiaGTCProject (1 items)
+[2025-04-08T07:22:14.675Z] - D:\NvidiaGTCProject\articles (17 items)
+[2025-04-08T07:22:14.677Z] - D:\NvidiaGTCProject\articles\*.tsx
+[2025-04-08T07:22:14.679Z] - D:\NvidiaGTCProject\articles\*\*.tsx
+[2025-04-08T07:22:14.680Z] - D:\NvidiaGTCProject\articles\ai-news (6 items)
+[2025-04-08T07:22:14.682Z] - D:\NvidiaGTCProject\articles\ai-technology (2 items)
+[2025-04-08T07:22:14.683Z] 監視中... Ctrl+C で終了
+[2025-04-08T07:22:14.686Z] 生成ファイルの変更をコミットしました
+[2025-04-08T07:22:14.687Z] その他の変更を確認します...
+[2025-04-08T07:22:14.708Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: NoAscii Test Article"
+
+[2025-04-08T07:22:14.709Z] !!! ファイル処理エラー (test-noascii-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: NoAscii Test Article"
+
+[2025-04-08T07:22:14.736Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+
+[2025-04-08T07:22:14.737Z] !!! ファイル処理エラー (final-test-fixed.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+
+[2025-04-08T07:22:14.740Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: Minimal Test"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.741Z] !!! ファイル処理エラー (minimal-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: Minimal Test"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+[2025-04-08T07:22:14.745Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終成功確認テスト"
+
+[2025-04-08T07:22:14.746Z] !!! ファイル処理エラー (final-success-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終成功確認テスト"
+
+[2025-04-08T07:22:14.764Z] *** Git処理中に予期せぬエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+
+[2025-04-08T07:22:14.765Z] !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+
+[2025-04-08T07:22:14.825Z] その他の変更が見つかりました。全てステージングしてコミットします...
