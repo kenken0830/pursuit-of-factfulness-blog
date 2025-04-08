@@ -1,16 +1,9 @@
-// title: "最適化テスト記事"
-// category: "ai-news"
-// date: "2025-04-08"
-// coverImage: "/images/test-image.jpg"
-// description: "自動化パイプラインの動作確認用テスト記事です。"
-// tags: ["テスト", "自動化", "最適化"]
-// author: "テスト担当"
-
 import React from 'react';
 
-export default function TestOptimizationArticle() {
+export default function ArticleM984xnft() {
   return (
-    <article className="container mx-auto py-8">
+    <article className="prose prose-slate max-w-none dark:prose-invert">
+      
       <h1 className="text-3xl font-bold mb-6">最適化テスト記事</h1>
       
       <div className="prose max-w-none">
@@ -26,6 +19,7 @@ export default function TestOptimizationArticle() {
         
         <p>このテストが成功すれば、記事公開の自動化パイプラインが正しく機能していることが確認できます。</p>
       </div>
+    
     </article>
   );
-} 
+}

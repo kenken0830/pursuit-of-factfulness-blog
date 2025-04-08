@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Tesuto() {
+export default function ArticleM984xnle() {
   return (
-    <article className="prose prose-slate max-w-none">
+    <article className="prose prose-slate max-w-none dark:prose-invert">
       
   <h1>最適化テスト記事</h1>
   <p>このファイルが自動で処理されれば成功です。</p>
