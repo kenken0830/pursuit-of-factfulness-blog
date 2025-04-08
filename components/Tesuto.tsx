@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Article最適化テスト記事() {
+export default function Tesuto() {
   return (
     <article className="prose prose-slate max-w-none">
       

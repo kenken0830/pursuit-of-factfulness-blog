@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Article最適化テスト記事 from "@/components/Article最適化テスト記事"
+import Tesuto from "@/components/Tesuto"
 
 // メタデータ
 export const metadata: Metadata = {
@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPost() {
-  return <Article最適化テスト記事 />
+  return <Tesuto />
 }
