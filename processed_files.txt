@@ -29,3 +29,15 @@ article-template.tsx
 final-test-article.tsx
 test-optimization-article.tsx
 test-fixed-script.tsx
+test-article-deploy.tsx
+test-ai-news.tsx
+auto-deploy-test.tsx
+auto-upload-test-2.tsx
+auto-test-article3.tsx
+vercel-deploy-fixed.tsx
+test-optimization-article.tsx
+test-auto-deploy-article.tsx
+test-article-deploy.tsx
+test-auto-deploy-article.tsx
+test-fixed-script.tsx
+final-test-fixed.tsx

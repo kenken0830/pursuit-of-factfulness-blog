@@ -10024,3 +10024,343 @@ remove the file manually to continue.
 
 2025-04-08T05:25:38.092Z: ファイル test-fixed-script.tsx を処理済みリストに追加しました
 2025-04-08T05:25:38.094Z: ファイル test-fixed-script.tsx の処理が完了しました！
+2025-04-08T05:25:38.096Z: ファイル処理成功: タイトル="スクリプト修正テスト", スラグ="article-1744089936573"
+2025-04-08T05:25:38.097Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+
+2025-04-08T05:25:38.099Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+
+2025-04-08T05:25:38.102Z: ファイル test-article-deploy.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.103Z: ファイル test-article-deploy.tsx の処理が完了しました！
+2025-04-08T05:25:38.105Z: ファイル処理成功: タイトル="テスト記事：Vercel自動デプロイの確認", スラグ="article-1744089936454"
+2025-04-08T05:25:38.108Z: 既存ファイルの処理が完了しました
+2025-04-08T05:25:38.112Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937942\page.tsx"
+2025-04-08T05:25:38.135Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089937856\page.tsx"
+2025-04-08T05:25:38.152Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937773\page.tsx"
+2025-04-08T05:25:38.169Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937703\page.tsx"
+2025-04-08T05:25:38.190Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: AIニュース速報"
+
+2025-04-08T05:25:38.192Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: AIニュース速報"
+
+2025-04-08T05:25:38.196Z: ファイル test-ai-news.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.199Z: ファイル test-ai-news.tsx の処理が完了しました！
+2025-04-08T05:25:38.201Z: ファイル処理成功: タイトル="AIニュース速報", スラグ="article-1744089935936"
+2025-04-08T05:25:38.205Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト：GitとVercel連携の検証"
+
+2025-04-08T05:25:38.207Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト：GitとVercel連携の検証"
+
+2025-04-08T05:25:38.212Z: ファイル auto-deploy-test.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.215Z: ファイル auto-deploy-test.tsx の処理が完了しました！
+2025-04-08T05:25:38.217Z: ファイル処理成功: タイトル="自動デプロイテスト：GitとVercel連携の検証", スラグ="article-1744089935767"
+2025-04-08T05:25:38.220Z: 再試行後もファイルのステージングに失敗しました (app\blog\ai-technology\article-1744089935879\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089935879\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.222Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089935879\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.227Z: ファイル auto-upload-test-2.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.230Z: ファイル auto-upload-test-2.tsx の処理が完了しました！
+2025-04-08T05:25:38.232Z: ファイル処理成功: タイトル="自動アップロードテスト記事２：完全自動化システムの検証", スラグ="article-1744089935879"
+2025-04-08T05:25:38.234Z: 生成ファイルの変更をコミットしました
+2025-04-08T05:25:38.237Z: その他の変更を確認します...
+2025-04-08T05:25:38.239Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" status --porcelain
+2025-04-08T05:25:38.256Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動監視システム動作テスト記事３"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.258Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動監視システム動作テスト記事３"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.261Z: ファイル auto-test-article3.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.263Z: ファイル auto-test-article3.tsx の処理が完了しました！
+2025-04-08T05:25:38.264Z: ファイル処理成功: タイトル="自動監視システム動作テスト記事３", スラグ="article-1744089935824"
+2025-04-08T05:25:38.269Z: ファイルのステージングに失敗しました (app\blog\ai-technology\article-1744089937703\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937703\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.289Z: ファイルのステージングに失敗しました (app\blog\ai-technology\article-1744089937773\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937773\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.307Z: ファイルのステージングに失敗しました (app\blog\ai-news\article-1744089937856\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089937856\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.341Z: ファイルのステージングに失敗しました (app\blog\ai-technology\article-1744089937942\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089937942\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.344Z: 警告: Gitロックファイル .git\index.lock の削除に失敗しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:25:38.364Z: 再試行後もファイルのステージングに失敗しました (app\blog\ai-technology\article-1744089936707\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089936707\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.366Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089936707\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.370Z: ファイル vercel-deploy-fixed.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.373Z: ファイル vercel-deploy-fixed.tsx の処理が完了しました！
+2025-04-08T05:25:38.375Z: ファイル処理成功: タイトル="Vercelデプロイ修正テスト", スラグ="article-1744089936707"
+2025-04-08T05:25:38.376Z: 再試行後もファイルのステージングに失敗しました (app\blog\ai-news\article-1744089936635\page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089936635\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.380Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089936635\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.383Z: ファイル test-optimization-article.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.385Z: ファイル test-optimization-article.tsx の処理が完了しました！
+2025-04-08T05:25:38.386Z: ファイル処理成功: タイトル="最適化テスト記事", スラグ="article-1744089936635"
+2025-04-08T05:25:38.389Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.390Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.393Z: ファイル test-auto-deploy-article.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.395Z: ファイル test-auto-deploy-article.tsx の処理が完了しました！
+2025-04-08T05:25:38.396Z: ファイル処理成功: タイトル="自動デプロイテスト記事", スラグ="article-1744089936509"
+2025-04-08T05:25:38.401Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:25:38.403Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:25:38.404Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:25:38.418Z: その他の変更が見つかりました。全てコミットします...
+2025-04-08T05:25:38.421Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add .
+2025-04-08T05:25:38.438Z: 警告: warning: in the working copy of 'processed_files.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089825179/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089825251/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089935998/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089936635/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089937620/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089937856/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089825003/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089825084/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089825321/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089935767/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089935879/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089936119/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089936388/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089936707/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089937703/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089937773/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089937942/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089825003.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089825084.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:25:38.441Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "その他の変更を自動コミット: 2025-04-08T05:25:38.441Z"
+2025-04-08T05:25:38.458Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:25:38.460Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:25:38.461Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: Vercelデプロイ修正テスト"
+2025-04-08T05:25:38.476Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:25:38.480Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:25:38.485Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+2025-04-08T05:25:38.505Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:25:38.509Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:25:38.513Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト記事"
+2025-04-08T05:25:38.539Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.542Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.547Z: ファイル test-article-deploy.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.549Z: ファイル test-article-deploy.tsx の処理が完了しました！
+2025-04-08T05:25:38.550Z: ファイル処理成功: タイトル="テスト記事：Vercel自動デプロイの確認", スラグ="article-1744089937703"
+2025-04-08T05:25:38.554Z: 新しいファイルを検出しました: articles\ai-technology\article-template.tsx
+2025-04-08T05:25:38.555Z: 処理を開始します: articles\ai-technology\article-template.tsx
+2025-04-08T05:25:38.557Z: ファイル article-template.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.559Z: 新しいファイルを検出しました: articles\ai-technology\think-tool-integration.tsx
+2025-04-08T05:25:38.560Z: 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+2025-04-08T05:25:38.562Z: ファイル think-tool-integration.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.564Z: 新しいファイルを検出しました: articles\ai-news\auto-deploy-test.tsx
+2025-04-08T05:25:38.569Z: 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+2025-04-08T05:25:38.573Z: ファイル auto-deploy-test.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.575Z: 新しいファイルを検出しました: articles\ai-news\auto-test-article3.tsx
+2025-04-08T05:25:38.578Z: 処理を開始します: articles\ai-news\auto-test-article3.tsx
+2025-04-08T05:25:38.580Z: ファイル auto-test-article3.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.583Z: 新しいファイルを検出しました: articles\ai-news\auto-upload-test-2.tsx
+2025-04-08T05:25:38.585Z: 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+2025-04-08T05:25:38.587Z: ファイル auto-upload-test-2.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.589Z: 新しいファイルを検出しました: articles\ai-news\test-ai-news.tsx
+2025-04-08T05:25:38.591Z: 処理を開始します: articles\ai-news\test-ai-news.tsx
+2025-04-08T05:25:38.594Z: ファイル test-ai-news.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.600Z: 新しいファイルを検出しました: articles\ai-news\test-optimization-article.tsx
+2025-04-08T05:25:38.603Z: 処理を開始します: articles\ai-news\test-optimization-article.tsx
+2025-04-08T05:25:38.606Z: ファイル test-optimization-article.tsx は既に処理済みのためスキップします
+2025-04-08T05:25:38.609Z: ファイル監視の準備が完了しました。
+2025-04-08T05:25:38.612Z: 監視中... Ctrl+C で終了
+2025-04-08T05:25:38.614Z: 警告: warning: in the working copy of 'processed_files.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:25:38.618Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "その他の変更を自動コミット: 2025-04-08T05:25:38.618Z"
+2025-04-08T05:25:38.636Z: その他の変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "その他の変更を自動コミット: 2025-04-08T05:25:38.441Z"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.639Z: 警告: Gitロックファイル .git\index.lock の削除に失敗しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:25:38.641Z: 変更をリモートにプッシュします...
+2025-04-08T05:25:38.643Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" push origin main
+2025-04-08T05:25:38.666Z: 生成されたファイルをステージングします...
+2025-04-08T05:25:38.670Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089937620.tsx"
+2025-04-08T05:25:38.693Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.695Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.702Z: ファイル test-auto-deploy-article.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.707Z: ファイル test-auto-deploy-article.tsx の処理が完了しました！
+2025-04-08T05:25:38.710Z: ファイル処理成功: タイトル="自動デプロイテスト記事", スラグ="article-1744089937773"
+2025-04-08T05:25:38.713Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.716Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.721Z: ファイル test-fixed-script.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.724Z: ファイル test-fixed-script.tsx の処理が完了しました！
+2025-04-08T05:25:38.726Z: ファイル処理成功: タイトル="スクリプト修正テスト", スラグ="article-1744089937856"
+2025-04-08T05:25:38.729Z: その他の変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "その他の変更を自動コミット: 2025-04-08T05:25:38.618Z"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:25:38.733Z: 変更をリモートにプッシュします...
+2025-04-08T05:25:38.736Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" push origin main
+2025-04-08T05:25:38.767Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089937620\page.tsx"
+2025-04-08T05:25:38.810Z: 生成ファイルの変更をコミットしました
+2025-04-08T05:25:38.811Z: その他の変更を確認します...
+2025-04-08T05:25:38.813Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" status --porcelain
+2025-04-08T05:25:38.865Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:25:38.867Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:25:38.868Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+2025-04-08T05:25:38.931Z: その他の変更が見つかりました。全てコミットします...
+2025-04-08T05:25:38.932Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add .
+2025-04-08T05:25:38.991Z: 変更のコミットに失敗しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+
+2025-04-08T05:25:38.993Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+
+2025-04-08T05:25:38.998Z: ファイル final-test-fixed.tsx を処理済みリストに追加しました
+2025-04-08T05:25:38.999Z: ファイル final-test-fixed.tsx の処理が完了しました！
+2025-04-08T05:25:39.001Z: ファイル処理成功: タイトル="最終修正テスト", スラグ="article-1744089937620"
