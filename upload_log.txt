@@ -5480,3 +5480,1402 @@ remove the file manually to continue.
 2025-04-08T05:19:58.691Z: 生成ファイルをGitにステージングしました
 2025-04-08T05:19:58.694Z: 生成されたファイルの変更をコミットします...
 2025-04-08T05:19:58.696Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト：GitとVercel連携の検証"
+2025-04-08T05:19:58.716Z: その他の変更が見つかりました。全てコミットします...
+2025-04-08T05:19:58.718Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add .
+2025-04-08T05:19:58.733Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add .
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.736Z: !!! ファイル処理エラー (final-test-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add .
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.754Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089598504\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.758Z: !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089598504\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.791Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add .
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.794Z: !!! ファイル処理エラー (final-test-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add .
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.798Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト：GitとVercel連携の検証"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:58.801Z: !!! ファイル処理エラー (auto-deploy-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動デプロイテスト：GitとVercel連携の検証"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:19:59.152Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089598230/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089549087/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089549145/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089549541/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089549594/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089550084/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089550136/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089550505/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089550565/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089596013/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089596477/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089597637/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089598437/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-news/article-1744089598504/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089548899/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089548961/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549027/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549199/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549269/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549320/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549373/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549443/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549493/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549644/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549690/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549798/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549847/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549897/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089549969/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550025/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550188/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550238/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550331/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550388/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550444/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089550623/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089595886/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089596128/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089596200/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089596293/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089596373/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089596623/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597201/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597366/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597456/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597516/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597698/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089597761/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089598112/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089598305/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/blog/ai-technology/article-1744089598370/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089548961.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089549027.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089550388.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089550444.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Article1744089598305.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tash', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:19:59.156Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "その他の変更を自動コミット: 2025-04-08T05:19:59.156Z"
+2025-04-08T05:19:59.569Z: その他の変更をコミットしました
+2025-04-08T05:19:59.571Z: 変更をリモートにプッシュします...
+2025-04-08T05:19:59.572Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" push origin main
+2025-04-08T05:20:01.737Z: 警告: To https://github.com/kenken0830/pursuit-of-factfulness-blog.git
+   8873e47..5261b69  main -> main
+
+2025-04-08T05:20:01.739Z: 変更をプッシュしました
+2025-04-08T05:20:01.740Z: Git処理が正常に完了しました
+2025-04-08T05:20:01.743Z: ファイル vercel-deploy-test.tsx を処理済みリストに追加しました
+2025-04-08T05:20:01.744Z: ファイル vercel-deploy-test.tsx の処理が完了しました！
+2025-04-08T05:20:01.745Z: ファイル処理成功: タイトル="Vercelデプロイテスト記事", スラグ="article-1744089596693"
+2025-04-08T05:20:05.568Z: 新しいファイルを検出しました: articles\final-test-fixed.tsx
+2025-04-08T05:20:05.569Z: 処理を開始します: articles\final-test-fixed.tsx
+2025-04-08T05:20:05.571Z: [extractMetadata] Start processing
+2025-04-08T05:20:05.572Z:   [extractMetadata] No match for title
+2025-04-08T05:20:05.573Z:   [extractMetadata] No match for category
+2025-04-08T05:20:05.575Z:   [extractMetadata] No match for date
+2025-04-08T05:20:05.576Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:20:05.578Z:   [extractMetadata] No match for description
+2025-04-08T05:20:05.579Z:   [extractMetadata] No match for tags
+2025-04-08T05:20:05.580Z:   [extractMetadata] No match for author
+2025-04-08T05:20:05.582Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:20:05.583Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:20:05.585Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:20:05.587Z: [extractMetadata] Returning metadata: title="undefined", category="ai-technology"
+2025-04-08T05:20:05.588Z: !!! ファイル処理エラー (final-test-fixed.tsx): Title not found in metadata
+2025-04-08T05:22:41.620Z: 既存ファイルの確認を開始します...
+2025-04-08T05:22:41.625Z: 18個の既存TSXファイルが見つかりました
+2025-04-08T05:22:41.626Z: 処理を開始します: articles\ai-news\auto-deploy-test.tsx
+2025-04-08T05:22:41.627Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.628Z:   [extractMetadata] No match for title
+2025-04-08T05:22:41.629Z:   [extractMetadata] No match for category
+2025-04-08T05:22:41.630Z:   [extractMetadata] No match for date
+2025-04-08T05:22:41.631Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:41.632Z:   [extractMetadata] No match for description
+2025-04-08T05:22:41.633Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "CI/CD", "デプロイ""
+2025-04-08T05:22:41.634Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,CI/CD,デプロイ"
+2025-04-08T05:22:41.635Z:   [extractMetadata] No match for author
+2025-04-08T05:22:41.636Z:   [extractMetadata] Title extracted from H1: "自動デプロイテスト：GitとVercel連携の検証"
+2025-04-08T05:22:41.637Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:41.638Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:41.639Z:   [extractMetadata] Using default description: "自動デプロイテスト：GitとVercel連携の検証に関する詳細記事"
+2025-04-08T05:22:41.640Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.641Z: [extractMetadata] Returning metadata: title="自動デプロイテスト：GitとVercel連携の検証", category="ai-technology"
+2025-04-08T05:22:41.643Z: メタデータからタグを抽出しました: テスト, 自動化, CI/CD, デプロイ
+2025-04-08T05:22:41.644Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:41.646Z: タイトル: "自動デプロイテスト：GitとVercel連携の検証"
+2025-04-08T05:22:41.646Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:41.647Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.648Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.649Z:   [generateNameAndSlug] Original title: "自動デプロイテスト：GitとVercel連携の検証"
+2025-04-08T05:22:41.650Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.651Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761651", slug="article-1744089761651"
+2025-04-08T05:22:41.652Z: コンポーネント名: "Article1744089761651"
+2025-04-08T05:22:41.653Z: スラグ: "article-1744089761651"
+2025-04-08T05:22:41.654Z: コンポーネントを作成しました: components\Article1744089761651.tsx
+2025-04-08T05:22:41.658Z: ブログページを作成しました: app\blog\ai-technology\article-1744089761651\page.tsx
+2025-04-08T05:22:41.660Z: Git処理を開始します...
+2025-04-08T05:22:41.661Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.662Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761651.tsx"
+2025-04-08T05:22:41.678Z: 処理を開始します: articles\ai-news\auto-test-article3.tsx
+2025-04-08T05:22:41.680Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.681Z:   [extractMetadata] No match for title
+2025-04-08T05:22:41.682Z:   [extractMetadata] No match for category
+2025-04-08T05:22:41.683Z:   [extractMetadata] No match for date
+2025-04-08T05:22:41.684Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:41.685Z:   [extractMetadata] No match for description
+2025-04-08T05:22:41.686Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "監視システム", "検証""
+2025-04-08T05:22:41.688Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,監視システム,検証"
+2025-04-08T05:22:41.689Z:   [extractMetadata] No match for author
+2025-04-08T05:22:41.690Z:   [extractMetadata] Title extracted from H1: "自動監視システム動作テスト記事３"
+2025-04-08T05:22:41.691Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:41.692Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:41.693Z:   [extractMetadata] Using default description: "自動監視システム動作テスト記事３に関する詳細記事"
+2025-04-08T05:22:41.694Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.695Z: [extractMetadata] Returning metadata: title="自動監視システム動作テスト記事３", category="ai-technology"
+2025-04-08T05:22:41.695Z: メタデータからタグを抽出しました: テスト, 自動化, 監視システム, 検証
+2025-04-08T05:22:41.696Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:41.697Z: タイトル: "自動監視システム動作テスト記事３"
+2025-04-08T05:22:41.700Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:41.701Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.702Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.703Z:   [generateNameAndSlug] Original title: "自動監視システム動作テスト記事３"
+2025-04-08T05:22:41.704Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.705Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761705", slug="article-1744089761705"
+2025-04-08T05:22:41.706Z: コンポーネント名: "Article1744089761705"
+2025-04-08T05:22:41.707Z: スラグ: "article-1744089761705"
+2025-04-08T05:22:41.708Z: コンポーネントを作成しました: components\Article1744089761705.tsx
+2025-04-08T05:22:41.712Z: ブログページを作成しました: app\blog\ai-technology\article-1744089761705\page.tsx
+2025-04-08T05:22:41.714Z: Git処理を開始します...
+2025-04-08T05:22:41.715Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.716Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761705.tsx"
+2025-04-08T05:22:41.736Z: 処理を開始します: articles\ai-news\auto-upload-test-2.tsx
+2025-04-08T05:22:41.738Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.739Z:   [extractMetadata] No match for title
+2025-04-08T05:22:41.741Z:   [extractMetadata] No match for category
+2025-04-08T05:22:41.743Z:   [extractMetadata] No match for date
+2025-04-08T05:22:41.744Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:41.746Z:   [extractMetadata] No match for description
+2025-04-08T05:22:41.747Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "アップロード", "検証""
+2025-04-08T05:22:41.749Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,アップロード,検証"
+2025-04-08T05:22:41.750Z:   [extractMetadata] No match for author
+2025-04-08T05:22:41.751Z:   [extractMetadata] Title extracted from H1: "自動アップロードテスト記事２：完全自動化システムの検証"
+2025-04-08T05:22:41.752Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:41.753Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:41.754Z:   [extractMetadata] Using default description: "自動アップロードテスト記事２：完全自動化システムの検証に関する詳細記事"
+2025-04-08T05:22:41.755Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.757Z: [extractMetadata] Returning metadata: title="自動アップロードテスト記事２：完全自動化システムの検証", category="ai-technology"
+2025-04-08T05:22:41.758Z: メタデータからタグを抽出しました: テスト, 自動化, アップロード, 検証
+2025-04-08T05:22:41.759Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:41.760Z: タイトル: "自動アップロードテスト記事２：完全自動化システムの検証"
+2025-04-08T05:22:41.761Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:41.762Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.763Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.766Z:   [generateNameAndSlug] Original title: "自動アップロードテスト記事２：完全自動化システムの検証"
+2025-04-08T05:22:41.767Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.768Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761768", slug="article-1744089761768"
+2025-04-08T05:22:41.769Z: コンポーネント名: "Article1744089761768"
+2025-04-08T05:22:41.771Z: スラグ: "article-1744089761768"
+2025-04-08T05:22:41.772Z: コンポーネントを作成しました: components\Article1744089761768.tsx
+2025-04-08T05:22:41.775Z: ブログページを作成しました: app\blog\ai-technology\article-1744089761768\page.tsx
+2025-04-08T05:22:41.777Z: Git処理を開始します...
+2025-04-08T05:22:41.778Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.780Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761768.tsx"
+2025-04-08T05:22:41.800Z: 処理を開始します: articles\ai-news\test-ai-news.tsx
+2025-04-08T05:22:41.802Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.803Z:   [extractMetadata] Raw match for title: "AIニュース速報"
+2025-04-08T05:22:41.805Z:   [extractMetadata] Cleaned value for title: "AIニュース速報"
+2025-04-08T05:22:41.806Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:41.808Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:41.809Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:41.811Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:41.812Z:   [extractMetadata] Raw match for coverImage: "/images/ai-news.jpg"
+2025-04-08T05:22:41.813Z:   [extractMetadata] Cleaned value for coverImage: "/images/ai-news.jpg"
+2025-04-08T05:22:41.815Z:   [extractMetadata] Raw match for description: "AI分野の最新ニュースをお届けします"
+2025-04-08T05:22:41.816Z:   [extractMetadata] Cleaned value for description: "AI分野の最新ニュースをお届けします"
+2025-04-08T05:22:41.817Z:   [extractMetadata] Raw match for tags: ""AI", "ニュース""
+2025-04-08T05:22:41.818Z:   [extractMetadata] Cleaned value for tags: "AI,ニュース"
+2025-04-08T05:22:41.821Z:   [extractMetadata] Raw match for author: "Sara"
+2025-04-08T05:22:41.822Z:   [extractMetadata] Cleaned value for author: "Sara"
+2025-04-08T05:22:41.824Z: [extractMetadata] Returning metadata: title="AIニュース速報", category="ai-news"
+2025-04-08T05:22:41.825Z: メタデータからタグを抽出しました: AI, ニュース
+2025-04-08T05:22:41.826Z: メタデータから作者を抽出しました: "Sara"
+2025-04-08T05:22:41.827Z: タイトル: "AIニュース速報"
+2025-04-08T05:22:41.828Z: カテゴリ: "ai-news"
+2025-04-08T05:22:41.829Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.830Z: アイキャッチ画像: "/images/ai-news.jpg"
+2025-04-08T05:22:41.831Z:   [generateNameAndSlug] Original title: "AIニュース速報"
+2025-04-08T05:22:41.833Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.834Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761834", slug="article-1744089761834"
+2025-04-08T05:22:41.835Z: コンポーネント名: "Article1744089761834"
+2025-04-08T05:22:41.836Z: スラグ: "article-1744089761834"
+2025-04-08T05:22:41.837Z: コンポーネントを作成しました: components\Article1744089761834.tsx
+2025-04-08T05:22:41.840Z: ブログページを作成しました: app\blog\ai-news\article-1744089761834\page.tsx
+2025-04-08T05:22:41.843Z: Git処理を開始します...
+2025-04-08T05:22:41.844Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.845Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761834.tsx"
+2025-04-08T05:22:41.859Z: 処理を開始します: articles\ai-news\test-optimization-article.tsx
+2025-04-08T05:22:41.861Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.862Z:   [extractMetadata] Raw match for title: "最適化テスト記事"
+2025-04-08T05:22:41.863Z:   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+2025-04-08T05:22:41.865Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:41.866Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:41.867Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:41.868Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:41.870Z:   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:41.871Z:   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:41.873Z:   [extractMetadata] Raw match for description: "自動化パイプラインの動作確認用テスト記事です。"
+2025-04-08T05:22:41.875Z:   [extractMetadata] Cleaned value for description: "自動化パイプラインの動作確認用テスト記事です。"
+2025-04-08T05:22:41.876Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "最適化""
+2025-04-08T05:22:41.877Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,最適化"
+2025-04-08T05:22:41.878Z:   [extractMetadata] Raw match for author: "テスト担当"
+2025-04-08T05:22:41.879Z:   [extractMetadata] Cleaned value for author: "テスト担当"
+2025-04-08T05:22:41.880Z: [extractMetadata] Returning metadata: title="最適化テスト記事", category="ai-news"
+2025-04-08T05:22:41.881Z: メタデータからタグを抽出しました: テスト, 自動化, 最適化
+2025-04-08T05:22:41.882Z: メタデータから作者を抽出しました: "テスト担当"
+2025-04-08T05:22:41.883Z: タイトル: "最適化テスト記事"
+2025-04-08T05:22:41.883Z: カテゴリ: "ai-news"
+2025-04-08T05:22:41.884Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.887Z: アイキャッチ画像: "/images/test-image.jpg"
+2025-04-08T05:22:41.888Z:   [generateNameAndSlug] Original title: "最適化テスト記事"
+2025-04-08T05:22:41.889Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.890Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761890", slug="article-1744089761890"
+2025-04-08T05:22:41.891Z: コンポーネント名: "Article1744089761890"
+2025-04-08T05:22:41.892Z: スラグ: "article-1744089761890"
+2025-04-08T05:22:41.893Z: コンポーネントを作成しました: components\Article1744089761890.tsx
+2025-04-08T05:22:41.896Z: ブログページを作成しました: app\blog\ai-news\article-1744089761890\page.tsx
+2025-04-08T05:22:41.898Z: Git処理を開始します...
+2025-04-08T05:22:41.899Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.900Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761890.tsx"
+2025-04-08T05:22:41.920Z: 処理を開始します: articles\ai-technology\article-template.tsx
+2025-04-08T05:22:41.922Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.924Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:41.925Z:   [extractMetadata] No match for title
+2025-04-08T05:22:41.927Z:   [extractMetadata] No match for category
+2025-04-08T05:22:41.928Z:   [extractMetadata] No match for date
+2025-04-08T05:22:41.930Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:41.931Z:   [extractMetadata] No match for description
+2025-04-08T05:22:41.933Z:   [extractMetadata] Raw match for tags: ""AI", "テンプレート", "人工知能", "機械学習""
+2025-04-08T05:22:41.934Z:   [extractMetadata] Cleaned value for tags: "AI,テンプレート,人工知能,機械学習"
+2025-04-08T05:22:41.936Z:   [extractMetadata] No match for author
+2025-04-08T05:22:41.937Z:   [extractMetadata] Title extracted from H1: "AI技術記事のテンプレート：人工知能の最新トレンドと実装方法"
+2025-04-08T05:22:41.938Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:41.940Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:41.942Z:   [extractMetadata] Using default description: "AI技術記事のテンプレート：人工知能の最新トレンドと実装方法に関する詳細記事"
+2025-04-08T05:22:41.944Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.945Z: [extractMetadata] Returning metadata: title="AI技術記事のテンプレート：人工知能の最新トレンドと実装方法", category="ai-technology"
+2025-04-08T05:22:41.946Z: メタデータからタグを抽出しました: AI, テンプレート, 人工知能, 機械学習
+2025-04-08T05:22:41.947Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:41.948Z: タイトル: "AI技術記事のテンプレート：人工知能の最新トレンドと実装方法"
+2025-04-08T05:22:41.948Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:41.950Z: 日付: "2025-04-08"
+2025-04-08T05:22:41.951Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:41.951Z:   [generateNameAndSlug] Original title: "AI技術記事のテンプレート：人工知能の最新トレンドと実装方法"
+2025-04-08T05:22:41.953Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:41.954Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089761954", slug="article-1744089761954"
+2025-04-08T05:22:41.955Z: コンポーネント名: "Article1744089761954"
+2025-04-08T05:22:41.955Z: スラグ: "article-1744089761954"
+2025-04-08T05:22:41.957Z: コンポーネントを作成しました: components\Article1744089761954.tsx
+2025-04-08T05:22:41.959Z: ブログページを作成しました: app\blog\ai-technology\article-1744089761954\page.tsx
+2025-04-08T05:22:41.961Z: Git処理を開始します...
+2025-04-08T05:22:41.963Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:41.964Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089761954.tsx"
+2025-04-08T05:22:41.978Z: 処理を開始します: articles\ai-technology\think-tool-integration.tsx
+2025-04-08T05:22:41.980Z: [extractMetadata] Start processing
+2025-04-08T05:22:41.982Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:41.983Z:   [extractMetadata] No match for title
+2025-04-08T05:22:41.985Z:   [extractMetadata] No match for category
+2025-04-08T05:22:41.987Z:   [extractMetadata] No match for date
+2025-04-08T05:22:41.988Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:41.989Z:   [extractMetadata] No match for description
+2025-04-08T05:22:41.990Z:   [extractMetadata] Raw match for tags: ""AI", "Think", "業務効率化", "人工知能", "ツール導入""
+2025-04-08T05:22:41.991Z:   [extractMetadata] Cleaned value for tags: "AI,Think,業務効率化,人工知能,ツール導入"
+2025-04-08T05:22:41.992Z:   [extractMetadata] No match for author
+2025-04-08T05:22:41.994Z:   [extractMetadata] Title extracted from function name: "Think Tool Report"
+2025-04-08T05:22:41.996Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:41.997Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:41.998Z:   [extractMetadata] Using default description: "Think Tool Reportに関する詳細記事"
+2025-04-08T05:22:41.999Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.001Z: [extractMetadata] Returning metadata: title="Think Tool Report", category="ai-technology"
+2025-04-08T05:22:42.002Z: メタデータからタグを抽出しました: AI, Think, 業務効率化, 人工知能, ツール導入
+2025-04-08T05:22:42.003Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.004Z: タイトル: "Think Tool Report"
+2025-04-08T05:22:42.006Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.007Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.009Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.010Z:   [generateNameAndSlug] Original title: "Think Tool Report"
+2025-04-08T05:22:42.011Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.013Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762012", slug="article-1744089762012"
+2025-04-08T05:22:42.014Z: コンポーネント名: "Article1744089762012"
+2025-04-08T05:22:42.015Z: スラグ: "article-1744089762012"
+2025-04-08T05:22:42.016Z: コンポーネントを作成しました: components\Article1744089762012.tsx
+2025-04-08T05:22:42.019Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762012\page.tsx
+2025-04-08T05:22:42.021Z: Git処理を開始します...
+2025-04-08T05:22:42.022Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.024Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762012.tsx"
+2025-04-08T05:22:42.038Z: 処理を開始します: articles\article-template.tsx
+2025-04-08T05:22:42.039Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.041Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:42.042Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.044Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.045Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.046Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.048Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.050Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:42.052Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.054Z:   [extractMetadata] Title extracted from H1: "記事のタイトル"
+2025-04-08T05:22:42.055Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.056Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.058Z:   [extractMetadata] Using default description: "記事のタイトルに関する詳細記事"
+2025-04-08T05:22:42.059Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.060Z: [extractMetadata] Returning metadata: title="記事のタイトル", category="ai-technology"
+2025-04-08T05:22:42.061Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:42.064Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.066Z: タイトル: "記事のタイトル"
+2025-04-08T05:22:42.067Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.068Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.069Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.070Z:   [generateNameAndSlug] Original title: "記事のタイトル"
+2025-04-08T05:22:42.071Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.072Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762072", slug="article-1744089762072"
+2025-04-08T05:22:42.073Z: コンポーネント名: "Article1744089762072"
+2025-04-08T05:22:42.074Z: スラグ: "article-1744089762072"
+2025-04-08T05:22:42.076Z: コンポーネントを作成しました: components\Article1744089762072.tsx
+2025-04-08T05:22:42.078Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762072\page.tsx
+2025-04-08T05:22:42.080Z: Git処理を開始します...
+2025-04-08T05:22:42.082Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.083Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762072.tsx"
+2025-04-08T05:22:42.097Z: 処理を開始します: articles\final-test-article.tsx
+2025-04-08T05:22:42.099Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.100Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.102Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.104Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.106Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.107Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.109Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:42.110Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:42.112Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.113Z:   [extractMetadata] Title extracted from H1: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:42.114Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.115Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.116Z:   [extractMetadata] Using default description: "最終テスト：メタデータ解析の修正に関する詳細記事"
+2025-04-08T05:22:42.117Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.118Z: [extractMetadata] Returning metadata: title="最終テスト：メタデータ解析の修正", category="ai-technology"
+2025-04-08T05:22:42.119Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:42.120Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.121Z: タイトル: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:42.122Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.123Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.124Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.125Z:   [generateNameAndSlug] Original title: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:42.126Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.127Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762127", slug="article-1744089762127"
+2025-04-08T05:22:42.130Z: コンポーネント名: "Article1744089762127"
+2025-04-08T05:22:42.132Z: スラグ: "article-1744089762127"
+2025-04-08T05:22:42.133Z: コンポーネントを作成しました: components\Article1744089762127.tsx
+2025-04-08T05:22:42.135Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762127\page.tsx
+2025-04-08T05:22:42.138Z: Git処理を開始します...
+2025-04-08T05:22:42.139Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.140Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762127.tsx"
+2025-04-08T05:22:42.167Z: 処理を開始します: articles\final-test-fixed.tsx
+2025-04-08T05:22:42.169Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.170Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:42.172Z:   [extractMetadata] Raw match for title: "最終修正テスト"
+2025-04-08T05:22:42.173Z:   [extractMetadata] Cleaned value for title: "最終修正テスト"
+2025-04-08T05:22:42.175Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:42.177Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:42.178Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:42.179Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:42.180Z:   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:42.182Z:   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:42.183Z:   [extractMetadata] Raw match for description: "スクリプト修正の最終テスト記事です"
+2025-04-08T05:22:42.184Z:   [extractMetadata] Cleaned value for description: "スクリプト修正の最終テスト記事です"
+2025-04-08T05:22:42.185Z:   [extractMetadata] Raw match for tags: ""テスト", "修正完了", "自動化""
+2025-04-08T05:22:42.187Z:   [extractMetadata] Cleaned value for tags: "テスト,修正完了,自動化"
+2025-04-08T05:22:42.188Z:   [extractMetadata] Raw match for author: "テスト担当"
+2025-04-08T05:22:42.189Z:   [extractMetadata] Cleaned value for author: "テスト担当"
+2025-04-08T05:22:42.190Z: [extractMetadata] Returning metadata: title="最終修正テスト", category="ai-news"
+2025-04-08T05:22:42.192Z: メタデータからタグを抽出しました: テスト, 修正完了, 自動化
+2025-04-08T05:22:42.193Z: メタデータから作者を抽出しました: "テスト担当"
+2025-04-08T05:22:42.194Z: タイトル: "最終修正テスト"
+2025-04-08T05:22:42.197Z: カテゴリ: "ai-news"
+2025-04-08T05:22:42.199Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.200Z: アイキャッチ画像: "/images/test-image.jpg"
+2025-04-08T05:22:42.201Z:   [generateNameAndSlug] Original title: "最終修正テスト"
+2025-04-08T05:22:42.202Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.203Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762203", slug="article-1744089762203"
+2025-04-08T05:22:42.205Z: コンポーネント名: "Article1744089762203"
+2025-04-08T05:22:42.206Z: スラグ: "article-1744089762203"
+2025-04-08T05:22:42.208Z: コンポーネントを作成しました: components\Article1744089762203.tsx
+2025-04-08T05:22:42.211Z: ブログページを作成しました: app\blog\ai-news\article-1744089762203\page.tsx
+2025-04-08T05:22:42.213Z: Git処理を開始します...
+2025-04-08T05:22:42.215Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.216Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762203.tsx"
+2025-04-08T05:22:42.232Z: 処理を開始します: articles\new-test-article.tsx
+2025-04-08T05:22:42.234Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.236Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.237Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.239Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.241Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.243Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.245Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:42.246Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:42.248Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.249Z:   [extractMetadata] Title extracted from H1: "自動化パイプラインテスト記事"
+2025-04-08T05:22:42.250Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.251Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.252Z:   [extractMetadata] Using default description: "自動化パイプラインテスト記事に関する詳細記事"
+2025-04-08T05:22:42.253Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.255Z: [extractMetadata] Returning metadata: title="自動化パイプラインテスト記事", category="ai-technology"
+2025-04-08T05:22:42.256Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:42.257Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.258Z: タイトル: "自動化パイプラインテスト記事"
+2025-04-08T05:22:42.259Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.260Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.263Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.265Z:   [generateNameAndSlug] Original title: "自動化パイプラインテスト記事"
+2025-04-08T05:22:42.266Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.267Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762267", slug="article-1744089762267"
+2025-04-08T05:22:42.268Z: コンポーネント名: "Article1744089762267"
+2025-04-08T05:22:42.270Z: スラグ: "article-1744089762267"
+2025-04-08T05:22:42.271Z: コンポーネントを作成しました: components\Article1744089762267.tsx
+2025-04-08T05:22:42.276Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762267\page.tsx
+2025-04-08T05:22:42.280Z: Git処理を開始します...
+2025-04-08T05:22:42.281Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.282Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762267.tsx"
+2025-04-08T05:22:42.301Z: 処理を開始します: articles\page.tsx
+2025-04-08T05:22:42.304Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.306Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:42.307Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.308Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.310Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.312Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.313Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.315Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:42.316Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.318Z:   [extractMetadata] Title extracted from function name: "Think Tool Report"
+2025-04-08T05:22:42.319Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.320Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.321Z:   [extractMetadata] Using default description: "Think Tool Reportに関する詳細記事"
+2025-04-08T05:22:42.325Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.327Z: [extractMetadata] Returning metadata: title="Think Tool Report", category="ai-technology"
+2025-04-08T05:22:42.330Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:42.332Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.334Z: タイトル: "Think Tool Report"
+2025-04-08T05:22:42.335Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.337Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.338Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.340Z:   [generateNameAndSlug] Original title: "Think Tool Report"
+2025-04-08T05:22:42.341Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.343Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762343", slug="article-1744089762343"
+2025-04-08T05:22:42.344Z: コンポーネント名: "Article1744089762343"
+2025-04-08T05:22:42.346Z: スラグ: "article-1744089762343"
+2025-04-08T05:22:42.347Z: コンポーネントを作成しました: components\Article1744089762343.tsx
+2025-04-08T05:22:42.351Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762343\page.tsx
+2025-04-08T05:22:42.353Z: Git処理を開始します...
+2025-04-08T05:22:42.354Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.356Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762343.tsx"
+2025-04-08T05:22:42.372Z: 処理を開始します: articles\test-article-deploy.tsx
+2025-04-08T05:22:42.374Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.376Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.377Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.378Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.380Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.382Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.383Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:42.385Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.387Z:   [extractMetadata] Title extracted from H1: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:42.389Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.391Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.393Z:   [extractMetadata] Using default description: "テスト記事：Vercel自動デプロイの確認に関する詳細記事"
+2025-04-08T05:22:42.397Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.400Z: [extractMetadata] Returning metadata: title="テスト記事：Vercel自動デプロイの確認", category="ai-technology"
+2025-04-08T05:22:42.401Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:42.403Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.404Z: タイトル: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:42.406Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.407Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.408Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.410Z:   [generateNameAndSlug] Original title: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:42.411Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.412Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762412", slug="article-1744089762412"
+2025-04-08T05:22:42.413Z: コンポーネント名: "Article1744089762412"
+2025-04-08T05:22:42.415Z: スラグ: "article-1744089762412"
+2025-04-08T05:22:42.416Z: コンポーネントを作成しました: components\Article1744089762412.tsx
+2025-04-08T05:22:42.419Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762412\page.tsx
+2025-04-08T05:22:42.422Z: Git処理を開始します...
+2025-04-08T05:22:42.425Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.426Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762412.tsx"
+2025-04-08T05:22:42.450Z: 処理を開始します: articles\test-auto-deploy-article.tsx
+2025-04-08T05:22:42.452Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.454Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.456Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.458Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.459Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.461Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.462Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:42.464Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:42.466Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.467Z:   [extractMetadata] Title extracted from H1: "自動デプロイテスト記事"
+2025-04-08T05:22:42.468Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.469Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.470Z:   [extractMetadata] Using default description: "自動デプロイテスト記事に関する詳細記事"
+2025-04-08T05:22:42.472Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.473Z: [extractMetadata] Returning metadata: title="自動デプロイテスト記事", category="ai-technology"
+2025-04-08T05:22:42.474Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:42.475Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.476Z: タイトル: "自動デプロイテスト記事"
+2025-04-08T05:22:42.477Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.478Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.481Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.482Z:   [generateNameAndSlug] Original title: "自動デプロイテスト記事"
+2025-04-08T05:22:42.484Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.485Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762485", slug="article-1744089762485"
+2025-04-08T05:22:42.486Z: コンポーネント名: "Article1744089762485"
+2025-04-08T05:22:42.487Z: スラグ: "article-1744089762485"
+2025-04-08T05:22:42.488Z: コンポーネントを作成しました: components\Article1744089762485.tsx
+2025-04-08T05:22:42.492Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762485\page.tsx
+2025-04-08T05:22:42.494Z: Git処理を開始します...
+2025-04-08T05:22:42.495Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.496Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762485.tsx"
+2025-04-08T05:22:42.510Z: 処理を開始します: articles\test-fixed-script.tsx
+2025-04-08T05:22:42.512Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.513Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:42.514Z:   [extractMetadata] Raw match for title: "スクリプト修正テスト"
+2025-04-08T05:22:42.516Z:   [extractMetadata] Cleaned value for title: "スクリプト修正テスト"
+2025-04-08T05:22:42.517Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:42.518Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:42.520Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:42.521Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:42.522Z:   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:42.524Z:   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:42.526Z:   [extractMetadata] Raw match for description: "folder_watcherスクリプトの修正テスト記事です"
+2025-04-08T05:22:42.527Z:   [extractMetadata] Cleaned value for description: "folder_watcherスクリプトの修正テスト記事です"
+2025-04-08T05:22:42.529Z:   [extractMetadata] Raw match for tags: ""テスト", "スクリプト修正", "自動化""
+2025-04-08T05:22:42.531Z:   [extractMetadata] Cleaned value for tags: "テスト,スクリプト修正,自動化"
+2025-04-08T05:22:42.532Z:   [extractMetadata] Raw match for author: "テスト担当"
+2025-04-08T05:22:42.534Z:   [extractMetadata] Cleaned value for author: "テスト担当"
+2025-04-08T05:22:42.535Z: [extractMetadata] Returning metadata: title="スクリプト修正テスト", category="ai-news"
+2025-04-08T05:22:42.537Z: メタデータからタグを抽出しました: テスト, スクリプト修正, 自動化
+2025-04-08T05:22:42.538Z: メタデータから作者を抽出しました: "テスト担当"
+2025-04-08T05:22:42.540Z: タイトル: "スクリプト修正テスト"
+2025-04-08T05:22:42.542Z: カテゴリ: "ai-news"
+2025-04-08T05:22:42.543Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.543Z: アイキャッチ画像: "/images/test-image.jpg"
+2025-04-08T05:22:42.544Z:   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+2025-04-08T05:22:42.545Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.546Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762546", slug="article-1744089762546"
+2025-04-08T05:22:42.547Z: コンポーネント名: "Article1744089762546"
+2025-04-08T05:22:42.548Z: スラグ: "article-1744089762546"
+2025-04-08T05:22:42.549Z: コンポーネントを作成しました: components\Article1744089762546.tsx
+2025-04-08T05:22:42.552Z: ブログページを作成しました: app\blog\ai-news\article-1744089762546\page.tsx
+2025-04-08T05:22:42.554Z: Git処理を開始します...
+2025-04-08T05:22:42.555Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.556Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762546.tsx"
+2025-04-08T05:22:42.578Z: 処理を開始します: articles\test-optimization-article.tsx
+2025-04-08T05:22:42.580Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.582Z:   [extractMetadata] Raw match for title: "最適化テスト記事"
+2025-04-08T05:22:42.583Z:   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+2025-04-08T05:22:42.585Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:42.587Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:42.588Z:   [extractMetadata] Raw match for date: "2024-03-20"
+2025-04-08T05:22:42.590Z:   [extractMetadata] Cleaned value for date: "2024-03-20"
+2025-04-08T05:22:42.592Z:   [extractMetadata] Raw match for coverImage: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:42.594Z:   [extractMetadata] Cleaned value for coverImage: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:42.595Z:   [extractMetadata] Raw match for description: "これは最適化テスト用の記事です。"
+2025-04-08T05:22:42.596Z:   [extractMetadata] Cleaned value for description: "これは最適化テスト用の記事です。"
+2025-04-08T05:22:42.597Z:   [extractMetadata] Raw match for tags: ""テスト", "最適化", "AI""
+2025-04-08T05:22:42.598Z:   [extractMetadata] Cleaned value for tags: "テスト,最適化,AI"
+2025-04-08T05:22:42.599Z:   [extractMetadata] Raw match for author: "テストユーザー"
+2025-04-08T05:22:42.601Z:   [extractMetadata] Cleaned value for author: "テストユーザー"
+2025-04-08T05:22:42.602Z: [extractMetadata] Returning metadata: title="最適化テスト記事", category="ai-news"
+2025-04-08T05:22:42.603Z: メタデータからタグを抽出しました: テスト, 最適化, AI
+2025-04-08T05:22:42.606Z: メタデータから作者を抽出しました: "テストユーザー"
+2025-04-08T05:22:42.608Z: タイトル: "最適化テスト記事"
+2025-04-08T05:22:42.609Z: カテゴリ: "ai-news"
+2025-04-08T05:22:42.610Z: 日付: "2024-03-20"
+2025-04-08T05:22:42.611Z: アイキャッチ画像: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:42.612Z:   [generateNameAndSlug] Original title: "最適化テスト記事"
+2025-04-08T05:22:42.613Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.614Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762614", slug="article-1744089762614"
+2025-04-08T05:22:42.615Z: コンポーネント名: "Article1744089762614"
+2025-04-08T05:22:42.616Z: スラグ: "article-1744089762614"
+2025-04-08T05:22:42.617Z: コンポーネントを作成しました: components\Article1744089762614.tsx
+2025-04-08T05:22:42.620Z: ブログページを作成しました: app\blog\ai-news\article-1744089762614\page.tsx
+2025-04-08T05:22:42.622Z: Git処理を開始します...
+2025-04-08T05:22:42.624Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.625Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762614.tsx"
+2025-04-08T05:22:42.639Z: 処理を開始します: articles\vercel-deploy-fixed.tsx
+2025-04-08T05:22:42.641Z: [extractMetadata] Start processing
+2025-04-08T05:22:42.642Z:   [extractMetadata] No match for title
+2025-04-08T05:22:42.643Z:   [extractMetadata] No match for category
+2025-04-08T05:22:42.644Z:   [extractMetadata] No match for date
+2025-04-08T05:22:42.645Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:42.646Z:   [extractMetadata] No match for description
+2025-04-08T05:22:42.647Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:42.648Z:   [extractMetadata] No match for author
+2025-04-08T05:22:42.649Z:   [extractMetadata] Title extracted from H1: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:42.650Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:42.651Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:42.652Z:   [extractMetadata] Using default description: "Vercelデプロイ修正テストに関する詳細記事"
+2025-04-08T05:22:42.654Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.656Z: [extractMetadata] Returning metadata: title="Vercelデプロイ修正テスト", category="ai-technology"
+2025-04-08T05:22:42.658Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:42.659Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:42.661Z: タイトル: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:42.662Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:42.664Z: 日付: "2025-04-08"
+2025-04-08T05:22:42.666Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:42.667Z:   [generateNameAndSlug] Original title: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:42.669Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:42.670Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089762670", slug="article-1744089762670"
+2025-04-08T05:22:42.673Z: コンポーネント名: "Article1744089762670"
+2025-04-08T05:22:42.674Z: スラグ: "article-1744089762670"
+2025-04-08T05:22:42.675Z: コンポーネントを作成しました: components\Article1744089762670.tsx
+2025-04-08T05:22:42.678Z: ブログページを作成しました: app\blog\ai-technology\article-1744089762670\page.tsx
+2025-04-08T05:22:42.680Z: Git処理を開始します...
+2025-04-08T05:22:42.681Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:42.682Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089762670.tsx"
+2025-04-08T05:22:42.705Z: 処理を開始します: articles\vercel-deploy-test.tsx
+2025-04-08T05:22:42.706Z: ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+2025-04-08T05:22:42.708Z: フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
+2025-04-08T05:22:42.721Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089762546\page.tsx"
+2025-04-08T05:22:42.737Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762485\page.tsx"
+2025-04-08T05:22:42.753Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762412\page.tsx"
+2025-04-08T05:22:42.774Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762343\page.tsx"
+2025-04-08T05:22:42.796Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762267\page.tsx"
+2025-04-08T05:22:42.812Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089762203\page.tsx"
+2025-04-08T05:22:42.834Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762127\page.tsx"
+2025-04-08T05:22:42.850Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762072\page.tsx"
+2025-04-08T05:22:42.872Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762012\page.tsx"
+2025-04-08T05:22:42.895Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761954\page.tsx"
+2025-04-08T05:22:42.921Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089761890\page.tsx"
+2025-04-08T05:22:42.936Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089761834\page.tsx"
+2025-04-08T05:22:42.954Z: 警告: warning: in the working copy of 'components/Article1744089761768.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:42.956Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761768\page.tsx"
+2025-04-08T05:22:42.974Z: 警告: warning: in the working copy of 'components/Article1744089761705.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:42.976Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761705\page.tsx"
+2025-04-08T05:22:42.993Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761651\page.tsx"
+2025-04-08T05:22:43.019Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089762012/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.021Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.023Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.025Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: Think Tool Report"
+2025-04-08T05:22:43.040Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761954\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.041Z: !!! ファイル処理エラー (article-template.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761954\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.043Z: 警告: warning: in the working copy of 'app/blog/ai-news/article-1744089762203/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.044Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.045Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.048Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+2025-04-08T05:22:43.073Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762072\page.tsx"
+fatal: .git/index: index file open failed: Permission denied
+
+2025-04-08T05:22:43.074Z: !!! ファイル処理エラー (article-template.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762072\page.tsx"
+fatal: .git/index: index file open failed: Permission denied
+
+2025-04-08T05:22:43.077Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762127\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.079Z: !!! ファイル処理エラー (final-test-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762127\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.084Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089762267/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.086Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.087Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.089Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動化パイプラインテスト記事"
+2025-04-08T05:22:43.111Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089762412/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.112Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.114Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.115Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:43.130Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762343\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.132Z: !!! ファイル処理エラー (page.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762343\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.134Z: 警告: warning: in the working copy of 'app/blog/ai-news/article-1744089762546/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.136Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.138Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.139Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+2025-04-08T05:22:43.171Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762485\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.173Z: !!! ファイル処理エラー (test-auto-deploy-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762485\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.175Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089762670\page.tsx"
+2025-04-08T05:22:43.204Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089762614\page.tsx"
+2025-04-08T05:22:43.241Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.247Z: !!! ファイル処理エラー (test-article-deploy.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.251Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.253Z: !!! ファイル処理エラー (final-test-fixed.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最終修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.257Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089761705/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.258Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.262Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.266Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動監視システム動作テスト記事３"
+2025-04-08T05:22:43.285Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761651\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.288Z: !!! ファイル処理エラー (auto-deploy-test.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761651\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.291Z: 警告: warning: in the working copy of 'app/blog/ai-news/article-1744089761890/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:43.294Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:43.296Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:43.298Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+2025-04-08T05:22:43.317Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761768\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.319Z: !!! ファイル処理エラー (auto-upload-test-2.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089761768\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.322Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089761834\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.324Z: !!! ファイル処理エラー (test-ai-news.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089761834\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:43.328Z: 新しいファイルを検出しました: articles\article-template.tsx
+2025-04-08T05:22:43.329Z: 処理を開始します: articles\article-template.tsx
+2025-04-08T05:22:43.331Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.333Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:43.334Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.336Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.337Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.339Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.341Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.343Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:43.344Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.348Z:   [extractMetadata] Title extracted from H1: "記事のタイトル"
+2025-04-08T05:22:43.349Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.352Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.355Z:   [extractMetadata] Using default description: "記事のタイトルに関する詳細記事"
+2025-04-08T05:22:43.358Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.359Z: [extractMetadata] Returning metadata: title="記事のタイトル", category="ai-technology"
+2025-04-08T05:22:43.361Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:43.362Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.364Z: タイトル: "記事のタイトル"
+2025-04-08T05:22:43.365Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.367Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.369Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.371Z:   [generateNameAndSlug] Original title: "記事のタイトル"
+2025-04-08T05:22:43.373Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.376Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763376", slug="article-1744089763376"
+2025-04-08T05:22:43.378Z: コンポーネント名: "Article1744089763376"
+2025-04-08T05:22:43.382Z: スラグ: "article-1744089763376"
+2025-04-08T05:22:43.384Z: コンポーネントを作成しました: components\Article1744089763376.tsx
+2025-04-08T05:22:43.392Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763376\page.tsx
+2025-04-08T05:22:43.397Z: Git処理を開始します...
+2025-04-08T05:22:43.400Z: Git処理中にエラーが発生しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.402Z: !!! ファイル処理エラー (article-template.tsx): EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.405Z: 新しいファイルを検出しました: articles\final-test-article.tsx
+2025-04-08T05:22:43.407Z: 処理を開始します: articles\final-test-article.tsx
+2025-04-08T05:22:43.409Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.411Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.414Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.416Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.417Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.419Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.421Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:43.422Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:43.425Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.427Z:   [extractMetadata] Title extracted from H1: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:43.429Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.432Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.433Z:   [extractMetadata] Using default description: "最終テスト：メタデータ解析の修正に関する詳細記事"
+2025-04-08T05:22:43.434Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.436Z: [extractMetadata] Returning metadata: title="最終テスト：メタデータ解析の修正", category="ai-technology"
+2025-04-08T05:22:43.437Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:43.439Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.440Z: タイトル: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:43.442Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.444Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.446Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.447Z:   [generateNameAndSlug] Original title: "最終テスト：メタデータ解析の修正"
+2025-04-08T05:22:43.449Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.450Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763450", slug="article-1744089763450"
+2025-04-08T05:22:43.451Z: コンポーネント名: "Article1744089763450"
+2025-04-08T05:22:43.452Z: スラグ: "article-1744089763450"
+2025-04-08T05:22:43.454Z: コンポーネントを作成しました: components\Article1744089763450.tsx
+2025-04-08T05:22:43.457Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763450\page.tsx
+2025-04-08T05:22:43.460Z: Git処理を開始します...
+2025-04-08T05:22:43.461Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:43.463Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089763450.tsx"
+2025-04-08T05:22:43.477Z: 新しいファイルを検出しました: articles\final-test-fixed.tsx
+2025-04-08T05:22:43.480Z: 処理を開始します: articles\final-test-fixed.tsx
+2025-04-08T05:22:43.482Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.483Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:43.485Z:   [extractMetadata] Raw match for title: "最終修正テスト"
+2025-04-08T05:22:43.486Z:   [extractMetadata] Cleaned value for title: "最終修正テスト"
+2025-04-08T05:22:43.487Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:43.488Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:43.490Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:43.492Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:43.493Z:   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:43.494Z:   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:43.495Z:   [extractMetadata] Raw match for description: "スクリプト修正の最終テスト記事です"
+2025-04-08T05:22:43.497Z:   [extractMetadata] Cleaned value for description: "スクリプト修正の最終テスト記事です"
+2025-04-08T05:22:43.498Z:   [extractMetadata] Raw match for tags: ""テスト", "修正完了", "自動化""
+2025-04-08T05:22:43.500Z:   [extractMetadata] Cleaned value for tags: "テスト,修正完了,自動化"
+2025-04-08T05:22:43.501Z:   [extractMetadata] Raw match for author: "テスト担当"
+2025-04-08T05:22:43.503Z:   [extractMetadata] Cleaned value for author: "テスト担当"
+2025-04-08T05:22:43.504Z: [extractMetadata] Returning metadata: title="最終修正テスト", category="ai-news"
+2025-04-08T05:22:43.506Z: メタデータからタグを抽出しました: テスト, 修正完了, 自動化
+2025-04-08T05:22:43.507Z: メタデータから作者を抽出しました: "テスト担当"
+2025-04-08T05:22:43.509Z: タイトル: "最終修正テスト"
+2025-04-08T05:22:43.510Z: カテゴリ: "ai-news"
+2025-04-08T05:22:43.512Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.515Z: アイキャッチ画像: "/images/test-image.jpg"
+2025-04-08T05:22:43.517Z:   [generateNameAndSlug] Original title: "最終修正テスト"
+2025-04-08T05:22:43.518Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.520Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763520", slug="article-1744089763520"
+2025-04-08T05:22:43.521Z: コンポーネント名: "Article1744089763520"
+2025-04-08T05:22:43.523Z: スラグ: "article-1744089763520"
+2025-04-08T05:22:43.524Z: コンポーネントを作成しました: components\Article1744089763520.tsx
+2025-04-08T05:22:43.528Z: ブログページを作成しました: app\blog\ai-news\article-1744089763520\page.tsx
+2025-04-08T05:22:43.532Z: Git処理を開始します...
+2025-04-08T05:22:43.534Z: Git処理中にエラーが発生しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.535Z: !!! ファイル処理エラー (final-test-fixed.tsx): EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.538Z: 新しいファイルを検出しました: articles\new-test-article.tsx
+2025-04-08T05:22:43.540Z: 処理を開始します: articles\new-test-article.tsx
+2025-04-08T05:22:43.542Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.546Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.548Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.551Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.553Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.555Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.557Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:43.559Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:43.562Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.564Z:   [extractMetadata] Title extracted from H1: "自動化パイプラインテスト記事"
+2025-04-08T05:22:43.565Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.567Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.569Z:   [extractMetadata] Using default description: "自動化パイプラインテスト記事に関する詳細記事"
+2025-04-08T05:22:43.571Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.574Z: [extractMetadata] Returning metadata: title="自動化パイプラインテスト記事", category="ai-technology"
+2025-04-08T05:22:43.576Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:43.577Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.579Z: タイトル: "自動化パイプラインテスト記事"
+2025-04-08T05:22:43.580Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.582Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.584Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.586Z:   [generateNameAndSlug] Original title: "自動化パイプラインテスト記事"
+2025-04-08T05:22:43.588Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.590Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763590", slug="article-1744089763590"
+2025-04-08T05:22:43.593Z: コンポーネント名: "Article1744089763590"
+2025-04-08T05:22:43.594Z: スラグ: "article-1744089763590"
+2025-04-08T05:22:43.596Z: コンポーネントを作成しました: components\Article1744089763590.tsx
+2025-04-08T05:22:43.603Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763590\page.tsx
+2025-04-08T05:22:43.606Z: Git処理を開始します...
+2025-04-08T05:22:43.608Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:43.610Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089763590.tsx"
+2025-04-08T05:22:43.625Z: 新しいファイルを検出しました: articles\page.tsx
+2025-04-08T05:22:43.627Z: 処理を開始します: articles\page.tsx
+2025-04-08T05:22:43.629Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.630Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:43.632Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.636Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.637Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.640Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.641Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.643Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:43.645Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.647Z:   [extractMetadata] Title extracted from function name: "Think Tool Report"
+2025-04-08T05:22:43.648Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.650Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.652Z:   [extractMetadata] Using default description: "Think Tool Reportに関する詳細記事"
+2025-04-08T05:22:43.654Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.655Z: [extractMetadata] Returning metadata: title="Think Tool Report", category="ai-technology"
+2025-04-08T05:22:43.657Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:43.658Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.660Z: タイトル: "Think Tool Report"
+2025-04-08T05:22:43.662Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.664Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.665Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.669Z:   [generateNameAndSlug] Original title: "Think Tool Report"
+2025-04-08T05:22:43.671Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.673Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763673", slug="article-1744089763673"
+2025-04-08T05:22:43.675Z: コンポーネント名: "Article1744089763673"
+2025-04-08T05:22:43.676Z: スラグ: "article-1744089763673"
+2025-04-08T05:22:43.678Z: コンポーネントを作成しました: components\Article1744089763673.tsx
+2025-04-08T05:22:43.682Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763673\page.tsx
+2025-04-08T05:22:43.686Z: Git処理を開始します...
+2025-04-08T05:22:43.688Z: Git処理中にエラーが発生しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.691Z: !!! ファイル処理エラー (page.tsx): EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.694Z: 新しいファイルを検出しました: articles\test-article-deploy.tsx
+2025-04-08T05:22:43.697Z: 処理を開始します: articles\test-article-deploy.tsx
+2025-04-08T05:22:43.699Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.703Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.706Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.707Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.709Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.712Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.714Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:43.716Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.718Z:   [extractMetadata] Title extracted from H1: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:43.719Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.721Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.723Z:   [extractMetadata] Using default description: "テスト記事：Vercel自動デプロイの確認に関する詳細記事"
+2025-04-08T05:22:43.725Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.726Z: [extractMetadata] Returning metadata: title="テスト記事：Vercel自動デプロイの確認", category="ai-technology"
+2025-04-08T05:22:43.728Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:43.729Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.731Z: タイトル: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:43.734Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.735Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.737Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.739Z:   [generateNameAndSlug] Original title: "テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:43.741Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.742Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763742", slug="article-1744089763742"
+2025-04-08T05:22:43.744Z: コンポーネント名: "Article1744089763742"
+2025-04-08T05:22:43.745Z: スラグ: "article-1744089763742"
+2025-04-08T05:22:43.747Z: コンポーネントを作成しました: components\Article1744089763742.tsx
+2025-04-08T05:22:43.751Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763742\page.tsx
+2025-04-08T05:22:43.754Z: Git処理を開始します...
+2025-04-08T05:22:43.756Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:43.758Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089763742.tsx"
+2025-04-08T05:22:43.775Z: 新しいファイルを検出しました: articles\test-auto-deploy-article.tsx
+2025-04-08T05:22:43.777Z: 処理を開始します: articles\test-auto-deploy-article.tsx
+2025-04-08T05:22:43.779Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.781Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.782Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.783Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.785Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.786Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.788Z:   [extractMetadata] Raw match for tags: ""テスト", "自動化", "デプロイ""
+2025-04-08T05:22:43.789Z:   [extractMetadata] Cleaned value for tags: "テスト,自動化,デプロイ"
+2025-04-08T05:22:43.791Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.792Z:   [extractMetadata] Title extracted from H1: "自動デプロイテスト記事"
+2025-04-08T05:22:43.793Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.794Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.795Z:   [extractMetadata] Using default description: "自動デプロイテスト記事に関する詳細記事"
+2025-04-08T05:22:43.796Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.798Z: [extractMetadata] Returning metadata: title="自動デプロイテスト記事", category="ai-technology"
+2025-04-08T05:22:43.801Z: メタデータからタグを抽出しました: テスト, 自動化, デプロイ
+2025-04-08T05:22:43.803Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:43.805Z: タイトル: "自動デプロイテスト記事"
+2025-04-08T05:22:43.806Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:43.808Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.809Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.811Z:   [generateNameAndSlug] Original title: "自動デプロイテスト記事"
+2025-04-08T05:22:43.812Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.814Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763814", slug="article-1744089763814"
+2025-04-08T05:22:43.815Z: コンポーネント名: "Article1744089763814"
+2025-04-08T05:22:43.816Z: スラグ: "article-1744089763814"
+2025-04-08T05:22:43.817Z: コンポーネントを作成しました: components\Article1744089763814.tsx
+2025-04-08T05:22:43.821Z: ブログページを作成しました: app\blog\ai-technology\article-1744089763814\page.tsx
+2025-04-08T05:22:43.825Z: Git処理を開始します...
+2025-04-08T05:22:43.827Z: Git処理中にエラーが発生しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.828Z: !!! ファイル処理エラー (test-auto-deploy-article.tsx): EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.832Z: 新しいファイルを検出しました: articles\test-fixed-script.tsx
+2025-04-08T05:22:43.833Z: 処理を開始します: articles\test-fixed-script.tsx
+2025-04-08T05:22:43.835Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.838Z:   [extractMetadata] コメントブロックを検出しました
+2025-04-08T05:22:43.840Z:   [extractMetadata] Raw match for title: "スクリプト修正テスト"
+2025-04-08T05:22:43.842Z:   [extractMetadata] Cleaned value for title: "スクリプト修正テスト"
+2025-04-08T05:22:43.844Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:43.846Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:43.849Z:   [extractMetadata] Raw match for date: "2025-04-08"
+2025-04-08T05:22:43.851Z:   [extractMetadata] Cleaned value for date: "2025-04-08"
+2025-04-08T05:22:43.853Z:   [extractMetadata] Raw match for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:43.856Z:   [extractMetadata] Cleaned value for coverImage: "/images/test-image.jpg"
+2025-04-08T05:22:43.858Z:   [extractMetadata] Raw match for description: "folder_watcherスクリプトの修正テスト記事です"
+2025-04-08T05:22:43.859Z:   [extractMetadata] Cleaned value for description: "folder_watcherスクリプトの修正テスト記事です"
+2025-04-08T05:22:43.861Z:   [extractMetadata] Raw match for tags: ""テスト", "スクリプト修正", "自動化""
+2025-04-08T05:22:43.862Z:   [extractMetadata] Cleaned value for tags: "テスト,スクリプト修正,自動化"
+2025-04-08T05:22:43.864Z:   [extractMetadata] Raw match for author: "テスト担当"
+2025-04-08T05:22:43.866Z:   [extractMetadata] Cleaned value for author: "テスト担当"
+2025-04-08T05:22:43.868Z: [extractMetadata] Returning metadata: title="スクリプト修正テスト", category="ai-news"
+2025-04-08T05:22:43.869Z: メタデータからタグを抽出しました: テスト, スクリプト修正, 自動化
+2025-04-08T05:22:43.871Z: メタデータから作者を抽出しました: "テスト担当"
+2025-04-08T05:22:43.872Z: タイトル: "スクリプト修正テスト"
+2025-04-08T05:22:43.874Z: カテゴリ: "ai-news"
+2025-04-08T05:22:43.875Z: 日付: "2025-04-08"
+2025-04-08T05:22:43.876Z: アイキャッチ画像: "/images/test-image.jpg"
+2025-04-08T05:22:43.877Z:   [generateNameAndSlug] Original title: "スクリプト修正テスト"
+2025-04-08T05:22:43.879Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.880Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763880", slug="article-1744089763880"
+2025-04-08T05:22:43.882Z: コンポーネント名: "Article1744089763880"
+2025-04-08T05:22:43.883Z: スラグ: "article-1744089763880"
+2025-04-08T05:22:43.884Z: コンポーネントを作成しました: components\Article1744089763880.tsx
+2025-04-08T05:22:43.888Z: ブログページを作成しました: app\blog\ai-news\article-1744089763880\page.tsx
+2025-04-08T05:22:43.891Z: Git処理を開始します...
+2025-04-08T05:22:43.892Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:43.893Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089763880.tsx"
+2025-04-08T05:22:43.907Z: 新しいファイルを検出しました: articles\test-optimization-article.tsx
+2025-04-08T05:22:43.908Z: 処理を開始します: articles\test-optimization-article.tsx
+2025-04-08T05:22:43.910Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.911Z:   [extractMetadata] Raw match for title: "最適化テスト記事"
+2025-04-08T05:22:43.912Z:   [extractMetadata] Cleaned value for title: "最適化テスト記事"
+2025-04-08T05:22:43.914Z:   [extractMetadata] Raw match for category: "ai-news"
+2025-04-08T05:22:43.915Z:   [extractMetadata] Cleaned value for category: "ai-news"
+2025-04-08T05:22:43.916Z:   [extractMetadata] Raw match for date: "2024-03-20"
+2025-04-08T05:22:43.917Z:   [extractMetadata] Cleaned value for date: "2024-03-20"
+2025-04-08T05:22:43.918Z:   [extractMetadata] Raw match for coverImage: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:43.919Z:   [extractMetadata] Cleaned value for coverImage: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:43.921Z:   [extractMetadata] Raw match for description: "これは最適化テスト用の記事です。"
+2025-04-08T05:22:43.922Z:   [extractMetadata] Cleaned value for description: "これは最適化テスト用の記事です。"
+2025-04-08T05:22:43.924Z:   [extractMetadata] Raw match for tags: ""テスト", "最適化", "AI""
+2025-04-08T05:22:43.925Z:   [extractMetadata] Cleaned value for tags: "テスト,最適化,AI"
+2025-04-08T05:22:43.927Z:   [extractMetadata] Raw match for author: "テストユーザー"
+2025-04-08T05:22:43.928Z:   [extractMetadata] Cleaned value for author: "テストユーザー"
+2025-04-08T05:22:43.930Z: [extractMetadata] Returning metadata: title="最適化テスト記事", category="ai-news"
+2025-04-08T05:22:43.932Z: メタデータからタグを抽出しました: テスト, 最適化, AI
+2025-04-08T05:22:43.934Z: メタデータから作者を抽出しました: "テストユーザー"
+2025-04-08T05:22:43.935Z: タイトル: "最適化テスト記事"
+2025-04-08T05:22:43.937Z: カテゴリ: "ai-news"
+2025-04-08T05:22:43.939Z: 日付: "2024-03-20"
+2025-04-08T05:22:43.941Z: アイキャッチ画像: "/images/blog/optimization-test.jpg"
+2025-04-08T05:22:43.943Z:   [generateNameAndSlug] Original title: "最適化テスト記事"
+2025-04-08T05:22:43.944Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:43.946Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089763946", slug="article-1744089763946"
+2025-04-08T05:22:43.947Z: コンポーネント名: "Article1744089763946"
+2025-04-08T05:22:43.949Z: スラグ: "article-1744089763946"
+2025-04-08T05:22:43.950Z: コンポーネントを作成しました: components\Article1744089763946.tsx
+2025-04-08T05:22:43.953Z: ブログページを作成しました: app\blog\ai-news\article-1744089763946\page.tsx
+2025-04-08T05:22:43.957Z: Git処理を開始します...
+2025-04-08T05:22:43.959Z: Git処理中にエラーが発生しました: EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.961Z: !!! ファイル処理エラー (test-optimization-article.tsx): EBUSY: resource busy or locked, unlink 'D:\NvidiaGTCProject\.git\index.lock'
+2025-04-08T05:22:43.965Z: 新しいファイルを検出しました: articles\vercel-deploy-fixed.tsx
+2025-04-08T05:22:43.968Z: 処理を開始します: articles\vercel-deploy-fixed.tsx
+2025-04-08T05:22:43.971Z: [extractMetadata] Start processing
+2025-04-08T05:22:43.973Z:   [extractMetadata] No match for title
+2025-04-08T05:22:43.975Z:   [extractMetadata] No match for category
+2025-04-08T05:22:43.977Z:   [extractMetadata] No match for date
+2025-04-08T05:22:43.980Z:   [extractMetadata] No match for coverImage
+2025-04-08T05:22:43.983Z:   [extractMetadata] No match for description
+2025-04-08T05:22:43.985Z:   [extractMetadata] No match for tags
+2025-04-08T05:22:43.986Z:   [extractMetadata] No match for author
+2025-04-08T05:22:43.988Z:   [extractMetadata] Title extracted from H1: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:43.990Z:   [extractMetadata] Using default category: "ai-technology"
+2025-04-08T05:22:43.992Z:   [extractMetadata] Using default date: "2025-04-08"
+2025-04-08T05:22:43.993Z:   [extractMetadata] Using default description: "Vercelデプロイ修正テストに関する詳細記事"
+2025-04-08T05:22:43.994Z:   [extractMetadata] Using default coverImage: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:43.996Z: [extractMetadata] Returning metadata: title="Vercelデプロイ修正テスト", category="ai-technology"
+2025-04-08T05:22:43.997Z: タグが見つからないか無効なため、デフォルトタグを使用します
+2025-04-08T05:22:44.000Z: 作者が見つからないため、デフォルトの作者を使用します
+2025-04-08T05:22:44.002Z: タイトル: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:44.003Z: カテゴリ: "ai-technology"
+2025-04-08T05:22:44.004Z: 日付: "2025-04-08"
+2025-04-08T05:22:44.006Z: アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+2025-04-08T05:22:44.007Z:   [generateNameAndSlug] Original title: "Vercelデプロイ修正テスト"
+2025-04-08T05:22:44.009Z:   [generateNameAndSlug] エラー: anyAscii is not a function
+2025-04-08T05:22:44.010Z:   [generateNameAndSlug] フォールバック使用: componentName="Article1744089764010", slug="article-1744089764010"
+2025-04-08T05:22:44.012Z: コンポーネント名: "Article1744089764010"
+2025-04-08T05:22:44.013Z: スラグ: "article-1744089764010"
+2025-04-08T05:22:44.015Z: コンポーネントを作成しました: components\Article1744089764010.tsx
+2025-04-08T05:22:44.019Z: ブログページを作成しました: app\blog\ai-technology\article-1744089764010\page.tsx
+2025-04-08T05:22:44.021Z: Git処理を開始します...
+2025-04-08T05:22:44.023Z: 生成されたファイルをステージングします...
+2025-04-08T05:22:44.024Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "components\Article1744089764010.tsx"
+2025-04-08T05:22:44.038Z: 新しいファイルを検出しました: articles\vercel-deploy-test.tsx
+2025-04-08T05:22:44.040Z: 処理を開始します: articles\vercel-deploy-test.tsx
+2025-04-08T05:22:44.042Z: ファイル vercel-deploy-test.tsx は既に処理済みのためスキップします
+2025-04-08T05:22:44.044Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089762670/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:44.046Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:44.047Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:44.048Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: Vercelデプロイ修正テスト"
+2025-04-08T05:22:44.061Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089762614\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.063Z: !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089762614\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.067Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動化パイプラインテスト記事"
+
+2025-04-08T05:22:44.069Z: !!! ファイル処理エラー (new-test-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 自動化パイプラインテスト記事"
+
+2025-04-08T05:22:44.070Z: 生成ファイルの変更をコミットしました
+2025-04-08T05:22:44.072Z: その他の変更を確認します...
+2025-04-08T05:22:44.074Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" status --porcelain
+2025-04-08T05:22:44.102Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.103Z: !!! ファイル処理エラー (test-fixed-script.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: スクリプト修正テスト"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.107Z: 既存ファイルの処理が完了しました
+2025-04-08T05:22:44.109Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089763880\page.tsx"
+2025-04-08T05:22:44.126Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089763742\page.tsx"
+2025-04-08T05:22:44.154Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089763590\page.tsx"
+2025-04-08T05:22:44.181Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089763450\page.tsx"
+2025-04-08T05:22:44.201Z: 生成ファイルの変更をコミットしました
+2025-04-08T05:22:44.203Z: その他の変更を確認します...
+2025-04-08T05:22:44.204Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" status --porcelain
+2025-04-08T05:22:44.220Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.222Z: !!! ファイル処理エラー (test-optimization-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: 最適化テスト記事"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.225Z: その他の変更が見つかりました。全てコミットします...
+2025-04-08T05:22:44.227Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add .
+2025-04-08T05:22:44.253Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089763880\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.255Z: !!! ファイル処理エラー (test-fixed-script.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-news\article-1744089763880\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.257Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089764010\page.tsx"
+2025-04-08T05:22:44.281Z: 生成ファイルの変更をコミットしました
+2025-04-08T05:22:44.283Z: その他の変更を確認します...
+2025-04-08T05:22:44.285Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" status --porcelain
+2025-04-08T05:22:44.303Z: 警告: warning: in the working copy of 'app/blog/ai-technology/article-1744089763742/page.tsx', LF will be replaced by CRLF the next time Git touches it
+
+2025-04-08T05:22:44.305Z: 生成ファイルをGitにステージングしました
+2025-04-08T05:22:44.307Z: 生成されたファイルの変更をコミットします...
+2025-04-08T05:22:44.309Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" commit -m "記事の自動生成: テスト記事：Vercel自動デプロイの確認"
+2025-04-08T05:22:44.326Z: Git処理中にエラーが発生しました: Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089763590\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.329Z: !!! ファイル処理エラー (new-test-article.tsx): Command failed: "C:\Program Files\Git\cmd\git.exe" add "app\blog\ai-technology\article-1744089763590\page.tsx"
+fatal: Unable to create 'D:/NvidiaGTCProject/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+2025-04-08T05:22:44.336Z: その他の変更が見つかりました。全てコミットします...
+2025-04-08T05:22:44.338Z: コマンド実行: "C:\Program Files\Git\cmd\git.exe" add .
