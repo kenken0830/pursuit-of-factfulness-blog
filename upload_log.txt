@@ -1169,3 +1169,69 @@ operable program or batch file.
 [2025-04-07T17:48:10.735Z] フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
 [2025-04-07T17:48:10.737Z] 監視中... Ctrl+C で終了
 [2025-04-07T17:48:11.747Z] 既存ファイルの処理が完了しました
+[2025-04-08T00:31:40.305Z] 既存ファイルの確認を開始します...
+[2025-04-08T00:31:40.307Z] 13個の既存TSXファイルが見つかりました
+[2025-04-08T00:31:40.309Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T00:31:40.310Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-08T00:31:40.311Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-08T00:31:40.312Z] ファイル page.tsx は既に処理済みです
+[2025-04-08T00:31:40.313Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-08T00:31:40.314Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-08T00:31:40.316Z] ファイル vercel-deploy-fixed.tsx は既に処理済みです
+[2025-04-08T00:31:40.317Z] ファイル vercel-deploy-test.tsx は既に処理済みです
+[2025-04-08T00:31:40.318Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-08T00:31:40.319Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-08T00:31:40.320Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-08T00:31:40.321Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T00:31:40.323Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-08T00:31:40.329Z] フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
+[2025-04-08T00:31:40.330Z] 監視中... Ctrl+C で終了
+[2025-04-08T00:31:41.346Z] 既存ファイルの処理が完了しました
+[2025-04-08T01:05:44.418Z] 既存ファイルの確認を開始します...
+[2025-04-08T01:05:44.419Z] 14個の既存TSXファイルが見つかりました
+[2025-04-08T01:05:44.421Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T01:05:44.422Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-08T01:05:44.424Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-08T01:05:44.425Z] ファイル page.tsx は既に処理済みです
+[2025-04-08T01:05:44.426Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-08T01:05:44.427Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-08T01:05:44.429Z] ファイル vercel-deploy-fixed.tsx は既に処理済みです
+[2025-04-08T01:05:44.430Z] ファイル vercel-deploy-test.tsx は既に処理済みです
+[2025-04-08T01:05:44.432Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-08T01:05:44.433Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-08T01:05:44.434Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-08T01:05:44.436Z] タイトル: "AIニュース速報"
+[2025-04-08T01:05:44.437Z] カテゴリ: "ai-news"
+[2025-04-08T01:05:44.438Z] 日付: "2025-04-08"
+[2025-04-08T01:05:44.440Z] アイキャッチ画像: "/images/ai-news.jpg"
+[2025-04-08T01:05:44.441Z] コンポーネント名: "Ai"
+[2025-04-08T01:05:44.442Z] スラグ: "ai"
+[2025-04-08T01:05:44.445Z] コンポーネントを作成しました: components\Ai.tsx
+[2025-04-08T01:05:44.447Z] ブログページを作成しました: app\blog\ai-news\ai\page.tsx
+[2025-04-08T01:05:44.448Z] Git処理を開始します...
+[2025-04-08T01:05:44.449Z] 生成されたファイルをステージングします...
+[2025-04-08T01:05:44.451Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "components\Ai.tsx" "app\blog\ai-news\ai\page.tsx"
+[2025-04-08T01:05:44.465Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T01:05:44.467Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-08T01:05:44.472Z] フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
+[2025-04-08T01:05:44.473Z] 監視中... Ctrl+C で終了
+[2025-04-08T01:05:44.544Z] 警告: warning: in the working copy of 'app/blog/ai-news/ai/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Ai.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-08T01:05:44.545Z] 生成ファイルをGitにステージングしました
+[2025-04-08T01:05:44.546Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T01:05:44.547Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" commit -m "記事の自動生成: AIニュース速報"
+[2025-04-08T01:05:44.702Z] コマンド出力: [main a0cc3c2] 記事の自動生成: AIニュース速報
+ 2 files changed, 29 insertions(+)
+ create mode 100644 app/blog/ai-news/ai/page.tsx
+ create mode 100644 components/Ai.tsx
+
+[2025-04-08T01:05:44.703Z] 生成ファイルの変更をコミットしました
+[2025-04-08T01:05:44.704Z] その他の変更を確認します...
+[2025-04-08T01:05:44.705Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" status --porcelain
+[2025-04-08T01:05:44.802Z] コマンド出力:  M package.json
+ M upload_log.txt
+?? articles/ai-news/test-ai-news.tsx
+
+[2025-04-08T01:05:44.804Z] その他の変更が見つかりました。全てコミットします...
+[2025-04-08T01:05:44.804Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add .
