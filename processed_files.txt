@@ -19,3 +19,4 @@ final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:33.7
 final-test-article.tsx,finalTestArticle,final-test-article,2025-04-07T08:25:35.006Z
 vercel-deploy-test.tsx,Vercelデプロイテスト記事,vercel,2025-04-07T15:43:42.656Z
 vercel-deploy-fixed.tsx,Vercelデプロイ修正テスト,vercel,2025-04-07T17:10:26.318Z
+test-ai-news.tsx,AIニュース速報,ai,2025-04-08T01:05:48.228Z
