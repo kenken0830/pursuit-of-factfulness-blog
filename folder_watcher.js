@@ -333,13 +333,22 @@ function extractMetadata(content, fileName) {
     date: '',
     coverImage: '',
     description: '',
+    tags: '',
+    author: '',
   };
+
+  log(`[extractMetadata] Start processing for: ${fileName}`);
 
   // メタデータコメントから抽出
   Object.entries(META_PATTERNS).forEach(([key, pattern]) => {
     const match = content.match(pattern);
     if (match && match[1]) {
-      metadata[key] = match[1].replace(/["']/g, '').trim();
+      const extractedValue = match[1].replace(/["']/g, '').trim();
+      log(`  [extractMetadata] Raw match for ${key}: "${match[1]}"`);
+      log(`  [extractMetadata] Cleaned value for ${key}: "${extractedValue}"`);
+      metadata[key] = extractedValue;
+    } else {
+      log(`  [extractMetadata] No match for ${key}`);
     }
   });
 
@@ -348,6 +357,7 @@ function extractMetadata(content, fileName) {
     const h1Match = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
     if (h1Match && h1Match[1]) {
       metadata.title = h1Match[1].replace(/<[^>]*>/g, '').trim();
+      log(`  [extractMetadata] Title extracted from H1: "${metadata.title}"`);
     }
   }
 
@@ -358,17 +368,29 @@ function extractMetadata(content, fileName) {
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
-    log(`タイトルが見つからないため、ファイル名から生成: "${metadata.title}"`);
-  }
-  
-  if (!metadata.category) {
-    metadata.category = 'ai-technology';
-  }
-  
-  if (!metadata.date) {
-    metadata.date = new Date().toISOString().split('T')[0];
+    log(`  [extractMetadata] Title fallback from filename: "${metadata.title}"`);
   }
 
+  // カテゴリの検証とフォールバック
+  if (!metadata.category || !CATEGORIES.includes(metadata.category)) {
+    if (metadata.category) {
+      log(`  [extractMetadata] Invalid category specified: "${metadata.category}". Valid categories: ${CATEGORIES.join(', ')}`);
+    }
+    log(`  [extractMetadata] Using default category: "ai-technology"`);
+    metadata.category = 'ai-technology';
+  }
+
+  // 他のメタデータのフォールバック
+  if (!metadata.date) {
+    metadata.date = new Date().toISOString().split('T')[0];
+    log(`  [extractMetadata] Using default date: "${metadata.date}"`);
+  }
+  if (!metadata.description) {
+    metadata.description = `${metadata.title}に関する詳細記事`;
+    log(`  [extractMetadata] Using default description: "${metadata.description}"`);
+  }
+
+  log(`[extractMetadata] Returning metadata: title="${metadata.title}", category="${metadata.category}"`);
   return metadata;
 }
 
