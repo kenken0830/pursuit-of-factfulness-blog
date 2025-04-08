@@ -241,24 +241,64 @@ function generateNameAndSlug(title) {
   }
 }
 
+// Gitロックファイルのクリーンアップ
+function cleanupGitLocks() {
+  const lockFiles = [
+    path.join('.git', 'index.lock'),
+    path.join('.git', 'refs', 'heads', 'main.lock'),
+    path.join('.git', 'HEAD.lock')
+  ];
+  
+  let cleaned = false;
+  
+  for (const lockFile of lockFiles) {
+    try {
+      if (fs.existsSync(lockFile)) {
+        fs.unlinkSync(lockFile);
+        log(`Gitロックファイル ${lockFile} を削除しました`);
+        cleaned = true;
+      }
+    } catch (error) {
+      log(`警告: Gitロックファイル ${lockFile} の削除に失敗しました: ${error.message}`);
+    }
+  }
+  
+  return cleaned;
+}
+
 // Gitプロセスの処理
 async function handleGitProcess(files, extractedTitle) {
   try {
     log('Git処理を開始します...');
     
     // 既存のGitロックファイルをクリーンアップ
-    const lockFile = path.join('.git', 'index.lock');
-    if (fs.existsSync(lockFile)) {
-      fs.unlinkSync(lockFile);
+    const locked = cleanupGitLocks();
+    if (locked) {
       log('既存のGitロックファイルをクリーンアップしました');
+      // ロックファイルを削除した場合は少し待機
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     // ファイルをステージング
     log('生成されたファイルをステージングします...');
     for (const file of files) {
       log(`コマンド実行: "${CONFIG.gitPath}" add "${file}"`);
-      const { stdout, stderr } = await safeExec(`"${CONFIG.gitPath}" add "${file}"`);
-      if (stderr) log(`警告: ${stderr}`);
+      try {
+        const { stdout, stderr } = await safeExec(`"${CONFIG.gitPath}" add "${file}"`);
+        if (stderr) log(`警告: ${stderr}`);
+      } catch (error) {
+        log(`ファイルのステージングに失敗しました (${file}): ${error.message}`);
+        // ロックファイルが問題かもしれないのでクリーンアップを再試行
+        cleanupGitLocks();
+        // 再試行
+        try {
+          const { stdout, stderr } = await safeExec(`"${CONFIG.gitPath}" add "${file}"`);
+          if (stderr) log(`警告: ${stderr}`);
+        } catch (retryError) {
+          log(`再試行後もファイルのステージングに失敗しました (${file}): ${retryError.message}`);
+          throw retryError;
+        }
+      }
     }
     log('生成ファイルをGitにステージングしました');
 
@@ -266,37 +306,59 @@ async function handleGitProcess(files, extractedTitle) {
     const commitMessage = `記事の自動生成: ${extractedTitle}`;
     log('生成されたファイルの変更をコミットします...');
     log(`コマンド実行: "${CONFIG.gitPath}" commit -m "${commitMessage}"`);
-    const { stdout: commitOutput, stderr: commitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${commitMessage}"`);
-    if (commitError) log(`警告: ${commitError}`);
-    log('生成ファイルの変更をコミットしました');
+    try {
+      const { stdout: commitOutput, stderr: commitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${commitMessage}"`);
+      if (commitError) log(`警告: ${commitError}`);
+      log('生成ファイルの変更をコミットしました');
+    } catch (error) {
+      log(`変更のコミットに失敗しました: ${error.message}`);
+      throw error;
+    }
 
     // その他の変更を確認
     log('その他の変更を確認します...');
     log(`コマンド実行: "${CONFIG.gitPath}" status --porcelain`);
-    const { stdout: statusOutput, stderr: statusError } = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
-    if (statusError) log(`警告: ${statusError}`);
+    try {
+      const { stdout: statusOutput, stderr: statusError } = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
+      if (statusError) log(`警告: ${statusError}`);
 
-    // statusOutputがundefinedでないことを確認
-    if (statusOutput && typeof statusOutput === 'string' && statusOutput.trim()) {
-      log('その他の変更が見つかりました。全てコミットします...');
-      log(`コマンド実行: "${CONFIG.gitPath}" add .`);
-      const { stderr: addError } = await safeExec(`"${CONFIG.gitPath}" add .`);
-      if (addError) log(`警告: ${addError}`);
+      // statusOutputがundefinedでないことを確認
+      if (statusOutput && typeof statusOutput === 'string' && statusOutput.trim()) {
+        log('その他の変更が見つかりました。全てコミットします...');
+        
+        try {
+          log(`コマンド実行: "${CONFIG.gitPath}" add .`);
+          const { stderr: addError } = await safeExec(`"${CONFIG.gitPath}" add .`);
+          if (addError) log(`警告: ${addError}`);
 
-      const timestamp = new Date().toISOString();
-      const otherCommitMessage = `その他の変更を自動コミット: ${timestamp}`;
-      log(`コマンド実行: "${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
-      const { stdout: otherCommitOutput, stderr: otherCommitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
-      if (otherCommitError) log(`警告: ${otherCommitError}`);
-      log('その他の変更をコミットしました');
+          const timestamp = new Date().toISOString();
+          const otherCommitMessage = `その他の変更を自動コミット: ${timestamp}`;
+          log(`コマンド実行: "${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
+          const { stdout: otherCommitOutput, stderr: otherCommitError } = await safeExec(`"${CONFIG.gitPath}" commit -m "${otherCommitMessage}"`);
+          if (otherCommitError) log(`警告: ${otherCommitError}`);
+          log('その他の変更をコミットしました');
+        } catch (error) {
+          log(`その他の変更のコミットに失敗しました: ${error.message}`);
+          cleanupGitLocks();
+          // エラーを投げずに続行
+        }
+      }
+    } catch (error) {
+      log(`Git状態の確認に失敗しました: ${error.message}`);
+      // エラーを投げずに続行
     }
 
     // 変更をプッシュ
     log('変更をリモートにプッシュします...');
-    log(`コマンド実行: "${CONFIG.gitPath}" push origin main`);
-    const { stdout: pushOutput, stderr: pushError } = await safeExec(`"${CONFIG.gitPath}" push origin main`);
-    if (pushError) log(`警告: ${pushError}`);
-    log('変更をプッシュしました');
+    try {
+      log(`コマンド実行: "${CONFIG.gitPath}" push origin main`);
+      const { stdout: pushOutput, stderr: pushError } = await safeExec(`"${CONFIG.gitPath}" push origin main`);
+      if (pushError) log(`警告: ${pushError}`);
+      log('変更をプッシュしました');
+    } catch (error) {
+      log(`変更のプッシュに失敗しました: ${error.message}`);
+      // エラーを投げずに続行
+    }
 
     // Vercelデプロイメントのトリガー
     if (CONFIG.vercelHook) {
@@ -310,9 +372,10 @@ async function handleGitProcess(files, extractedTitle) {
     }
 
     log('Git処理が正常に完了しました');
+    return true;
   } catch (error) {
     log(`Git処理中にエラーが発生しました: ${error.message}`);
-    throw error;
+    return false;
   }
 }
 

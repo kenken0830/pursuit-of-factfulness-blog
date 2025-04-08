@@ -22,3 +22,10 @@ vercel-deploy-fixed.tsx,Vercelデプロイ修正テスト,vercel,2025-04-07T17:1
 test-ai-news.tsx,AIニュース速報,ai,2025-04-08T01:05:48.228Z
 vercel-deploy-test.tsx
 think-tool-integration.tsx
+very-final-test.tsx
+page.tsx
+new-test-article.tsx
+article-template.tsx
+final-test-article.tsx
+test-optimization-article.tsx
+test-fixed-script.tsx
