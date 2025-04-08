@@ -1258,3 +1258,54 @@ warning: in the working copy of 'upload_log.txt', LF will be replaced by CRLF th
 [2025-04-08T01:05:48.229Z] ファイル test-ai-news.tsx を処理済みリストに追加しました
 [2025-04-08T01:05:48.231Z] ファイル test-ai-news.tsx の処理が完了しました！
 [2025-04-08T01:05:48.232Z] ファイル処理成功: タイトル="AIニュース速報", スラグ="ai"
+[2025-04-08T01:34:12.920Z] 既存ファイルの確認を開始します...
+[2025-04-08T01:34:12.936Z] 14個の既存TSXファイルが見つかりました
+[2025-04-08T01:34:12.937Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T01:34:12.939Z] ファイル final-test-article.tsx は既に処理済みです
+[2025-04-08T01:34:12.940Z] ファイル new-test-article.tsx は既に処理済みです
+[2025-04-08T01:34:12.941Z] ファイル page.tsx は既に処理済みです
+[2025-04-08T01:34:12.942Z] ファイル test-article-deploy.tsx は既に処理済みです
+[2025-04-08T01:34:12.944Z] ファイル test-auto-deploy-article.tsx は既に処理済みです
+[2025-04-08T01:34:12.945Z] ファイル vercel-deploy-fixed.tsx は既に処理済みです
+[2025-04-08T01:34:12.947Z] ファイル vercel-deploy-test.tsx は既に処理済みです
+[2025-04-08T01:34:12.948Z] ファイル auto-deploy-test.tsx は既に処理済みです
+[2025-04-08T01:34:12.949Z] ファイル auto-test-article3.tsx は既に処理済みです
+[2025-04-08T01:34:12.950Z] ファイル auto-upload-test-2.tsx は既に処理済みです
+[2025-04-08T01:34:12.952Z] ファイル test-ai-news.tsx は既に処理済みです
+[2025-04-08T01:34:12.953Z] ファイル article-template.tsx は既に処理済みです
+[2025-04-08T01:34:12.954Z] ファイル think-tool-integration.tsx は既に処理済みです
+[2025-04-08T01:34:12.960Z] フォルダ監視を開始します: ./articles (カテゴリフォルダも含む)
+[2025-04-08T01:34:12.961Z] 監視中... Ctrl+C で終了
+[2025-04-08T01:34:13.977Z] 既存ファイルの処理が完了しました
+[2025-04-08T01:37:18.654Z] 新しいファイルを検出しました: articles\ai-news\test-optimization-article.tsx
+[2025-04-08T01:37:18.656Z] タイトルが見つからないため、ファイル名から生成: "TestOptimizationArticle"
+[2025-04-08T01:37:18.658Z] タイトル: "TestOptimizationArticle"
+[2025-04-08T01:37:18.660Z] カテゴリ: "ai-technology"
+[2025-04-08T01:37:18.661Z] 日付: "2025-04-08"
+[2025-04-08T01:37:18.662Z] アイキャッチ画像: "/placeholder.svg?height=600&width=800"
+[2025-04-08T01:37:18.663Z] コンポーネント名: "Testoptimizationarticle"
+[2025-04-08T01:37:18.664Z] スラグ: "testoptimizationarticle"
+[2025-04-08T01:37:18.667Z] コンポーネントを作成しました: components\Testoptimizationarticle.tsx
+[2025-04-08T01:37:18.669Z] ブログページを作成しました: app\blog\ai-technology\testoptimizationarticle\page.tsx
+[2025-04-08T01:37:18.670Z] Git処理を開始します...
+[2025-04-08T01:37:18.671Z] 生成されたファイルをステージングします...
+[2025-04-08T01:37:18.672Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add "components\Testoptimizationarticle.tsx" "app\blog\ai-technology\testoptimizationarticle\page.tsx"
+[2025-04-08T01:37:18.777Z] 警告: warning: in the working copy of 'app/blog/ai-technology/testoptimizationarticle/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Testoptimizationarticle.tsx', LF will be replaced by CRLF the next time Git touches it
+
+[2025-04-08T01:37:18.778Z] 生成ファイルをGitにステージングしました
+[2025-04-08T01:37:18.779Z] 生成されたファイルの変更をコミットします...
+[2025-04-08T01:37:18.780Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" commit -m "記事の自動生成: TestOptimizationArticle"
+[2025-04-08T01:37:18.969Z] コマンド出力: [main 29a009c] 記事の自動生成: TestOptimizationArticle
+ 2 files changed, 26 insertions(+)
+ create mode 100644 app/blog/ai-technology/testoptimizationarticle/page.tsx
+ create mode 100644 components/Testoptimizationarticle.tsx
+
+[2025-04-08T01:37:18.970Z] 生成ファイルの変更をコミットしました
+[2025-04-08T01:37:18.971Z] その他の変更を確認します...
+[2025-04-08T01:37:18.972Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" status --porcelain
+[2025-04-08T01:37:19.068Z] コマンド出力:  M upload_log.txt
+?? articles/ai-news/test-optimization-article.tsx
+
+[2025-04-08T01:37:19.069Z] その他の変更が見つかりました。全てコミットします...
+[2025-04-08T01:37:19.070Z] コマンド実行: "C:\\Program Files\\Git\\cmd\\git.exe" add .
