@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./node_modules/next/dist/bin/next dev",
     "dev:win": "npx next dev",
     "build": "next build",
     "build:win": "npx next build",
@@ -45,6 +45,7 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@tailwindcss/typography": "latest",
     "autoprefixer": "^10.4.20",
+    "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",

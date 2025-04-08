@@ -14,9 +14,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { exec } = require('child_process');
+const { exec: nodeExec } = require('child_process');
 const util = require('util');
 const chokidar = require('chokidar');
+const axios = require('axios');
 
 // .env.localがあれば読み込む
 try {
@@ -34,7 +35,7 @@ try {
 const LOG_FILE = './upload_log.txt';
 
 // execをPromise化する関数
-const execPromise = util.promisify(exec);
+const exec = util.promisify(nodeExec);
 
 // 設定
 const CONFIG = {
@@ -250,10 +251,10 @@ function extractCoverImage(content) {
 }
 
 // エラーハンドリングを改善したexecPromiseラッパー
-async function safeExec(command) {
+async function execPromise(cmd) {
   try {
-    log(`コマンド実行: ${command}`);
-    const { stdout, stderr } = await execPromise(command);
+    log(`コマンド実行: ${cmd}`);
+    const { stdout, stderr } = await exec(cmd);
     if (stdout) log(`コマンド出力: ${stdout}`);
     if (stderr && stderr.trim() !== '') {
       log(`警告: ${stderr}`);
@@ -457,57 +458,52 @@ async function processFile(filePath) {
   }
 }
 
-// Git処理を実行する関数 - 完全に書き換え
+// Git処理を実行する関数 - 修正版
 async function handleGitProcess(componentPath, blogPostPath, title) {
   try {
     log('Git処理を開始します...');
-    cleanupGitLock(); // ロックファイル削除
+    cleanupGitLock(); // ロックファイル削除を先に行う
 
     // 1. 生成したファイルをステージング
     log('生成されたファイルをステージングします...');
-    await safeExec(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
+    await execPromise(`"${CONFIG.gitPath}" add "${componentPath}" "${blogPostPath}"`);
     log('生成ファイルをGitにステージングしました');
 
     // 2. 生成したファイルをコミット
     log('生成されたファイルの変更をコミットします...');
     const escapedTitle = title.replace(/"/g, '\\"');
-    await safeExec(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
+    await execPromise(`"${CONFIG.gitPath}" commit -m "記事の自動生成: ${escapedTitle}"`);
     log('生成ファイルの変更をコミットしました');
 
     // 3. その他の変更も全てコミット
     log('その他の変更を確認します...');
-    const statusOutput = await safeExec(`"${CONFIG.gitPath}" status --porcelain`);
+    const statusOutput = await execPromise(`"${CONFIG.gitPath}" status --porcelain`);
     if (statusOutput.trim() !== '') {
       log('その他の変更が見つかりました。全てコミットします...');
-      await safeExec(`"${CONFIG.gitPath}" add .`);
+      await execPromise(`"${CONFIG.gitPath}" add .`);
       const timestamp = new Date().toISOString();
-      await safeExec(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
+      await execPromise(`"${CONFIG.gitPath}" commit -m "その他の変更を自動コミット: ${timestamp}"`);
       log('全ての変更をコミットしました');
     } else {
       log('その他の未コミットの変更はありませんでした');
     }
     
-    // 4. プッシュ
+    // 4. プッシュ（pull --rebase は削除）
     log('変更をリモートにプッシュします...');
-    await safeExec(`"${CONFIG.gitPath}" push origin main`);
+    await execPromise(`"${CONFIG.gitPath}" push origin main`);
     log('変更をプッシュしました');
     
-    // 5. Vercelデプロイをトリガー（設定されている場合）
+    // 5. Vercelデプロイをトリガー（axiosを使用）
     if (process.env.VERCEL_DEPLOY_HOOK) {
       log('Vercelデプロイをトリガーします...');
       try {
-        // Windowsの場合はPowerShellを使用
-        if (process.platform === 'win32') {
-          const deploy_cmd = `powershell -Command "Invoke-WebRequest -Method POST -Uri '${process.env.VERCEL_DEPLOY_HOOK}'"`;
-          await safeExec(deploy_cmd);
-          log('Vercelデプロイをトリガーしました（PowerShell）');
-        } else {
-          // LinuxやMacの場合はcurlを使用
-          await safeExec(`curl -X POST "${process.env.VERCEL_DEPLOY_HOOK}"`);
-          log('Vercelデプロイをトリガーしました（curl）');
-        }
+        const response = await axios.post(process.env.VERCEL_DEPLOY_HOOK);
+        log(`Vercelデプロイトリガー成功: ${JSON.stringify(response.data)}`);
       } catch (error) {
         log(`Vercelデプロイトリガーエラー: ${error.message}`);
+        if (error.response) {
+          log(`Vercel APIエラー詳細: ${JSON.stringify(error.response.data)}`);
+        }
       }
     }
     
@@ -515,7 +511,7 @@ async function handleGitProcess(componentPath, blogPostPath, title) {
 
   } catch (error) {
     log(`Git処理中にエラーが発生しました: ${error.message}`);
-    cleanupGitLock();
+    cleanupGitLock(); // エラー時もロックファイル削除を試みる
     throw error;
   }
 }
