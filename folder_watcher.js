@@ -86,18 +86,34 @@ function extractMetadata(content) {
   log(`[extractMetadata] Start processing`);
   const metadata = {};
   
-  // コメントブロックを抽出
-  const commentBlockMatch = content.match(/\/\*\s*([\s\S]*?)\s*\*\//);
+  // コメントブロックを抽出 (色々なパターンに対応)
+  const commentMatches = [
+    content.match(/\/\*\s*([\s\S]*?)\s*\*\//),  // /* ... */
+    content.match(/{\s*\/\*\s*([\s\S]*?)\s*\*\/\s*}/),  // { /* ... */ }
+    content.match(/\/\/\s*(.+)/g)  // 複数行の // ...
+  ];
+  
   let metadataText = '';
   
-  if (commentBlockMatch && commentBlockMatch[1]) {
-    metadataText = commentBlockMatch[1];
-    log(`  [extractMetadata] コメントブロックを検出しました`);
+  // コメントブロックタイプ1と2の処理
+  for (const match of [commentMatches[0], commentMatches[1]]) {
+    if (match && match[1]) {
+      metadataText = match[1];
+      log(`  [extractMetadata] コメントブロックを検出しました`);
+      break;
+    }
   }
   
-  // コメントブロックからのメタデータ抽出
+  // 行コメントの処理
+  if (!metadataText && commentMatches[2]) {
+    metadataText = commentMatches[2].map(line => line.replace(/\/\/\s*/, '')).join('\n');
+    log(`  [extractMetadata] 行コメントを検出しました`);
+  }
+  
+  // 直接ソース内でメタデータパターンを探す
   for (const [key, pattern] of Object.entries(METADATA_PATTERNS)) {
-    const match = metadataText.match(pattern) || content.match(pattern);
+    // コメントブロック内を優先的に探す
+    const match = (metadataText && metadataText.match(pattern)) || content.match(pattern);
     if (match) {
       log(`  [extractMetadata] Raw match for ${key}: "${match[1]}"`);
       metadata[key] = key === 'tags' 
@@ -109,30 +125,33 @@ function extractMetadata(content) {
     }
   }
   
-  // タイトルがない場合はh1タグか、ファイル名から生成
+  // タイトルがない場合はh1タグか、関数名、ファイル名から生成
   if (!metadata.title) {
     // h1タグからの抽出を試みる
     const h1Match = content.match(/<h1[^>]*>(.*?)<\/h1>/);
-    if (h1Match) {
+    if (h1Match && h1Match[1]) {
       metadata.title = h1Match[1].trim();
       log(`  [extractMetadata] Title extracted from H1: "${metadata.title}"`);
     } else {
       // 関数名からの抽出を試みる
       const functionMatch = content.match(/function\s+([A-Z][a-zA-Z0-9]*)/);
-      if (functionMatch) {
+      if (functionMatch && functionMatch[1]) {
         metadata.title = functionMatch[1]
           .replace(/([A-Z])/g, ' $1')
           .trim();
         log(`  [extractMetadata] Title extracted from function name: "${metadata.title}"`);
       } else {
         // ファイル名からの生成
-        const fileName = content.split('/').pop()?.split('\\').pop()?.replace('.tsx', '') || '';
-        if (fileName) {
-          metadata.title = fileName
-            .replace(/[-_]/g, ' ')
-            .replace(/([A-Z])/g, ' $1')
-            .trim();
-          log(`  [extractMetadata] Title fallback from filename: "${metadata.title}"`);
+        const filePath = content.split('/').pop()?.split('\\').pop();
+        if (filePath) {
+          const fileName = filePath.replace(/\.tsx$/, '');
+          if (fileName) {
+            metadata.title = fileName
+              .replace(/[-_]/g, ' ')
+              .replace(/([A-Z])/g, ' $1')
+              .trim();
+            log(`  [extractMetadata] Title fallback from filename: "${metadata.title}"`);
+          }
         }
       }
     }
